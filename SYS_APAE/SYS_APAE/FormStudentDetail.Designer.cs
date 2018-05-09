@@ -1,6 +1,6 @@
 ﻿namespace SYS_APAE
 {
-    partial class Form1
+    partial class FormStudentDetail
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // FormStudentDetail
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Name = "FormStudentDetail";
+            this.Text = "FormStudentDetail";
+            this.Load += new System.EventHandler(this.FormStudentDetail_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
     }
 }
-
