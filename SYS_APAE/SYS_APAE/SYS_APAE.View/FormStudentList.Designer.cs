@@ -39,11 +39,11 @@
             this.dtGridStudents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtGridStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtGridStudents.ColumnHeadersVisible = false;
-            this.dtGridStudents.Location = new System.Drawing.Point(12, 90);
+            this.dtGridStudents.Location = new System.Drawing.Point(12, 94);
             this.dtGridStudents.Name = "dtGridStudents";
             this.dtGridStudents.ReadOnly = true;
             this.dtGridStudents.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dtGridStudents.Size = new System.Drawing.Size(984, 181);
+            this.dtGridStudents.Size = new System.Drawing.Size(760, 181);
             this.dtGridStudents.TabIndex = 0;
             this.dtGridStudents.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridStudents_CellDoubleClick);
             // 
@@ -51,7 +51,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.dtGridStudents);
             this.Name = "FormStudentList";
             this.Text = "SYS APAE";

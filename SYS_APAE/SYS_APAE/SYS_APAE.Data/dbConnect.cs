@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,33 +8,86 @@ using System.Windows.Forms;
 
 namespace SYS_APAE
 {
-    static class dbConnect
+    class DBConnect
     {
-        private static String connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\SYS_APAE.Data\\DbSysAPAE.mdf;Integrated Security=True";
+        private readonly String connectionString = "Server=localhost; database=SYS_APAE; UID=root; password=root";
+        private MySqlConnection connection;
 
-        private static SqlDataAdapter ExecuteQuery(String selectCommand)
+        public DBConnect()
         {
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(selectCommand, connectionString);
-            SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
-
-            return dataAdapter;
+            Initialize();
         }
 
-        public static DataTable GetDataTable(String selectCommand)
+        private void Initialize()
+        {
+            connection = new MySqlConnection(connectionString);
+        }
+
+        private bool OpenConnection()
         {
             try
             {
-                DataTable table = new DataTable();
-                table.Locale = System.Globalization.CultureInfo.InvariantCulture;
-                ExecuteQuery(selectCommand).Fill(table);
-                return table;
+                connection.Open();
+                return true;
             }
-            catch (SqlException)
+            catch (MySqlException ex)
             {
-                MessageBox.Show("Failed while trying to connect with database");
+                switch (ex.Number)
+                {
+                    case 0:
+                        MessageBox.Show("Cannot connect to server.  Contact administrator");
+                        break;
+
+                    case 1045:
+                        MessageBox.Show("Invalid username/password, please try again");
+                        break;
+                }
+                return false;
+            }
+        }
+
+        private bool CloseConnection()
+        {
+            try
+            {
+                connection.Close();
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+
+        public List<Dictionary<string, string>> ExecuteSelect(string sqlStatement)
+        {
+            List<Dictionary<string, string>> returnValue = new List<Dictionary<string, string>>();
+
+            if (this.OpenConnection())
+            {
+                MySqlCommand command = new MySqlCommand(sqlStatement, connection);
+                MySqlDataReader dataReader = command.ExecuteReader();
+
+                List<string> readerColumns = new List<string>();
+                for (int index = 0; index < dataReader.FieldCount; index++)
+                    readerColumns.Add(dataReader.GetName(index));
+
+                while (dataReader.Read())
+                {
+                    Dictionary<string, string> newRow = new Dictionary<string, string>();
+                    for (int counter = 0; counter < dataReader.FieldCount; counter++)
+                    {
+                        newRow.Add(readerColumns[counter].ToString(), dataReader[counter].ToString());
+                    }
+
+                    returnValue.Add(newRow);
+                }
+
+                this.CloseConnection();
             }
 
-            return null;
+            return returnValue;
         }
     }
 }

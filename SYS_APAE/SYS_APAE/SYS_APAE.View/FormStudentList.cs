@@ -1,8 +1,8 @@
-﻿using System;
+﻿using SYS_APAE.SYS_APAE.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,11 +20,7 @@ namespace SYS_APAE
 
         public void FetchData()
         {
-            DataTable table = dbConnect.GetDataTable("select * from studentsview");
-            if (table is null)
-                return;
-
-            dtGridStudents.DataSource = table;
+            dtGridStudents.DataSource = StudentsDTO.getAllStudentsUsingView();
             dtGridStudents.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
         }
 
@@ -35,7 +31,7 @@ namespace SYS_APAE
 
         private void dtGridStudents_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            FormStudentDetail FormDetails = new FormStudentDetail(dtGridStudents.Rows[e.RowIndex].Cells[0].Value.ToString());
+            FormStudentDetail FormDetails = new FormStudentDetail(dtGridStudents.Rows[e.RowIndex].Cells["id"].Value.ToString());
             FormDetails.ShowDialog();
         }
     }

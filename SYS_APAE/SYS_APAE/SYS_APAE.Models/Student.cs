@@ -8,11 +8,42 @@ namespace SYS_APAE
 {
     class Student
     {
-        int id;
-        string name, cpf, rg, org_exp, nationality,
+        private int id;
+        private string name, cpf, rg, org_exp, nationality,
             father_name, mother_name, address, city,
             state, district, cep, phone, celphone, email;
-        DateTime dt_exp, dt_nasc;
+        private DateTime dt_exp, dt_nasc;
+
+        public Student()
+        {
+
+        }
+        
+        public Student(int id, string name, string cpf, string rg,
+                string org_exp, DateTime dt_exp, DateTime dt_nasc,
+                string nationality, string father_name, string mother_name,
+                string address, string city, string state, string district,
+                string cep, string phone, string celphone, string email)
+        {
+            Id = id;
+            Name = name;
+            Cpf = cpf;
+            Rg = rg;
+            Org_exp = org_exp;
+            Nationality = nationality;
+            Father_name = father_name;
+            Mother_name = mother_name;
+            Address = address;
+            City = city;
+            State = state;
+            District = district;
+            Cep = cep;
+            Phone = phone;
+            Celphone = celphone;
+            Dt_exp = dt_exp;
+            Dt_nasc = dt_nasc;
+            Email = email;
+        }
 
         public int Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }

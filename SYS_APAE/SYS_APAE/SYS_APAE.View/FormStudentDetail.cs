@@ -22,7 +22,7 @@ namespace SYS_APAE
 
         public void FetchData()
         {
-            DataTable table = dbConnect.GetDataTable("select * from students where id="+studentId);
+            DataTable table = null;
             if (table is null)
                 return;
 
