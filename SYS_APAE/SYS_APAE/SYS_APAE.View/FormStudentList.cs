@@ -23,7 +23,7 @@ namespace SYS_APAE
             DataTable table = dbConnect.GetDataTable("select * from studentsview");
             if (table is null)
                 return;
-            
+
             dtGridStudents.DataSource = table;
             dtGridStudents.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
         }

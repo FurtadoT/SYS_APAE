@@ -61,30 +61,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="dbConnect.cs" />
-    <Compile Include="DbSysAPAEDataSet.Designer.cs">
+    <Compile Include="SYS_APAE.Data\dbConnect.cs" />
+    <Compile Include="SYS_APAE.Data\DbSysAPAEDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DbSysAPAEDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="FormStudentDetail.cs">
+    <Compile Include="SYS_APAE.View\FormStudentDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormStudentDetail.Designer.cs">
+    <Compile Include="SYS_APAE.View\FormStudentDetail.Designer.cs">
       <DependentUpon>FormStudentDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormStudentList.cs">
+    <Compile Include="SYS_APAE.View\FormStudentList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormStudentList.Designer.cs">
+    <Compile Include="SYS_APAE.View\FormStudentList.Designer.cs">
       <DependentUpon>FormStudentList.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormStudentDetail.resx">
+    <Compile Include="SYS_APAE.Models\Student.cs" />
+    <EmbeddedResource Include="SYS_APAE.View\FormStudentDetail.resx">
       <DependentUpon>FormStudentDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormStudentList.resx">
+    <EmbeddedResource Include="SYS_APAE.View\FormStudentList.resx">
       <DependentUpon>FormStudentList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -96,15 +97,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="DbSysAPAEDataSet.xsc">
+    <None Include="SYS_APAE.Data\DbSysAPAEDataSet.xsc">
       <DependentUpon>DbSysAPAEDataSet.xsd</DependentUpon>
     </None>
-    <None Include="DbSysAPAEDataSet.xsd">
+    <None Include="SYS_APAE.Data\DbSysAPAEDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DbSysAPAEDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="DbSysAPAEDataSet.xss">
+    <None Include="SYS_APAE.Data\DbSysAPAEDataSet.xss">
       <DependentUpon>DbSysAPAEDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
@@ -121,10 +122,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DbSysAPAE.mdf">
+    <Content Include="SYS_APAE.Data\DbSysAPAE.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="DbSysAPAE_log.ldf">
+    <Content Include="SYS_APAE.Data\DbSysAPAE_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>DbSysAPAE.mdf</DependentUpon>
     </Content>
@@ -141,6 +142,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

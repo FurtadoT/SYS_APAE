@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace SYS_APAE {
+namespace SYS_APAE.SYS_APAE.Data {
     
     
     /// <summary>

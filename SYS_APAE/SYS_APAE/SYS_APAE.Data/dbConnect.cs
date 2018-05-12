@@ -11,7 +11,7 @@ namespace SYS_APAE
 {
     static class dbConnect
     {
-        private static String connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\DbSysAPAE.mdf;Integrated Security=True";
+        private static String connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\SYS_APAE.Data\\DbSysAPAE.mdf;Integrated Security=True";
 
         private static SqlDataAdapter ExecuteQuery(String selectCommand)
         {

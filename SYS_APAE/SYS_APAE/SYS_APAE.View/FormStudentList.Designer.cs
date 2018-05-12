@@ -28,11 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.dtGridStudents = new System.Windows.Forms.DataGridView();
-            this.bdSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dtGridStudents)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dtGridStudents
@@ -41,12 +38,12 @@
             this.dtGridStudents.AllowUserToDeleteRows = false;
             this.dtGridStudents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtGridStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtGridStudents.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtGridStudents.Location = new System.Drawing.Point(0, 0);
+            this.dtGridStudents.ColumnHeadersVisible = false;
+            this.dtGridStudents.Location = new System.Drawing.Point(12, 90);
             this.dtGridStudents.Name = "dtGridStudents";
             this.dtGridStudents.ReadOnly = true;
             this.dtGridStudents.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dtGridStudents.Size = new System.Drawing.Size(1008, 729);
+            this.dtGridStudents.Size = new System.Drawing.Size(984, 181);
             this.dtGridStudents.TabIndex = 0;
             this.dtGridStudents.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridStudents_CellDoubleClick);
             // 
@@ -60,15 +57,12 @@
             this.Text = "SYS APAE";
             this.Load += new System.EventHandler(this.FormStudentList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtGridStudents)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
         private System.Windows.Forms.DataGridView dtGridStudents;
-        private System.Windows.Forms.BindingSource bdSource;
     }
 }
 
