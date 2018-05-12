@@ -19,43 +19,49 @@ namespace exemploLeandro2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            tabControl1.TabPages.Remove(tabPage1);
-            tabControl1.TabPages.Remove(tabPage2);
-            tabControl1.TabPages.Remove(tabPage3);
+            tabControlGeral.TabPages.Remove(tabCadastro);
+            tabControlGeral.TabPages.Remove(tabParticipante);
+            tabControlGeral.TabPages.Remove(tabVisuRel);
+            tabControlGeral.TabPages.Remove(tabGerarRel);
 
-            button1.Visible = true;
-            button2.Visible = true;
-            button3.Visible = true;
+            btnCadastro.Visible = true;
+            btnParticipante.Visible = true;
+            btnvisualizar.Visible = true;
+            btnGerarRel.Visible = true;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            tabControl1.TabPages.Remove(tabPage1);
-            tabControl1.TabPages.Remove(tabPage2);
-            tabControl1.TabPages.Remove(tabPage3);
-            tabControl1.TabPages.Insert(0, tabPage2);
+            tabControlGeral.TabPages.Remove(tabCadastro);
+            tabControlGeral.TabPages.Remove(tabParticipante);
+            tabControlGeral.TabPages.Remove(tabVisuRel);
+            tabControlGeral.TabPages.Remove(tabGerarRel);
+            tabControlGeral.TabPages.Insert(0, tabParticipante);
 
-            button1.Visible = true;
-            button2.Visible = true;
-            button3.Visible = true;
-            button1.Enabled = true;
-            button2.Enabled = false;
-            button3.Enabled = true;
-            
+            btnCadastro.Visible = true;
+            btnParticipante.Visible = true;
+            btnvisualizar.Visible = true;
+            btnCadastro.Enabled = true;
+            btnParticipante.Enabled = false;
+            btnvisualizar.Enabled = true;
+            btnGerarRel.Enabled = true;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            tabControl1.TabPages.Remove(tabPage1);
-            tabControl1.TabPages.Remove(tabPage2);
-            tabControl1.TabPages.Remove(tabPage3);
-            tabControl1.TabPages.Insert(0, tabPage1);
-            button1.Visible = true;
-            button2.Visible = true;
-            button3.Visible = true;
-            button1.Enabled = false;
-            button2.Enabled = true;
-            button3.Enabled = true;
+            tabControlGeral.TabPages.Remove(tabCadastro);
+            tabControlGeral.TabPages.Remove(tabParticipante);
+            tabControlGeral.TabPages.Remove(tabVisuRel);
+            tabControlGeral.TabPages.Remove(tabGerarRel);
+            tabControlGeral.TabPages.Insert(0, tabCadastro);
+            btnCadastro.Visible = true;
+            btnParticipante.Visible = true;
+            btnvisualizar.Visible = true;
+            btnCadastro.Enabled = false;
+            btnParticipante.Enabled = true;
+            btnvisualizar.Enabled = true;
+            btnGerarRel.Enabled = true;
         }
 
         private void label1_Click(object sender, EventArgs e) {
@@ -64,22 +70,24 @@ namespace exemploLeandro2
 
         private void button3_Click(object sender, EventArgs e) {
 
-            tabControl1.TabPages.Remove(tabPage1);
-            tabControl1.TabPages.Remove(tabPage2);
-            tabControl1.TabPages.Remove(tabPage3);
-            tabControl1.TabPages.Insert(0, tabPage3);
-            button1.Visible = true;
-            button2.Visible = true;
-            button3.Visible = true;
-            button1.Enabled = true;
-            button2.Enabled = true;
-            button3.Enabled = false;
+            tabControlGeral.TabPages.Remove(tabCadastro);
+            tabControlGeral.TabPages.Remove(tabParticipante);
+            tabControlGeral.TabPages.Remove(tabVisuRel);
+            tabControlGeral.TabPages.Remove(tabGerarRel);
+            tabControlGeral.TabPages.Insert(0, tabVisuRel);
+            btnCadastro.Visible = true;
+            btnParticipante.Visible = true;
+            btnvisualizar.Visible = true;
+            btnCadastro.Enabled = true;
+            btnParticipante.Enabled = true;
+            btnvisualizar.Enabled = false;
+            btnGerarRel.Enabled = true;
 
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e) {
 
-            textBox1.Enabled = false;
+            txtProntuario.Enabled = false;
 
         }
 
@@ -89,7 +97,42 @@ namespace exemploLeandro2
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e) {
 
-            textBox1.Enabled = true;
+            txtProntuario.Enabled = true;
+        }
+
+        private void label12_Click(object sender, EventArgs e) {
+
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void label18_Click(object sender, EventArgs e) {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e) {
+
+            tabControlGeral.TabPages.Remove(tabCadastro);
+            tabControlGeral.TabPages.Remove(tabParticipante);
+            tabControlGeral.TabPages.Remove(tabVisuRel);
+            tabControlGeral.TabPages.Remove(tabGerarRel);
+            tabControlGeral.TabPages.Insert(0, tabGerarRel);
+            btnCadastro.Visible = true;
+            btnParticipante.Visible = true;
+            btnvisualizar.Visible = true;
+            btnGerarRel.Visible = true;
+            btnCadastro.Enabled = true;
+            btnParticipante.Enabled = true;
+            btnvisualizar.Enabled = true;
+            btnGerarRel.Enabled = false;
+
+
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e) {
+
         }
     }
 }
