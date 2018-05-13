@@ -1,11 +1,9 @@
-﻿using MySql.Data.MySqlClient;
-using SYS_APAE.SYS_APAE.Models;
+﻿using SYS_APAE.SYS_APAE.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace SYS_APAE.SYS_APAE.Data
 {
@@ -16,8 +14,7 @@ namespace SYS_APAE.SYS_APAE.Data
         public static List<Student> getAllStudents()
         {
             List<Student> listStudents = new List<Student>();
-
-            List<Dictionary<string, string>> dbResult = dbConnector.ExecuteSelect("SELECT * FROM students");
+            List<Dictionary<string, string>> dbResult = dbConnector.ExecuteSelectMultValues("SELECT * FROM students");
 
             foreach (var student in dbResult)
             {
@@ -50,8 +47,7 @@ namespace SYS_APAE.SYS_APAE.Data
         public static List<StudentsView> getAllStudentsUsingView()
         {
             List<StudentsView> listStudents = new List<StudentsView>();
-
-            List<Dictionary<string, string>> dbResult = dbConnector.ExecuteSelect("SELECT * FROM students_view");
+            List<Dictionary<string, string>> dbResult = dbConnector.ExecuteSelectMultValues("SELECT * FROM students_view");
 
             foreach (var student in dbResult)
             {
@@ -65,6 +61,32 @@ namespace SYS_APAE.SYS_APAE.Data
             }
 
             return listStudents;
+        }
+
+        public static Student getStudentById(string id)
+        {
+            Dictionary<string, string> student = dbConnector.ExecuteSelectSingleValue("SELECT * FROM students where id=" + id);
+
+            return new Student(
+                        Convert.ToInt32(student["id"]),
+                        student["name"].ToString(),
+                        student["cpf"].ToString(),
+                        student["rg"].ToString(),
+                        student["org_exp"].ToString(),
+                        DateTime.Parse(student["dt_exp"]),
+                        DateTime.Parse(student["dt_nasc"]),
+                        student["nationality"].ToString(),
+                        student["father_name"].ToString(),
+                        student["mother_name"].ToString(),
+                        student["address"].ToString(),
+                        student["city"].ToString(),
+                        student["state"].ToString(),
+                        student["district"].ToString(),
+                        student["cep"].ToString(),
+                        student["phone"].ToString(),
+                        student["celphone"].ToString(),
+                        student["email"].ToString()
+                        );
         }
     }
 }

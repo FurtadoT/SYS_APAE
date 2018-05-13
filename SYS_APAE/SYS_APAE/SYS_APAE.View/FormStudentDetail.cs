@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SYS_APAE.SYS_APAE.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,14 +23,9 @@ namespace SYS_APAE
 
         public void FetchData()
         {
-            DataTable table = null;
-            if (table is null)
-                return;
+            Student student = StudentsDTO.getStudentById(this.studentId);
 
-            foreach (var fields in table.Rows[0].ItemArray)
-            {
-                MessageBox.Show(fields.ToString());
-            }
+            MessageBox.Show(student.ToString());
         }
 
         private void FormStudentDetail_Load(object sender, EventArgs e)

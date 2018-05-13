@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace SYS_APAE
 {
-    class DBConnect
+    class DBConnect : IDisposable
     {
         private readonly String connectionString = "Server=localhost; database=SYS_APAE; UID=root; password=root";
         private MySqlConnection connection;
@@ -60,34 +60,80 @@ namespace SYS_APAE
             }
         }
 
-        public List<Dictionary<string, string>> ExecuteSelect(string sqlStatement)
+        private MySqlDataReader ExecuteStatement(string sqlStatement)
         {
-            List<Dictionary<string, string>> returnValue = new List<Dictionary<string, string>>();
+            MySqlCommand command = new MySqlCommand(sqlStatement, connection);
+            return command.ExecuteReader();
+        }
+
+        private List<string> GetColumnsLabel(MySqlDataReader dataReader)
+        {
+            List<string> readerColumns = new List<string>();
+            for (int index = 0; index < dataReader.FieldCount; index++)
+                readerColumns.Add(dataReader.GetName(index));
+
+            return readerColumns;
+        }
+
+        private Dictionary<string, string> resolveData(MySqlDataReader dataReader)
+        {
+            List<string> readerColumns = GetColumnsLabel(dataReader);
+            Dictionary<string, string> newRow = new Dictionary<string, string>();
+
+            for (int counter = 0; counter < dataReader.FieldCount; counter++)
+                newRow.Add(readerColumns[counter].ToString(), dataReader[counter].ToString());
+
+            return newRow;
+        }
+
+        public Dictionary<string, string> ExecuteSelectSingleValue(string sqlStatement)
+        {
+            Dictionary<string, string> returnData = new Dictionary<string, string>();
 
             if (this.OpenConnection())
             {
-                MySqlCommand command = new MySqlCommand(sqlStatement, connection);
-                MySqlDataReader dataReader = command.ExecuteReader();
+                MySqlDataReader dataReader = ExecuteStatement(sqlStatement);
 
-                List<string> readerColumns = new List<string>();
-                for (int index = 0; index < dataReader.FieldCount; index++)
-                    readerColumns.Add(dataReader.GetName(index));
-
-                while (dataReader.Read())
-                {
-                    Dictionary<string, string> newRow = new Dictionary<string, string>();
-                    for (int counter = 0; counter < dataReader.FieldCount; counter++)
-                    {
-                        newRow.Add(readerColumns[counter].ToString(), dataReader[counter].ToString());
-                    }
-
-                    returnValue.Add(newRow);
-                }
+                if (dataReader.Read())
+                    returnData = resolveData(dataReader);
 
                 this.CloseConnection();
             }
 
-            return returnValue;
+            return returnData;
+        }
+
+        public List<Dictionary<string, string>> ExecuteSelectMultValues(string sqlStatement)
+        {
+            List<Dictionary<string, string>> returnData = new List<Dictionary<string, string>>();
+
+            if (this.OpenConnection())
+            {
+                MySqlDataReader dataReader = ExecuteStatement(sqlStatement);
+
+                while (dataReader.Read())
+                    returnData.Add(resolveData(dataReader));
+
+                this.CloseConnection();
+            }
+
+            return returnData;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        public void Dispose(Boolean isSafeToFreeManagedObjects)
+        {
+            if (isSafeToFreeManagedObjects)
+                if (this.connection != null)
+                {
+                    this.connection.Dispose();
+                    this.connection = null;
+                }
         }
     }
 }

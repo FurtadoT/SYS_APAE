@@ -45,6 +45,11 @@ namespace SYS_APAE
             Email = email;
         }
 
+        public override string ToString()
+        {
+            return String.Format("Aluno {0}", Name);
+        }
+
         public int Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
         public string Cpf { get => cpf; set => cpf = value; }
