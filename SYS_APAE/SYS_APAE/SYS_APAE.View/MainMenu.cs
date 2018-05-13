@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SYS_APAE.SYS_APAE.Data;
+using SYS_APAE.SYS_APAE.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,6 +27,7 @@ namespace SYS_APAE
             this.radioControl.Add("int", -1);
 
             _handlerTabGeral();
+            dtpNasc.Value = DateTime.Today;
         }
 
         private void _handlerTabGeral()
@@ -42,6 +45,79 @@ namespace SYS_APAE
             btnParticipante.Enabled = true;
             btnVisualizarRelatorio.Enabled = true;
             btnGerarRel.Enabled = true;
+        }
+
+        private void _handlerRefreshAdd()
+        {
+            txtProntuario.ResetText();
+            txtNome.ResetText();
+            txtCPF.ResetText();
+            txtRG.ResetText();
+            txtOrgExp.ResetText();
+            dtpNasc.Value = DateTime.Today;
+            dtpExp.Value = DateTime.Today;
+            txtNaturalidade.ResetText();
+            txtPai.ResetText();
+            txtMae.ResetText();
+            txtEnd.ResetText();
+            txtCidade.ResetText();
+            txtEstado.ResetText();
+            txtBairro.ResetText();
+            txtCep.ResetText();
+            txtDDDTel.ResetText();
+            txtTel.ResetText();
+            txtDDD.ResetText();
+            txtCelular.ResetText();
+            txtEmail.ResetText();
+        }
+
+        private bool AddNewStudent()
+        {
+            return StudentsDTO.addNewStudent(new Student(
+                0,
+                txtNome.Text,
+                txtCPF.Text,
+                txtRG.Text,
+                txtOrgExp.Text,
+                dtpExp.Value.Date,
+                dtpNasc.Value.Date,
+                txtNaturalidade.Text,
+                txtPai.Text,
+                txtMae.Text,
+                txtEnd.Text,
+                txtCidade.Text,
+                txtEstado.Text,
+                txtBairro.Text,
+                txtCep.Text,
+                txtDDDTel.Text + txtTel.Text,
+                txtDDD.Text + txtCelular.Text,
+                txtEmail.Text
+                ));
+        }
+
+        private bool AddNewInstructor()
+        {
+            return InstructorDTO.addNewInstructor(new Instructor(
+                0,
+                txtNome.Text,
+                txtCPF.Text,
+                txtRG.Text,
+                txtOrgExp.Text,
+                dtpExp.Value.Date,
+                dtpNasc.Value.Date,
+                txtNaturalidade.Text,
+                txtPai.Text,
+                txtMae.Text,
+                txtEnd.Text,
+                txtCidade.Text,
+                txtEstado.Text,
+                txtBairro.Text,
+                txtCep.Text,
+                txtDDDTel.Text + txtTel.Text,
+                txtDDD.Text + txtCelular.Text,
+                txtEmail.Text,
+                txtProntuario.Text
+                ));
         }
 
         private void btnParticipante_Click(object sender, EventArgs e)
@@ -91,6 +167,59 @@ namespace SYS_APAE
         private void radioButton_Click(object sender, EventArgs e)
         {
             this.radioControl[((RadioButton)sender).Tag.ToString()] = Convert.ToInt32(((RadioButton)sender).Text);
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (radioAluno.Checked)
+            {
+                if (AddNewStudent())
+                {
+                    MessageBox.Show("Aluno cadastrado com sucesso!");
+                    _handlerRefreshAdd();
+                }
+            }
+            else
+            {
+                if (AddNewInstructor())
+                {
+                    MessageBox.Show("Monitor cadastrado com sucesso!");
+                    _handlerRefreshAdd();
+                }
+            }
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            _handlerRefreshAdd();
+        }
+
+        private void dtpNasc_Enter(object sender, EventArgs e)
+        {
+            SendKeys.Send("%{DOWN}");
+        }
+
+        private void dtpExp_Enter(object sender, EventArgs e)
+        {
+            SendKeys.Send("%{DOWN}");
+        }
+
+        private void radioListMonitor_CheckedChanged(object sender, EventArgs e)
+        {
+            if (((RadioButton)sender).Checked)
+            {
+                dtgParticipantes.DataSource = InstructorDTO.getAllInstructorsUsingView();
+                dtgParticipantes.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            }
+        }
+
+        private void radioListAluno_CheckedChanged(object sender, EventArgs e)
+        {
+            if (((RadioButton)sender).Checked)
+            {
+                dtgParticipantes.DataSource = StudentsDTO.getAllStudentsUsingView();
+                dtgParticipantes.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            }
         }
     }
 }

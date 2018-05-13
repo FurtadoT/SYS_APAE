@@ -55,8 +55,6 @@ namespace SYS_APAE
             this.txtMae = new System.Windows.Forms.TextBox();
             this.txtBairro = new System.Windows.Forms.TextBox();
             this.txtNaturalidade = new System.Windows.Forms.TextBox();
-            this.txtNasc = new System.Windows.Forms.TextBox();
-            this.txtDataExp = new System.Windows.Forms.TextBox();
             this.lblNasc = new System.Windows.Forms.Label();
             this.lblDataExp = new System.Windows.Forms.Label();
             this.txtOrgExp = new System.Windows.Forms.TextBox();
@@ -141,6 +139,11 @@ namespace SYS_APAE
             this.logo_if = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnGerarRel = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.dtpNasc = new System.Windows.Forms.DateTimePicker();
+            this.dtpExp = new System.Windows.Forms.DateTimePicker();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.dtgParticipantes = new System.Windows.Forms.DataGridView();
             this.tabControlGeral.SuspendLayout();
             this.tabCadastro.SuspendLayout();
             this.tabParticipante.SuspendLayout();
@@ -151,6 +154,7 @@ namespace SYS_APAE
             this.gpBoxLeitura.SuspendLayout();
             this.gpBoxDigitacao.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo_if)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgParticipantes)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlGeral
@@ -171,6 +175,10 @@ namespace SYS_APAE
             // tabCadastro
             // 
             this.tabCadastro.AutoScroll = true;
+            this.tabCadastro.Controls.Add(this.btnReset);
+            this.tabCadastro.Controls.Add(this.dtpExp);
+            this.tabCadastro.Controls.Add(this.dtpNasc);
+            this.tabCadastro.Controls.Add(this.btnAdd);
             this.tabCadastro.Controls.Add(this.txtEmail);
             this.tabCadastro.Controls.Add(this.lblEmail);
             this.tabCadastro.Controls.Add(this.lblDDD);
@@ -193,8 +201,6 @@ namespace SYS_APAE
             this.tabCadastro.Controls.Add(this.txtMae);
             this.tabCadastro.Controls.Add(this.txtBairro);
             this.tabCadastro.Controls.Add(this.txtNaturalidade);
-            this.tabCadastro.Controls.Add(this.txtNasc);
-            this.tabCadastro.Controls.Add(this.txtDataExp);
             this.tabCadastro.Controls.Add(this.lblNasc);
             this.tabCadastro.Controls.Add(this.lblDataExp);
             this.tabCadastro.Controls.Add(this.txtOrgExp);
@@ -227,15 +233,15 @@ namespace SYS_APAE
             // 
             this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEmail.Location = new System.Drawing.Point(714, 274);
+            this.txtEmail.Location = new System.Drawing.Point(714, 262);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(448, 20);
-            this.txtEmail.TabIndex = 47;
+            this.txtEmail.TabIndex = 22;
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(670, 276);
+            this.lblEmail.Location = new System.Drawing.Point(670, 264);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(38, 13);
             this.lblEmail.TabIndex = 46;
@@ -244,7 +250,7 @@ namespace SYS_APAE
             // lblDDD
             // 
             this.lblDDD.AutoSize = true;
-            this.lblDDD.Location = new System.Drawing.Point(29, 276);
+            this.lblDDD.Location = new System.Drawing.Point(29, 264);
             this.lblDDD.Name = "lblDDD";
             this.lblDDD.Size = new System.Drawing.Size(34, 13);
             this.lblDDD.TabIndex = 45;
@@ -252,22 +258,22 @@ namespace SYS_APAE
             // 
             // txtCelular
             // 
-            this.txtCelular.Location = new System.Drawing.Point(159, 273);
+            this.txtCelular.Location = new System.Drawing.Point(159, 261);
             this.txtCelular.Name = "txtCelular";
             this.txtCelular.Size = new System.Drawing.Size(164, 20);
-            this.txtCelular.TabIndex = 44;
+            this.txtCelular.TabIndex = 19;
             // 
             // txtDDD
             // 
-            this.txtDDD.Location = new System.Drawing.Point(75, 273);
+            this.txtDDD.Location = new System.Drawing.Point(75, 261);
             this.txtDDD.Name = "txtDDD";
             this.txtDDD.Size = new System.Drawing.Size(30, 20);
-            this.txtDDD.TabIndex = 43;
+            this.txtDDD.TabIndex = 18;
             // 
             // lblCelular
             // 
             this.lblCelular.AutoSize = true;
-            this.lblCelular.Location = new System.Drawing.Point(111, 276);
+            this.lblCelular.Location = new System.Drawing.Point(111, 264);
             this.lblCelular.Name = "lblCelular";
             this.lblCelular.Size = new System.Drawing.Size(42, 13);
             this.lblCelular.TabIndex = 42;
@@ -276,7 +282,7 @@ namespace SYS_APAE
             // lblDDDTel
             // 
             this.lblDDDTel.AutoSize = true;
-            this.lblDDDTel.Location = new System.Drawing.Point(342, 276);
+            this.lblDDDTel.Location = new System.Drawing.Point(342, 264);
             this.lblDDDTel.Name = "lblDDDTel";
             this.lblDDDTel.Size = new System.Drawing.Size(34, 13);
             this.lblDDDTel.TabIndex = 41;
@@ -284,22 +290,22 @@ namespace SYS_APAE
             // 
             // txtTel
             // 
-            this.txtTel.Location = new System.Drawing.Point(476, 273);
+            this.txtTel.Location = new System.Drawing.Point(476, 261);
             this.txtTel.Name = "txtTel";
             this.txtTel.Size = new System.Drawing.Size(164, 20);
-            this.txtTel.TabIndex = 40;
+            this.txtTel.TabIndex = 21;
             // 
             // txtDDDTel
             // 
-            this.txtDDDTel.Location = new System.Drawing.Point(382, 273);
+            this.txtDDDTel.Location = new System.Drawing.Point(382, 261);
             this.txtDDDTel.Name = "txtDDDTel";
             this.txtDDDTel.Size = new System.Drawing.Size(30, 20);
-            this.txtDDDTel.TabIndex = 39;
+            this.txtDDDTel.TabIndex = 20;
             // 
             // lblTel
             // 
             this.lblTel.AutoSize = true;
-            this.lblTel.Location = new System.Drawing.Point(418, 276);
+            this.lblTel.Location = new System.Drawing.Point(418, 264);
             this.lblTel.Name = "lblTel";
             this.lblTel.Size = new System.Drawing.Size(52, 13);
             this.lblTel.TabIndex = 38;
@@ -309,15 +315,15 @@ namespace SYS_APAE
             // 
             this.txtEstado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEstado.Location = new System.Drawing.Point(714, 247);
+            this.txtEstado.Location = new System.Drawing.Point(714, 235);
             this.txtEstado.Name = "txtEstado";
             this.txtEstado.Size = new System.Drawing.Size(448, 20);
-            this.txtEstado.TabIndex = 34;
+            this.txtEstado.TabIndex = 17;
             // 
             // lblEstado
             // 
             this.lblEstado.AutoSize = true;
-            this.lblEstado.Location = new System.Drawing.Point(665, 250);
+            this.lblEstado.Location = new System.Drawing.Point(665, 238);
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(43, 13);
             this.lblEstado.TabIndex = 33;
@@ -327,15 +333,15 @@ namespace SYS_APAE
             // 
             this.txtCidade.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCidade.Location = new System.Drawing.Point(281, 247);
+            this.txtCidade.Location = new System.Drawing.Point(281, 235);
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.Size = new System.Drawing.Size(359, 20);
-            this.txtCidade.TabIndex = 32;
+            this.txtCidade.TabIndex = 16;
             // 
             // lblCidade
             // 
             this.lblCidade.AutoSize = true;
-            this.lblCidade.Location = new System.Drawing.Point(232, 250);
+            this.lblCidade.Location = new System.Drawing.Point(232, 238);
             this.lblCidade.Name = "lblCidade";
             this.lblCidade.Size = new System.Drawing.Size(43, 13);
             this.lblCidade.TabIndex = 31;
@@ -343,15 +349,15 @@ namespace SYS_APAE
             // 
             // txtCep
             // 
-            this.txtCep.Location = new System.Drawing.Point(75, 247);
+            this.txtCep.Location = new System.Drawing.Point(75, 235);
             this.txtCep.Name = "txtCep";
             this.txtCep.Size = new System.Drawing.Size(141, 20);
-            this.txtCep.TabIndex = 30;
+            this.txtCep.TabIndex = 15;
             // 
             // lblBairro
             // 
             this.lblBairro.AutoSize = true;
-            this.lblBairro.Location = new System.Drawing.Point(671, 223);
+            this.lblBairro.Location = new System.Drawing.Point(671, 211);
             this.lblBairro.Name = "lblBairro";
             this.lblBairro.Size = new System.Drawing.Size(37, 13);
             this.lblBairro.TabIndex = 29;
@@ -361,15 +367,15 @@ namespace SYS_APAE
             // 
             this.txtEnd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEnd.Location = new System.Drawing.Point(74, 220);
+            this.txtEnd.Location = new System.Drawing.Point(75, 208);
             this.txtEnd.Name = "txtEnd";
             this.txtEnd.Size = new System.Drawing.Size(565, 20);
-            this.txtEnd.TabIndex = 28;
+            this.txtEnd.TabIndex = 13;
             // 
             // lblCep
             // 
             this.lblCep.AutoSize = true;
-            this.lblCep.Location = new System.Drawing.Point(32, 250);
+            this.lblCep.Location = new System.Drawing.Point(32, 238);
             this.lblCep.Name = "lblCep";
             this.lblCep.Size = new System.Drawing.Size(31, 13);
             this.lblCep.TabIndex = 27;
@@ -379,60 +385,44 @@ namespace SYS_APAE
             // 
             this.txtPai.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPai.Location = new System.Drawing.Point(337, 181);
+            this.txtPai.Location = new System.Drawing.Point(374, 169);
             this.txtPai.Name = "txtPai";
-            this.txtPai.Size = new System.Drawing.Size(825, 20);
-            this.txtPai.TabIndex = 26;
+            this.txtPai.Size = new System.Drawing.Size(788, 20);
+            this.txtPai.TabIndex = 12;
             // 
             // txtMae
             // 
             this.txtMae.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMae.Location = new System.Drawing.Point(337, 141);
+            this.txtMae.Location = new System.Drawing.Point(374, 129);
             this.txtMae.Name = "txtMae";
-            this.txtMae.Size = new System.Drawing.Size(825, 20);
-            this.txtMae.TabIndex = 25;
+            this.txtMae.Size = new System.Drawing.Size(788, 20);
+            this.txtMae.TabIndex = 11;
             // 
             // txtBairro
             // 
             this.txtBairro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBairro.Location = new System.Drawing.Point(714, 220);
+            this.txtBairro.Location = new System.Drawing.Point(714, 208);
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(448, 20);
-            this.txtBairro.TabIndex = 24;
+            this.txtBairro.TabIndex = 14;
             // 
             // txtNaturalidade
             // 
             this.txtNaturalidade.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNaturalidade.Location = new System.Drawing.Point(714, 105);
+            this.txtNaturalidade.Location = new System.Drawing.Point(751, 93);
             this.txtNaturalidade.Name = "txtNaturalidade";
-            this.txtNaturalidade.Size = new System.Drawing.Size(448, 20);
-            this.txtNaturalidade.TabIndex = 23;
-            // 
-            // txtNasc
-            // 
-            this.txtNasc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNasc.Location = new System.Drawing.Point(407, 105);
-            this.txtNasc.Name = "txtNasc";
-            this.txtNasc.Size = new System.Drawing.Size(213, 20);
-            this.txtNasc.TabIndex = 22;
-            // 
-            // txtDataExp
-            // 
-            this.txtDataExp.Location = new System.Drawing.Point(75, 187);
-            this.txtDataExp.Name = "txtDataExp";
-            this.txtDataExp.Size = new System.Drawing.Size(141, 20);
-            this.txtDataExp.TabIndex = 21;
+            this.txtNaturalidade.Size = new System.Drawing.Size(411, 20);
+            this.txtNaturalidade.TabIndex = 7;
             // 
             // lblNasc
             // 
             this.lblNasc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNasc.AutoSize = true;
-            this.lblNasc.Location = new System.Drawing.Point(294, 108);
+            this.lblNasc.Location = new System.Drawing.Point(294, 96);
             this.lblNasc.Name = "lblNasc";
             this.lblNasc.Size = new System.Drawing.Size(107, 13);
             this.lblNasc.TabIndex = 20;
@@ -443,7 +433,7 @@ namespace SYS_APAE
             this.lblDataExp.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDataExp.AutoSize = true;
-            this.lblDataExp.Location = new System.Drawing.Point(6, 190);
+            this.lblDataExp.Location = new System.Drawing.Point(6, 178);
             this.lblDataExp.Name = "lblDataExp";
             this.lblDataExp.Size = new System.Drawing.Size(57, 13);
             this.lblDataExp.TabIndex = 19;
@@ -451,24 +441,24 @@ namespace SYS_APAE
             // 
             // txtOrgExp
             // 
-            this.txtOrgExp.Location = new System.Drawing.Point(75, 161);
+            this.txtOrgExp.Location = new System.Drawing.Point(75, 149);
             this.txtOrgExp.Name = "txtOrgExp";
-            this.txtOrgExp.Size = new System.Drawing.Size(141, 20);
-            this.txtOrgExp.TabIndex = 18;
+            this.txtOrgExp.Size = new System.Drawing.Size(60, 20);
+            this.txtOrgExp.TabIndex = 9;
             // 
             // txtRG
             // 
-            this.txtRG.Location = new System.Drawing.Point(75, 134);
+            this.txtRG.Location = new System.Drawing.Point(75, 122);
             this.txtRG.Name = "txtRG";
             this.txtRG.Size = new System.Drawing.Size(141, 20);
-            this.txtRG.TabIndex = 17;
+            this.txtRG.TabIndex = 8;
             // 
             // lblRG
             // 
             this.lblRG.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblRG.AutoSize = true;
-            this.lblRG.Location = new System.Drawing.Point(37, 137);
+            this.lblRG.Location = new System.Drawing.Point(37, 125);
             this.lblRG.Name = "lblRG";
             this.lblRG.Size = new System.Drawing.Size(26, 13);
             this.lblRG.TabIndex = 16;
@@ -479,7 +469,7 @@ namespace SYS_APAE
             this.lblOrgExp.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblOrgExp.AutoSize = true;
-            this.lblOrgExp.Location = new System.Drawing.Point(12, 164);
+            this.lblOrgExp.Location = new System.Drawing.Point(12, 152);
             this.lblOrgExp.Name = "lblOrgExp";
             this.lblOrgExp.Size = new System.Drawing.Size(51, 13);
             this.lblOrgExp.TabIndex = 15;
@@ -490,7 +480,7 @@ namespace SYS_APAE
             this.lblNaturalidade.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNaturalidade.AutoSize = true;
-            this.lblNaturalidade.Location = new System.Drawing.Point(638, 108);
+            this.lblNaturalidade.Location = new System.Drawing.Point(675, 96);
             this.lblNaturalidade.Name = "lblNaturalidade";
             this.lblNaturalidade.Size = new System.Drawing.Size(70, 13);
             this.lblNaturalidade.TabIndex = 14;
@@ -499,7 +489,7 @@ namespace SYS_APAE
             // lblFiliacao
             // 
             this.lblFiliacao.AutoSize = true;
-            this.lblFiliacao.Location = new System.Drawing.Point(256, 164);
+            this.lblFiliacao.Location = new System.Drawing.Point(293, 152);
             this.lblFiliacao.Name = "lblFiliacao";
             this.lblFiliacao.Size = new System.Drawing.Size(46, 13);
             this.lblFiliacao.TabIndex = 13;
@@ -508,7 +498,7 @@ namespace SYS_APAE
             // lblPai
             // 
             this.lblPai.AutoSize = true;
-            this.lblPai.Location = new System.Drawing.Point(306, 184);
+            this.lblPai.Location = new System.Drawing.Point(343, 172);
             this.lblPai.Name = "lblPai";
             this.lblPai.Size = new System.Drawing.Size(25, 13);
             this.lblPai.TabIndex = 12;
@@ -517,7 +507,7 @@ namespace SYS_APAE
             // lblMae
             // 
             this.lblMae.AutoSize = true;
-            this.lblMae.Location = new System.Drawing.Point(300, 144);
+            this.lblMae.Location = new System.Drawing.Point(337, 132);
             this.lblMae.Name = "lblMae";
             this.lblMae.Size = new System.Drawing.Size(31, 13);
             this.lblMae.TabIndex = 11;
@@ -526,7 +516,7 @@ namespace SYS_APAE
             // lblEnd
             // 
             this.lblEnd.AutoSize = true;
-            this.lblEnd.Location = new System.Drawing.Point(7, 223);
+            this.lblEnd.Location = new System.Drawing.Point(7, 211);
             this.lblEnd.Name = "lblEnd";
             this.lblEnd.Size = new System.Drawing.Size(56, 13);
             this.lblEnd.TabIndex = 10;
@@ -534,17 +524,17 @@ namespace SYS_APAE
             // 
             // txtCPF
             // 
-            this.txtCPF.Location = new System.Drawing.Point(75, 105);
+            this.txtCPF.Location = new System.Drawing.Point(75, 93);
             this.txtCPF.Name = "txtCPF";
             this.txtCPF.Size = new System.Drawing.Size(203, 20);
-            this.txtCPF.TabIndex = 8;
+            this.txtCPF.TabIndex = 5;
             // 
             // lblCPF
             // 
             this.lblCPF.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCPF.AutoSize = true;
-            this.lblCPF.Location = new System.Drawing.Point(33, 108);
+            this.lblCPF.Location = new System.Drawing.Point(33, 96);
             this.lblCPF.Name = "lblCPF";
             this.lblCPF.Size = new System.Drawing.Size(30, 13);
             this.lblCPF.TabIndex = 7;
@@ -554,17 +544,17 @@ namespace SYS_APAE
             // 
             this.txtNome.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNome.Location = new System.Drawing.Point(75, 78);
+            this.txtNome.Location = new System.Drawing.Point(75, 66);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(1087, 20);
-            this.txtNome.TabIndex = 6;
+            this.txtNome.TabIndex = 4;
             // 
             // lblNome
             // 
             this.lblNome.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(25, 81);
+            this.lblNome.Location = new System.Drawing.Point(25, 69);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(38, 13);
             this.lblNome.TabIndex = 5;
@@ -575,7 +565,7 @@ namespace SYS_APAE
             this.lblProntuario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblProntuario.AutoSize = true;
-            this.lblProntuario.Location = new System.Drawing.Point(302, 49);
+            this.lblProntuario.Location = new System.Drawing.Point(302, 37);
             this.lblProntuario.Name = "lblProntuario";
             this.lblProntuario.Size = new System.Drawing.Size(61, 13);
             this.lblProntuario.TabIndex = 4;
@@ -585,7 +575,7 @@ namespace SYS_APAE
             // 
             this.txtProntuario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtProntuario.Location = new System.Drawing.Point(374, 46);
+            this.txtProntuario.Location = new System.Drawing.Point(374, 34);
             this.txtProntuario.Name = "txtProntuario";
             this.txtProntuario.Size = new System.Drawing.Size(788, 20);
             this.txtProntuario.TabIndex = 3;
@@ -596,10 +586,10 @@ namespace SYS_APAE
             | System.Windows.Forms.AnchorStyles.Right)));
             this.radioMonitor.AutoSize = true;
             this.radioMonitor.Checked = true;
-            this.radioMonitor.Location = new System.Drawing.Point(143, 47);
+            this.radioMonitor.Location = new System.Drawing.Point(143, 35);
             this.radioMonitor.Name = "radioMonitor";
             this.radioMonitor.Size = new System.Drawing.Size(60, 17);
-            this.radioMonitor.TabIndex = 2;
+            this.radioMonitor.TabIndex = 1;
             this.radioMonitor.TabStop = true;
             this.radioMonitor.Text = "Monitor";
             this.radioMonitor.UseVisualStyleBackColor = true;
@@ -610,16 +600,17 @@ namespace SYS_APAE
             this.radioAluno.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.radioAluno.AutoSize = true;
-            this.radioAluno.Location = new System.Drawing.Point(233, 47);
+            this.radioAluno.Location = new System.Drawing.Point(233, 35);
             this.radioAluno.Name = "radioAluno";
             this.radioAluno.Size = new System.Drawing.Size(52, 17);
-            this.radioAluno.TabIndex = 1;
+            this.radioAluno.TabIndex = 2;
             this.radioAluno.Text = "Aluno";
             this.radioAluno.UseVisualStyleBackColor = true;
             this.radioAluno.CheckedChanged += new System.EventHandler(this.radioAluno_CheckedChanged);
             // 
             // tabParticipante
             // 
+            this.tabParticipante.Controls.Add(this.dtgParticipantes);
             this.tabParticipante.Controls.Add(this.radioListMonitor);
             this.tabParticipante.Controls.Add(this.radioListAluno);
             this.tabParticipante.Location = new System.Drawing.Point(4, 22);
@@ -642,6 +633,7 @@ namespace SYS_APAE
             this.radioListMonitor.TabStop = true;
             this.radioListMonitor.Text = "Monitor";
             this.radioListMonitor.UseVisualStyleBackColor = true;
+            this.radioListMonitor.CheckedChanged += new System.EventHandler(this.radioListMonitor_CheckedChanged);
             // 
             // radioListAluno
             // 
@@ -655,6 +647,7 @@ namespace SYS_APAE
             this.radioListAluno.TabStop = true;
             this.radioListAluno.Text = "Aluno";
             this.radioListAluno.UseVisualStyleBackColor = true;
+            this.radioListAluno.CheckedChanged += new System.EventHandler(this.radioListAluno_CheckedChanged);
             // 
             // tabVisuRel
             // 
@@ -1327,7 +1320,7 @@ namespace SYS_APAE
             this.btnCadastro.Name = "btnCadastro";
             this.btnCadastro.Padding = new System.Windows.Forms.Padding(20);
             this.btnCadastro.Size = new System.Drawing.Size(120, 90);
-            this.btnCadastro.TabIndex = 2;
+            this.btnCadastro.TabIndex = 30;
             this.btnCadastro.Text = "Cadastro";
             this.btnCadastro.UseVisualStyleBackColor = true;
             this.btnCadastro.Click += new System.EventHandler(this.btnCadastro_Click);
@@ -1339,7 +1332,7 @@ namespace SYS_APAE
             this.btnParticipante.Name = "btnParticipante";
             this.btnParticipante.Padding = new System.Windows.Forms.Padding(20);
             this.btnParticipante.Size = new System.Drawing.Size(120, 90);
-            this.btnParticipante.TabIndex = 3;
+            this.btnParticipante.TabIndex = 31;
             this.btnParticipante.Text = "Visualizar Participantes";
             this.btnParticipante.UseVisualStyleBackColor = true;
             this.btnParticipante.Click += new System.EventHandler(this.btnParticipante_Click);
@@ -1350,7 +1343,7 @@ namespace SYS_APAE
             this.btnVisualizarRelatorio.Location = new System.Drawing.Point(12, 377);
             this.btnVisualizarRelatorio.Name = "btnVisualizarRelatorio";
             this.btnVisualizarRelatorio.Size = new System.Drawing.Size(120, 90);
-            this.btnVisualizarRelatorio.TabIndex = 4;
+            this.btnVisualizarRelatorio.TabIndex = 33;
             this.btnVisualizarRelatorio.Text = "Visualizar Relatórios";
             this.btnVisualizarRelatorio.UseVisualStyleBackColor = true;
             this.btnVisualizarRelatorio.Click += new System.EventHandler(this.btnVisualizarRelatorio_Click);
@@ -1381,10 +1374,63 @@ namespace SYS_APAE
             this.btnGerarRel.Location = new System.Drawing.Point(12, 281);
             this.btnGerarRel.Name = "btnGerarRel";
             this.btnGerarRel.Size = new System.Drawing.Size(120, 90);
-            this.btnGerarRel.TabIndex = 7;
+            this.btnGerarRel.TabIndex = 32;
             this.btnGerarRel.Text = "Gerar Relatórios";
             this.btnGerarRel.UseVisualStyleBackColor = true;
             this.btnGerarRel.Click += new System.EventHandler(this.btnGerarRel_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(309, 306);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(558, 33);
+            this.btnAdd.TabIndex = 23;
+            this.btnAdd.Text = "Adicionar";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // dtpNasc
+            // 
+            this.dtpNasc.CustomFormat = "\"dd-MM-yyyy\"";
+            this.dtpNasc.Location = new System.Drawing.Point(407, 93);
+            this.dtpNasc.Name = "dtpNasc";
+            this.dtpNasc.Size = new System.Drawing.Size(249, 20);
+            this.dtpNasc.TabIndex = 6;
+            this.dtpNasc.Value = new System.DateTime(2018, 5, 13, 0, 19, 44, 0);
+            this.dtpNasc.Enter += new System.EventHandler(this.dtpNasc_Enter);
+            // 
+            // dtpExp
+            // 
+            this.dtpExp.CustomFormat = "\"dd-MM-yyyy\"";
+            this.dtpExp.Location = new System.Drawing.Point(75, 175);
+            this.dtpExp.Name = "dtpExp";
+            this.dtpExp.Size = new System.Drawing.Size(204, 20);
+            this.dtpExp.TabIndex = 10;
+            this.dtpExp.Value = new System.DateTime(2018, 5, 13, 0, 19, 44, 0);
+            this.dtpExp.Enter += new System.EventHandler(this.dtpExp_Enter);
+            // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(75, 306);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(95, 33);
+            this.btnReset.TabIndex = 24;
+            this.btnReset.Text = "Apagar";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // dtgParticipantes
+            // 
+            this.dtgParticipantes.AllowUserToAddRows = false;
+            this.dtgParticipantes.AllowUserToDeleteRows = false;
+            this.dtgParticipantes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgParticipantes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgParticipantes.ColumnHeadersVisible = false;
+            this.dtgParticipantes.Location = new System.Drawing.Point(6, 72);
+            this.dtgParticipantes.Name = "dtgParticipantes";
+            this.dtgParticipantes.ReadOnly = true;
+            this.dtgParticipantes.Size = new System.Drawing.Size(1166, 276);
+            this.dtgParticipantes.TabIndex = 5;
             // 
             // MainMenu
             // 
@@ -1420,6 +1466,7 @@ namespace SYS_APAE
             this.gpBoxDigitacao.ResumeLayout(false);
             this.gpBoxDigitacao.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo_if)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgParticipantes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1455,8 +1502,6 @@ namespace SYS_APAE
         private System.Windows.Forms.Label lblMae;
         private System.Windows.Forms.Label lblEnd;
         private System.Windows.Forms.TextBox txtNaturalidade;
-        private System.Windows.Forms.TextBox txtNasc;
-        private System.Windows.Forms.TextBox txtDataExp;
         private System.Windows.Forms.Label lblNasc;
         private System.Windows.Forms.TextBox txtTel;
         private System.Windows.Forms.TextBox txtDDDTel;
@@ -1537,6 +1582,11 @@ namespace SYS_APAE
         private System.Windows.Forms.GroupBox gpBoxLeitura;
         private GroupBox gpBoxAtividade;
         private GroupBox gpBoxInteressante;
+        private Button btnAdd;
+        private DateTimePicker dtpNasc;
+        private DateTimePicker dtpExp;
+        private Button btnReset;
+        private DataGridView dtgParticipantes;
     }
 }
 

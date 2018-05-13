@@ -14,7 +14,7 @@ namespace SYS_APAE.SYS_APAE.Data
         public static List<Student> getAllStudents()
         {
             List<Student> listStudents = new List<Student>();
-            List<Dictionary<string, string>> dbResult = dbConnector.ExecuteSelectMultValues("SELECT * FROM students");
+            List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement("SELECT * FROM students");
 
             foreach (var student in dbResult)
             {
@@ -47,7 +47,7 @@ namespace SYS_APAE.SYS_APAE.Data
         public static List<StudentsView> getAllStudentsUsingView()
         {
             List<StudentsView> listStudents = new List<StudentsView>();
-            List<Dictionary<string, string>> dbResult = dbConnector.ExecuteSelectMultValues("SELECT * FROM students_view");
+            List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement("SELECT * FROM students_view");
 
             foreach (var student in dbResult)
             {
@@ -65,7 +65,7 @@ namespace SYS_APAE.SYS_APAE.Data
 
         public static Student getStudentById(string id)
         {
-            Dictionary<string, string> student = dbConnector.ExecuteSelectSingleValue("SELECT * FROM students where id=" + id);
+            Dictionary<string, string> student = dbConnector.DoQueryStatementOnlyFirstRow("SELECT * FROM students where id=" + id);
 
             return new Student(
                         Convert.ToInt32(student["id"]),
@@ -87,6 +87,12 @@ namespace SYS_APAE.SYS_APAE.Data
                         student["celphone"].ToString(),
                         student["email"].ToString()
                         );
+        }
+
+        public static bool addNewStudent(Student student)
+        {
+            string[] partialQuery = student.GeneratePartialInsertQuery();
+            return dbConnector.DoNonQueryStatement("INSERT INTO students (" + partialQuery[0] + ") VALUES(" + partialQuery[1] + ")");
         }
     }
 }

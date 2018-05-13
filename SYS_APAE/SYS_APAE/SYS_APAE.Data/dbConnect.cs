@@ -66,6 +66,12 @@ namespace SYS_APAE
             return command.ExecuteReader();
         }
 
+        private void ExecuteNonQueryStatement(string sqlStatement)
+        {
+            MySqlCommand command = new MySqlCommand(sqlStatement, connection);
+            command.ExecuteNonQuery();
+        }
+
         private List<string> GetColumnsLabel(MySqlDataReader dataReader)
         {
             List<string> readerColumns = new List<string>();
@@ -86,7 +92,7 @@ namespace SYS_APAE
             return newRow;
         }
 
-        public Dictionary<string, string> ExecuteSelectSingleValue(string sqlStatement)
+        public Dictionary<string, string> DoQueryStatementOnlyFirstRow(string sqlStatement)
         {
             Dictionary<string, string> returnData = new Dictionary<string, string>();
 
@@ -103,7 +109,7 @@ namespace SYS_APAE
             return returnData;
         }
 
-        public List<Dictionary<string, string>> ExecuteSelectMultValues(string sqlStatement)
+        public List<Dictionary<string, string>> DoQueryStatement(string sqlStatement)
         {
             List<Dictionary<string, string>> returnData = new List<Dictionary<string, string>>();
 
@@ -118,6 +124,18 @@ namespace SYS_APAE
             }
 
             return returnData;
+        }
+
+        public bool DoNonQueryStatement(string sqlStatement)
+        {
+            if (this.OpenConnection())
+            {
+                ExecuteNonQueryStatement(sqlStatement);
+
+                this.CloseConnection();
+            }
+
+            return true;
         }
 
         public void Dispose()
