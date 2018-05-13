@@ -71,6 +71,28 @@ namespace SYS_APAE
             txtEmail.ResetText();
         }
 
+        private void _handlerRefreshAddRelatorio()
+        {
+
+        }
+
+        private void _handlerRelatoriosCMBox()
+        {
+            setCMBoxValues(StudentsDTO.getAllStudentsName(), cmbNomeAluno);
+            setCMBoxValues(InstructorDTO.getAllInstructorsName(), cmbNomeMonitor);
+        }
+
+        private void setCMBoxValues(DataTable dtSource, ComboBox cmbTarget)
+        {
+            cmbTarget.DisplayMember = "Name";
+            cmbTarget.ValueMember = "Id";
+            DataRow firstRow = dtSource.NewRow();
+            firstRow["Name"] = "Selecionar";
+            firstRow["id"] = "-1";
+            dtSource.Rows.InsertAt(firstRow, 0);
+            cmbTarget.DataSource = dtSource;
+        }
+
         private bool AddNewStudent()
         {
             return StudentsDTO.addNewStudent(new Student(
@@ -120,6 +142,11 @@ namespace SYS_APAE
                 ));
         }
 
+        private bool AddRelatorio()
+        {
+            return true;
+        }
+
         private void btnParticipante_Click(object sender, EventArgs e)
         {
             _handlerTabGeral();
@@ -147,6 +174,7 @@ namespace SYS_APAE
         private void btnGerarRel_Click(object sender, EventArgs e)
         {
             _handlerTabGeral();
+            _handlerRelatoriosCMBox();
 
             tabControlGeral.TabPages.Insert(0, tabGerarRel);
             btnGerarRel.Enabled = false;
@@ -219,6 +247,23 @@ namespace SYS_APAE
             {
                 dtgParticipantes.DataSource = StudentsDTO.getAllStudentsUsingView();
                 dtgParticipantes.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            }
+        }
+
+        private void cmbNomeMonitor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbNomeMonitor.SelectedValue.ToString() != "-1")
+                txtProntRelatorio.Text = InstructorDTO.getProntuario(Convert.ToInt32(cmbNomeMonitor.SelectedValue));
+            else
+                txtProntRelatorio.Text = "";
+        }
+
+        private void btnRelAdd_Click(object sender, EventArgs e)
+        {
+            if (AddRelatorio())
+            {
+                MessageBox.Show("Relatório cadastrado com sucesso!");
+                _handlerRefreshAddRelatorio();
             }
         }
     }

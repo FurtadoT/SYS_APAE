@@ -33,6 +33,10 @@ namespace SYS_APAE
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.tabControlGeral = new System.Windows.Forms.TabControl();
             this.tabCadastro = new System.Windows.Forms.TabPage();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.dtpExp = new System.Windows.Forms.DateTimePicker();
+            this.dtpNasc = new System.Windows.Forms.DateTimePicker();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblDDD = new System.Windows.Forms.Label();
@@ -75,6 +79,7 @@ namespace SYS_APAE
             this.radioMonitor = new System.Windows.Forms.RadioButton();
             this.radioAluno = new System.Windows.Forms.RadioButton();
             this.tabParticipante = new System.Windows.Forms.TabPage();
+            this.dtgParticipantes = new System.Windows.Forms.DataGridView();
             this.radioListMonitor = new System.Windows.Forms.RadioButton();
             this.radioListAluno = new System.Windows.Forms.RadioButton();
             this.tabVisuRel = new System.Windows.Forms.TabPage();
@@ -124,10 +129,7 @@ namespace SYS_APAE
             this.radioDig2 = new System.Windows.Forms.RadioButton();
             this.radioDig1 = new System.Windows.Forms.RadioButton();
             this.txtTitulo = new System.Windows.Forms.TextBox();
-            this.txtData = new System.Windows.Forms.TextBox();
-            this.txtPront = new System.Windows.Forms.TextBox();
-            this.txtNomeMonitor = new System.Windows.Forms.TextBox();
-            this.txtNomeAluno = new System.Windows.Forms.TextBox();
+            this.txtProntRelatorio = new System.Windows.Forms.TextBox();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblData = new System.Windows.Forms.Label();
             this.lblNomeAluno = new System.Windows.Forms.Label();
@@ -139,14 +141,14 @@ namespace SYS_APAE
             this.logo_if = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnGerarRel = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.dtpNasc = new System.Windows.Forms.DateTimePicker();
-            this.dtpExp = new System.Windows.Forms.DateTimePicker();
-            this.btnReset = new System.Windows.Forms.Button();
-            this.dtgParticipantes = new System.Windows.Forms.DataGridView();
+            this.cmbNomeAluno = new System.Windows.Forms.ComboBox();
+            this.cmbNomeMonitor = new System.Windows.Forms.ComboBox();
+            this.dtpRelCreated = new System.Windows.Forms.DateTimePicker();
+            this.btnRelAdd = new System.Windows.Forms.Button();
             this.tabControlGeral.SuspendLayout();
             this.tabCadastro.SuspendLayout();
             this.tabParticipante.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgParticipantes)).BeginInit();
             this.tabGerarRel.SuspendLayout();
             this.gpBoxInteressante.SuspendLayout();
             this.gpBoxAtividade.SuspendLayout();
@@ -154,7 +156,6 @@ namespace SYS_APAE
             this.gpBoxLeitura.SuspendLayout();
             this.gpBoxDigitacao.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo_if)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgParticipantes)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlGeral
@@ -228,6 +229,46 @@ namespace SYS_APAE
             this.tabCadastro.TabIndex = 0;
             this.tabCadastro.Text = "Cadastrar";
             this.tabCadastro.UseVisualStyleBackColor = true;
+            // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(75, 306);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(95, 33);
+            this.btnReset.TabIndex = 24;
+            this.btnReset.Text = "Apagar";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // dtpExp
+            // 
+            this.dtpExp.CustomFormat = "\"dd-MM-yyyy\"";
+            this.dtpExp.Location = new System.Drawing.Point(75, 175);
+            this.dtpExp.Name = "dtpExp";
+            this.dtpExp.Size = new System.Drawing.Size(204, 20);
+            this.dtpExp.TabIndex = 10;
+            this.dtpExp.Value = new System.DateTime(2018, 5, 13, 0, 19, 44, 0);
+            this.dtpExp.Enter += new System.EventHandler(this.dtpExp_Enter);
+            // 
+            // dtpNasc
+            // 
+            this.dtpNasc.CustomFormat = "\"dd-MM-yyyy\"";
+            this.dtpNasc.Location = new System.Drawing.Point(407, 93);
+            this.dtpNasc.Name = "dtpNasc";
+            this.dtpNasc.Size = new System.Drawing.Size(249, 20);
+            this.dtpNasc.TabIndex = 6;
+            this.dtpNasc.Value = new System.DateTime(2018, 5, 13, 0, 19, 44, 0);
+            this.dtpNasc.Enter += new System.EventHandler(this.dtpNasc_Enter);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(309, 306);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(558, 33);
+            this.btnAdd.TabIndex = 23;
+            this.btnAdd.Text = "Adicionar";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // txtEmail
             // 
@@ -621,6 +662,19 @@ namespace SYS_APAE
             this.tabParticipante.Text = "Participantes";
             this.tabParticipante.UseVisualStyleBackColor = true;
             // 
+            // dtgParticipantes
+            // 
+            this.dtgParticipantes.AllowUserToAddRows = false;
+            this.dtgParticipantes.AllowUserToDeleteRows = false;
+            this.dtgParticipantes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgParticipantes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgParticipantes.ColumnHeadersVisible = false;
+            this.dtgParticipantes.Location = new System.Drawing.Point(6, 72);
+            this.dtgParticipantes.Name = "dtgParticipantes";
+            this.dtgParticipantes.ReadOnly = true;
+            this.dtgParticipantes.Size = new System.Drawing.Size(1166, 276);
+            this.dtgParticipantes.TabIndex = 5;
+            // 
             // radioListMonitor
             // 
             this.radioListMonitor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -660,16 +714,17 @@ namespace SYS_APAE
             // 
             // tabGerarRel
             // 
+            this.tabGerarRel.Controls.Add(this.btnRelAdd);
+            this.tabGerarRel.Controls.Add(this.dtpRelCreated);
+            this.tabGerarRel.Controls.Add(this.cmbNomeMonitor);
+            this.tabGerarRel.Controls.Add(this.cmbNomeAluno);
             this.tabGerarRel.Controls.Add(this.gpBoxInteressante);
             this.tabGerarRel.Controls.Add(this.gpBoxAtividade);
             this.tabGerarRel.Controls.Add(this.gpBoxRecLetras);
             this.tabGerarRel.Controls.Add(this.gpBoxLeitura);
             this.tabGerarRel.Controls.Add(this.gpBoxDigitacao);
             this.tabGerarRel.Controls.Add(this.txtTitulo);
-            this.tabGerarRel.Controls.Add(this.txtData);
-            this.tabGerarRel.Controls.Add(this.txtPront);
-            this.tabGerarRel.Controls.Add(this.txtNomeMonitor);
-            this.tabGerarRel.Controls.Add(this.txtNomeAluno);
+            this.tabGerarRel.Controls.Add(this.txtProntRelatorio);
             this.tabGerarRel.Controls.Add(this.lblTitulo);
             this.tabGerarRel.Controls.Add(this.lblData);
             this.tabGerarRel.Controls.Add(this.lblNomeAluno);
@@ -693,9 +748,9 @@ namespace SYS_APAE
             this.gpBoxInteressante.Controls.Add(this.radioInteressante1);
             this.gpBoxInteressante.Controls.Add(this.lblObsInteressante);
             this.gpBoxInteressante.Controls.Add(this.txtObsInteressante);
-            this.gpBoxInteressante.Location = new System.Drawing.Point(511, 234);
+            this.gpBoxInteressante.Location = new System.Drawing.Point(427, 234);
             this.gpBoxInteressante.Name = "gpBoxInteressante";
-            this.gpBoxInteressante.Size = new System.Drawing.Size(650, 112);
+            this.gpBoxInteressante.Size = new System.Drawing.Size(606, 112);
             this.gpBoxInteressante.TabIndex = 58;
             this.gpBoxInteressante.TabStop = false;
             // 
@@ -790,7 +845,7 @@ namespace SYS_APAE
             // lblObsInteressante
             // 
             this.lblObsInteressante.AutoSize = true;
-            this.lblObsInteressante.Location = new System.Drawing.Point(29, 76);
+            this.lblObsInteressante.Location = new System.Drawing.Point(30, 83);
             this.lblObsInteressante.Name = "lblObsInteressante";
             this.lblObsInteressante.Size = new System.Drawing.Size(35, 13);
             this.lblObsInteressante.TabIndex = 47;
@@ -798,9 +853,9 @@ namespace SYS_APAE
             // 
             // txtObsInteressante
             // 
-            this.txtObsInteressante.Location = new System.Drawing.Point(71, 73);
+            this.txtObsInteressante.Location = new System.Drawing.Point(71, 80);
             this.txtObsInteressante.Name = "txtObsInteressante";
-            this.txtObsInteressante.Size = new System.Drawing.Size(564, 20);
+            this.txtObsInteressante.Size = new System.Drawing.Size(529, 20);
             this.txtObsInteressante.TabIndex = 48;
             // 
             // gpBoxAtividade
@@ -814,9 +869,9 @@ namespace SYS_APAE
             this.gpBoxAtividade.Controls.Add(this.radioAtividade4);
             this.gpBoxAtividade.Controls.Add(this.radioAtividade2);
             this.gpBoxAtividade.Controls.Add(this.radioAtividade1);
-            this.gpBoxAtividade.Location = new System.Drawing.Point(511, 123);
+            this.gpBoxAtividade.Location = new System.Drawing.Point(427, 123);
             this.gpBoxAtividade.Name = "gpBoxAtividade";
-            this.gpBoxAtividade.Size = new System.Drawing.Size(650, 112);
+            this.gpBoxAtividade.Size = new System.Drawing.Size(606, 112);
             this.gpBoxAtividade.TabIndex = 57;
             this.gpBoxAtividade.TabStop = false;
             // 
@@ -824,13 +879,13 @@ namespace SYS_APAE
             // 
             this.txtObs.Location = new System.Drawing.Point(71, 80);
             this.txtObs.Name = "txtObs";
-            this.txtObs.Size = new System.Drawing.Size(564, 20);
+            this.txtObs.Size = new System.Drawing.Size(529, 20);
             this.txtObs.TabIndex = 39;
             // 
             // lblObs
             // 
             this.lblObs.AutoSize = true;
-            this.lblObs.Location = new System.Drawing.Point(29, 83);
+            this.lblObs.Location = new System.Drawing.Point(30, 83);
             this.lblObs.Name = "lblObs";
             this.lblObs.Size = new System.Drawing.Size(35, 13);
             this.lblObs.TabIndex = 11;
@@ -933,16 +988,16 @@ namespace SYS_APAE
             this.gpBoxRecLetras.Controls.Add(this.radioReconhecer4);
             this.gpBoxRecLetras.Controls.Add(this.radioReconhecer2);
             this.gpBoxRecLetras.Controls.Add(this.radioReconhecer1);
-            this.gpBoxRecLetras.Location = new System.Drawing.Point(3, 272);
+            this.gpBoxRecLetras.Location = new System.Drawing.Point(23, 272);
             this.gpBoxRecLetras.Name = "gpBoxRecLetras";
-            this.gpBoxRecLetras.Size = new System.Drawing.Size(405, 74);
+            this.gpBoxRecLetras.Size = new System.Drawing.Size(384, 74);
             this.gpBoxRecLetras.TabIndex = 56;
             this.gpBoxRecLetras.TabStop = false;
             // 
             // lblReconhecer
             // 
             this.lblReconhecer.AutoSize = true;
-            this.lblReconhecer.Location = new System.Drawing.Point(18, 15);
+            this.lblReconhecer.Location = new System.Drawing.Point(12, 16);
             this.lblReconhecer.Name = "lblReconhecer";
             this.lblReconhecer.Size = new System.Drawing.Size(245, 13);
             this.lblReconhecer.TabIndex = 26;
@@ -951,7 +1006,7 @@ namespace SYS_APAE
             // radioReconhecer0
             // 
             this.radioReconhecer0.AutoSize = true;
-            this.radioReconhecer0.Location = new System.Drawing.Point(48, 49);
+            this.radioReconhecer0.Location = new System.Drawing.Point(42, 49);
             this.radioReconhecer0.Name = "radioReconhecer0";
             this.radioReconhecer0.Size = new System.Drawing.Size(31, 17);
             this.radioReconhecer0.TabIndex = 25;
@@ -964,7 +1019,7 @@ namespace SYS_APAE
             // radioReconhecer5
             // 
             this.radioReconhecer5.AutoSize = true;
-            this.radioReconhecer5.Location = new System.Drawing.Point(354, 49);
+            this.radioReconhecer5.Location = new System.Drawing.Point(348, 49);
             this.radioReconhecer5.Margin = new System.Windows.Forms.Padding(10);
             this.radioReconhecer5.Name = "radioReconhecer5";
             this.radioReconhecer5.Size = new System.Drawing.Size(31, 17);
@@ -978,7 +1033,7 @@ namespace SYS_APAE
             // radioReconhecer3
             // 
             this.radioReconhecer3.AutoSize = true;
-            this.radioReconhecer3.Location = new System.Drawing.Point(225, 49);
+            this.radioReconhecer3.Location = new System.Drawing.Point(219, 49);
             this.radioReconhecer3.Name = "radioReconhecer3";
             this.radioReconhecer3.Size = new System.Drawing.Size(31, 17);
             this.radioReconhecer3.TabIndex = 28;
@@ -991,7 +1046,7 @@ namespace SYS_APAE
             // radioReconhecer4
             // 
             this.radioReconhecer4.AutoSize = true;
-            this.radioReconhecer4.Location = new System.Drawing.Point(288, 49);
+            this.radioReconhecer4.Location = new System.Drawing.Point(282, 49);
             this.radioReconhecer4.Name = "radioReconhecer4";
             this.radioReconhecer4.Size = new System.Drawing.Size(31, 17);
             this.radioReconhecer4.TabIndex = 29;
@@ -1004,7 +1059,7 @@ namespace SYS_APAE
             // radioReconhecer2
             // 
             this.radioReconhecer2.AutoSize = true;
-            this.radioReconhecer2.Location = new System.Drawing.Point(162, 49);
+            this.radioReconhecer2.Location = new System.Drawing.Point(156, 49);
             this.radioReconhecer2.Name = "radioReconhecer2";
             this.radioReconhecer2.Size = new System.Drawing.Size(31, 17);
             this.radioReconhecer2.TabIndex = 30;
@@ -1017,7 +1072,7 @@ namespace SYS_APAE
             // radioReconhecer1
             // 
             this.radioReconhecer1.AutoSize = true;
-            this.radioReconhecer1.Location = new System.Drawing.Point(102, 49);
+            this.radioReconhecer1.Location = new System.Drawing.Point(96, 49);
             this.radioReconhecer1.Name = "radioReconhecer1";
             this.radioReconhecer1.Size = new System.Drawing.Size(31, 17);
             this.radioReconhecer1.TabIndex = 31;
@@ -1036,16 +1091,16 @@ namespace SYS_APAE
             this.gpBoxLeitura.Controls.Add(this.radioLeitura4);
             this.gpBoxLeitura.Controls.Add(this.radioLeitura2);
             this.gpBoxLeitura.Controls.Add(this.radioLeitura1);
-            this.gpBoxLeitura.Location = new System.Drawing.Point(3, 199);
+            this.gpBoxLeitura.Location = new System.Drawing.Point(23, 199);
             this.gpBoxLeitura.Name = "gpBoxLeitura";
-            this.gpBoxLeitura.Size = new System.Drawing.Size(405, 74);
+            this.gpBoxLeitura.Size = new System.Drawing.Size(384, 74);
             this.gpBoxLeitura.TabIndex = 55;
             this.gpBoxLeitura.TabStop = false;
             // 
             // lblLeitura
             // 
             this.lblLeitura.AutoSize = true;
-            this.lblLeitura.Location = new System.Drawing.Point(18, 15);
+            this.lblLeitura.Location = new System.Drawing.Point(12, 16);
             this.lblLeitura.Name = "lblLeitura";
             this.lblLeitura.Size = new System.Drawing.Size(192, 13);
             this.lblLeitura.TabIndex = 19;
@@ -1054,7 +1109,7 @@ namespace SYS_APAE
             // radioLeitura0
             // 
             this.radioLeitura0.AutoSize = true;
-            this.radioLeitura0.Location = new System.Drawing.Point(48, 49);
+            this.radioLeitura0.Location = new System.Drawing.Point(42, 49);
             this.radioLeitura0.Name = "radioLeitura0";
             this.radioLeitura0.Size = new System.Drawing.Size(31, 17);
             this.radioLeitura0.TabIndex = 18;
@@ -1067,7 +1122,7 @@ namespace SYS_APAE
             // radioLeitura5
             // 
             this.radioLeitura5.AutoSize = true;
-            this.radioLeitura5.Location = new System.Drawing.Point(354, 49);
+            this.radioLeitura5.Location = new System.Drawing.Point(348, 49);
             this.radioLeitura5.Margin = new System.Windows.Forms.Padding(10);
             this.radioLeitura5.Name = "radioLeitura5";
             this.radioLeitura5.Size = new System.Drawing.Size(31, 17);
@@ -1081,7 +1136,7 @@ namespace SYS_APAE
             // radioLeitura3
             // 
             this.radioLeitura3.AutoSize = true;
-            this.radioLeitura3.Location = new System.Drawing.Point(225, 49);
+            this.radioLeitura3.Location = new System.Drawing.Point(219, 49);
             this.radioLeitura3.Name = "radioLeitura3";
             this.radioLeitura3.Size = new System.Drawing.Size(31, 17);
             this.radioLeitura3.TabIndex = 21;
@@ -1094,7 +1149,7 @@ namespace SYS_APAE
             // radioLeitura4
             // 
             this.radioLeitura4.AutoSize = true;
-            this.radioLeitura4.Location = new System.Drawing.Point(288, 49);
+            this.radioLeitura4.Location = new System.Drawing.Point(282, 49);
             this.radioLeitura4.Name = "radioLeitura4";
             this.radioLeitura4.Size = new System.Drawing.Size(31, 17);
             this.radioLeitura4.TabIndex = 22;
@@ -1107,7 +1162,7 @@ namespace SYS_APAE
             // radioLeitura2
             // 
             this.radioLeitura2.AutoSize = true;
-            this.radioLeitura2.Location = new System.Drawing.Point(162, 49);
+            this.radioLeitura2.Location = new System.Drawing.Point(156, 49);
             this.radioLeitura2.Name = "radioLeitura2";
             this.radioLeitura2.Size = new System.Drawing.Size(31, 17);
             this.radioLeitura2.TabIndex = 23;
@@ -1120,7 +1175,7 @@ namespace SYS_APAE
             // radioLeitura1
             // 
             this.radioLeitura1.AutoSize = true;
-            this.radioLeitura1.Location = new System.Drawing.Point(102, 49);
+            this.radioLeitura1.Location = new System.Drawing.Point(96, 49);
             this.radioLeitura1.Name = "radioLeitura1";
             this.radioLeitura1.Size = new System.Drawing.Size(31, 17);
             this.radioLeitura1.TabIndex = 24;
@@ -1139,16 +1194,16 @@ namespace SYS_APAE
             this.gpBoxDigitacao.Controls.Add(this.radioDig4);
             this.gpBoxDigitacao.Controls.Add(this.radioDig2);
             this.gpBoxDigitacao.Controls.Add(this.radioDig1);
-            this.gpBoxDigitacao.Location = new System.Drawing.Point(3, 124);
+            this.gpBoxDigitacao.Location = new System.Drawing.Point(23, 124);
             this.gpBoxDigitacao.Name = "gpBoxDigitacao";
-            this.gpBoxDigitacao.Size = new System.Drawing.Size(405, 76);
+            this.gpBoxDigitacao.Size = new System.Drawing.Size(384, 76);
             this.gpBoxDigitacao.TabIndex = 54;
             this.gpBoxDigitacao.TabStop = false;
             // 
             // lblDigitacao
             // 
             this.lblDigitacao.AutoSize = true;
-            this.lblDigitacao.Location = new System.Drawing.Point(18, 15);
+            this.lblDigitacao.Location = new System.Drawing.Point(12, 16);
             this.lblDigitacao.Name = "lblDigitacao";
             this.lblDigitacao.Size = new System.Drawing.Size(207, 13);
             this.lblDigitacao.TabIndex = 12;
@@ -1157,7 +1212,7 @@ namespace SYS_APAE
             // radioDig0
             // 
             this.radioDig0.AutoSize = true;
-            this.radioDig0.Location = new System.Drawing.Point(48, 49);
+            this.radioDig0.Location = new System.Drawing.Point(42, 49);
             this.radioDig0.Name = "radioDig0";
             this.radioDig0.Size = new System.Drawing.Size(31, 17);
             this.radioDig0.TabIndex = 9;
@@ -1170,7 +1225,7 @@ namespace SYS_APAE
             // radioDig5
             // 
             this.radioDig5.AutoSize = true;
-            this.radioDig5.Location = new System.Drawing.Point(354, 49);
+            this.radioDig5.Location = new System.Drawing.Point(348, 49);
             this.radioDig5.Margin = new System.Windows.Forms.Padding(10);
             this.radioDig5.Name = "radioDig5";
             this.radioDig5.Size = new System.Drawing.Size(31, 17);
@@ -1184,7 +1239,7 @@ namespace SYS_APAE
             // radioDig3
             // 
             this.radioDig3.AutoSize = true;
-            this.radioDig3.Location = new System.Drawing.Point(225, 49);
+            this.radioDig3.Location = new System.Drawing.Point(219, 49);
             this.radioDig3.Name = "radioDig3";
             this.radioDig3.Size = new System.Drawing.Size(31, 17);
             this.radioDig3.TabIndex = 14;
@@ -1197,7 +1252,7 @@ namespace SYS_APAE
             // radioDig4
             // 
             this.radioDig4.AutoSize = true;
-            this.radioDig4.Location = new System.Drawing.Point(288, 49);
+            this.radioDig4.Location = new System.Drawing.Point(282, 49);
             this.radioDig4.Name = "radioDig4";
             this.radioDig4.Size = new System.Drawing.Size(31, 17);
             this.radioDig4.TabIndex = 15;
@@ -1210,7 +1265,7 @@ namespace SYS_APAE
             // radioDig2
             // 
             this.radioDig2.AutoSize = true;
-            this.radioDig2.Location = new System.Drawing.Point(162, 49);
+            this.radioDig2.Location = new System.Drawing.Point(156, 49);
             this.radioDig2.Name = "radioDig2";
             this.radioDig2.Size = new System.Drawing.Size(31, 17);
             this.radioDig2.TabIndex = 16;
@@ -1223,7 +1278,7 @@ namespace SYS_APAE
             // radioDig1
             // 
             this.radioDig1.AutoSize = true;
-            this.radioDig1.Location = new System.Drawing.Point(102, 49);
+            this.radioDig1.Location = new System.Drawing.Point(96, 49);
             this.radioDig1.Name = "radioDig1";
             this.radioDig1.Size = new System.Drawing.Size(31, 17);
             this.radioDig1.TabIndex = 17;
@@ -1235,43 +1290,23 @@ namespace SYS_APAE
             // 
             // txtTitulo
             // 
-            this.txtTitulo.Location = new System.Drawing.Point(681, 88);
+            this.txtTitulo.Location = new System.Drawing.Point(721, 81);
             this.txtTitulo.Name = "txtTitulo";
-            this.txtTitulo.Size = new System.Drawing.Size(466, 20);
+            this.txtTitulo.Size = new System.Drawing.Size(425, 20);
             this.txtTitulo.TabIndex = 53;
             // 
-            // txtData
+            // txtProntRelatorio
             // 
-            this.txtData.Location = new System.Drawing.Point(385, 85);
-            this.txtData.Name = "txtData";
-            this.txtData.Size = new System.Drawing.Size(135, 20);
-            this.txtData.TabIndex = 52;
-            // 
-            // txtPront
-            // 
-            this.txtPront.Location = new System.Drawing.Point(113, 85);
-            this.txtPront.Name = "txtPront";
-            this.txtPront.Size = new System.Drawing.Size(178, 20);
-            this.txtPront.TabIndex = 51;
-            // 
-            // txtNomeMonitor
-            // 
-            this.txtNomeMonitor.Location = new System.Drawing.Point(113, 55);
-            this.txtNomeMonitor.Name = "txtNomeMonitor";
-            this.txtNomeMonitor.Size = new System.Drawing.Size(1034, 20);
-            this.txtNomeMonitor.TabIndex = 50;
-            // 
-            // txtNomeAluno
-            // 
-            this.txtNomeAluno.Location = new System.Drawing.Point(113, 14);
-            this.txtNomeAluno.Name = "txtNomeAluno";
-            this.txtNomeAluno.Size = new System.Drawing.Size(1034, 20);
-            this.txtNomeAluno.TabIndex = 49;
+            this.txtProntRelatorio.Location = new System.Drawing.Point(112, 81);
+            this.txtProntRelatorio.Name = "txtProntRelatorio";
+            this.txtProntRelatorio.ReadOnly = true;
+            this.txtProntRelatorio.Size = new System.Drawing.Size(178, 20);
+            this.txtProntRelatorio.TabIndex = 51;
             // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Location = new System.Drawing.Point(553, 92);
+            this.lblTitulo.Location = new System.Drawing.Point(615, 84);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(100, 13);
             this.lblTitulo.TabIndex = 8;
@@ -1280,7 +1315,7 @@ namespace SYS_APAE
             // lblData
             // 
             this.lblData.AutoSize = true;
-            this.lblData.Location = new System.Drawing.Point(334, 88);
+            this.lblData.Location = new System.Drawing.Point(307, 84);
             this.lblData.Name = "lblData";
             this.lblData.Size = new System.Drawing.Size(36, 13);
             this.lblData.TabIndex = 7;
@@ -1289,16 +1324,16 @@ namespace SYS_APAE
             // lblNomeAluno
             // 
             this.lblNomeAluno.AutoSize = true;
-            this.lblNomeAluno.Location = new System.Drawing.Point(21, 17);
+            this.lblNomeAluno.Location = new System.Drawing.Point(24, 17);
             this.lblNomeAluno.Name = "lblNomeAluno";
-            this.lblNomeAluno.Size = new System.Drawing.Size(86, 13);
+            this.lblNomeAluno.Size = new System.Drawing.Size(83, 13);
             this.lblNomeAluno.TabIndex = 2;
-            this.lblNomeAluno.Text = "Nome do Aluno: ";
+            this.lblNomeAluno.Text = "Nome do Aluno:";
             // 
             // lblPront
             // 
             this.lblPront.AutoSize = true;
-            this.lblPront.Location = new System.Drawing.Point(21, 88);
+            this.lblPront.Location = new System.Drawing.Point(48, 84);
             this.lblPront.Name = "lblPront";
             this.lblPront.Size = new System.Drawing.Size(58, 13);
             this.lblPront.TabIndex = 1;
@@ -1307,11 +1342,11 @@ namespace SYS_APAE
             // lblNomeMonitor
             // 
             this.lblNomeMonitor.AutoSize = true;
-            this.lblNomeMonitor.Location = new System.Drawing.Point(21, 55);
+            this.lblNomeMonitor.Location = new System.Drawing.Point(16, 51);
             this.lblNomeMonitor.Name = "lblNomeMonitor";
-            this.lblNomeMonitor.Size = new System.Drawing.Size(94, 13);
+            this.lblNomeMonitor.Size = new System.Drawing.Size(91, 13);
             this.lblNomeMonitor.TabIndex = 0;
-            this.lblNomeMonitor.Text = "Nome do Monitor: ";
+            this.lblNomeMonitor.Text = "Nome do Monitor:";
             // 
             // btnCadastro
             // 
@@ -1379,58 +1414,44 @@ namespace SYS_APAE
             this.btnGerarRel.UseVisualStyleBackColor = true;
             this.btnGerarRel.Click += new System.EventHandler(this.btnGerarRel_Click);
             // 
-            // btnAdd
+            // cmbNomeAluno
             // 
-            this.btnAdd.Location = new System.Drawing.Point(309, 306);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(558, 33);
-            this.btnAdd.TabIndex = 23;
-            this.btnAdd.Text = "Adicionar";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.cmbNomeAluno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbNomeAluno.FormattingEnabled = true;
+            this.cmbNomeAluno.Items.AddRange(new object[] {
+            "Selecionar"});
+            this.cmbNomeAluno.Location = new System.Drawing.Point(112, 14);
+            this.cmbNomeAluno.Name = "cmbNomeAluno";
+            this.cmbNomeAluno.Size = new System.Drawing.Size(1034, 21);
+            this.cmbNomeAluno.TabIndex = 49;
             // 
-            // dtpNasc
+            // cmbNomeMonitor
             // 
-            this.dtpNasc.CustomFormat = "\"dd-MM-yyyy\"";
-            this.dtpNasc.Location = new System.Drawing.Point(407, 93);
-            this.dtpNasc.Name = "dtpNasc";
-            this.dtpNasc.Size = new System.Drawing.Size(249, 20);
-            this.dtpNasc.TabIndex = 6;
-            this.dtpNasc.Value = new System.DateTime(2018, 5, 13, 0, 19, 44, 0);
-            this.dtpNasc.Enter += new System.EventHandler(this.dtpNasc_Enter);
+            this.cmbNomeMonitor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbNomeMonitor.FormattingEnabled = true;
+            this.cmbNomeMonitor.Location = new System.Drawing.Point(112, 48);
+            this.cmbNomeMonitor.Name = "cmbNomeMonitor";
+            this.cmbNomeMonitor.Size = new System.Drawing.Size(1034, 21);
+            this.cmbNomeMonitor.TabIndex = 59;
+            this.cmbNomeMonitor.SelectedIndexChanged += new System.EventHandler(this.cmbNomeMonitor_SelectedIndexChanged);
             // 
-            // dtpExp
+            // dtpRelCreated
             // 
-            this.dtpExp.CustomFormat = "\"dd-MM-yyyy\"";
-            this.dtpExp.Location = new System.Drawing.Point(75, 175);
-            this.dtpExp.Name = "dtpExp";
-            this.dtpExp.Size = new System.Drawing.Size(204, 20);
-            this.dtpExp.TabIndex = 10;
-            this.dtpExp.Value = new System.DateTime(2018, 5, 13, 0, 19, 44, 0);
-            this.dtpExp.Enter += new System.EventHandler(this.dtpExp_Enter);
+            this.dtpRelCreated.CustomFormat = "\"dd-MM-yyyy\"";
+            this.dtpRelCreated.Location = new System.Drawing.Point(349, 81);
+            this.dtpRelCreated.Name = "dtpRelCreated";
+            this.dtpRelCreated.Size = new System.Drawing.Size(243, 20);
+            this.dtpRelCreated.TabIndex = 60;
             // 
-            // btnReset
+            // btnRelAdd
             // 
-            this.btnReset.Location = new System.Drawing.Point(75, 306);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(95, 33);
-            this.btnReset.TabIndex = 24;
-            this.btnReset.Text = "Apagar";
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            // 
-            // dtgParticipantes
-            // 
-            this.dtgParticipantes.AllowUserToAddRows = false;
-            this.dtgParticipantes.AllowUserToDeleteRows = false;
-            this.dtgParticipantes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgParticipantes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgParticipantes.ColumnHeadersVisible = false;
-            this.dtgParticipantes.Location = new System.Drawing.Point(6, 72);
-            this.dtgParticipantes.Name = "dtgParticipantes";
-            this.dtgParticipantes.ReadOnly = true;
-            this.dtgParticipantes.Size = new System.Drawing.Size(1166, 276);
-            this.dtgParticipantes.TabIndex = 5;
+            this.btnRelAdd.Location = new System.Drawing.Point(1051, 284);
+            this.btnRelAdd.Name = "btnRelAdd";
+            this.btnRelAdd.Size = new System.Drawing.Size(95, 62);
+            this.btnRelAdd.TabIndex = 61;
+            this.btnRelAdd.Text = "Salvar";
+            this.btnRelAdd.UseVisualStyleBackColor = true;
+            this.btnRelAdd.Click += new System.EventHandler(this.btnRelAdd_Click);
             // 
             // MainMenu
             // 
@@ -1453,6 +1474,7 @@ namespace SYS_APAE
             this.tabCadastro.PerformLayout();
             this.tabParticipante.ResumeLayout(false);
             this.tabParticipante.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgParticipantes)).EndInit();
             this.tabGerarRel.ResumeLayout(false);
             this.tabGerarRel.PerformLayout();
             this.gpBoxInteressante.ResumeLayout(false);
@@ -1466,7 +1488,6 @@ namespace SYS_APAE
             this.gpBoxDigitacao.ResumeLayout(false);
             this.gpBoxDigitacao.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo_if)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgParticipantes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1573,10 +1594,7 @@ namespace SYS_APAE
         private System.Windows.Forms.Label lblObs;
         private System.Windows.Forms.RadioButton radioDig0;
         private System.Windows.Forms.TextBox txtTitulo;
-        private System.Windows.Forms.TextBox txtData;
-        private System.Windows.Forms.TextBox txtPront;
-        private System.Windows.Forms.TextBox txtNomeMonitor;
-        private System.Windows.Forms.TextBox txtNomeAluno;
+        private System.Windows.Forms.TextBox txtProntRelatorio;
         private System.Windows.Forms.GroupBox gpBoxDigitacao;
         private System.Windows.Forms.GroupBox gpBoxRecLetras;
         private System.Windows.Forms.GroupBox gpBoxLeitura;
@@ -1587,6 +1605,10 @@ namespace SYS_APAE
         private DateTimePicker dtpExp;
         private Button btnReset;
         private DataGridView dtgParticipantes;
+        private ComboBox cmbNomeAluno;
+        private ComboBox cmbNomeMonitor;
+        private DateTimePicker dtpRelCreated;
+        private Button btnRelAdd;
     }
 }
 

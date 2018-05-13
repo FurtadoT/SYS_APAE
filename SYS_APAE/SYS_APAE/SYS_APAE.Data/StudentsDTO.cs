@@ -1,6 +1,7 @@
 ﻿using SYS_APAE.SYS_APAE.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,6 +39,25 @@ namespace SYS_APAE.SYS_APAE.Data
                         student["celphone"].ToString(),
                         student["email"].ToString()
                         ));
+            }
+
+            return listStudents;
+        }
+
+        public static DataTable getAllStudentsName()
+        {
+            DataTable listStudents = new DataTable();
+            listStudents.Columns.Add("Id", typeof(int));
+            listStudents.Columns.Add("Name");
+
+            List<StudentsView> completeListStudent = getAllStudentsUsingView();
+
+            foreach (var student in completeListStudent)
+            {
+                DataRow listRow = listStudents.NewRow();
+                listRow["Name"] = student.Name;
+                listRow["Id"] = student.Id;
+                listStudents.Rows.InsertAt(listRow, 0);
             }
 
             return listStudents;

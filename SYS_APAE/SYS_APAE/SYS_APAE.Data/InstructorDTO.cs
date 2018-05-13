@@ -1,6 +1,7 @@
 ﻿using SYS_APAE.SYS_APAE.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,6 +40,25 @@ namespace SYS_APAE.SYS_APAE.Data
                         instructor["email"].ToString(),
                         instructor["prontuario"].ToString()
                         ));
+            }
+
+            return listInstructors;
+        }
+
+        public static DataTable getAllInstructorsName()
+        {
+            DataTable listInstructors = new DataTable();
+            listInstructors.Columns.Add("Id", typeof(int));
+            listInstructors.Columns.Add("Name");
+
+            List<InstructorsView> completeListStudent = getAllInstructorsUsingView();
+
+            foreach (var instructor in completeListStudent)
+            {
+                DataRow listRow = listInstructors.NewRow();
+                listRow["Name"] = instructor.Name;
+                listRow["Id"] = instructor.Id;
+                listInstructors.Rows.InsertAt(listRow, 0);
             }
 
             return listInstructors;
@@ -90,6 +110,11 @@ namespace SYS_APAE.SYS_APAE.Data
                         instructor["email"].ToString(),
                         instructor["prontuario"].ToString()
                         );
+        }
+
+        public static string getProntuario(int id)
+        {
+            return dbConnector.DoQueryStatementOnlyFirstRow("SELECT prontuario FROM instructors where id="+id)["prontuario"];
         }
 
         public static bool addNewInstructor(Instructor instructor)
