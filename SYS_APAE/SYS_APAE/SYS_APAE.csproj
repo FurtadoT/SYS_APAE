@@ -70,6 +70,7 @@
     <Compile Include="SYS_APAE.Models\People.cs" />
     <Compile Include="SYS_APAE.Models\PeopleView.cs" />
     <Compile Include="SYS_APAE.Models\Report.cs" />
+    <Compile Include="SYS_APAE.Models\ReportsView.cs" />
     <Compile Include="SYS_APAE.View\MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>

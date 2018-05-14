@@ -232,7 +232,7 @@ namespace SYS_APAE
             tabControlGeral.TabPages.Insert(0, tabVisuRel);
             btnVisualizarRelatorio.Enabled = false;
 
-            dtgReports.DataSource = ReportsDTO.getAllReports();
+            dtgReports.DataSource = ReportsDTO.getAllReportsUsingView();
             dtgReports.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
         }
 

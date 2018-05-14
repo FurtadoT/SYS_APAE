@@ -83,7 +83,9 @@ namespace SYS_APAE
             this.radioListMonitor = new System.Windows.Forms.RadioButton();
             this.radioListAluno = new System.Windows.Forms.RadioButton();
             this.tabVisuRel = new System.Windows.Forms.TabPage();
+            this.dtgReports = new System.Windows.Forms.DataGridView();
             this.tabGerarRel = new System.Windows.Forms.TabPage();
+            this.btnRefreshReport = new System.Windows.Forms.Button();
             this.btnRelAdd = new System.Windows.Forms.Button();
             this.dtpRelCreated = new System.Windows.Forms.DateTimePicker();
             this.cmbNomeMonitor = new System.Windows.Forms.ComboBox();
@@ -145,13 +147,12 @@ namespace SYS_APAE
             this.logo_if = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnGerarRel = new System.Windows.Forms.Button();
-            this.btnRefreshReport = new System.Windows.Forms.Button();
-            this.dtgReports = new System.Windows.Forms.DataGridView();
             this.tabControlGeral.SuspendLayout();
             this.tabCadastro.SuspendLayout();
             this.tabParticipante.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgParticipantes)).BeginInit();
             this.tabVisuRel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgReports)).BeginInit();
             this.tabGerarRel.SuspendLayout();
             this.gpBoxInteressante.SuspendLayout();
             this.gpBoxAtividade.SuspendLayout();
@@ -159,7 +160,6 @@ namespace SYS_APAE
             this.gpBoxLeitura.SuspendLayout();
             this.gpBoxDigitacao.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo_if)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgReports)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlGeral
@@ -672,7 +672,6 @@ namespace SYS_APAE
             this.dtgParticipantes.AllowUserToDeleteRows = false;
             this.dtgParticipantes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgParticipantes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgParticipantes.ColumnHeadersVisible = false;
             this.dtgParticipantes.Location = new System.Drawing.Point(6, 72);
             this.dtgParticipantes.Name = "dtgParticipantes";
             this.dtgParticipantes.ReadOnly = true;
@@ -717,6 +716,18 @@ namespace SYS_APAE
             this.tabVisuRel.Text = "Visualizar Relatorios";
             this.tabVisuRel.UseVisualStyleBackColor = true;
             // 
+            // dtgReports
+            // 
+            this.dtgReports.AllowUserToAddRows = false;
+            this.dtgReports.AllowUserToDeleteRows = false;
+            this.dtgReports.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgReports.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgReports.Location = new System.Drawing.Point(6, 39);
+            this.dtgReports.Name = "dtgReports";
+            this.dtgReports.ReadOnly = true;
+            this.dtgReports.Size = new System.Drawing.Size(1166, 312);
+            this.dtgReports.TabIndex = 6;
+            // 
             // tabGerarRel
             // 
             this.tabGerarRel.Controls.Add(this.btnRefreshReport);
@@ -742,6 +753,16 @@ namespace SYS_APAE
             this.tabGerarRel.TabIndex = 3;
             this.tabGerarRel.Text = "Gerar Relatórios";
             this.tabGerarRel.UseVisualStyleBackColor = true;
+            // 
+            // btnRefreshReport
+            // 
+            this.btnRefreshReport.Location = new System.Drawing.Point(1071, 124);
+            this.btnRefreshReport.Name = "btnRefreshReport";
+            this.btnRefreshReport.Size = new System.Drawing.Size(75, 23);
+            this.btnRefreshReport.TabIndex = 62;
+            this.btnRefreshReport.Text = "Limpar";
+            this.btnRefreshReport.UseVisualStyleBackColor = true;
+            this.btnRefreshReport.Click += new System.EventHandler(this.btnRefreshReport_Click);
             // 
             // btnRelAdd
             // 
@@ -1459,29 +1480,6 @@ namespace SYS_APAE
             this.btnGerarRel.UseVisualStyleBackColor = true;
             this.btnGerarRel.Click += new System.EventHandler(this.btnGerarRel_Click);
             // 
-            // btnRefreshReport
-            // 
-            this.btnRefreshReport.Location = new System.Drawing.Point(1071, 124);
-            this.btnRefreshReport.Name = "btnRefreshReport";
-            this.btnRefreshReport.Size = new System.Drawing.Size(75, 23);
-            this.btnRefreshReport.TabIndex = 62;
-            this.btnRefreshReport.Text = "Limpar";
-            this.btnRefreshReport.UseVisualStyleBackColor = true;
-            this.btnRefreshReport.Click += new System.EventHandler(this.btnRefreshReport_Click);
-            // 
-            // dtgReports
-            // 
-            this.dtgReports.AllowUserToAddRows = false;
-            this.dtgReports.AllowUserToDeleteRows = false;
-            this.dtgReports.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgReports.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgReports.ColumnHeadersVisible = false;
-            this.dtgReports.Location = new System.Drawing.Point(6, 39);
-            this.dtgReports.Name = "dtgReports";
-            this.dtgReports.ReadOnly = true;
-            this.dtgReports.Size = new System.Drawing.Size(1166, 312);
-            this.dtgReports.TabIndex = 6;
-            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1505,6 +1503,7 @@ namespace SYS_APAE
             this.tabParticipante.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgParticipantes)).EndInit();
             this.tabVisuRel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgReports)).EndInit();
             this.tabGerarRel.ResumeLayout(false);
             this.tabGerarRel.PerformLayout();
             this.gpBoxInteressante.ResumeLayout(false);
@@ -1518,7 +1517,6 @@ namespace SYS_APAE
             this.gpBoxDigitacao.ResumeLayout(false);
             this.gpBoxDigitacao.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo_if)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgReports)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

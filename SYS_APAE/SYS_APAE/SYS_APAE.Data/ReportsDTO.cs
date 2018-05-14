@@ -37,6 +37,25 @@ namespace SYS_APAE.SYS_APAE.Data
             return listReports;
         }
 
+        public static List<ReportsView> getAllReportsUsingView()
+        {
+            List<ReportsView> listReports = new List<ReportsView>();
+            List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement("SELECT * FROM reports_view");
+
+            foreach (var report in dbResult)
+            {
+                listReports.Add(new ReportsView(
+                        Convert.ToInt32(report["id"]),
+                        StudentsDTO.getStudentById(report["id_student"].ToString()).Name,
+                        InstructorDTO.getInstructorById(report["id_instructor"].ToString()).Name,
+                        report["title"].ToString(),
+                        DateTime.Parse(report["dt_created"])
+                        ));
+            }
+
+            return listReports;
+        }
+
         public static bool addNewReport(Report report)
         {
             string[] partialQuery = report.GeneratePartialInsertQuery();
