@@ -84,6 +84,10 @@ namespace SYS_APAE
             this.radioListAluno = new System.Windows.Forms.RadioButton();
             this.tabVisuRel = new System.Windows.Forms.TabPage();
             this.tabGerarRel = new System.Windows.Forms.TabPage();
+            this.btnRelAdd = new System.Windows.Forms.Button();
+            this.dtpRelCreated = new System.Windows.Forms.DateTimePicker();
+            this.cmbNomeMonitor = new System.Windows.Forms.ComboBox();
+            this.cmbNomeAluno = new System.Windows.Forms.ComboBox();
             this.gpBoxInteressante = new System.Windows.Forms.GroupBox();
             this.lblInteressante = new System.Windows.Forms.Label();
             this.radioInteressante0 = new System.Windows.Forms.RadioButton();
@@ -141,14 +145,13 @@ namespace SYS_APAE
             this.logo_if = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnGerarRel = new System.Windows.Forms.Button();
-            this.cmbNomeAluno = new System.Windows.Forms.ComboBox();
-            this.cmbNomeMonitor = new System.Windows.Forms.ComboBox();
-            this.dtpRelCreated = new System.Windows.Forms.DateTimePicker();
-            this.btnRelAdd = new System.Windows.Forms.Button();
+            this.btnRefreshReport = new System.Windows.Forms.Button();
+            this.dtgReports = new System.Windows.Forms.DataGridView();
             this.tabControlGeral.SuspendLayout();
             this.tabCadastro.SuspendLayout();
             this.tabParticipante.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgParticipantes)).BeginInit();
+            this.tabVisuRel.SuspendLayout();
             this.tabGerarRel.SuspendLayout();
             this.gpBoxInteressante.SuspendLayout();
             this.gpBoxAtividade.SuspendLayout();
@@ -156,6 +159,7 @@ namespace SYS_APAE
             this.gpBoxLeitura.SuspendLayout();
             this.gpBoxDigitacao.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo_if)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgReports)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlGeral
@@ -236,7 +240,7 @@ namespace SYS_APAE
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(95, 33);
             this.btnReset.TabIndex = 24;
-            this.btnReset.Text = "Apagar";
+            this.btnReset.Text = "Limpar";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
@@ -705,6 +709,7 @@ namespace SYS_APAE
             // 
             // tabVisuRel
             // 
+            this.tabVisuRel.Controls.Add(this.dtgReports);
             this.tabVisuRel.Location = new System.Drawing.Point(4, 22);
             this.tabVisuRel.Name = "tabVisuRel";
             this.tabVisuRel.Size = new System.Drawing.Size(1178, 354);
@@ -714,6 +719,7 @@ namespace SYS_APAE
             // 
             // tabGerarRel
             // 
+            this.tabGerarRel.Controls.Add(this.btnRefreshReport);
             this.tabGerarRel.Controls.Add(this.btnRelAdd);
             this.tabGerarRel.Controls.Add(this.dtpRelCreated);
             this.tabGerarRel.Controls.Add(this.cmbNomeMonitor);
@@ -736,6 +742,45 @@ namespace SYS_APAE
             this.tabGerarRel.TabIndex = 3;
             this.tabGerarRel.Text = "Gerar Relatórios";
             this.tabGerarRel.UseVisualStyleBackColor = true;
+            // 
+            // btnRelAdd
+            // 
+            this.btnRelAdd.Location = new System.Drawing.Point(1051, 284);
+            this.btnRelAdd.Name = "btnRelAdd";
+            this.btnRelAdd.Size = new System.Drawing.Size(95, 62);
+            this.btnRelAdd.TabIndex = 61;
+            this.btnRelAdd.Text = "Salvar";
+            this.btnRelAdd.UseVisualStyleBackColor = true;
+            this.btnRelAdd.Click += new System.EventHandler(this.btnRelAdd_Click);
+            // 
+            // dtpRelCreated
+            // 
+            this.dtpRelCreated.CustomFormat = "\"dd-MM-yyyy\"";
+            this.dtpRelCreated.Location = new System.Drawing.Point(349, 81);
+            this.dtpRelCreated.Name = "dtpRelCreated";
+            this.dtpRelCreated.Size = new System.Drawing.Size(243, 20);
+            this.dtpRelCreated.TabIndex = 60;
+            // 
+            // cmbNomeMonitor
+            // 
+            this.cmbNomeMonitor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbNomeMonitor.FormattingEnabled = true;
+            this.cmbNomeMonitor.Location = new System.Drawing.Point(112, 48);
+            this.cmbNomeMonitor.Name = "cmbNomeMonitor";
+            this.cmbNomeMonitor.Size = new System.Drawing.Size(1034, 21);
+            this.cmbNomeMonitor.TabIndex = 59;
+            this.cmbNomeMonitor.SelectedIndexChanged += new System.EventHandler(this.cmbNomeMonitor_SelectedIndexChanged);
+            // 
+            // cmbNomeAluno
+            // 
+            this.cmbNomeAluno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbNomeAluno.FormattingEnabled = true;
+            this.cmbNomeAluno.Items.AddRange(new object[] {
+            "Selecionar"});
+            this.cmbNomeAluno.Location = new System.Drawing.Point(112, 14);
+            this.cmbNomeAluno.Name = "cmbNomeAluno";
+            this.cmbNomeAluno.Size = new System.Drawing.Size(1034, 21);
+            this.cmbNomeAluno.TabIndex = 49;
             // 
             // gpBoxInteressante
             // 
@@ -1414,44 +1459,28 @@ namespace SYS_APAE
             this.btnGerarRel.UseVisualStyleBackColor = true;
             this.btnGerarRel.Click += new System.EventHandler(this.btnGerarRel_Click);
             // 
-            // cmbNomeAluno
+            // btnRefreshReport
             // 
-            this.cmbNomeAluno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbNomeAluno.FormattingEnabled = true;
-            this.cmbNomeAluno.Items.AddRange(new object[] {
-            "Selecionar"});
-            this.cmbNomeAluno.Location = new System.Drawing.Point(112, 14);
-            this.cmbNomeAluno.Name = "cmbNomeAluno";
-            this.cmbNomeAluno.Size = new System.Drawing.Size(1034, 21);
-            this.cmbNomeAluno.TabIndex = 49;
+            this.btnRefreshReport.Location = new System.Drawing.Point(1071, 124);
+            this.btnRefreshReport.Name = "btnRefreshReport";
+            this.btnRefreshReport.Size = new System.Drawing.Size(75, 23);
+            this.btnRefreshReport.TabIndex = 62;
+            this.btnRefreshReport.Text = "Limpar";
+            this.btnRefreshReport.UseVisualStyleBackColor = true;
+            this.btnRefreshReport.Click += new System.EventHandler(this.btnRefreshReport_Click);
             // 
-            // cmbNomeMonitor
+            // dtgReports
             // 
-            this.cmbNomeMonitor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbNomeMonitor.FormattingEnabled = true;
-            this.cmbNomeMonitor.Location = new System.Drawing.Point(112, 48);
-            this.cmbNomeMonitor.Name = "cmbNomeMonitor";
-            this.cmbNomeMonitor.Size = new System.Drawing.Size(1034, 21);
-            this.cmbNomeMonitor.TabIndex = 59;
-            this.cmbNomeMonitor.SelectedIndexChanged += new System.EventHandler(this.cmbNomeMonitor_SelectedIndexChanged);
-            // 
-            // dtpRelCreated
-            // 
-            this.dtpRelCreated.CustomFormat = "\"dd-MM-yyyy\"";
-            this.dtpRelCreated.Location = new System.Drawing.Point(349, 81);
-            this.dtpRelCreated.Name = "dtpRelCreated";
-            this.dtpRelCreated.Size = new System.Drawing.Size(243, 20);
-            this.dtpRelCreated.TabIndex = 60;
-            // 
-            // btnRelAdd
-            // 
-            this.btnRelAdd.Location = new System.Drawing.Point(1051, 284);
-            this.btnRelAdd.Name = "btnRelAdd";
-            this.btnRelAdd.Size = new System.Drawing.Size(95, 62);
-            this.btnRelAdd.TabIndex = 61;
-            this.btnRelAdd.Text = "Salvar";
-            this.btnRelAdd.UseVisualStyleBackColor = true;
-            this.btnRelAdd.Click += new System.EventHandler(this.btnRelAdd_Click);
+            this.dtgReports.AllowUserToAddRows = false;
+            this.dtgReports.AllowUserToDeleteRows = false;
+            this.dtgReports.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgReports.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgReports.ColumnHeadersVisible = false;
+            this.dtgReports.Location = new System.Drawing.Point(6, 39);
+            this.dtgReports.Name = "dtgReports";
+            this.dtgReports.ReadOnly = true;
+            this.dtgReports.Size = new System.Drawing.Size(1166, 312);
+            this.dtgReports.TabIndex = 6;
             // 
             // MainMenu
             // 
@@ -1475,6 +1504,7 @@ namespace SYS_APAE
             this.tabParticipante.ResumeLayout(false);
             this.tabParticipante.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgParticipantes)).EndInit();
+            this.tabVisuRel.ResumeLayout(false);
             this.tabGerarRel.ResumeLayout(false);
             this.tabGerarRel.PerformLayout();
             this.gpBoxInteressante.ResumeLayout(false);
@@ -1488,6 +1518,7 @@ namespace SYS_APAE
             this.gpBoxDigitacao.ResumeLayout(false);
             this.gpBoxDigitacao.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo_if)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgReports)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1609,6 +1640,8 @@ namespace SYS_APAE
         private ComboBox cmbNomeMonitor;
         private DateTimePicker dtpRelCreated;
         private Button btnRelAdd;
+        private Button btnRefreshReport;
+        private DataGridView dtgReports;
     }
 }
 

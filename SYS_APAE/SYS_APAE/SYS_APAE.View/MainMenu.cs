@@ -71,9 +71,58 @@ namespace SYS_APAE
             txtEmail.ResetText();
         }
 
+        private void _handlerRefreshRadioReprots()
+        {
+            radioAtividade0.Checked = false;
+            radioAtividade1.Checked = false;
+            radioAtividade2.Checked = false;
+            radioAtividade3.Checked = false;
+            radioAtividade4.Checked = false;
+            radioAtividade5.Checked = false;
+
+            radioDig0.Checked = false;
+            radioDig1.Checked = false;
+            radioDig2.Checked = false;
+            radioDig3.Checked = false;
+            radioDig4.Checked = false;
+            radioDig5.Checked = false;
+
+            radioInteressante0.Checked = false;
+            radioInteressante1.Checked = false;
+            radioInteressante2.Checked = false;
+            radioInteressante3.Checked = false;
+            radioInteressante4.Checked = false;
+            radioInteressante5.Checked = false;
+
+            radioLeitura0.Checked = false;
+            radioLeitura1.Checked = false;
+            radioLeitura2.Checked = false;
+            radioLeitura3.Checked = false;
+            radioLeitura4.Checked = false;
+            radioLeitura5.Checked = false;
+
+            radioReconhecer0.Checked = false;
+            radioReconhecer1.Checked = false;
+            radioReconhecer2.Checked = false;
+            radioReconhecer3.Checked = false;
+            radioReconhecer4.Checked = false;
+            radioReconhecer5.Checked = false;
+        }
+
         private void _handlerRefreshAddRelatorio()
         {
-
+            _handlerRefreshRadioReprots();
+            this.radioControl["dig"] = -1;
+            this.radioControl["lei"] = -1;
+            this.radioControl["rec"] = -1;
+            this.radioControl["atv"] = -1;
+            this.radioControl["int"] = -1;
+            cmbNomeAluno.SelectedIndex = 0;
+            cmbNomeMonitor.SelectedIndex = 0;
+            dtpRelCreated.ResetText();
+            txtTitulo.ResetText();
+            txtObs.ResetText();
+            txtObsInteressante.ResetText();
         }
 
         private void _handlerRelatoriosCMBox()
@@ -144,7 +193,20 @@ namespace SYS_APAE
 
         private bool AddRelatorio()
         {
-            return true;
+            return ReportsDTO.addNewReport(new Report(
+                0,
+                this.radioControl["dig"],
+                this.radioControl["lei"],
+                this.radioControl["rec"],
+                this.radioControl["atv"],
+                this.radioControl["int"],
+                StudentsDTO.getStudentById(cmbNomeAluno.SelectedValue.ToString()),
+                InstructorDTO.getInstructorById(cmbNomeMonitor.SelectedValue.ToString()),
+                dtpRelCreated.Value.Date,
+                txtTitulo.Text,
+                txtObs.Text,
+                txtObsInteressante.Text
+                ));
         }
 
         private void btnParticipante_Click(object sender, EventArgs e)
@@ -169,6 +231,9 @@ namespace SYS_APAE
 
             tabControlGeral.TabPages.Insert(0, tabVisuRel);
             btnVisualizarRelatorio.Enabled = false;
+
+            dtgReports.DataSource = ReportsDTO.getAllReports();
+            dtgReports.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
         }
 
         private void btnGerarRel_Click(object sender, EventArgs e)
@@ -252,10 +317,17 @@ namespace SYS_APAE
 
         private void cmbNomeMonitor_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbNomeMonitor.SelectedValue.ToString() != "-1")
-                txtProntRelatorio.Text = InstructorDTO.getProntuario(Convert.ToInt32(cmbNomeMonitor.SelectedValue));
-            else
-                txtProntRelatorio.Text = "";
+            try
+            {
+                if (cmbNomeMonitor.SelectedValue.ToString() != "-1")
+                    txtProntRelatorio.Text = InstructorDTO.getProntuario(Convert.ToInt32(cmbNomeMonitor.SelectedValue));
+                else
+                    txtProntRelatorio.Text = "";
+            }
+            catch
+            {
+                txtProntuario.Text = "";
+            }
         }
 
         private void btnRelAdd_Click(object sender, EventArgs e)
@@ -265,6 +337,11 @@ namespace SYS_APAE
                 MessageBox.Show("Relatório cadastrado com sucesso!");
                 _handlerRefreshAddRelatorio();
             }
+        }
+
+        private void btnRefreshReport_Click(object sender, EventArgs e)
+        {
+            _handlerRefreshAddRelatorio();
         }
     }
 }
