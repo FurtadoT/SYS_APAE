@@ -65,12 +65,13 @@ CREATE TABLE records (
 );
 
 CREATE VIEW students_view
-	AS SELECT id as Id, name as Nome, cpf as CPF, email as 'E-mail', phone as Telefone FROM students
+	AS SELECT id as Id, name as Nome, cpf as CPF, email as 'E-mail', phone as Telefone FROM students;
 
 CREATE VIEW instructors_view
-	AS SELECT id as Id, name as Nome, cpf as CPF, email as 'E-mail', prontuario as Prontuario, phone as Telefone FROM instructors
+	AS SELECT id as Id, name as Nome, cpf as CPF, email as 'E-mail', prontuario as Prontuario, phone as Telefone FROM instructors;
 
-
+CREATE VIEW reports_view
+	AS SELECT id, id_student, id_instructor, title, dt_created from records;
 
 INSERT INTO students (id, name, cpf, rg, org_exp, dt_exp, dt_nasc, nationality, father_name, mother_name, address, city, state, district, cep, phone, celphone, email) VALUES (0, 'Tobias Furtado da Silva', '22222222222', '22222222', 'SSP', '2010-10-10', '1994-09-18', 'Brasileiro', 'Jorge', 'Maria', 'Celio', 'Sanca', 'São Paulo', 'Santa', '22222222', '2222222222', '22222222222', 'tobias_fs_@hotmail.com');
 
