@@ -28,6 +28,7 @@ namespace SYS_APAE
 
             _handlerTabGeral();
             dtpNasc.Value = DateTime.Today;
+            dtpRelCreated.Value = DateTime.Today;
         }
 
         private void _handlerTabGeral()
