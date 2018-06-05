@@ -65,23 +65,238 @@ namespace SYS_APAE.SYS_APAE.Models
             return String.Format("Aluno {0}", Name);
         }
 
-        public int Id { get => id; set => id = value; }
-        public string Name { get => name; set => name = value; }
-        public string Cpf { get => cpf; set => cpf = value; }
-        public string Rg { get => rg; set => rg = value; }
-        public string Org_exp { get => org_exp; set => org_exp = value; }
-        public string Nationality { get => nationality; set => nationality = value; }
-        public string Father_name { get => father_name; set => father_name = value; }
-        public string Mother_name { get => mother_name; set => mother_name = value; }
-        public string Address { get => address; set => address = value; }
-        public string City { get => city; set => city = value; }
-        public string State { get => state; set => state = value; }
-        public string District { get => district; set => district = value; }
-        public string Cep { get => cep; set => cep = value; }
-        public string Phone { get => phone; set => phone = value; }
-        public string Celphone { get => celphone; set => celphone = value; }
-        public string Email { get => email; set => email = value; }
-        public DateTime Dt_exp { get => dt_exp; set => dt_exp = value; }
-        public DateTime Dt_nasc { get => dt_nasc; set => dt_nasc = value; }
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+
+            set
+            {
+                id = value;
+            }
+        }
+
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+
+            set
+            {
+                name = value;
+            }
+        }
+
+        public string Cpf
+        {
+            get
+            {
+                return cpf;
+            }
+
+            set
+            {
+                cpf = value;
+            }
+        }
+
+        public string Rg
+        {
+            get
+            {
+                return rg;
+            }
+
+            set
+            {
+                rg = value;
+            }
+        }
+
+        public string Org_exp
+        {
+            get
+            {
+                return org_exp;
+            }
+
+            set
+            {
+                org_exp = value;
+            }
+        }
+
+        public string Nationality
+        {
+            get
+            {
+                return nationality;
+            }
+
+            set
+            {
+                nationality = value;
+            }
+        }
+
+        public string Father_name
+        {
+            get
+            {
+                return father_name;
+            }
+
+            set
+            {
+                father_name = value;
+            }
+        }
+
+        public string Mother_name
+        {
+            get
+            {
+                return mother_name;
+            }
+
+            set
+            {
+                mother_name = value;
+            }
+        }
+
+        public string Address
+        {
+            get
+            {
+                return address;
+            }
+
+            set
+            {
+                address = value;
+            }
+        }
+
+        public string City
+        {
+            get
+            {
+                return city;
+            }
+
+            set
+            {
+                city = value;
+            }
+        }
+
+        public string State
+        {
+            get
+            {
+                return state;
+            }
+
+            set
+            {
+                state = value;
+            }
+        }
+
+        public string District
+        {
+            get
+            {
+                return district;
+            }
+
+            set
+            {
+                district = value;
+            }
+        }
+
+        public string Cep
+        {
+            get
+            {
+                return cep;
+            }
+
+            set
+            {
+                cep = value;
+            }
+        }
+
+        public string Phone
+        {
+            get
+            {
+                return phone;
+            }
+
+            set
+            {
+                phone = value;
+            }
+        }
+
+        public string Celphone
+        {
+            get
+            {
+                return celphone;
+            }
+
+            set
+            {
+                celphone = value;
+            }
+        }
+
+        public string Email
+        {
+            get
+            {
+                return email;
+            }
+
+            set
+            {
+                email = value;
+            }
+        }
+
+        public DateTime Dt_exp
+        {
+            get
+            {
+                return dt_exp;
+            }
+
+            set
+            {
+                dt_exp = value;
+            }
+        }
+
+        public DateTime Dt_nasc
+        {
+            get
+            {
+                return dt_nasc;
+            }
+
+            set
+            {
+                dt_nasc = value;
+            }
+        }
     }
 }

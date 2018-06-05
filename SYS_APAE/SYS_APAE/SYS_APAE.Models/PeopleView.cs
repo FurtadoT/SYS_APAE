@@ -25,10 +25,71 @@ namespace SYS_APAE.SYS_APAE.Models
             return String.Format("Aluno {0}", Name);
         }
 
-        public int Id { get => id; set => id = value; }
-        public string Name { get => name; set => name = value; }
-        public string Cpf { get => cpf; set => cpf = value; }
-        public string Phone { get => phone; set => phone = value; }
-        public string Email { get => email; set => email = value; }
+
+
+        public string Cpf
+        {
+            get
+            {
+                return cpf;
+            }
+
+            set
+            {
+                cpf = value;
+            }
+        }
+
+        public string Email
+        {
+            get
+            {
+                return email;
+            }
+
+            set
+            {
+                email = value;
+            }
+        }
+
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+
+            set
+            {
+                id = value;
+            }
+        }
+
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+
+            set
+            {
+                name = value;
+            }
+        }
+
+        public string Phone
+        {
+            get
+            {
+                return phone;
+            }
+
+            set
+            {
+                phone = value;
+            }
+        }
     }
 }

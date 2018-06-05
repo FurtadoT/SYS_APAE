@@ -47,17 +47,161 @@ namespace SYS_APAE.SYS_APAE.Models
             return partQuery;
         }
 
-        public int Id { get => id; set => id = value; }
-        public int Dif_dig { get => dif_dig; set => dif_dig = value; }
-        public int Dif_lei { get => dif_lei; set => dif_lei = value; }
-        public int Dif_rec { get => dif_rec; set => dif_rec = value; }
-        public int Dif_atv { get => dif_atv; set => dif_atv = value; }
-        public int Dif_int { get => dif_int; set => dif_int = value; }
-        public DateTime Dt_created { get => dt_created; set => dt_created = value; }
-        public string Title { get => title; set => title = value; }
-        public string Obs_atv { get => obs_atv; set => obs_atv = value; }
-        public string Obs_int { get => obs_int; set => obs_int = value; }
-        internal Student Student { get => student; set => student = value; }
-        internal Instructor Instructor { get => instructor; set => instructor = value; }
+
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+
+            set
+            {
+                id = value;
+            }
+        }
+
+        public int Dif_dig
+        {
+            get
+            {
+                return dif_dig;
+            }
+
+            set
+            {
+                dif_dig = value;
+            }
+        }
+
+        public int Dif_lei
+        {
+            get
+            {
+                return dif_lei;
+            }
+
+            set
+            {
+                dif_lei = value;
+            }
+        }
+
+        public int Dif_rec
+        {
+            get
+            {
+                return dif_rec;
+            }
+
+            set
+            {
+                dif_rec = value;
+            }
+        }
+
+        public int Dif_atv
+        {
+            get
+            {
+                return dif_atv;
+            }
+
+            set
+            {
+                dif_atv = value;
+            }
+        }
+
+        public int Dif_int
+        {
+            get
+            {
+                return dif_int;
+            }
+
+            set
+            {
+                dif_int = value;
+            }
+        }
+
+        internal Student Student
+        {
+            get
+            {
+                return student;
+            }
+
+            set
+            {
+                student = value;
+            }
+        }
+
+        internal Instructor Instructor
+        {
+            get
+            {
+                return instructor;
+            }
+
+            set
+            {
+                instructor = value;
+            }
+        }
+
+        public DateTime Dt_created
+        {
+            get
+            {
+                return dt_created;
+            }
+
+            set
+            {
+                dt_created = value;
+            }
+        }
+
+        public string Title
+        {
+            get
+            {
+                return title;
+            }
+
+            set
+            {
+                title = value;
+            }
+        }
+
+        public string Obs_atv
+        {
+            get
+            {
+                return obs_atv;
+            }
+
+            set
+            {
+                obs_atv = value;
+            }
+        }
+
+        public string Obs_int
+        {
+            get
+            {
+                return obs_int;
+            }
+
+            set
+            {
+                obs_int = value;
+            }
+        }
     }
 }

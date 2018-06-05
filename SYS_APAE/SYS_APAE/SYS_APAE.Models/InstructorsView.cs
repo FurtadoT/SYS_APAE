@@ -15,8 +15,18 @@ namespace SYS_APAE.SYS_APAE.Models
         {
             Prontuario = prontuario;
         }
+        public string Prontuario
+        {
+            get
+            {
+                return prontuario;
+            }
 
-        public string Prontuario { get => prontuario; set => prontuario = value; }
+            set
+            {
+                prontuario = value;
+            }
+        }
 
         public override string ToString()
         {

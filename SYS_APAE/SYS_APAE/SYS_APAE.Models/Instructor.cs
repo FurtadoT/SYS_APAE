@@ -32,7 +32,18 @@ namespace SYS_APAE.SYS_APAE.Models
             return partialQuery;
         }
 
-        public string Prontuario { get => prontuario; set => prontuario = value; }
+        public string Prontuario
+        {
+            get
+            {
+                return prontuario;
+            }
+
+            set
+            {
+                prontuario = value;
+            }
+        }
 
         public override String ToString()
         {

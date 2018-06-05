@@ -21,10 +21,69 @@ namespace SYS_APAE.SYS_APAE.Models
             Data = data;
         }
 
-        public int Id { get => id; set => id = value; }
-        public string NomeAluno { get => nomeAluno; set => nomeAluno = value; }
-        public string NomeMonitor { get => nomeMonitor; set => nomeMonitor = value; }
-        public string Titulo { get => titulo; set => titulo = value; }
-        public DateTime Data { get => data; set => data = value; }
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+
+            set
+            {
+                id = value;
+            }
+        }
+
+        public string NomeAluno
+        {
+            get
+            {
+                return nomeAluno;
+            }
+
+            set
+            {
+                nomeAluno = value;
+            }
+        }
+
+        public string NomeMonitor
+        {
+            get
+            {
+                return nomeMonitor;
+            }
+
+            set
+            {
+                nomeMonitor = value;
+            }
+        }
+
+        public string Titulo
+        {
+            get
+            {
+                return titulo;
+            }
+
+            set
+            {
+                titulo = value;
+            }
+        }
+
+        public DateTime Data
+        {
+            get
+            {
+                return data;
+            }
+
+            set
+            {
+                data = value;
+            }
+        }
     }
 }
