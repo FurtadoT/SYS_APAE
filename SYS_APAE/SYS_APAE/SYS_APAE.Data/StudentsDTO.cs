@@ -85,7 +85,7 @@ namespace SYS_APAE.SYS_APAE.Data
 
         public static Student getStudentById(string id)
         {
-            Dictionary<string, string> student = dbConnector.DoQueryStatementOnlyFirstRow("SELECT * FROM students where id=" + id);
+            Dictionary<string, string> student = dbConnector.DoQueryStatement("SELECT * FROM students where id=" + id)[0];
 
             return new Student(
                         Convert.ToInt32(student["id"]),

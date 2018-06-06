@@ -147,6 +147,7 @@ namespace SYS_APAE
             this.logo_if = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnGerarRel = new System.Windows.Forms.Button();
+            this.lblWUser = new System.Windows.Forms.Label();
             this.tabControlGeral.SuspendLayout();
             this.tabCadastro.SuspendLayout();
             this.tabParticipante.SuspendLayout();
@@ -1480,6 +1481,14 @@ namespace SYS_APAE
             this.btnGerarRel.UseVisualStyleBackColor = true;
             this.btnGerarRel.Click += new System.EventHandler(this.btnGerarRel_Click);
             // 
+            // lblWUser
+            // 
+            this.lblWUser.AutoSize = true;
+            this.lblWUser.Location = new System.Drawing.Point(1100, 60);
+            this.lblWUser.Name = "lblWUser";
+            this.lblWUser.Size = new System.Drawing.Size(0, 13);
+            this.lblWUser.TabIndex = 34;
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1487,6 +1496,7 @@ namespace SYS_APAE
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1352, 681);
+            this.Controls.Add(this.lblWUser);
             this.Controls.Add(this.btnGerarRel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.logo_if);
@@ -1640,6 +1650,7 @@ namespace SYS_APAE
         private Button btnRelAdd;
         private Button btnRefreshReport;
         private DataGridView dtgReports;
+        private Label lblWUser;
     }
 }
 

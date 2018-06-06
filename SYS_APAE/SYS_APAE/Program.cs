@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using SYS_APAE.SYS_APAE.View;
+using System;
 using System.Windows.Forms;
 
 namespace SYS_APAE
@@ -16,7 +14,7 @@ namespace SYS_APAE
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainMenu());
+            Application.Run(new Login());
         }
     }
 }

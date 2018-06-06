@@ -19,6 +19,7 @@ namespace SYS_APAE
         public MainMenu()
         {
             InitializeComponent();
+            this.CenterToScreen();
 
             this.radioControl.Add("dig", -1);
             this.radioControl.Add("lei", -1);
@@ -29,6 +30,7 @@ namespace SYS_APAE
             _handlerTabGeral();
             dtpNasc.Value = DateTime.Today;
             dtpRelCreated.Value = DateTime.Today;
+            lblWUser.Text = "Bem vindo, " + LoginDTO.getUser().Name + "!";
         }
 
         private void _handlerTabGeral()
@@ -42,10 +44,17 @@ namespace SYS_APAE
             btnParticipante.Visible = true;
             btnVisualizarRelatorio.Visible = true;
             btnGerarRel.Visible = true;
+
             btnCadastro.Enabled = true;
             btnParticipante.Enabled = true;
             btnVisualizarRelatorio.Enabled = true;
             btnGerarRel.Enabled = true;
+
+            if (LoginDTO.getUser().AccessLevel < 6)
+            {
+                btnParticipante.Enabled = false;
+                btnVisualizarRelatorio.Enabled = false;
+            }
         }
 
         private void _handlerRefreshAdd()

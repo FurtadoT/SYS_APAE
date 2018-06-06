@@ -87,7 +87,7 @@ namespace SYS_APAE.SYS_APAE.Data
 
         public static Instructor getInstructorById(string id)
         {
-            Dictionary<string, string> instructor = dbConnector.DoQueryStatementOnlyFirstRow("SELECT * FROM instructors where id=" + id);
+            Dictionary<string, string> instructor = dbConnector.DoQueryStatement("SELECT * FROM instructors where id=" + id)[0];
 
             return new Instructor(
                         Convert.ToInt32(instructor["id"]),
@@ -114,7 +114,7 @@ namespace SYS_APAE.SYS_APAE.Data
 
         public static string getProntuario(int id)
         {
-            return dbConnector.DoQueryStatementOnlyFirstRow("SELECT prontuario FROM instructors where id="+id)["prontuario"];
+            return dbConnector.DoQueryStatement("SELECT prontuario FROM instructors where id="+id)[0]["prontuario"];
         }
 
         public static bool addNewInstructor(Instructor instructor)
