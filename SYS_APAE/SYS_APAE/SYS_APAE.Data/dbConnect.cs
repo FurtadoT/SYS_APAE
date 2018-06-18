@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace SYS_APAE
 {
@@ -63,12 +64,6 @@ namespace SYS_APAE
             return command.ExecuteReader();
         }
 
-        private void ExecuteNonQueryStatement(string sqlStatement)
-        {
-            MySqlCommand command = new MySqlCommand(sqlStatement, connection);
-            command.ExecuteNonQuery();
-        }
-
         private Dictionary<string, string> resolveData(MySqlDataReader dataReader)
         {
             Dictionary<string, string> newRow = new Dictionary<string, string>();
@@ -96,16 +91,33 @@ namespace SYS_APAE
             return returnData;
         }
 
-        public bool DoNonQueryStatement(string sqlStatement)
+        public bool DoNonQueryStatement(MySqlCommand sqlCommand)
         {
             if (this.OpenConnection())
             {
-                ExecuteNonQueryStatement(sqlStatement);
+                sqlCommand.ExecuteNonQuery();
 
                 this.CloseConnection();
             }
 
             return true;
+        }
+
+        public MySqlCommand CreateInsertCommandWithParams(string TableName, Dictionary<string, string> fieldsQuery)
+        {
+            string[] fields = fieldsQuery.Keys.ToArray();
+            MySqlCommand commandSql = new MySqlCommand(
+                string.Format("INSERT INTO {0} ({1}) VALUES({2})",
+                TableName,
+                string.Join(",", fields),
+                "@" + string.Join(",@", fields)
+            ), connection);
+            foreach (KeyValuePair<string, string> field in fieldsQuery)
+            {
+                commandSql.Parameters.Add(new MySqlParameter("@" + field.Key, field.Value));
+            }
+
+            return commandSql;
         }
 
         public void Dispose()

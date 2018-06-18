@@ -119,8 +119,8 @@ namespace SYS_APAE.SYS_APAE.Data
 
         public static bool addNewInstructor(Instructor instructor)
         {
-            string[] partialQuery = instructor.GeneratePartialInsertQuery();
-            return dbConnector.DoNonQueryStatement("INSERT INTO instructors (" + partialQuery[0] + ") VALUES(" + partialQuery[1] + ")");
+            Dictionary<string, string> fieldsQuery = instructor.GenerateDictFields();
+            return dbConnector.DoNonQueryStatement(dbConnector.CreateInsertCommandWithParams("instructors", fieldsQuery));
         }
     }
 }

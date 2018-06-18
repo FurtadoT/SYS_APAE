@@ -58,8 +58,8 @@ namespace SYS_APAE.SYS_APAE.Data
 
         public static bool addNewReport(Report report)
         {
-            string[] partialQuery = report.GeneratePartialInsertQuery();
-            return dbConnector.DoNonQueryStatement("INSERT INTO records (" + partialQuery[0] + ") VALUES(" + partialQuery[1] + ")");
+            Dictionary<string, string> fieldsQuery = report.GenerateDictFields();
+            return dbConnector.DoNonQueryStatement(dbConnector.CreateInsertCommandWithParams("records", fieldsQuery));
         }
     }
 }

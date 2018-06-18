@@ -30,21 +30,24 @@ namespace SYS_APAE.SYS_APAE.Models
             Obs_int = obs_int;
         }
 
-        public virtual string[] GeneratePartialInsertQuery()
+        public virtual Dictionary<string, string> GenerateDictFields()
         {
-            string[] partQuery = new string[2];
-            //Headers
-            partQuery[0] = "id, id_student, id_instructor, dt_created, title, dif_dig, dif_lei" +
-                ", dif_rec, dif_atv, obs_atv, dif_int, obs_int";
+            Dictionary<string, string> fieldsQuery = new Dictionary<string, string>();
 
-            /* TODO: Protect from SQL Injection
-                 (maybe start using ORM) */
-            //Values
-            partQuery[1] = "" + Id + ", " + Student.Id + ", " + Instructor.Id + ", '" + Dt_created.ToString("yyyy-MM-dd") + "', '" +
-                Title + "', " + Dif_dig + ", " + Dif_lei + ", " + Dif_rec + ", " + Dif_atv + ", '" +
-                Obs_atv + "', " + Dif_int + ", '" + Obs_int + "'";
-
-            return partQuery;
+            fieldsQuery.Add("id", Id.ToString());
+            fieldsQuery.Add("id_student", Student.Id.ToString());
+            fieldsQuery.Add("id_instructor", Instructor.Id.ToString());
+            fieldsQuery.Add("dt_created", Dt_created.ToString("yyyy-MM-dd"));
+            fieldsQuery.Add("title", Title);
+            fieldsQuery.Add("dif_dig", Dif_dig.ToString());
+            fieldsQuery.Add("dif_lei", Dif_lei.ToString());
+            fieldsQuery.Add("dif_rec", Dif_rec.ToString());
+            fieldsQuery.Add("dif_atv", Dif_atv.ToString());
+            fieldsQuery.Add("obs_atv", Obs_atv);
+            fieldsQuery.Add("dif_int", Dif_int.ToString());
+            fieldsQuery.Add("obs_int", Obs_int);
+ 
+            return fieldsQuery;
         }
 
 

@@ -40,23 +40,30 @@ namespace SYS_APAE.SYS_APAE.Models
             Email = email;
         }
 
-        public virtual string[] GeneratePartialInsertQuery()
+        public virtual Dictionary<string, string> GenerateDictFields()
         {
-            string[] partQuery = new string[2];
-            //Headers
-            partQuery[0] = "id, name, cpf, rg, org_exp, nationality, father_name" +
-                ", mother_name, address, city, state, district, cep, phone" +
-                ", celphone, dt_exp, dt_nasc, email";
+            Dictionary<string, string> fieldsQuery = new Dictionary<string, string>();
 
-            /* TODO: Protect from SQL Injection
-                 (maybe start using ORM) */
-            //Values
-            partQuery[1] = "'" + Id + "', '" + Name + "', '" + Cpf + "', '" + Rg + "', '" + Org_exp + "', '" +
-                Nationality + "', '" + Father_name + "', '" + Mother_name + "', '" + Address + "', '" +
-                City + "', '" + State + "', '" + District + "', '" + Cep + "', '" + Phone + "', '" +
-                Celphone + "', '" + Dt_exp.ToString("yyyy-MM-dd") + "', '" + Dt_nasc.ToString("yyyy-MM-dd") + "', '" + Email + "'";
+            fieldsQuery.Add("id", Id.ToString());
+            fieldsQuery.Add("name", Name);
+            fieldsQuery.Add("cpf", Cpf);
+            fieldsQuery.Add("rg", Rg);
+            fieldsQuery.Add("org_exp", Org_exp);
+            fieldsQuery.Add("nationality", Nationality);
+            fieldsQuery.Add("father_name", Father_name);
+            fieldsQuery.Add("mother_name", Mother_name);
+            fieldsQuery.Add("address", Address);
+            fieldsQuery.Add("city", City);
+            fieldsQuery.Add("state", State);
+            fieldsQuery.Add("district", District);
+            fieldsQuery.Add("cep", Cep);
+            fieldsQuery.Add("phone", Phone);
+            fieldsQuery.Add("celphone", Celphone);
+            fieldsQuery.Add("dt_exp", Dt_exp.ToString("yyyy-MM-dd"));
+            fieldsQuery.Add("dt_nasc", Dt_nasc.ToString("yyyy-MM-dd"));
+            fieldsQuery.Add("email", Email);
 
-            return partQuery;
+            return fieldsQuery;
         }
 
         public override string ToString()

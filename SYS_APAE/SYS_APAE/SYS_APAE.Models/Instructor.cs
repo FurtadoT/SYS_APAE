@@ -22,14 +22,13 @@ namespace SYS_APAE.SYS_APAE.Models
             Prontuario = prontuario;
         }
 
-        public override string[] GeneratePartialInsertQuery()
+        public override Dictionary<string, string> GenerateDictFields()
         {
-            string[] partialQuery = base.GeneratePartialInsertQuery();
+            Dictionary<string, string> fieldsQuery = base.GenerateDictFields();
 
-            partialQuery[0] += ", prontuario";
-            partialQuery[1] += ", '" + Prontuario + "'";
+            fieldsQuery.Add("prontuario", Prontuario);
 
-            return partialQuery;
+            return fieldsQuery;
         }
 
         public string Prontuario

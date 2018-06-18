@@ -14,7 +14,7 @@ namespace SYS_APAE.SYS_APAE.Data
 
         private static bool verifyAdmin(string user, string password)
         {
-            List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement("SELECT * FROM admin where login='" + user + "' and password='" + password + "'");
+            List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement("SELECT * FROM admin_sys where login='" + user + "' and password='" + password + "'");
             if (dbResult.Count == 0)
             {
                 return false;

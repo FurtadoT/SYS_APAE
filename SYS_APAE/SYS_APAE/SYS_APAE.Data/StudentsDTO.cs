@@ -111,8 +111,8 @@ namespace SYS_APAE.SYS_APAE.Data
 
         public static bool addNewStudent(Student student)
         {
-            string[] partialQuery = student.GeneratePartialInsertQuery();
-            return dbConnector.DoNonQueryStatement("INSERT INTO students (" + partialQuery[0] + ") VALUES(" + partialQuery[1] + ")");
+           Dictionary<string, string> fieldsQuery = student.GenerateDictFields();
+           return dbConnector.DoNonQueryStatement(dbConnector.CreateInsertCommandWithParams("students", fieldsQuery));
         }
     }
 }
