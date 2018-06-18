@@ -33,5 +33,21 @@ namespace SYS_APAE.SYS_APAE.View
             mainMenu.ShowDialog();
             Application.Exit();
         }
+
+        private void txtUser_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.btnLogin_Click(this, new EventArgs());
+            }
+        }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.btnLogin_Click(this, new EventArgs());
+            }
+        }
     }
 }
