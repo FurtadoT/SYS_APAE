@@ -9,20 +9,19 @@ namespace SYS_APAE.SYS_APAE.Models
     class PeopleView
     {
         private int id;
-        private string name, cpf, phone, email;
+        private string nome, cpf, email;
 
-        public PeopleView(int id, string name, string cpf, string phone, string email)
+        public PeopleView(int id, string nome, string cpf, string email)
         {
             Id = id;
-            Name = name;
+            Nome = nome;
             Cpf = cpf;
-            Phone = phone;
             Email = email;
         }
 
         public override string ToString()
         {
-            return String.Format("Aluno {0}", Name);
+            return String.Format("Aluno {0}", Nome);
         }
 
 
@@ -66,29 +65,16 @@ namespace SYS_APAE.SYS_APAE.Models
             }
         }
 
-        public string Name
+        public string Nome
         {
             get
             {
-                return name;
+                return nome;
             }
 
             set
             {
-                name = value;
-            }
-        }
-
-        public string Phone
-        {
-            get
-            {
-                return phone;
-            }
-
-            set
-            {
-                phone = value;
+                nome = value;
             }
         }
     }

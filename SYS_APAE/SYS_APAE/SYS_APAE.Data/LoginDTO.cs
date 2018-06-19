@@ -25,7 +25,7 @@ namespace SYS_APAE.SYS_APAE.Data
         }
         private static bool verifyStudent(string user, string password)
         {
-            List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement("SELECT * FROM students where cpf='" + user + "' and password='" + password + "'");
+            List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement("SELECT * FROM instructors where cpf='" + user + "' and password='" + password + "'");
             if (dbResult.Count == 0)
             {
                 return false;

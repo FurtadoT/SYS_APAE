@@ -8,18 +8,15 @@ namespace SYS_APAE.SYS_APAE.Models
 {
     class Instructor : People
     {
-        private string prontuario;
+        private string prontuario, tipo_monitor;
+        private int carga_horaria;
 
-        public Instructor(int id, string name, string cpf, string rg,
-                string org_exp, DateTime dt_exp, DateTime dt_nasc,
-                string nationality, string father_name, string mother_name,
-                string address, string city, string state, string district,
-                string cep, string phone, string celphone, string email, string prontuario)
-            : base(id, name, cpf, rg, org_exp, dt_exp, dt_nasc, nationality,
-                father_name, mother_name, address, city, state, district,
-                cep, phone, celphone, email)
+        public Instructor(int id, string name, string cpf, string email, string prontuario, string tipo_monitor, int carga_horaria)
+            : base(id, name, cpf, email)
         {
             Prontuario = prontuario;
+            Tipo_monitor = tipo_monitor;
+            Carga_horaria = carga_horaria;
         }
 
         public override Dictionary<string, string> GenerateDictFields()
@@ -27,6 +24,8 @@ namespace SYS_APAE.SYS_APAE.Models
             Dictionary<string, string> fieldsQuery = base.GenerateDictFields();
 
             fieldsQuery.Add("prontuario", Prontuario);
+            fieldsQuery.Add("tipo_monitor", Tipo_monitor);
+            fieldsQuery.Add("carga_horaria", Carga_horaria.ToString());
 
             return fieldsQuery;
         }
@@ -41,6 +40,32 @@ namespace SYS_APAE.SYS_APAE.Models
             set
             {
                 prontuario = value;
+            }
+        }
+
+        public string Tipo_monitor
+        {
+            get
+            {
+                return tipo_monitor;
+            }
+
+            set
+            {
+                tipo_monitor = value;
+            }
+        }
+
+        public int Carga_horaria
+        {
+            get
+            {
+                return carga_horaria;
+            }
+
+            set
+            {
+                carga_horaria = value;
             }
         }
 

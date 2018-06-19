@@ -23,22 +23,10 @@ namespace SYS_APAE.SYS_APAE.Data
                         Convert.ToInt32(instructor["id"]),
                         instructor["name"].ToString(),
                         instructor["cpf"].ToString(),
-                        instructor["rg"].ToString(),
-                        instructor["org_exp"].ToString(),
-                        DateTime.Parse(instructor["dt_exp"]),
-                        DateTime.Parse(instructor["dt_nasc"]),
-                        instructor["nationality"].ToString(),
-                        instructor["father_name"].ToString(),
-                        instructor["mother_name"].ToString(),
-                        instructor["address"].ToString(),
-                        instructor["city"].ToString(),
-                        instructor["state"].ToString(),
-                        instructor["district"].ToString(),
-                        instructor["cep"].ToString(),
-                        instructor["phone"].ToString(),
-                        instructor["celphone"].ToString(),
+                        instructor["tipo"].ToString(),
+                        instructor["prontuario"].ToString(),
                         instructor["email"].ToString(),
-                        instructor["prontuario"].ToString()
+                        Convert.ToInt32(instructor["carga_horaria"])
                         ));
             }
 
@@ -56,7 +44,7 @@ namespace SYS_APAE.SYS_APAE.Data
             foreach (var instructor in completeListStudent)
             {
                 DataRow listRow = listInstructors.NewRow();
-                listRow["Name"] = instructor.Name;
+                listRow["Name"] = instructor.Nome;
                 listRow["Id"] = instructor.Id;
                 listInstructors.Rows.InsertAt(listRow, 0);
             }
@@ -93,22 +81,10 @@ namespace SYS_APAE.SYS_APAE.Data
                         Convert.ToInt32(instructor["id"]),
                         instructor["name"].ToString(),
                         instructor["cpf"].ToString(),
-                        instructor["rg"].ToString(),
-                        instructor["org_exp"].ToString(),
-                        DateTime.Parse(instructor["dt_exp"]),
-                        DateTime.Parse(instructor["dt_nasc"]),
-                        instructor["nationality"].ToString(),
-                        instructor["father_name"].ToString(),
-                        instructor["mother_name"].ToString(),
-                        instructor["address"].ToString(),
-                        instructor["city"].ToString(),
-                        instructor["state"].ToString(),
-                        instructor["district"].ToString(),
-                        instructor["cep"].ToString(),
-                        instructor["phone"].ToString(),
-                        instructor["celphone"].ToString(),
+                        instructor["tipo"].ToString(),
+                        instructor["prontuario"].ToString(),
                         instructor["email"].ToString(),
-                        instructor["prontuario"].ToString()
+                        Convert.ToInt32(instructor["carga_horaria"])
                         );
         }
 

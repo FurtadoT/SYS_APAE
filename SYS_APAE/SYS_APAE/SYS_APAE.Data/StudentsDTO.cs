@@ -55,7 +55,7 @@ namespace SYS_APAE.SYS_APAE.Data
             foreach (var student in completeListStudent)
             {
                 DataRow listRow = listStudents.NewRow();
-                listRow["Name"] = student.Name;
+                listRow["Name"] = student.Nome;
                 listRow["Id"] = student.Id;
                 listStudents.Rows.InsertAt(listRow, 0);
             }

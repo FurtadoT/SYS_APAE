@@ -8,12 +8,13 @@ namespace SYS_APAE.SYS_APAE.Models
 {
     class InstructorsView : PeopleView
     {
-        private string prontuario;
+        private string prontuario, tipo_monitor;
 
-        public InstructorsView(int id, string name, string cpf, string phone, string email, string prontuario)
-                : base(id, name, cpf, phone, email)
+        public InstructorsView(int id, string name, string cpf, string email, string prontuario, string tipo_monitor)
+                : base(id, name, cpf, email)
         {
             Prontuario = prontuario;
+            Tipo_monitor = tipo_monitor;
         }
         public string Prontuario
         {
@@ -25,6 +26,19 @@ namespace SYS_APAE.SYS_APAE.Models
             set
             {
                 prontuario = value;
+            }
+        }
+
+        public string Tipo_monitor
+        {
+            get
+            {
+                return tipo_monitor;
+            }
+
+            set
+            {
+                tipo_monitor = value;
             }
         }
 
