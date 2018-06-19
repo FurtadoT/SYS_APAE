@@ -1,4 +1,6 @@
 ﻿using System.Windows.Forms;
+using SYS_APAE.SYS_APAE.SYS_APAE.CustomComponents;
+
 
 namespace SYS_APAE
 {
@@ -37,32 +39,32 @@ namespace SYS_APAE
             this.dtpExp = new System.Windows.Forms.DateTimePicker();
             this.dtpNasc = new System.Windows.Forms.DateTimePicker();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtEmail = new SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblDDD = new System.Windows.Forms.Label();
-            this.txtCelular = new System.Windows.Forms.TextBox();
-            this.txtDDD = new System.Windows.Forms.TextBox();
+            this.txtCelular = new SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
+            this.txtDDD = new SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
             this.lblCelular = new System.Windows.Forms.Label();
             this.lblDDDTel = new System.Windows.Forms.Label();
-            this.txtTel = new System.Windows.Forms.TextBox();
-            this.txtDDDTel = new System.Windows.Forms.TextBox();
+            this.txtTel = new SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
+            this.txtDDDTel = new SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
             this.lblTel = new System.Windows.Forms.Label();
-            this.txtEstado = new System.Windows.Forms.TextBox();
+            this.txtEstado = new SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
             this.lblEstado = new System.Windows.Forms.Label();
-            this.txtCidade = new System.Windows.Forms.TextBox();
+            this.txtCidade = new SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
             this.lblCidade = new System.Windows.Forms.Label();
-            this.txtCep = new System.Windows.Forms.TextBox();
+            this.txtCep = new SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
             this.lblBairro = new System.Windows.Forms.Label();
-            this.txtEnd = new System.Windows.Forms.TextBox();
+            this.txtEnd = new SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
             this.lblCep = new System.Windows.Forms.Label();
-            this.txtPai = new System.Windows.Forms.TextBox();
-            this.txtMae = new System.Windows.Forms.TextBox();
-            this.txtBairro = new System.Windows.Forms.TextBox();
-            this.txtNaturalidade = new System.Windows.Forms.TextBox();
+            this.txtPai = new SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
+            this.txtMae = new SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
+            this.txtBairro = new SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
+            this.txtNaturalidade = new SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
             this.lblNasc = new System.Windows.Forms.Label();
             this.lblDataExp = new System.Windows.Forms.Label();
-            this.txtOrgExp = new System.Windows.Forms.TextBox();
-            this.txtRG = new System.Windows.Forms.TextBox();
+            this.txtOrgExp = new SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
+            this.txtRG = new SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
             this.lblRG = new System.Windows.Forms.Label();
             this.lblOrgExp = new System.Windows.Forms.Label();
             this.lblNaturalidade = new System.Windows.Forms.Label();
@@ -70,15 +72,23 @@ namespace SYS_APAE
             this.lblPai = new System.Windows.Forms.Label();
             this.lblMae = new System.Windows.Forms.Label();
             this.lblEnd = new System.Windows.Forms.Label();
-            this.txtCPF = new System.Windows.Forms.TextBox();
+            this.txtCPF = new SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
             this.lblCPF = new System.Windows.Forms.Label();
-            this.txtNome = new System.Windows.Forms.TextBox();
+            this.txtNome = new SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
             this.lblNome = new System.Windows.Forms.Label();
+            this.tabCadastroMonitor = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtNameInstructor = new SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
+            this.txtEmailInstructor = new SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
+            this.txtPasswordInstructor = new SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
+            this.txtCpfInstructor = new SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
             this.tabParticipante = new System.Windows.Forms.TabPage();
             this.dtgParticipantes = new System.Windows.Forms.DataGridView();
             this.radioListMonitor = new System.Windows.Forms.RadioButton();
             this.radioListAluno = new System.Windows.Forms.RadioButton();
             this.tabVisuRel = new System.Windows.Forms.TabPage();
+            this.lblSearchReports = new System.Windows.Forms.Label();
+            this.txtSearchReports = new SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
             this.dtgReports = new System.Windows.Forms.DataGridView();
             this.tabGerarRel = new System.Windows.Forms.TabPage();
             this.btnRefreshReport = new System.Windows.Forms.Button();
@@ -95,9 +105,9 @@ namespace SYS_APAE
             this.radioInteressante2 = new System.Windows.Forms.RadioButton();
             this.radioInteressante1 = new System.Windows.Forms.RadioButton();
             this.lblObsInteressante = new System.Windows.Forms.Label();
-            this.txtObsInteressante = new System.Windows.Forms.TextBox();
+            this.txtObsInteressante = new SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
             this.gpBoxAtividade = new System.Windows.Forms.GroupBox();
-            this.txtObs = new System.Windows.Forms.TextBox();
+            this.txtObs = new SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
             this.lblObs = new System.Windows.Forms.Label();
             this.radioAtividade0 = new System.Windows.Forms.RadioButton();
             this.lblAtividade = new System.Windows.Forms.Label();
@@ -130,8 +140,8 @@ namespace SYS_APAE
             this.radioDig4 = new System.Windows.Forms.RadioButton();
             this.radioDig2 = new System.Windows.Forms.RadioButton();
             this.radioDig1 = new System.Windows.Forms.RadioButton();
-            this.txtTitulo = new System.Windows.Forms.TextBox();
-            this.txtProntRelatorio = new System.Windows.Forms.TextBox();
+            this.txtTitulo = new SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
+            this.txtProntRelatorio = new SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblData = new System.Windows.Forms.Label();
             this.lblNomeAluno = new System.Windows.Forms.Label();
@@ -142,14 +152,15 @@ namespace SYS_APAE
             this.lblWUser = new System.Windows.Forms.Label();
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.mnPrincipal = new System.Windows.Forms.MenuStrip();
+            this.mnItemNewStudents = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnItemNewInstructor = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastroAtividadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnItemShowStudents = new System.Windows.Forms.ToolStripMenuItem();
             this.mnItemNewReports = new System.Windows.Forms.ToolStripMenuItem();
             this.mnItemShowReports = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnItemNewStudents = new System.Windows.Forms.ToolStripMenuItem();
-            this.cadastroMonitorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cadastroAtividadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlGeral.SuspendLayout();
             this.tabCadastro.SuspendLayout();
+            this.tabCadastroMonitor.SuspendLayout();
             this.tabParticipante.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgParticipantes)).BeginInit();
             this.tabVisuRel.SuspendLayout();
@@ -170,6 +181,7 @@ namespace SYS_APAE
             this.tabControlGeral.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControlGeral.Controls.Add(this.tabCadastro);
+            this.tabControlGeral.Controls.Add(this.tabCadastroMonitor);
             this.tabControlGeral.Controls.Add(this.tabParticipante);
             this.tabControlGeral.Controls.Add(this.tabVisuRel);
             this.tabControlGeral.Controls.Add(this.tabGerarRel);
@@ -230,7 +242,7 @@ namespace SYS_APAE
             this.tabCadastro.Padding = new System.Windows.Forms.Padding(3);
             this.tabCadastro.Size = new System.Drawing.Size(1090, 354);
             this.tabCadastro.TabIndex = 0;
-            this.tabCadastro.Text = "Cadastrar";
+            this.tabCadastro.Text = "Cadastrar Aluno";
             this.tabCadastro.UseVisualStyleBackColor = true;
             // 
             // btnReset
@@ -246,7 +258,7 @@ namespace SYS_APAE
             // dtpExp
             // 
             this.dtpExp.CustomFormat = "\"dd-MM-yyyy\"";
-            this.dtpExp.Location = new System.Drawing.Point(76, 135);
+            this.dtpExp.Location = new System.Drawing.Point(76, 137);
             this.dtpExp.Name = "dtpExp";
             this.dtpExp.Size = new System.Drawing.Size(204, 20);
             this.dtpExp.TabIndex = 10;
@@ -256,7 +268,7 @@ namespace SYS_APAE
             // dtpNasc
             // 
             this.dtpNasc.CustomFormat = "\"dd-MM-yyyy\"";
-            this.dtpNasc.Location = new System.Drawing.Point(408, 50);
+            this.dtpNasc.Location = new System.Drawing.Point(408, 52);
             this.dtpNasc.Name = "dtpNasc";
             this.dtpNasc.Size = new System.Drawing.Size(249, 20);
             this.dtpNasc.TabIndex = 6;
@@ -277,6 +289,7 @@ namespace SYS_APAE
             // 
             this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtEmail.Location = new System.Drawing.Point(715, 222);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(360, 20);
@@ -302,6 +315,7 @@ namespace SYS_APAE
             // 
             // txtCelular
             // 
+            this.txtCelular.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCelular.Location = new System.Drawing.Point(160, 221);
             this.txtCelular.Name = "txtCelular";
             this.txtCelular.Size = new System.Drawing.Size(164, 20);
@@ -309,6 +323,7 @@ namespace SYS_APAE
             // 
             // txtDDD
             // 
+            this.txtDDD.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDDD.Location = new System.Drawing.Point(76, 221);
             this.txtDDD.Name = "txtDDD";
             this.txtDDD.Size = new System.Drawing.Size(30, 20);
@@ -334,6 +349,7 @@ namespace SYS_APAE
             // 
             // txtTel
             // 
+            this.txtTel.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtTel.Location = new System.Drawing.Point(477, 221);
             this.txtTel.Name = "txtTel";
             this.txtTel.Size = new System.Drawing.Size(164, 20);
@@ -341,6 +357,7 @@ namespace SYS_APAE
             // 
             // txtDDDTel
             // 
+            this.txtDDDTel.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDDDTel.Location = new System.Drawing.Point(383, 221);
             this.txtDDDTel.Name = "txtDDDTel";
             this.txtDDDTel.Size = new System.Drawing.Size(30, 20);
@@ -359,6 +376,7 @@ namespace SYS_APAE
             // 
             this.txtEstado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtEstado.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtEstado.Location = new System.Drawing.Point(715, 194);
             this.txtEstado.Name = "txtEstado";
             this.txtEstado.Size = new System.Drawing.Size(360, 20);
@@ -377,6 +395,7 @@ namespace SYS_APAE
             // 
             this.txtCidade.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCidade.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCidade.Location = new System.Drawing.Point(282, 194);
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.Size = new System.Drawing.Size(271, 20);
@@ -393,6 +412,7 @@ namespace SYS_APAE
             // 
             // txtCep
             // 
+            this.txtCep.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCep.Location = new System.Drawing.Point(76, 194);
             this.txtCep.Name = "txtCep";
             this.txtCep.Size = new System.Drawing.Size(141, 20);
@@ -411,6 +431,7 @@ namespace SYS_APAE
             // 
             this.txtEnd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtEnd.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtEnd.Location = new System.Drawing.Point(76, 166);
             this.txtEnd.Name = "txtEnd";
             this.txtEnd.Size = new System.Drawing.Size(477, 20);
@@ -429,6 +450,7 @@ namespace SYS_APAE
             // 
             this.txtPai.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPai.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPai.Location = new System.Drawing.Point(375, 127);
             this.txtPai.Name = "txtPai";
             this.txtPai.Size = new System.Drawing.Size(700, 20);
@@ -438,6 +460,7 @@ namespace SYS_APAE
             // 
             this.txtMae.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMae.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMae.Location = new System.Drawing.Point(375, 87);
             this.txtMae.Name = "txtMae";
             this.txtMae.Size = new System.Drawing.Size(700, 20);
@@ -447,6 +470,7 @@ namespace SYS_APAE
             // 
             this.txtBairro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBairro.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBairro.Location = new System.Drawing.Point(715, 166);
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(360, 20);
@@ -456,6 +480,7 @@ namespace SYS_APAE
             // 
             this.txtNaturalidade.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNaturalidade.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNaturalidade.Location = new System.Drawing.Point(752, 50);
             this.txtNaturalidade.Name = "txtNaturalidade";
             this.txtNaturalidade.Size = new System.Drawing.Size(323, 20);
@@ -485,6 +510,7 @@ namespace SYS_APAE
             // 
             // txtOrgExp
             // 
+            this.txtOrgExp.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtOrgExp.Location = new System.Drawing.Point(76, 108);
             this.txtOrgExp.Name = "txtOrgExp";
             this.txtOrgExp.Size = new System.Drawing.Size(60, 20);
@@ -492,6 +518,7 @@ namespace SYS_APAE
             // 
             // txtRG
             // 
+            this.txtRG.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtRG.Location = new System.Drawing.Point(76, 80);
             this.txtRG.Name = "txtRG";
             this.txtRG.Size = new System.Drawing.Size(141, 20);
@@ -568,6 +595,7 @@ namespace SYS_APAE
             // 
             // txtCPF
             // 
+            this.txtCPF.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCPF.Location = new System.Drawing.Point(76, 50);
             this.txtCPF.Name = "txtCPF";
             this.txtCPF.Size = new System.Drawing.Size(203, 20);
@@ -588,6 +616,7 @@ namespace SYS_APAE
             // 
             this.txtNome.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNome.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNome.Location = new System.Drawing.Point(76, 22);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(999, 20);
@@ -604,6 +633,61 @@ namespace SYS_APAE
             this.lblNome.TabIndex = 5;
             this.lblNome.Text = "Nome:";
             // 
+            // tabCadastroMonitor
+            // 
+            this.tabCadastroMonitor.Controls.Add(this.label1);
+            this.tabCadastroMonitor.Controls.Add(this.txtNameInstructor);
+            this.tabCadastroMonitor.Controls.Add(this.txtEmailInstructor);
+            this.tabCadastroMonitor.Controls.Add(this.txtPasswordInstructor);
+            this.tabCadastroMonitor.Controls.Add(this.txtCpfInstructor);
+            this.tabCadastroMonitor.Location = new System.Drawing.Point(4, 22);
+            this.tabCadastroMonitor.Name = "tabCadastroMonitor";
+            this.tabCadastroMonitor.Size = new System.Drawing.Size(1090, 354);
+            this.tabCadastroMonitor.TabIndex = 4;
+            this.tabCadastroMonitor.Text = "Cadastrar Monitor";
+            this.tabCadastroMonitor.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(59, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "label1";
+            // 
+            // txtNameInstructor
+            // 
+            this.txtNameInstructor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNameInstructor.Location = new System.Drawing.Point(100, 28);
+            this.txtNameInstructor.Name = "txtNameInstructor";
+            this.txtNameInstructor.Size = new System.Drawing.Size(199, 20);
+            this.txtNameInstructor.TabIndex = 3;
+            // 
+            // txtEmailInstructor
+            // 
+            this.txtEmailInstructor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEmailInstructor.Location = new System.Drawing.Point(444, 28);
+            this.txtEmailInstructor.Name = "txtEmailInstructor";
+            this.txtEmailInstructor.Size = new System.Drawing.Size(253, 20);
+            this.txtEmailInstructor.TabIndex = 2;
+            // 
+            // txtPasswordInstructor
+            // 
+            this.txtPasswordInstructor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPasswordInstructor.Location = new System.Drawing.Point(220, 112);
+            this.txtPasswordInstructor.Name = "txtPasswordInstructor";
+            this.txtPasswordInstructor.Size = new System.Drawing.Size(100, 20);
+            this.txtPasswordInstructor.TabIndex = 1;
+            // 
+            // txtCpfInstructor
+            // 
+            this.txtCpfInstructor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCpfInstructor.Location = new System.Drawing.Point(100, 112);
+            this.txtCpfInstructor.Name = "txtCpfInstructor";
+            this.txtCpfInstructor.Size = new System.Drawing.Size(100, 20);
+            this.txtCpfInstructor.TabIndex = 0;
+            // 
             // tabParticipante
             // 
             this.tabParticipante.Controls.Add(this.dtgParticipantes);
@@ -614,7 +698,7 @@ namespace SYS_APAE
             this.tabParticipante.Padding = new System.Windows.Forms.Padding(3);
             this.tabParticipante.Size = new System.Drawing.Size(1090, 354);
             this.tabParticipante.TabIndex = 1;
-            this.tabParticipante.Text = "Participantes";
+            this.tabParticipante.Text = "Listar Alunos";
             this.tabParticipante.UseVisualStyleBackColor = true;
             // 
             // dtgParticipantes
@@ -659,24 +743,45 @@ namespace SYS_APAE
             // 
             // tabVisuRel
             // 
+            this.tabVisuRel.Controls.Add(this.lblSearchReports);
+            this.tabVisuRel.Controls.Add(this.txtSearchReports);
             this.tabVisuRel.Controls.Add(this.dtgReports);
             this.tabVisuRel.Location = new System.Drawing.Point(4, 22);
             this.tabVisuRel.Name = "tabVisuRel";
             this.tabVisuRel.Size = new System.Drawing.Size(1090, 354);
             this.tabVisuRel.TabIndex = 2;
-            this.tabVisuRel.Text = "Visualizar Relatorios";
+            this.tabVisuRel.Text = "Listar Relatórios";
             this.tabVisuRel.UseVisualStyleBackColor = true;
+            // 
+            // lblSearchReports
+            // 
+            this.lblSearchReports.AutoSize = true;
+            this.lblSearchReports.Location = new System.Drawing.Point(829, 15);
+            this.lblSearchReports.Name = "lblSearchReports";
+            this.lblSearchReports.Size = new System.Drawing.Size(47, 13);
+            this.lblSearchReports.TabIndex = 8;
+            this.lblSearchReports.Text = "Procurar";
+            // 
+            // txtSearchReports
+            // 
+            this.txtSearchReports.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtSearchReports.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSearchReports.Location = new System.Drawing.Point(882, 13);
+            this.txtSearchReports.Name = "txtSearchReports";
+            this.txtSearchReports.Size = new System.Drawing.Size(205, 20);
+            this.txtSearchReports.TabIndex = 7;
             // 
             // dtgReports
             // 
             this.dtgReports.AllowUserToAddRows = false;
             this.dtgReports.AllowUserToDeleteRows = false;
             this.dtgReports.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgReports.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dtgReports.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgReports.Location = new System.Drawing.Point(6, 39);
+            this.dtgReports.Location = new System.Drawing.Point(3, 39);
             this.dtgReports.Name = "dtgReports";
             this.dtgReports.ReadOnly = true;
-            this.dtgReports.Size = new System.Drawing.Size(1166, 312);
+            this.dtgReports.Size = new System.Drawing.Size(1084, 312);
             this.dtgReports.TabIndex = 6;
             // 
             // tabGerarRel
@@ -702,7 +807,7 @@ namespace SYS_APAE
             this.tabGerarRel.Name = "tabGerarRel";
             this.tabGerarRel.Size = new System.Drawing.Size(1090, 354);
             this.tabGerarRel.TabIndex = 3;
-            this.tabGerarRel.Text = "Gerar Relatórios";
+            this.tabGerarRel.Text = "Criar Novo Relatório";
             this.tabGerarRel.UseVisualStyleBackColor = true;
             // 
             // btnRefreshReport
@@ -870,6 +975,7 @@ namespace SYS_APAE
             // 
             // txtObsInteressante
             // 
+            this.txtObsInteressante.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtObsInteressante.Location = new System.Drawing.Point(71, 80);
             this.txtObsInteressante.Name = "txtObsInteressante";
             this.txtObsInteressante.Size = new System.Drawing.Size(529, 20);
@@ -894,6 +1000,7 @@ namespace SYS_APAE
             // 
             // txtObs
             // 
+            this.txtObs.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtObs.Location = new System.Drawing.Point(71, 80);
             this.txtObs.Name = "txtObs";
             this.txtObs.Size = new System.Drawing.Size(529, 20);
@@ -1307,6 +1414,7 @@ namespace SYS_APAE
             // 
             // txtTitulo
             // 
+            this.txtTitulo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtTitulo.Location = new System.Drawing.Point(721, 81);
             this.txtTitulo.Name = "txtTitulo";
             this.txtTitulo.Size = new System.Drawing.Size(425, 20);
@@ -1314,6 +1422,7 @@ namespace SYS_APAE
             // 
             // txtProntRelatorio
             // 
+            this.txtProntRelatorio.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtProntRelatorio.Location = new System.Drawing.Point(112, 81);
             this.txtProntRelatorio.Name = "txtProntRelatorio";
             this.txtProntRelatorio.ReadOnly = true;
@@ -1398,7 +1507,7 @@ namespace SYS_APAE
             this.pnlMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pnlMenu.Controls.Add(this.mnPrincipal);
             this.pnlMenu.Location = new System.Drawing.Point(0, 93);
-            this.pnlMenu.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.pnlMenu.Margin = new System.Windows.Forms.Padding(0);
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(135, 320);
             this.pnlMenu.TabIndex = 35;
@@ -1410,7 +1519,7 @@ namespace SYS_APAE
             this.mnPrincipal.GripMargin = new System.Windows.Forms.Padding(0);
             this.mnPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnItemNewStudents,
-            this.cadastroMonitorToolStripMenuItem,
+            this.mnItemNewInstructor,
             this.cadastroAtividadeToolStripMenuItem,
             this.mnItemShowStudents,
             this.mnItemNewReports,
@@ -1421,6 +1530,29 @@ namespace SYS_APAE
             this.mnPrincipal.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.mnPrincipal.Size = new System.Drawing.Size(135, 320);
             this.mnPrincipal.TabIndex = 0;
+            // 
+            // mnItemNewStudents
+            // 
+            this.mnItemNewStudents.Name = "mnItemNewStudents";
+            this.mnItemNewStudents.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
+            this.mnItemNewStudents.Size = new System.Drawing.Size(134, 49);
+            this.mnItemNewStudents.Text = "Cadastro Aluno";
+            this.mnItemNewStudents.Click += new System.EventHandler(this.mnItemNewStudents_Click);
+            // 
+            // mnItemNewInstructor
+            // 
+            this.mnItemNewInstructor.Name = "mnItemNewInstructor";
+            this.mnItemNewInstructor.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
+            this.mnItemNewInstructor.Size = new System.Drawing.Size(134, 49);
+            this.mnItemNewInstructor.Text = "Cadastro Monitor";
+            this.mnItemNewInstructor.Click += new System.EventHandler(this.mnItemNewInstructor_Click);
+            // 
+            // cadastroAtividadeToolStripMenuItem
+            // 
+            this.cadastroAtividadeToolStripMenuItem.Name = "cadastroAtividadeToolStripMenuItem";
+            this.cadastroAtividadeToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
+            this.cadastroAtividadeToolStripMenuItem.Size = new System.Drawing.Size(134, 49);
+            this.cadastroAtividadeToolStripMenuItem.Text = "Cadastro Atividade";
             // 
             // mnItemShowStudents
             // 
@@ -1446,28 +1578,6 @@ namespace SYS_APAE
             this.mnItemShowReports.Text = "Visualizar Relatórios";
             this.mnItemShowReports.Click += new System.EventHandler(this.mnItemShowReports_Click);
             // 
-            // mnItemNewStudents
-            // 
-            this.mnItemNewStudents.Name = "mnItemNewStudents";
-            this.mnItemNewStudents.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
-            this.mnItemNewStudents.Size = new System.Drawing.Size(134, 49);
-            this.mnItemNewStudents.Text = "Cadastro Aluno";
-            this.mnItemNewStudents.Click += new System.EventHandler(this.mnItemNewStudents_Click);
-            // 
-            // cadastroMonitorToolStripMenuItem
-            // 
-            this.cadastroMonitorToolStripMenuItem.Name = "cadastroMonitorToolStripMenuItem";
-            this.cadastroMonitorToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
-            this.cadastroMonitorToolStripMenuItem.Size = new System.Drawing.Size(134, 49);
-            this.cadastroMonitorToolStripMenuItem.Text = "Cadastro Monitor";
-            // 
-            // cadastroAtividadeToolStripMenuItem
-            // 
-            this.cadastroAtividadeToolStripMenuItem.Name = "cadastroAtividadeToolStripMenuItem";
-            this.cadastroAtividadeToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
-            this.cadastroAtividadeToolStripMenuItem.Size = new System.Drawing.Size(134, 49);
-            this.cadastroAtividadeToolStripMenuItem.Text = "Cadastro Atividade";
-            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1484,10 +1594,13 @@ namespace SYS_APAE
             this.tabControlGeral.ResumeLayout(false);
             this.tabCadastro.ResumeLayout(false);
             this.tabCadastro.PerformLayout();
+            this.tabCadastroMonitor.ResumeLayout(false);
+            this.tabCadastroMonitor.PerformLayout();
             this.tabParticipante.ResumeLayout(false);
             this.tabParticipante.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgParticipantes)).EndInit();
             this.tabVisuRel.ResumeLayout(false);
+            this.tabVisuRel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgReports)).EndInit();
             this.tabGerarRel.ResumeLayout(false);
             this.tabGerarRel.PerformLayout();
@@ -1516,15 +1629,15 @@ namespace SYS_APAE
         private System.Windows.Forms.TabPage tabCadastro;
         private System.Windows.Forms.TabPage tabParticipante;
         private System.Windows.Forms.TabPage tabVisuRel;
-        private System.Windows.Forms.TextBox txtCPF;
+        private CustomTextBox txtCPF;
         private System.Windows.Forms.Label lblCPF;
-        private System.Windows.Forms.TextBox txtNome;
+        private CustomTextBox txtNome;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.PictureBox logo_if;
         private System.Windows.Forms.Panel pnlGreenDatail;
         private System.Windows.Forms.Label lblDataExp;
-        private System.Windows.Forms.TextBox txtOrgExp;
-        private System.Windows.Forms.TextBox txtRG;
+        private CustomTextBox txtOrgExp;
+        private CustomTextBox txtRG;
         private System.Windows.Forms.Label lblRG;
         private System.Windows.Forms.Label lblOrgExp;
         private System.Windows.Forms.Label lblNaturalidade;
@@ -1532,27 +1645,27 @@ namespace SYS_APAE
         private System.Windows.Forms.Label lblPai;
         private System.Windows.Forms.Label lblMae;
         private System.Windows.Forms.Label lblEnd;
-        private System.Windows.Forms.TextBox txtNaturalidade;
+        private CustomTextBox txtNaturalidade;
         private System.Windows.Forms.Label lblNasc;
-        private System.Windows.Forms.TextBox txtTel;
-        private System.Windows.Forms.TextBox txtDDDTel;
+        private CustomTextBox txtTel;
+        private CustomTextBox txtDDDTel;
         private System.Windows.Forms.Label lblTel;
-        private System.Windows.Forms.TextBox txtEstado;
+        private CustomTextBox txtEstado;
         private System.Windows.Forms.Label lblEstado;
-        private System.Windows.Forms.TextBox txtCidade;
+        private CustomTextBox txtCidade;
         private System.Windows.Forms.Label lblCidade;
-        private System.Windows.Forms.TextBox txtCep;
+        private CustomTextBox txtCep;
         private System.Windows.Forms.Label lblBairro;
-        private System.Windows.Forms.TextBox txtEnd;
+        private CustomTextBox txtEnd;
         private System.Windows.Forms.Label lblCep;
-        private System.Windows.Forms.TextBox txtPai;
-        private System.Windows.Forms.TextBox txtMae;
-        private System.Windows.Forms.TextBox txtBairro;
-        private System.Windows.Forms.TextBox txtEmail;
+        private CustomTextBox txtPai;
+        private CustomTextBox txtMae;
+        private CustomTextBox txtBairro;
+        private CustomTextBox txtEmail;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblDDD;
-        private System.Windows.Forms.TextBox txtCelular;
-        private System.Windows.Forms.TextBox txtDDD;
+        private CustomTextBox txtCelular;
+        private CustomTextBox txtDDD;
         private System.Windows.Forms.Label lblCelular;
         private System.Windows.Forms.Label lblDDDTel;
         private System.Windows.Forms.RadioButton radioListMonitor;
@@ -1563,7 +1676,7 @@ namespace SYS_APAE
         private System.Windows.Forms.Label lblNomeAluno;
         private System.Windows.Forms.Label lblPront;
         private System.Windows.Forms.Label lblNomeMonitor;
-        private System.Windows.Forms.TextBox txtObsInteressante;
+        private CustomTextBox txtObsInteressante;
         private System.Windows.Forms.Label lblObsInteressante;
         private System.Windows.Forms.RadioButton radioInteressante1;
         private System.Windows.Forms.RadioButton radioInteressante2;
@@ -1572,7 +1685,7 @@ namespace SYS_APAE
         private System.Windows.Forms.RadioButton radioInteressante5;
         private System.Windows.Forms.Label lblInteressante;
         private System.Windows.Forms.RadioButton radioInteressante0;
-        private System.Windows.Forms.TextBox txtObs;
+        private CustomTextBox txtObs;
         private System.Windows.Forms.RadioButton radioAtividade1;
         private System.Windows.Forms.RadioButton radioAtividade2;
         private System.Windows.Forms.RadioButton radioAtividade4;
@@ -1602,8 +1715,8 @@ namespace SYS_APAE
         private System.Windows.Forms.Label lblDigitacao;
         private System.Windows.Forms.Label lblObs;
         private System.Windows.Forms.RadioButton radioDig0;
-        private System.Windows.Forms.TextBox txtTitulo;
-        private System.Windows.Forms.TextBox txtProntRelatorio;
+        private CustomTextBox txtTitulo;
+        private CustomTextBox txtProntRelatorio;
         private System.Windows.Forms.GroupBox gpBoxDigitacao;
         private System.Windows.Forms.GroupBox gpBoxRecLetras;
         private System.Windows.Forms.GroupBox gpBoxLeitura;
@@ -1627,8 +1740,16 @@ namespace SYS_APAE
         private ToolStripMenuItem mnItemNewReports;
         private ToolStripMenuItem mnItemShowReports;
         private ToolStripMenuItem mnItemNewStudents;
-        private ToolStripMenuItem cadastroMonitorToolStripMenuItem;
+        private ToolStripMenuItem mnItemNewInstructor;
         private ToolStripMenuItem cadastroAtividadeToolStripMenuItem;
+        private Label lblSearchReports;
+        private CustomTextBox txtSearchReports;
+        private TabPage tabCadastroMonitor;
+        private Label label1;
+        private CustomTextBox txtNameInstructor;
+        private CustomTextBox txtEmailInstructor;
+        private CustomTextBox txtPasswordInstructor;
+        private CustomTextBox txtCpfInstructor;
     }
 }
 

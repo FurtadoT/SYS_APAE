@@ -1,5 +1,6 @@
 ﻿using SYS_APAE.SYS_APAE.Data;
 using SYS_APAE.SYS_APAE.Models;
+using SYS_APAE.SYS_APAE.SYS_APAE.CustomComponents;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,6 +16,7 @@ namespace SYS_APAE
         {
             InitializeComponent();
             mnPrincipal.Renderer = new CustomMenuRender();
+            txtSearchReports = new CustomTextBox();
             this.CenterToScreen();
 
             this.radioControl.Add("dig", -1);
@@ -32,16 +34,19 @@ namespace SYS_APAE
         private void _handlerTabGeral()
         {
             tabControlGeral.TabPages.Remove(tabCadastro);
+            tabControlGeral.TabPages.Remove(tabCadastroMonitor);
             tabControlGeral.TabPages.Remove(tabParticipante);
             tabControlGeral.TabPages.Remove(tabVisuRel);
             tabControlGeral.TabPages.Remove(tabGerarRel);
 
             mnItemNewStudents.Visible = true;
+            mnItemNewInstructor.Visible = true;
             mnItemShowStudents.Visible = true;
             mnItemShowReports.Visible = true;
             mnItemNewReports.Visible = true;
 
             mnItemNewStudents.Enabled = true;
+            mnItemNewInstructor.Enabled = true;
             mnItemShowStudents.Enabled = true;
             mnItemShowReports.Enabled = true;
             mnItemNewReports.Enabled = true;
@@ -312,6 +317,19 @@ namespace SYS_APAE
 
             dtgReports.DataSource = ReportsDTO.getAllReportsUsingView();
             dtgReports.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+        }
+
+        private void txtSearchReports_TextChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("oi");
+        }
+
+        private void mnItemNewInstructor_Click(object sender, EventArgs e)
+        {
+            _handlerTabGeral();
+
+            tabControlGeral.TabPages.Insert(0, tabCadastroMonitor);
+            mnItemNewInstructor.Enabled = false;
         }
     }
 }
