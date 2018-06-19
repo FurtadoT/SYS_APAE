@@ -70,7 +70,7 @@ CREATE VIEW students_view
  	AS SELECT id as Id, name as Nome, cpf as CPF, email as 'E-mail', phone as Telefone FROM students;
 
 CREATE VIEW instructors_view
- AS SELECT id as Id, name as Nome, cpf as CPF, email as 'E-mail', prontuario as Prontuario, tipo_monitor as Monitor FROM instructors;
+ AS SELECT id as Id, name as Nome, cpf as CPF, email as 'Email', prontuario as Prontuario, tipo_monitor as Monitor FROM instructors;
 
 CREATE VIEW reports_view
  AS SELECT id, id_student, id_instructor, title, dt_created from records;
@@ -80,3 +80,5 @@ INSERT INTO admin_sys (id, name, login, password) values(0, 'Tobias', 'admin', '
 INSERT INTO students (id, name, cpf, rg, org_exp, dt_exp, dt_nasc, nationality, father_name, mother_name, address, city, state, district, cep, phone, celphone, email) VALUES (0, 'Tobias Furtado da Silva', '22222222222', '22222222', 'SSP', '2010-10-10', '1994-09-18', 'Brasileiro', 'Jorge', 'Maria', 'Celio', 'Sanca', 'São Paulo', 'Santa', '22222222', '2222222222', '22222222222', 'tobias_fs_@hotmail.com');
 
 INSERT INTO students (id, name, cpf, rg, org_exp, dt_exp, dt_nasc, nationality, father_name, mother_name, address, city, state, district, cep, phone, celphone, email) VALUES (0, 'sarah', '11111111111', '111111111', 'SSP', '2010-10-10', '1998-10-10', 'Brasileiro', 'Pai 1', 'Mae 1', 'Rua 1', 'Cidade 1', 'Estado 1', 'Bairro 1', '11111111', '1111111111', '11111111111', 'sarah@domain.com');
+
+INSERT INTO instructors (id, name, password, cpf, email, prontuario, tipo_monitor, carga_horaria) VALUES (0, 'Instrutor Teste', '1', '40955973805', 'teste@instructor.com', '170141-x', 'Bolsista', 20);
