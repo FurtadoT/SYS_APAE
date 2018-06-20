@@ -1,5 +1,5 @@
 ﻿using System.Windows.Forms;
-using SYS_APAE.SYS_APAE.SYS_APAE.CustomComponents;
+using SYS_APAE_CUSTOM_COMPONENTS.CustomComponents;
 
 
 namespace SYS_APAE
@@ -39,17 +39,32 @@ namespace SYS_APAE
             this.dtpExp = new System.Windows.Forms.DateTimePicker();
             this.dtpNasc = new System.Windows.Forms.DateTimePicker();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.txtEmail = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblDDD = new System.Windows.Forms.Label();
+            this.txtCelular = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBox();
+            this.txtDDD = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBox();
             this.lblCelular = new System.Windows.Forms.Label();
             this.lblDDDTel = new System.Windows.Forms.Label();
+            this.txtTel = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBox();
+            this.txtDDDTel = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBox();
             this.lblTel = new System.Windows.Forms.Label();
+            this.txtEstado = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBox();
             this.lblEstado = new System.Windows.Forms.Label();
+            this.txtCidade = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBox();
             this.lblCidade = new System.Windows.Forms.Label();
+            this.txtCep = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBox();
             this.lblBairro = new System.Windows.Forms.Label();
+            this.txtEnd = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBox();
             this.lblCep = new System.Windows.Forms.Label();
+            this.txtPai = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBox();
+            this.txtMae = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBox();
+            this.txtBairro = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBox();
+            this.txtNaturalidade = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBox();
             this.lblNasc = new System.Windows.Forms.Label();
             this.lblDataExp = new System.Windows.Forms.Label();
+            this.txtOrgExp = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBox();
+            this.txtRG = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBox();
             this.lblRG = new System.Windows.Forms.Label();
             this.lblOrgExp = new System.Windows.Forms.Label();
             this.lblNaturalidade = new System.Windows.Forms.Label();
@@ -57,10 +72,20 @@ namespace SYS_APAE
             this.lblPai = new System.Windows.Forms.Label();
             this.lblMae = new System.Windows.Forms.Label();
             this.lblEnd = new System.Windows.Forms.Label();
+            this.txtCPF = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBox();
             this.lblCPF = new System.Windows.Forms.Label();
+            this.txtNome = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBox();
             this.lblNome = new System.Windows.Forms.Label();
             this.tabCadastroMonitor = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.chkShowPassword = new System.Windows.Forms.CheckBox();
+            this.lblPasswordInstructor = new System.Windows.Forms.Label();
+            this.lblCpfInstructor = new System.Windows.Forms.Label();
+            this.txtPasswordInstructor = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBox();
+            this.txtCpfInstructor = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomMaskedTextBox();
+            this.gpbInstructorGeneral = new System.Windows.Forms.GroupBox();
+            this.txtEmailInstructor = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBox();
+            this.txtNameInstructor = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
             this.tabParticipante = new System.Windows.Forms.TabPage();
             this.dtgParticipantes = new System.Windows.Forms.DataGridView();
             this.radioListMonitor = new System.Windows.Forms.RadioButton();
@@ -68,6 +93,7 @@ namespace SYS_APAE
             this.tabVisuRel = new System.Windows.Forms.TabPage();
             this.lblSearchReports = new System.Windows.Forms.Label();
             this.dtgReports = new System.Windows.Forms.DataGridView();
+            this.txtSearchReports = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBox();
             this.tabGerarRel = new System.Windows.Forms.TabPage();
             this.btnRefreshReport = new System.Windows.Forms.Button();
             this.btnRelAdd = new System.Windows.Forms.Button();
@@ -83,7 +109,9 @@ namespace SYS_APAE
             this.radioInteressante2 = new System.Windows.Forms.RadioButton();
             this.radioInteressante1 = new System.Windows.Forms.RadioButton();
             this.lblObsInteressante = new System.Windows.Forms.Label();
+            this.txtObsInteressante = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBox();
             this.gpBoxAtividade = new System.Windows.Forms.GroupBox();
+            this.txtObs = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBox();
             this.lblObs = new System.Windows.Forms.Label();
             this.radioAtividade0 = new System.Windows.Forms.RadioButton();
             this.lblAtividade = new System.Windows.Forms.Label();
@@ -121,6 +149,8 @@ namespace SYS_APAE
             this.lblNomeAluno = new System.Windows.Forms.Label();
             this.lblPront = new System.Windows.Forms.Label();
             this.lblNomeMonitor = new System.Windows.Forms.Label();
+            this.txtTitulo = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBox();
+            this.txtProntRelatorio = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBox();
             this.logo_if = new System.Windows.Forms.PictureBox();
             this.pnlGreenDatail = new System.Windows.Forms.Panel();
             this.lblWUser = new System.Windows.Forms.Label();
@@ -132,35 +162,11 @@ namespace SYS_APAE
             this.mnItemShowStudents = new System.Windows.Forms.ToolStripMenuItem();
             this.mnItemNewReports = new System.Windows.Forms.ToolStripMenuItem();
             this.mnItemShowReports = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtEmail = new SYS_APAE.SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
-            this.txtCelular = new SYS_APAE.SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
-            this.txtDDD = new SYS_APAE.SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
-            this.txtTel = new SYS_APAE.SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
-            this.txtDDDTel = new SYS_APAE.SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
-            this.txtEstado = new SYS_APAE.SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
-            this.txtCidade = new SYS_APAE.SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
-            this.txtCep = new SYS_APAE.SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
-            this.txtEnd = new SYS_APAE.SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
-            this.txtPai = new SYS_APAE.SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
-            this.txtMae = new SYS_APAE.SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
-            this.txtBairro = new SYS_APAE.SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
-            this.txtNaturalidade = new SYS_APAE.SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
-            this.txtOrgExp = new SYS_APAE.SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
-            this.txtRG = new SYS_APAE.SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
-            this.txtCPF = new SYS_APAE.SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
-            this.txtNome = new SYS_APAE.SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
-            this.txtNameInstructor = new SYS_APAE.SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
-            this.txtEmailInstructor = new SYS_APAE.SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
-            this.txtPasswordInstructor = new SYS_APAE.SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
-            this.txtCpfInstructor = new SYS_APAE.SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
-            this.txtSearchReports = new SYS_APAE.SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
-            this.txtObsInteressante = new SYS_APAE.SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
-            this.txtObs = new SYS_APAE.SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
-            this.txtTitulo = new SYS_APAE.SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
-            this.txtProntRelatorio = new SYS_APAE.SYS_APAE.SYS_APAE.CustomComponents.CustomTextBox();
             this.tabControlGeral.SuspendLayout();
             this.tabCadastro.SuspendLayout();
             this.tabCadastroMonitor.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.gpbInstructorGeneral.SuspendLayout();
             this.tabParticipante.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgParticipantes)).BeginInit();
             this.tabVisuRel.SuspendLayout();
@@ -285,6 +291,16 @@ namespace SYS_APAE
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // txtEmail
+            // 
+            this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEmail.Location = new System.Drawing.Point(715, 222);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(360, 20);
+            this.txtEmail.TabIndex = 22;
+            // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
@@ -302,6 +318,22 @@ namespace SYS_APAE
             this.lblDDD.Size = new System.Drawing.Size(34, 13);
             this.lblDDD.TabIndex = 45;
             this.lblDDD.Text = "DDD:";
+            // 
+            // txtCelular
+            // 
+            this.txtCelular.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCelular.Location = new System.Drawing.Point(160, 221);
+            this.txtCelular.Name = "txtCelular";
+            this.txtCelular.Size = new System.Drawing.Size(164, 20);
+            this.txtCelular.TabIndex = 19;
+            // 
+            // txtDDD
+            // 
+            this.txtDDD.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDDD.Location = new System.Drawing.Point(76, 221);
+            this.txtDDD.Name = "txtDDD";
+            this.txtDDD.Size = new System.Drawing.Size(30, 20);
+            this.txtDDD.TabIndex = 18;
             // 
             // lblCelular
             // 
@@ -321,6 +353,22 @@ namespace SYS_APAE
             this.lblDDDTel.TabIndex = 41;
             this.lblDDDTel.Text = "DDD:";
             // 
+            // txtTel
+            // 
+            this.txtTel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTel.Location = new System.Drawing.Point(477, 221);
+            this.txtTel.Name = "txtTel";
+            this.txtTel.Size = new System.Drawing.Size(164, 20);
+            this.txtTel.TabIndex = 21;
+            // 
+            // txtDDDTel
+            // 
+            this.txtDDDTel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDDDTel.Location = new System.Drawing.Point(383, 221);
+            this.txtDDDTel.Name = "txtDDDTel";
+            this.txtDDDTel.Size = new System.Drawing.Size(30, 20);
+            this.txtDDDTel.TabIndex = 20;
+            // 
             // lblTel
             // 
             this.lblTel.AutoSize = true;
@@ -329,6 +377,16 @@ namespace SYS_APAE
             this.lblTel.Size = new System.Drawing.Size(52, 13);
             this.lblTel.TabIndex = 38;
             this.lblTel.Text = "Telefone:";
+            // 
+            // txtEstado
+            // 
+            this.txtEstado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtEstado.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEstado.Location = new System.Drawing.Point(715, 194);
+            this.txtEstado.Name = "txtEstado";
+            this.txtEstado.Size = new System.Drawing.Size(360, 20);
+            this.txtEstado.TabIndex = 17;
             // 
             // lblEstado
             // 
@@ -339,6 +397,16 @@ namespace SYS_APAE
             this.lblEstado.TabIndex = 33;
             this.lblEstado.Text = "Estado:";
             // 
+            // txtCidade
+            // 
+            this.txtCidade.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCidade.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCidade.Location = new System.Drawing.Point(282, 194);
+            this.txtCidade.Name = "txtCidade";
+            this.txtCidade.Size = new System.Drawing.Size(271, 20);
+            this.txtCidade.TabIndex = 16;
+            // 
             // lblCidade
             // 
             this.lblCidade.AutoSize = true;
@@ -347,6 +415,14 @@ namespace SYS_APAE
             this.lblCidade.Size = new System.Drawing.Size(43, 13);
             this.lblCidade.TabIndex = 31;
             this.lblCidade.Text = "Cidade:";
+            // 
+            // txtCep
+            // 
+            this.txtCep.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCep.Location = new System.Drawing.Point(76, 194);
+            this.txtCep.Name = "txtCep";
+            this.txtCep.Size = new System.Drawing.Size(141, 20);
+            this.txtCep.TabIndex = 15;
             // 
             // lblBairro
             // 
@@ -357,6 +433,16 @@ namespace SYS_APAE
             this.lblBairro.TabIndex = 29;
             this.lblBairro.Text = "Bairro:";
             // 
+            // txtEnd
+            // 
+            this.txtEnd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtEnd.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEnd.Location = new System.Drawing.Point(76, 166);
+            this.txtEnd.Name = "txtEnd";
+            this.txtEnd.Size = new System.Drawing.Size(477, 20);
+            this.txtEnd.TabIndex = 13;
+            // 
             // lblCep
             // 
             this.lblCep.AutoSize = true;
@@ -365,6 +451,46 @@ namespace SYS_APAE
             this.lblCep.Size = new System.Drawing.Size(31, 13);
             this.lblCep.TabIndex = 27;
             this.lblCep.Text = "CEP:";
+            // 
+            // txtPai
+            // 
+            this.txtPai.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPai.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPai.Location = new System.Drawing.Point(375, 127);
+            this.txtPai.Name = "txtPai";
+            this.txtPai.Size = new System.Drawing.Size(700, 20);
+            this.txtPai.TabIndex = 12;
+            // 
+            // txtMae
+            // 
+            this.txtMae.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMae.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMae.Location = new System.Drawing.Point(375, 87);
+            this.txtMae.Name = "txtMae";
+            this.txtMae.Size = new System.Drawing.Size(700, 20);
+            this.txtMae.TabIndex = 11;
+            // 
+            // txtBairro
+            // 
+            this.txtBairro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBairro.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBairro.Location = new System.Drawing.Point(715, 166);
+            this.txtBairro.Name = "txtBairro";
+            this.txtBairro.Size = new System.Drawing.Size(360, 20);
+            this.txtBairro.TabIndex = 14;
+            // 
+            // txtNaturalidade
+            // 
+            this.txtNaturalidade.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNaturalidade.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNaturalidade.Location = new System.Drawing.Point(752, 50);
+            this.txtNaturalidade.Name = "txtNaturalidade";
+            this.txtNaturalidade.Size = new System.Drawing.Size(323, 20);
+            this.txtNaturalidade.TabIndex = 7;
             // 
             // lblNasc
             // 
@@ -387,6 +513,22 @@ namespace SYS_APAE
             this.lblDataExp.Size = new System.Drawing.Size(57, 13);
             this.lblDataExp.TabIndex = 19;
             this.lblDataExp.Text = "Data Exp.:";
+            // 
+            // txtOrgExp
+            // 
+            this.txtOrgExp.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtOrgExp.Location = new System.Drawing.Point(76, 108);
+            this.txtOrgExp.Name = "txtOrgExp";
+            this.txtOrgExp.Size = new System.Drawing.Size(60, 20);
+            this.txtOrgExp.TabIndex = 9;
+            // 
+            // txtRG
+            // 
+            this.txtRG.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtRG.Location = new System.Drawing.Point(76, 80);
+            this.txtRG.Name = "txtRG";
+            this.txtRG.Size = new System.Drawing.Size(141, 20);
+            this.txtRG.TabIndex = 8;
             // 
             // lblRG
             // 
@@ -457,6 +599,14 @@ namespace SYS_APAE
             this.lblEnd.TabIndex = 10;
             this.lblEnd.Text = "Endereço:";
             // 
+            // txtCPF
+            // 
+            this.txtCPF.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCPF.Location = new System.Drawing.Point(76, 50);
+            this.txtCPF.Name = "txtCPF";
+            this.txtCPF.Size = new System.Drawing.Size(203, 20);
+            this.txtCPF.TabIndex = 5;
+            // 
             // lblCPF
             // 
             this.lblCPF.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -467,6 +617,16 @@ namespace SYS_APAE
             this.lblCPF.Size = new System.Drawing.Size(30, 13);
             this.lblCPF.TabIndex = 7;
             this.lblCPF.Text = "CPF:";
+            // 
+            // txtNome
+            // 
+            this.txtNome.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNome.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNome.Location = new System.Drawing.Point(76, 22);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(999, 20);
+            this.txtNome.TabIndex = 4;
             // 
             // lblNome
             // 
@@ -481,11 +641,8 @@ namespace SYS_APAE
             // 
             // tabCadastroMonitor
             // 
-            this.tabCadastroMonitor.Controls.Add(this.label1);
-            this.tabCadastroMonitor.Controls.Add(this.txtNameInstructor);
-            this.tabCadastroMonitor.Controls.Add(this.txtEmailInstructor);
-            this.tabCadastroMonitor.Controls.Add(this.txtPasswordInstructor);
-            this.tabCadastroMonitor.Controls.Add(this.txtCpfInstructor);
+            this.tabCadastroMonitor.Controls.Add(this.groupBox2);
+            this.tabCadastroMonitor.Controls.Add(this.gpbInstructorGeneral);
             this.tabCadastroMonitor.Location = new System.Drawing.Point(4, 22);
             this.tabCadastroMonitor.Name = "tabCadastroMonitor";
             this.tabCadastroMonitor.Size = new System.Drawing.Size(1090, 354);
@@ -493,14 +650,94 @@ namespace SYS_APAE
             this.tabCadastroMonitor.Text = "Cadastrar Monitor";
             this.tabCadastroMonitor.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // groupBox2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(59, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "label1";
+            this.groupBox2.Controls.Add(this.chkShowPassword);
+            this.groupBox2.Controls.Add(this.lblPasswordInstructor);
+            this.groupBox2.Controls.Add(this.lblCpfInstructor);
+            this.groupBox2.Controls.Add(this.txtPasswordInstructor);
+            this.groupBox2.Controls.Add(this.txtCpfInstructor);
+            this.groupBox2.Location = new System.Drawing.Point(3, 143);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(484, 122);
+            this.groupBox2.TabIndex = 8;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Credenciais";
+            // 
+            // chkShowPassword
+            // 
+            this.chkShowPassword.AutoSize = true;
+            this.chkShowPassword.Location = new System.Drawing.Point(404, 48);
+            this.chkShowPassword.Name = "chkShowPassword";
+            this.chkShowPassword.Size = new System.Drawing.Size(60, 17);
+            this.chkShowPassword.TabIndex = 8;
+            this.chkShowPassword.Text = "mostrar";
+            this.chkShowPassword.UseVisualStyleBackColor = true;
+            this.chkShowPassword.CheckedChanged += new System.EventHandler(this.chkShowPassword_CheckedChanged);
+            // 
+            // lblPasswordInstructor
+            // 
+            this.lblPasswordInstructor.AutoSize = true;
+            this.lblPasswordInstructor.Location = new System.Drawing.Point(227, 49);
+            this.lblPasswordInstructor.Name = "lblPasswordInstructor";
+            this.lblPasswordInstructor.Size = new System.Drawing.Size(41, 13);
+            this.lblPasswordInstructor.TabIndex = 7;
+            this.lblPasswordInstructor.Text = "Senha:";
+            // 
+            // lblCpfInstructor
+            // 
+            this.lblCpfInstructor.AutoSize = true;
+            this.lblCpfInstructor.Location = new System.Drawing.Point(39, 49);
+            this.lblCpfInstructor.Name = "lblCpfInstructor";
+            this.lblCpfInstructor.Size = new System.Drawing.Size(30, 13);
+            this.lblCpfInstructor.TabIndex = 6;
+            this.lblCpfInstructor.Text = "CPF:";
+            // 
+            // txtPasswordInstructor
+            // 
+            this.txtPasswordInstructor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPasswordInstructor.Location = new System.Drawing.Point(274, 49);
+            this.txtPasswordInstructor.Name = "txtPasswordInstructor";
+            this.txtPasswordInstructor.PasswordChar = '*';
+            this.txtPasswordInstructor.Size = new System.Drawing.Size(115, 20);
+            this.txtPasswordInstructor.TabIndex = 1;
+            // 
+            // txtCpfInstructor
+            // 
+            this.txtCpfInstructor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCpfInstructor.Location = new System.Drawing.Point(75, 49);
+            this.txtCpfInstructor.Mask = "###.###.###-##";
+            this.txtCpfInstructor.Name = "txtCpfInstructor";
+            this.txtCpfInstructor.Size = new System.Drawing.Size(90, 20);
+            this.txtCpfInstructor.TabIndex = 0;
+            // 
+            // gpbInstructorGeneral
+            // 
+            this.gpbInstructorGeneral.Controls.Add(this.txtEmailInstructor);
+            this.gpbInstructorGeneral.Controls.Add(this.txtNameInstructor);
+            this.gpbInstructorGeneral.Location = new System.Drawing.Point(3, 3);
+            this.gpbInstructorGeneral.Name = "gpbInstructorGeneral";
+            this.gpbInstructorGeneral.Size = new System.Drawing.Size(1076, 134);
+            this.gpbInstructorGeneral.TabIndex = 7;
+            this.gpbInstructorGeneral.TabStop = false;
+            this.gpbInstructorGeneral.Text = "Dados Gerais";
+            // 
+            // txtEmailInstructor
+            // 
+            this.txtEmailInstructor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEmailInstructor.Location = new System.Drawing.Point(59, 77);
+            this.txtEmailInstructor.Name = "txtEmailInstructor";
+            this.txtEmailInstructor.Size = new System.Drawing.Size(425, 20);
+            this.txtEmailInstructor.TabIndex = 2;
+            this.txtEmailInstructor.Tag = "E-mail:";
+            // 
+            // txtNameInstructor
+            // 
+            this.txtNameInstructor.Location = new System.Drawing.Point(16, 27);
+            this.txtNameInstructor.Name = "txtNameInstructor";
+            this.txtNameInstructor.Size = new System.Drawing.Size(736, 35);
+            this.txtNameInstructor.TabIndex = 3;
+            this.txtNameInstructor.Tag = "Nome";
             // 
             // tabParticipante
             // 
@@ -588,6 +825,15 @@ namespace SYS_APAE
             this.dtgReports.ReadOnly = true;
             this.dtgReports.Size = new System.Drawing.Size(1084, 312);
             this.dtgReports.TabIndex = 6;
+            // 
+            // txtSearchReports
+            // 
+            this.txtSearchReports.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtSearchReports.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSearchReports.Location = new System.Drawing.Point(882, 13);
+            this.txtSearchReports.Name = "txtSearchReports";
+            this.txtSearchReports.Size = new System.Drawing.Size(205, 20);
+            this.txtSearchReports.TabIndex = 7;
             // 
             // tabGerarRel
             // 
@@ -778,6 +1024,14 @@ namespace SYS_APAE
             this.lblObsInteressante.TabIndex = 47;
             this.lblObsInteressante.Text = "OBS: ";
             // 
+            // txtObsInteressante
+            // 
+            this.txtObsInteressante.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtObsInteressante.Location = new System.Drawing.Point(71, 80);
+            this.txtObsInteressante.Name = "txtObsInteressante";
+            this.txtObsInteressante.Size = new System.Drawing.Size(529, 20);
+            this.txtObsInteressante.TabIndex = 48;
+            // 
             // gpBoxAtividade
             // 
             this.gpBoxAtividade.Controls.Add(this.txtObs);
@@ -794,6 +1048,14 @@ namespace SYS_APAE
             this.gpBoxAtividade.Size = new System.Drawing.Size(606, 112);
             this.gpBoxAtividade.TabIndex = 57;
             this.gpBoxAtividade.TabStop = false;
+            // 
+            // txtObs
+            // 
+            this.txtObs.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtObs.Location = new System.Drawing.Point(71, 80);
+            this.txtObs.Name = "txtObs";
+            this.txtObs.Size = new System.Drawing.Size(529, 20);
+            this.txtObs.TabIndex = 39;
             // 
             // lblObs
             // 
@@ -1246,6 +1508,23 @@ namespace SYS_APAE
             this.lblNomeMonitor.TabIndex = 0;
             this.lblNomeMonitor.Text = "Nome do Monitor:";
             // 
+            // txtTitulo
+            // 
+            this.txtTitulo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTitulo.Location = new System.Drawing.Point(721, 81);
+            this.txtTitulo.Name = "txtTitulo";
+            this.txtTitulo.Size = new System.Drawing.Size(425, 20);
+            this.txtTitulo.TabIndex = 53;
+            // 
+            // txtProntRelatorio
+            // 
+            this.txtProntRelatorio.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtProntRelatorio.Location = new System.Drawing.Point(112, 81);
+            this.txtProntRelatorio.Name = "txtProntRelatorio";
+            this.txtProntRelatorio.ReadOnly = true;
+            this.txtProntRelatorio.Size = new System.Drawing.Size(178, 20);
+            this.txtProntRelatorio.TabIndex = 51;
+            // 
             // logo_if
             // 
             this.logo_if.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("logo_if.BackgroundImage")));
@@ -1350,234 +1629,6 @@ namespace SYS_APAE
             this.mnItemShowReports.Text = "Visualizar Relatórios";
             this.mnItemShowReports.Click += new System.EventHandler(this.mnItemShowReports_Click);
             // 
-            // txtEmail
-            // 
-            this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEmail.Location = new System.Drawing.Point(715, 222);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(360, 20);
-            this.txtEmail.TabIndex = 22;
-            // 
-            // txtCelular
-            // 
-            this.txtCelular.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCelular.Location = new System.Drawing.Point(160, 221);
-            this.txtCelular.Name = "txtCelular";
-            this.txtCelular.Size = new System.Drawing.Size(164, 20);
-            this.txtCelular.TabIndex = 19;
-            // 
-            // txtDDD
-            // 
-            this.txtDDD.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDDD.Location = new System.Drawing.Point(76, 221);
-            this.txtDDD.Name = "txtDDD";
-            this.txtDDD.Size = new System.Drawing.Size(30, 20);
-            this.txtDDD.TabIndex = 18;
-            // 
-            // txtTel
-            // 
-            this.txtTel.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTel.Location = new System.Drawing.Point(477, 221);
-            this.txtTel.Name = "txtTel";
-            this.txtTel.Size = new System.Drawing.Size(164, 20);
-            this.txtTel.TabIndex = 21;
-            // 
-            // txtDDDTel
-            // 
-            this.txtDDDTel.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDDDTel.Location = new System.Drawing.Point(383, 221);
-            this.txtDDDTel.Name = "txtDDDTel";
-            this.txtDDDTel.Size = new System.Drawing.Size(30, 20);
-            this.txtDDDTel.TabIndex = 20;
-            // 
-            // txtEstado
-            // 
-            this.txtEstado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEstado.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEstado.Location = new System.Drawing.Point(715, 194);
-            this.txtEstado.Name = "txtEstado";
-            this.txtEstado.Size = new System.Drawing.Size(360, 20);
-            this.txtEstado.TabIndex = 17;
-            // 
-            // txtCidade
-            // 
-            this.txtCidade.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCidade.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCidade.Location = new System.Drawing.Point(282, 194);
-            this.txtCidade.Name = "txtCidade";
-            this.txtCidade.Size = new System.Drawing.Size(271, 20);
-            this.txtCidade.TabIndex = 16;
-            // 
-            // txtCep
-            // 
-            this.txtCep.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCep.Location = new System.Drawing.Point(76, 194);
-            this.txtCep.Name = "txtCep";
-            this.txtCep.Size = new System.Drawing.Size(141, 20);
-            this.txtCep.TabIndex = 15;
-            // 
-            // txtEnd
-            // 
-            this.txtEnd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEnd.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEnd.Location = new System.Drawing.Point(76, 166);
-            this.txtEnd.Name = "txtEnd";
-            this.txtEnd.Size = new System.Drawing.Size(477, 20);
-            this.txtEnd.TabIndex = 13;
-            // 
-            // txtPai
-            // 
-            this.txtPai.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPai.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPai.Location = new System.Drawing.Point(375, 127);
-            this.txtPai.Name = "txtPai";
-            this.txtPai.Size = new System.Drawing.Size(700, 20);
-            this.txtPai.TabIndex = 12;
-            // 
-            // txtMae
-            // 
-            this.txtMae.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMae.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMae.Location = new System.Drawing.Point(375, 87);
-            this.txtMae.Name = "txtMae";
-            this.txtMae.Size = new System.Drawing.Size(700, 20);
-            this.txtMae.TabIndex = 11;
-            // 
-            // txtBairro
-            // 
-            this.txtBairro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBairro.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBairro.Location = new System.Drawing.Point(715, 166);
-            this.txtBairro.Name = "txtBairro";
-            this.txtBairro.Size = new System.Drawing.Size(360, 20);
-            this.txtBairro.TabIndex = 14;
-            // 
-            // txtNaturalidade
-            // 
-            this.txtNaturalidade.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNaturalidade.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNaturalidade.Location = new System.Drawing.Point(752, 50);
-            this.txtNaturalidade.Name = "txtNaturalidade";
-            this.txtNaturalidade.Size = new System.Drawing.Size(323, 20);
-            this.txtNaturalidade.TabIndex = 7;
-            // 
-            // txtOrgExp
-            // 
-            this.txtOrgExp.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtOrgExp.Location = new System.Drawing.Point(76, 108);
-            this.txtOrgExp.Name = "txtOrgExp";
-            this.txtOrgExp.Size = new System.Drawing.Size(60, 20);
-            this.txtOrgExp.TabIndex = 9;
-            // 
-            // txtRG
-            // 
-            this.txtRG.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtRG.Location = new System.Drawing.Point(76, 80);
-            this.txtRG.Name = "txtRG";
-            this.txtRG.Size = new System.Drawing.Size(141, 20);
-            this.txtRG.TabIndex = 8;
-            // 
-            // txtCPF
-            // 
-            this.txtCPF.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCPF.Location = new System.Drawing.Point(76, 50);
-            this.txtCPF.Name = "txtCPF";
-            this.txtCPF.Size = new System.Drawing.Size(203, 20);
-            this.txtCPF.TabIndex = 5;
-            // 
-            // txtNome
-            // 
-            this.txtNome.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNome.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNome.Location = new System.Drawing.Point(76, 22);
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(999, 20);
-            this.txtNome.TabIndex = 4;
-            // 
-            // txtNameInstructor
-            // 
-            this.txtNameInstructor.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNameInstructor.Location = new System.Drawing.Point(100, 28);
-            this.txtNameInstructor.Name = "txtNameInstructor";
-            this.txtNameInstructor.Size = new System.Drawing.Size(199, 20);
-            this.txtNameInstructor.TabIndex = 3;
-            // 
-            // txtEmailInstructor
-            // 
-            this.txtEmailInstructor.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEmailInstructor.Location = new System.Drawing.Point(444, 28);
-            this.txtEmailInstructor.Name = "txtEmailInstructor";
-            this.txtEmailInstructor.Size = new System.Drawing.Size(253, 20);
-            this.txtEmailInstructor.TabIndex = 2;
-            // 
-            // txtPasswordInstructor
-            // 
-            this.txtPasswordInstructor.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPasswordInstructor.Location = new System.Drawing.Point(220, 112);
-            this.txtPasswordInstructor.Name = "txtPasswordInstructor";
-            this.txtPasswordInstructor.Size = new System.Drawing.Size(100, 20);
-            this.txtPasswordInstructor.TabIndex = 1;
-            // 
-            // txtCpfInstructor
-            // 
-            this.txtCpfInstructor.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCpfInstructor.Location = new System.Drawing.Point(100, 112);
-            this.txtCpfInstructor.Name = "txtCpfInstructor";
-            this.txtCpfInstructor.Size = new System.Drawing.Size(100, 20);
-            this.txtCpfInstructor.TabIndex = 0;
-            // 
-            // txtSearchReports
-            // 
-            this.txtSearchReports.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.txtSearchReports.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSearchReports.Location = new System.Drawing.Point(882, 13);
-            this.txtSearchReports.Name = "txtSearchReports";
-            this.txtSearchReports.Size = new System.Drawing.Size(205, 20);
-            this.txtSearchReports.TabIndex = 7;
-            // 
-            // txtObsInteressante
-            // 
-            this.txtObsInteressante.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtObsInteressante.Location = new System.Drawing.Point(71, 80);
-            this.txtObsInteressante.Name = "txtObsInteressante";
-            this.txtObsInteressante.Size = new System.Drawing.Size(529, 20);
-            this.txtObsInteressante.TabIndex = 48;
-            // 
-            // txtObs
-            // 
-            this.txtObs.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtObs.Location = new System.Drawing.Point(71, 80);
-            this.txtObs.Name = "txtObs";
-            this.txtObs.Size = new System.Drawing.Size(529, 20);
-            this.txtObs.TabIndex = 39;
-            // 
-            // txtTitulo
-            // 
-            this.txtTitulo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTitulo.Location = new System.Drawing.Point(721, 81);
-            this.txtTitulo.Name = "txtTitulo";
-            this.txtTitulo.Size = new System.Drawing.Size(425, 20);
-            this.txtTitulo.TabIndex = 53;
-            // 
-            // txtProntRelatorio
-            // 
-            this.txtProntRelatorio.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtProntRelatorio.Location = new System.Drawing.Point(112, 81);
-            this.txtProntRelatorio.Name = "txtProntRelatorio";
-            this.txtProntRelatorio.ReadOnly = true;
-            this.txtProntRelatorio.Size = new System.Drawing.Size(178, 20);
-            this.txtProntRelatorio.TabIndex = 51;
-            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1595,7 +1646,9 @@ namespace SYS_APAE
             this.tabCadastro.ResumeLayout(false);
             this.tabCadastro.PerformLayout();
             this.tabCadastroMonitor.ResumeLayout(false);
-            this.tabCadastroMonitor.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.gpbInstructorGeneral.ResumeLayout(false);
             this.tabParticipante.ResumeLayout(false);
             this.tabParticipante.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgParticipantes)).EndInit();
@@ -1745,11 +1798,15 @@ namespace SYS_APAE
         private Label lblSearchReports;
         private CustomTextBox txtSearchReports;
         private TabPage tabCadastroMonitor;
-        private Label label1;
-        private CustomTextBox txtNameInstructor;
-        private CustomTextBox txtEmailInstructor;
+        private GroupBox groupBox2;
+        private CheckBox chkShowPassword;
+        private Label lblPasswordInstructor;
+        private Label lblCpfInstructor;
         private CustomTextBox txtPasswordInstructor;
-        private CustomTextBox txtCpfInstructor;
+        private CustomMaskedTextBox txtCpfInstructor;
+        private GroupBox gpbInstructorGeneral;
+        private CustomTextBox txtEmailInstructor;
+        private CustomTextBoxWithLabel txtNameInstructor;
     }
 }
 

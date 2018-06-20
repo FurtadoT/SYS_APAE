@@ -1,11 +1,11 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 
-namespace SYS_APAE.SYS_APAE.SYS_APAE.CustomComponents
+namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
 {
-    class CustomTextBox : TextBox
+    class CustomMaskedTextBox : MaskedTextBox
     {
-        public CustomTextBox()
+        public CustomMaskedTextBox()
         {
             BorderStyle = BorderStyle.None;
             AutoSize = false;

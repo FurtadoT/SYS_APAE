@@ -1,6 +1,6 @@
 ﻿using SYS_APAE.SYS_APAE.Data;
 using SYS_APAE.SYS_APAE.Models;
-using SYS_APAE.SYS_APAE.SYS_APAE.CustomComponents;
+using SYS_APAE_CUSTOM_COMPONENTS.CustomComponents;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -330,6 +330,14 @@ namespace SYS_APAE
 
             tabControlGeral.TabPages.Insert(0, tabCadastroMonitor);
             mnItemNewInstructor.Enabled = false;
+        }
+
+        private void chkShowPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkShowPassword.Checked)
+                this.txtPasswordInstructor.PasswordChar = '\0';
+            else
+                this.txtPasswordInstructor.PasswordChar = '*';
         }
     }
 }
