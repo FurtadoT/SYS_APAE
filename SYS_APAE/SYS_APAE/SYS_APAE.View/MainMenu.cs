@@ -27,8 +27,11 @@ namespace SYS_APAE
 
             _handlerTabGeral();
             dtpNasc.Value = DateTime.Today;
+            dtpExp.Value = DateTime.Today;
             dtpRelCreated.Value = DateTime.Today;
             lblWUser.Text = "Bem vindo, " + LoginDTO.getUser().Name + "!";
+            this.txtPasswordInstructor.PasswordChar = '*';
+            this.txtCpfInstructor.Mask = "###.###.###-##";
         }
 
         private void _handlerTabGeral()

@@ -79,12 +79,10 @@ namespace SYS_APAE
             this.tabCadastroMonitor = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.chkShowPassword = new System.Windows.Forms.CheckBox();
-            this.lblPasswordInstructor = new System.Windows.Forms.Label();
-            this.lblCpfInstructor = new System.Windows.Forms.Label();
-            this.txtPasswordInstructor = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBox();
-            this.txtCpfInstructor = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomMaskedTextBox();
+            this.txtPasswordInstructor = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
+            this.txtCpfInstructor = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomMaskedTextBoxWithLabel();
             this.gpbInstructorGeneral = new System.Windows.Forms.GroupBox();
-            this.txtEmailInstructor = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBox();
+            this.txtEmailInstructor = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
             this.txtNameInstructor = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
             this.tabParticipante = new System.Windows.Forms.TabPage();
             this.dtgParticipantes = new System.Windows.Forms.DataGridView();
@@ -653,8 +651,6 @@ namespace SYS_APAE
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.chkShowPassword);
-            this.groupBox2.Controls.Add(this.lblPasswordInstructor);
-            this.groupBox2.Controls.Add(this.lblCpfInstructor);
             this.groupBox2.Controls.Add(this.txtPasswordInstructor);
             this.groupBox2.Controls.Add(this.txtCpfInstructor);
             this.groupBox2.Location = new System.Drawing.Point(3, 143);
@@ -675,41 +671,21 @@ namespace SYS_APAE
             this.chkShowPassword.UseVisualStyleBackColor = true;
             this.chkShowPassword.CheckedChanged += new System.EventHandler(this.chkShowPassword_CheckedChanged);
             // 
-            // lblPasswordInstructor
-            // 
-            this.lblPasswordInstructor.AutoSize = true;
-            this.lblPasswordInstructor.Location = new System.Drawing.Point(227, 49);
-            this.lblPasswordInstructor.Name = "lblPasswordInstructor";
-            this.lblPasswordInstructor.Size = new System.Drawing.Size(41, 13);
-            this.lblPasswordInstructor.TabIndex = 7;
-            this.lblPasswordInstructor.Text = "Senha:";
-            // 
-            // lblCpfInstructor
-            // 
-            this.lblCpfInstructor.AutoSize = true;
-            this.lblCpfInstructor.Location = new System.Drawing.Point(39, 49);
-            this.lblCpfInstructor.Name = "lblCpfInstructor";
-            this.lblCpfInstructor.Size = new System.Drawing.Size(30, 13);
-            this.lblCpfInstructor.TabIndex = 6;
-            this.lblCpfInstructor.Text = "CPF:";
-            // 
             // txtPasswordInstructor
             // 
-            this.txtPasswordInstructor.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPasswordInstructor.Location = new System.Drawing.Point(274, 49);
+            this.txtPasswordInstructor.Location = new System.Drawing.Point(249, 34);
             this.txtPasswordInstructor.Name = "txtPasswordInstructor";
-            this.txtPasswordInstructor.PasswordChar = '*';
-            this.txtPasswordInstructor.Size = new System.Drawing.Size(115, 20);
+            this.txtPasswordInstructor.Size = new System.Drawing.Size(138, 35);
             this.txtPasswordInstructor.TabIndex = 1;
+            this.txtPasswordInstructor.Tag = "Senha";
             // 
             // txtCpfInstructor
             // 
-            this.txtCpfInstructor.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCpfInstructor.Location = new System.Drawing.Point(75, 49);
-            this.txtCpfInstructor.Mask = "###.###.###-##";
+            this.txtCpfInstructor.Location = new System.Drawing.Point(59, 34);
             this.txtCpfInstructor.Name = "txtCpfInstructor";
-            this.txtCpfInstructor.Size = new System.Drawing.Size(90, 20);
+            this.txtCpfInstructor.Size = new System.Drawing.Size(123, 35);
             this.txtCpfInstructor.TabIndex = 0;
+            this.txtCpfInstructor.Tag = "CPF";
             // 
             // gpbInstructorGeneral
             // 
@@ -724,10 +700,9 @@ namespace SYS_APAE
             // 
             // txtEmailInstructor
             // 
-            this.txtEmailInstructor.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEmailInstructor.Location = new System.Drawing.Point(59, 77);
+            this.txtEmailInstructor.Location = new System.Drawing.Point(16, 77);
             this.txtEmailInstructor.Name = "txtEmailInstructor";
-            this.txtEmailInstructor.Size = new System.Drawing.Size(425, 20);
+            this.txtEmailInstructor.Size = new System.Drawing.Size(468, 35);
             this.txtEmailInstructor.TabIndex = 2;
             this.txtEmailInstructor.Tag = "E-mail:";
             // 
@@ -735,7 +710,7 @@ namespace SYS_APAE
             // 
             this.txtNameInstructor.Location = new System.Drawing.Point(16, 27);
             this.txtNameInstructor.Name = "txtNameInstructor";
-            this.txtNameInstructor.Size = new System.Drawing.Size(736, 35);
+            this.txtNameInstructor.Size = new System.Drawing.Size(468, 35);
             this.txtNameInstructor.TabIndex = 3;
             this.txtNameInstructor.Tag = "Nome";
             // 
@@ -1800,12 +1775,10 @@ namespace SYS_APAE
         private TabPage tabCadastroMonitor;
         private GroupBox groupBox2;
         private CheckBox chkShowPassword;
-        private Label lblPasswordInstructor;
-        private Label lblCpfInstructor;
-        private CustomTextBox txtPasswordInstructor;
-        private CustomMaskedTextBox txtCpfInstructor;
+        private CustomTextBoxWithLabel txtPasswordInstructor;
+        private CustomMaskedTextBoxWithLabel txtCpfInstructor;
         private GroupBox gpbInstructorGeneral;
-        private CustomTextBox txtEmailInstructor;
+        private CustomTextBoxWithLabel txtEmailInstructor;
         private CustomTextBoxWithLabel txtNameInstructor;
     }
 }

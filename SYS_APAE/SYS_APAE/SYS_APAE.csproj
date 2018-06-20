@@ -69,6 +69,9 @@
     <Compile Include="CustomComponents\CustomMaskedTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CustomComponents\CustomMaskedTextBoxWithLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CustomComponents\CustomTextBoxWithLabel.cs">
       <SubType>Component</SubType>
     </Compile>

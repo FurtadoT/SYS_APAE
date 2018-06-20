@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
 {
-    class CustomTextBoxWithLabel : Panel
+    class CustomMaskedTextBoxWithLabel : Panel
     {
         private Label TextBoxLabel = new Label()
         {
@@ -14,11 +14,11 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
             Location = new Point(-2, 10),
         };
 
-        private CustomTextBox CTextBox;
+        private CustomMaskedTextBox CTextBox;
 
-        public CustomTextBoxWithLabel()
+        public CustomMaskedTextBoxWithLabel()
         {
-            this.CTextBox = new CustomTextBox(this.TextBoxLabel);
+            this.CTextBox = new CustomMaskedTextBox(this.TextBoxLabel);
             Controls.Add(this.CTextBox);
             Controls.Add(this.TextBoxLabel);
         }
@@ -47,11 +47,11 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
             }
         }
 
-        public char PasswordChar
+        public string Mask
         {
             set
             {
-                this.CTextBox.PasswordChar = value;
+                this.CTextBox.MaskWhenFocus = value;
             }
         }
     }
