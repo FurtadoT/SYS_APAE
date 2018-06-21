@@ -24,7 +24,7 @@ namespace SYS_APAE.SYS_APAE.Data
                         instructor["name"].ToString(),
                         instructor["cpf"].ToString(),
                         "",
-                        instructor["tipo"].ToString(),
+                        instructor["tipo_monitor"].ToString(),
                         instructor["prontuario"].ToString(),
                         instructor["email"].ToString(),
                         Convert.ToInt32(instructor["carga_horaria"])
@@ -40,12 +40,12 @@ namespace SYS_APAE.SYS_APAE.Data
             listInstructors.Columns.Add("Id", typeof(int));
             listInstructors.Columns.Add("Name");
 
-            List<InstructorsView> completeListStudent = getAllInstructorsUsingView();
+            List<Instructor> completeListStudent = getAllInstructors();
 
             foreach (var instructor in completeListStudent)
             {
                 DataRow listRow = listInstructors.NewRow();
-                listRow["Name"] = instructor.Nome;
+                listRow["Name"] = instructor.Name;
                 listRow["Id"] = instructor.Id;
                 listInstructors.Rows.InsertAt(listRow, 0);
             }
@@ -54,21 +54,24 @@ namespace SYS_APAE.SYS_APAE.Data
         }
 
 
-        public static List<InstructorsView> getAllInstructorsUsingView()
+        public static DataTable getAllInstructorsToDisplay()
         {
-            List<InstructorsView> listInstructors = new List<InstructorsView>();
-            List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement("SELECT * FROM instructors_view");
+            DataTable listInstructors = new DataTable();
+            List<Instructor> allInstructors = getAllInstructors();
 
-            foreach (var instructor in dbResult)
+            if (allInstructors.Count() == 0)
+                return listInstructors;
+ 
+            foreach (var key in allInstructors[0].GetFieldsToDisplay().Keys.ToArray())
+                listInstructors.Columns.Add(key);
+
+            foreach (var instructor in allInstructors)
             {
-                listInstructors.Add(new InstructorsView(
-                        Convert.ToInt32(instructor["Id"]),
-                        instructor["Nome"].ToString(),
-                        instructor["CPF"].ToString(),
-                        instructor["E-mail"].ToString(),
-                        instructor["Prontuario"].ToString(),
-                        instructor["Monitor"].ToString()
-                        ));
+                DataRow listInstructorRow = listInstructors.NewRow();
+                foreach (KeyValuePair<string, string> field in instructor.GetFieldsToDisplay())
+                    listInstructorRow[field.Key] = field.Value;
+        
+                listInstructors.Rows.InsertAt(listInstructorRow, 0);
             }
 
             return listInstructors;

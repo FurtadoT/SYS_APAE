@@ -247,7 +247,7 @@ namespace SYS_APAE
         {
             if (((RadioButton)sender).Checked)
             {
-                dtgParticipantes.DataSource = InstructorDTO.getAllInstructorsUsingView();
+                dtgParticipantes.DataSource = InstructorDTO.getAllInstructorsToDisplay();
                 dtgParticipantes.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             }
         }

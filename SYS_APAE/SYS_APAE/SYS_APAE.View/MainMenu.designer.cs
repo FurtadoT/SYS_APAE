@@ -692,7 +692,7 @@ namespace SYS_APAE
             // 
             // txtCargaInstructor
             // 
-            this.txtCargaInstructor.Location = new System.Drawing.Point(59, 79);
+            this.txtCargaInstructor.Location = new System.Drawing.Point(47, 75);
             this.txtCargaInstructor.Name = "txtCargaInstructor";
             this.txtCargaInstructor.PasswordChar = '\0';
             this.txtCargaInstructor.Size = new System.Drawing.Size(104, 35);
@@ -701,7 +701,7 @@ namespace SYS_APAE
             // 
             // txtTipoInstructor
             // 
-            this.txtTipoInstructor.Location = new System.Drawing.Point(270, 29);
+            this.txtTipoInstructor.Location = new System.Drawing.Point(258, 25);
             this.txtTipoInstructor.Name = "txtTipoInstructor";
             this.txtTipoInstructor.PasswordChar = '\0';
             this.txtTipoInstructor.Size = new System.Drawing.Size(196, 35);
@@ -710,7 +710,7 @@ namespace SYS_APAE
             // 
             // txtProntuarioInstructor
             // 
-            this.txtProntuarioInstructor.Location = new System.Drawing.Point(59, 29);
+            this.txtProntuarioInstructor.Location = new System.Drawing.Point(47, 25);
             this.txtProntuarioInstructor.Name = "txtProntuarioInstructor";
             this.txtProntuarioInstructor.PasswordChar = '\0';
             this.txtProntuarioInstructor.Size = new System.Drawing.Size(149, 35);
@@ -771,7 +771,7 @@ namespace SYS_APAE
             // 
             // txtEmailInstructor
             // 
-            this.txtEmailInstructor.Location = new System.Drawing.Point(61, 79);
+            this.txtEmailInstructor.Location = new System.Drawing.Point(61, 75);
             this.txtEmailInstructor.Name = "txtEmailInstructor";
             this.txtEmailInstructor.PasswordChar = '\0';
             this.txtEmailInstructor.Size = new System.Drawing.Size(389, 35);
@@ -780,7 +780,7 @@ namespace SYS_APAE
             // 
             // txtNameInstructor
             // 
-            this.txtNameInstructor.Location = new System.Drawing.Point(61, 29);
+            this.txtNameInstructor.Location = new System.Drawing.Point(61, 25);
             this.txtNameInstructor.Name = "txtNameInstructor";
             this.txtNameInstructor.PasswordChar = '\0';
             this.txtNameInstructor.Size = new System.Drawing.Size(389, 35);

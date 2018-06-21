@@ -32,6 +32,20 @@ namespace SYS_APAE.SYS_APAE.Models
             return fieldsQuery;
         }
 
+        public Dictionary<string, string> GetFieldsToDisplay()
+        {
+            Dictionary<string, string> displayFields = new Dictionary<string, string>();
+
+            displayFields.Add("Id", Id.ToString());
+            displayFields.Add("Nome", Name);
+            displayFields.Add("CPF", Cpf);
+            displayFields.Add("E-mail", Email);
+            displayFields.Add("Prontuário", prontuario);
+            displayFields.Add("Tipo do monitor", tipo_monitor);
+
+            return displayFields;
+        }
+
         public string Prontuario
         {
             get
