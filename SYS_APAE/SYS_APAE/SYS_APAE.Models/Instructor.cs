@@ -8,12 +8,13 @@ namespace SYS_APAE.SYS_APAE.Models
 {
     class Instructor : People
     {
-        private string prontuario, tipo_monitor;
+        private string prontuario, tipo_monitor, password;
         private int carga_horaria;
 
-        public Instructor(int id, string name, string cpf, string email, string prontuario, string tipo_monitor, int carga_horaria)
+        public Instructor(int id, string name, string cpf, string password, string email, string prontuario, string tipo_monitor, int carga_horaria)
             : base(id, name, cpf, email)
         {
+            Password = password;
             Prontuario = prontuario;
             Tipo_monitor = tipo_monitor;
             Carga_horaria = carga_horaria;
@@ -23,6 +24,7 @@ namespace SYS_APAE.SYS_APAE.Models
         {
             Dictionary<string, string> fieldsQuery = base.GenerateDictFields();
 
+            fieldsQuery.Add("password", Password);
             fieldsQuery.Add("prontuario", Prontuario);
             fieldsQuery.Add("tipo_monitor", Tipo_monitor);
             fieldsQuery.Add("carga_horaria", Carga_horaria.ToString());
@@ -68,6 +70,8 @@ namespace SYS_APAE.SYS_APAE.Models
                 carga_horaria = value;
             }
         }
+
+        public string Password { get => password; set => password = value; }
 
         public override String ToString()
         {

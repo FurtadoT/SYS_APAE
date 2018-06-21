@@ -6,26 +6,27 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
 {
     class CustomTextBoxWithLabel : Panel
     {
-        private Label TextBoxLabel = new Label()
-        {
-            AutoSize = true,
-            Dock = DockStyle.None,
-            Font = new System.Drawing.Font("", 9F),
-            Location = new Point(-2, 10),
-        };
-
+        private CustomLabel TextBoxLabel = new CustomLabel(false, true);
         private CustomTextBox CTextBox;
 
         public CustomTextBoxWithLabel()
         {
-            this.CTextBox = new CustomTextBox(this.TextBoxLabel);
+            this.CTextBox = new CustomTextBox(this.TextBoxLabel, this);
             Controls.Add(this.CTextBox);
             Controls.Add(this.TextBoxLabel);
+        }
+
+        public void textBoxKeyDown(KeyEventArgs e)
+        {
+            this.OnKeyDown(e);
         }
 
         protected override void OnHandleCreated(EventArgs e)
         {
             this.TextBoxLabel.BringToFront();
+
+            if (this.BackColor != Color.Transparent)
+                this.CTextBox.BackColor = this.BackColor;
 
             Size = new Size(this.Size.Width, 35);
 
@@ -33,6 +34,20 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
                 this.TextBoxLabel.Text = this.Tag.ToString();
 
             base.OnHandleCreated(e);
+        }
+
+        protected override void OnGotFocus(EventArgs e)
+        {
+            this.CTextBox.Focus();
+
+            base.OnGotFocus(e);
+        }
+
+        public override void ResetText()
+        {
+            this.TextBoxLabel.changeFocus(false);
+
+            base.ResetText();
         }
 
         public override string Text
@@ -49,6 +64,10 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
 
         public char PasswordChar
         {
+            get
+            {
+                return this.CTextBox.PasswordChar;
+            }
             set
             {
                 this.CTextBox.PasswordChar = value;

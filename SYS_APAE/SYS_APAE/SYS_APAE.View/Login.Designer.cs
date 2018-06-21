@@ -29,16 +29,14 @@
         private void InitializeComponent()
         {
             this.btnLogin = new System.Windows.Forms.Button();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.txtUser = new System.Windows.Forms.TextBox();
-            this.lblPassword = new System.Windows.Forms.Label();
-            this.lblUser = new System.Windows.Forms.Label();
+            this.txtPassword = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
+            this.txtUser = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(164, 306);
+            this.btnLogin.Location = new System.Drawing.Point(164, 293);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(149, 46);
             this.btnLogin.TabIndex = 3;
@@ -48,38 +46,23 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(174, 243);
+            this.txtPassword.Location = new System.Drawing.Point(140, 243);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(163, 20);
+            this.txtPassword.Size = new System.Drawing.Size(197, 35);
             this.txtPassword.TabIndex = 2;
+            this.txtPassword.Tag = "Senha";
             this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             // 
             // txtUser
             // 
-            this.txtUser.Location = new System.Drawing.Point(174, 217);
+            this.txtUser.Location = new System.Drawing.Point(140, 200);
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(163, 20);
+            this.txtUser.PasswordChar = '\0';
+            this.txtUser.Size = new System.Drawing.Size(197, 35);
             this.txtUser.TabIndex = 1;
+            this.txtUser.Tag = "Usuário";
             this.txtUser.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUser_KeyDown);
-            // 
-            // lblPassword
-            // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(127, 246);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(41, 13);
-            this.lblPassword.TabIndex = 3;
-            this.lblPassword.Text = "Senha:";
-            // 
-            // lblUser
-            // 
-            this.lblUser.AutoSize = true;
-            this.lblUser.Location = new System.Drawing.Point(122, 220);
-            this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(46, 13);
-            this.lblUser.TabIndex = 4;
-            this.lblUser.Text = "Usuário:";
             // 
             // lblTitle
             // 
@@ -97,8 +80,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(461, 433);
             this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.lblUser);
-            this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.txtUser);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.btnLogin);
@@ -112,10 +93,8 @@
         #endregion
 
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.TextBox txtUser;
-        private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.Label lblUser;
+        private SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel txtPassword;
+        private SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel txtUser;
         private System.Windows.Forms.Label lblTitle;
     }
 }

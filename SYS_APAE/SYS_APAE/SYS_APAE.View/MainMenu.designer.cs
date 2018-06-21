@@ -77,7 +77,13 @@ namespace SYS_APAE
             this.txtNome = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBox();
             this.lblNome = new System.Windows.Forms.Label();
             this.tabCadastroMonitor = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnClearNewInstructor = new System.Windows.Forms.Button();
+            this.btnInsertNewInstructor = new System.Windows.Forms.Button();
+            this.gpbMonitoria = new System.Windows.Forms.GroupBox();
+            this.txtCargaInstructor = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
+            this.txtTipoInstructor = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
+            this.txtProntuarioInstructor = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
+            this.gpbLoginData = new System.Windows.Forms.GroupBox();
             this.chkShowPassword = new System.Windows.Forms.CheckBox();
             this.txtPasswordInstructor = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
             this.txtCpfInstructor = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomMaskedTextBoxWithLabel();
@@ -163,7 +169,8 @@ namespace SYS_APAE
             this.tabControlGeral.SuspendLayout();
             this.tabCadastro.SuspendLayout();
             this.tabCadastroMonitor.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.gpbMonitoria.SuspendLayout();
+            this.gpbLoginData.SuspendLayout();
             this.gpbInstructorGeneral.SuspendLayout();
             this.tabParticipante.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgParticipantes)).BeginInit();
@@ -639,7 +646,10 @@ namespace SYS_APAE
             // 
             // tabCadastroMonitor
             // 
-            this.tabCadastroMonitor.Controls.Add(this.groupBox2);
+            this.tabCadastroMonitor.Controls.Add(this.btnClearNewInstructor);
+            this.tabCadastroMonitor.Controls.Add(this.btnInsertNewInstructor);
+            this.tabCadastroMonitor.Controls.Add(this.gpbMonitoria);
+            this.tabCadastroMonitor.Controls.Add(this.gpbLoginData);
             this.tabCadastroMonitor.Controls.Add(this.gpbInstructorGeneral);
             this.tabCadastroMonitor.Location = new System.Drawing.Point(4, 22);
             this.tabCadastroMonitor.Name = "tabCadastroMonitor";
@@ -648,22 +658,81 @@ namespace SYS_APAE
             this.tabCadastroMonitor.Text = "Cadastrar Monitor";
             this.tabCadastroMonitor.UseVisualStyleBackColor = true;
             // 
-            // groupBox2
+            // btnClearNewInstructor
             // 
-            this.groupBox2.Controls.Add(this.chkShowPassword);
-            this.groupBox2.Controls.Add(this.txtPasswordInstructor);
-            this.groupBox2.Controls.Add(this.txtCpfInstructor);
-            this.groupBox2.Location = new System.Drawing.Point(3, 143);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(484, 122);
-            this.groupBox2.TabIndex = 8;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Credenciais";
+            this.btnClearNewInstructor.Location = new System.Drawing.Point(951, 219);
+            this.btnClearNewInstructor.Name = "btnClearNewInstructor";
+            this.btnClearNewInstructor.Size = new System.Drawing.Size(118, 61);
+            this.btnClearNewInstructor.TabIndex = 5;
+            this.btnClearNewInstructor.Text = "Limpar";
+            this.btnClearNewInstructor.UseVisualStyleBackColor = true;
+            this.btnClearNewInstructor.Click += new System.EventHandler(this.btnClearNewInstructor_Click);
+            // 
+            // btnInsertNewInstructor
+            // 
+            this.btnInsertNewInstructor.Location = new System.Drawing.Point(647, 219);
+            this.btnInsertNewInstructor.Name = "btnInsertNewInstructor";
+            this.btnInsertNewInstructor.Size = new System.Drawing.Size(210, 61);
+            this.btnInsertNewInstructor.TabIndex = 4;
+            this.btnInsertNewInstructor.Text = "Cadastrar";
+            this.btnInsertNewInstructor.UseVisualStyleBackColor = true;
+            this.btnInsertNewInstructor.Click += new System.EventHandler(this.btnInsertNewInstructor_Click);
+            // 
+            // gpbMonitoria
+            // 
+            this.gpbMonitoria.Controls.Add(this.txtCargaInstructor);
+            this.gpbMonitoria.Controls.Add(this.txtTipoInstructor);
+            this.gpbMonitoria.Controls.Add(this.txtProntuarioInstructor);
+            this.gpbMonitoria.Location = new System.Drawing.Point(577, 34);
+            this.gpbMonitoria.Name = "gpbMonitoria";
+            this.gpbMonitoria.Size = new System.Drawing.Size(492, 134);
+            this.gpbMonitoria.TabIndex = 2;
+            this.gpbMonitoria.TabStop = false;
+            this.gpbMonitoria.Text = "Monitoria";
+            // 
+            // txtCargaInstructor
+            // 
+            this.txtCargaInstructor.Location = new System.Drawing.Point(59, 79);
+            this.txtCargaInstructor.Name = "txtCargaInstructor";
+            this.txtCargaInstructor.PasswordChar = '\0';
+            this.txtCargaInstructor.Size = new System.Drawing.Size(104, 35);
+            this.txtCargaInstructor.TabIndex = 3;
+            this.txtCargaInstructor.Tag = "Carga Horária";
+            // 
+            // txtTipoInstructor
+            // 
+            this.txtTipoInstructor.Location = new System.Drawing.Point(270, 29);
+            this.txtTipoInstructor.Name = "txtTipoInstructor";
+            this.txtTipoInstructor.PasswordChar = '\0';
+            this.txtTipoInstructor.Size = new System.Drawing.Size(196, 35);
+            this.txtTipoInstructor.TabIndex = 2;
+            this.txtTipoInstructor.Tag = "Tipo";
+            // 
+            // txtProntuarioInstructor
+            // 
+            this.txtProntuarioInstructor.Location = new System.Drawing.Point(59, 29);
+            this.txtProntuarioInstructor.Name = "txtProntuarioInstructor";
+            this.txtProntuarioInstructor.PasswordChar = '\0';
+            this.txtProntuarioInstructor.Size = new System.Drawing.Size(149, 35);
+            this.txtProntuarioInstructor.TabIndex = 1;
+            this.txtProntuarioInstructor.Tag = "Prontuário";
+            // 
+            // gpbLoginData
+            // 
+            this.gpbLoginData.Controls.Add(this.chkShowPassword);
+            this.gpbLoginData.Controls.Add(this.txtPasswordInstructor);
+            this.gpbLoginData.Controls.Add(this.txtCpfInstructor);
+            this.gpbLoginData.Location = new System.Drawing.Point(22, 185);
+            this.gpbLoginData.Name = "gpbLoginData";
+            this.gpbLoginData.Size = new System.Drawing.Size(502, 122);
+            this.gpbLoginData.TabIndex = 3;
+            this.gpbLoginData.TabStop = false;
+            this.gpbLoginData.Text = "Credenciais";
             // 
             // chkShowPassword
             // 
             this.chkShowPassword.AutoSize = true;
-            this.chkShowPassword.Location = new System.Drawing.Point(404, 48);
+            this.chkShowPassword.Location = new System.Drawing.Point(390, 48);
             this.chkShowPassword.Name = "chkShowPassword";
             this.chkShowPassword.Size = new System.Drawing.Size(60, 17);
             this.chkShowPassword.TabIndex = 8;
@@ -673,45 +742,49 @@ namespace SYS_APAE
             // 
             // txtPasswordInstructor
             // 
-            this.txtPasswordInstructor.Location = new System.Drawing.Point(249, 34);
+            this.txtPasswordInstructor.Location = new System.Drawing.Point(233, 34);
             this.txtPasswordInstructor.Name = "txtPasswordInstructor";
+            this.txtPasswordInstructor.PasswordChar = '*';
             this.txtPasswordInstructor.Size = new System.Drawing.Size(138, 35);
-            this.txtPasswordInstructor.TabIndex = 1;
+            this.txtPasswordInstructor.TabIndex = 2;
             this.txtPasswordInstructor.Tag = "Senha";
             // 
             // txtCpfInstructor
             // 
-            this.txtCpfInstructor.Location = new System.Drawing.Point(59, 34);
+            this.txtCpfInstructor.Location = new System.Drawing.Point(61, 34);
+            this.txtCpfInstructor.Mask = "###.###.###-##";
             this.txtCpfInstructor.Name = "txtCpfInstructor";
-            this.txtCpfInstructor.Size = new System.Drawing.Size(123, 35);
-            this.txtCpfInstructor.TabIndex = 0;
+            this.txtCpfInstructor.Size = new System.Drawing.Size(82, 35);
+            this.txtCpfInstructor.TabIndex = 1;
             this.txtCpfInstructor.Tag = "CPF";
             // 
             // gpbInstructorGeneral
             // 
             this.gpbInstructorGeneral.Controls.Add(this.txtEmailInstructor);
             this.gpbInstructorGeneral.Controls.Add(this.txtNameInstructor);
-            this.gpbInstructorGeneral.Location = new System.Drawing.Point(3, 3);
+            this.gpbInstructorGeneral.Location = new System.Drawing.Point(22, 34);
             this.gpbInstructorGeneral.Name = "gpbInstructorGeneral";
-            this.gpbInstructorGeneral.Size = new System.Drawing.Size(1076, 134);
-            this.gpbInstructorGeneral.TabIndex = 7;
+            this.gpbInstructorGeneral.Size = new System.Drawing.Size(502, 134);
+            this.gpbInstructorGeneral.TabIndex = 1;
             this.gpbInstructorGeneral.TabStop = false;
             this.gpbInstructorGeneral.Text = "Dados Gerais";
             // 
             // txtEmailInstructor
             // 
-            this.txtEmailInstructor.Location = new System.Drawing.Point(16, 77);
+            this.txtEmailInstructor.Location = new System.Drawing.Point(61, 79);
             this.txtEmailInstructor.Name = "txtEmailInstructor";
-            this.txtEmailInstructor.Size = new System.Drawing.Size(468, 35);
+            this.txtEmailInstructor.PasswordChar = '\0';
+            this.txtEmailInstructor.Size = new System.Drawing.Size(389, 35);
             this.txtEmailInstructor.TabIndex = 2;
             this.txtEmailInstructor.Tag = "E-mail:";
             // 
             // txtNameInstructor
             // 
-            this.txtNameInstructor.Location = new System.Drawing.Point(16, 27);
+            this.txtNameInstructor.Location = new System.Drawing.Point(61, 29);
             this.txtNameInstructor.Name = "txtNameInstructor";
-            this.txtNameInstructor.Size = new System.Drawing.Size(468, 35);
-            this.txtNameInstructor.TabIndex = 3;
+            this.txtNameInstructor.PasswordChar = '\0';
+            this.txtNameInstructor.Size = new System.Drawing.Size(389, 35);
+            this.txtNameInstructor.TabIndex = 1;
             this.txtNameInstructor.Tag = "Nome";
             // 
             // tabParticipante
@@ -1621,8 +1694,9 @@ namespace SYS_APAE
             this.tabCadastro.ResumeLayout(false);
             this.tabCadastro.PerformLayout();
             this.tabCadastroMonitor.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.gpbMonitoria.ResumeLayout(false);
+            this.gpbLoginData.ResumeLayout(false);
+            this.gpbLoginData.PerformLayout();
             this.gpbInstructorGeneral.ResumeLayout(false);
             this.tabParticipante.ResumeLayout(false);
             this.tabParticipante.PerformLayout();
@@ -1773,13 +1847,19 @@ namespace SYS_APAE
         private Label lblSearchReports;
         private CustomTextBox txtSearchReports;
         private TabPage tabCadastroMonitor;
-        private GroupBox groupBox2;
+        private GroupBox gpbLoginData;
         private CheckBox chkShowPassword;
         private CustomTextBoxWithLabel txtPasswordInstructor;
         private CustomMaskedTextBoxWithLabel txtCpfInstructor;
         private GroupBox gpbInstructorGeneral;
         private CustomTextBoxWithLabel txtEmailInstructor;
         private CustomTextBoxWithLabel txtNameInstructor;
+        private GroupBox gpbMonitoria;
+        private CustomTextBoxWithLabel txtCargaInstructor;
+        private CustomTextBoxWithLabel txtTipoInstructor;
+        private CustomTextBoxWithLabel txtProntuarioInstructor;
+        private Button btnClearNewInstructor;
+        private Button btnInsertNewInstructor;
     }
 }
 

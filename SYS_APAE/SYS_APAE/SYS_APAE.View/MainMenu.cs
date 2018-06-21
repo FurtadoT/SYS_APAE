@@ -30,8 +30,6 @@ namespace SYS_APAE
             dtpExp.Value = DateTime.Today;
             dtpRelCreated.Value = DateTime.Today;
             lblWUser.Text = "Bem vindo, " + LoginDTO.getUser().Name + "!";
-            this.txtPasswordInstructor.PasswordChar = '*';
-            this.txtCpfInstructor.Mask = "###.###.###-##";
         }
 
         private void _handlerTabGeral()
@@ -61,7 +59,7 @@ namespace SYS_APAE
             }
         }
 
-        private void _handlerRefreshAdd()
+        private void _handlerRefreshAddStudent()
         {
             txtNome.ResetText();
             txtCPF.ResetText();
@@ -82,6 +80,11 @@ namespace SYS_APAE
             txtDDD.ResetText();
             txtCelular.ResetText();
             txtEmail.ResetText();
+        }
+
+        private void _handlerRefreshAddInstructor()
+        {
+            txtNameInstructor.ResetText();
         }
 
         private void _handlerRefreshRadioReprots()
@@ -183,12 +186,13 @@ namespace SYS_APAE
         {
             return InstructorDTO.addNewInstructor(new Instructor(
                 0,
-                txtNome.Text,
-                txtCPF.Text,
-                txtEmail.Text,
-                "170141-X",
-                "Bolsista",
-                20
+                txtNameInstructor.Text,
+                txtCpfInstructor.Text,
+                txtPasswordInstructor.Text,
+                txtEmailInstructor.Text,
+                txtProntuarioInstructor.Text,
+                txtTipoInstructor.Text,
+                Convert.ToInt32(txtCargaInstructor.Text)
                 ));
         }
 
@@ -220,13 +224,13 @@ namespace SYS_APAE
             if (AddNewStudent())
             {
                 MessageBox.Show("Aluno cadastrado com sucesso!");
-                _handlerRefreshAdd();
+                _handlerRefreshAddStudent();
             }
         }
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            _handlerRefreshAdd();
+            _handlerRefreshAddStudent();
         }
 
         private void dtpNasc_Enter(object sender, EventArgs e)
@@ -332,6 +336,7 @@ namespace SYS_APAE
             _handlerTabGeral();
 
             tabControlGeral.TabPages.Insert(0, tabCadastroMonitor);
+            txtNameInstructor.Focus();
             mnItemNewInstructor.Enabled = false;
         }
 
@@ -341,6 +346,20 @@ namespace SYS_APAE
                 this.txtPasswordInstructor.PasswordChar = '\0';
             else
                 this.txtPasswordInstructor.PasswordChar = '*';
+        }
+
+        private void btnInsertNewInstructor_Click(object sender, EventArgs e)
+        {
+            if (AddNewInstructor())
+            {
+                MessageBox.Show("Monitor cadastrado com sucesso!");
+                _handlerRefreshAddInstructor();
+            }
+        }
+
+        private void btnClearNewInstructor_Click(object sender, EventArgs e)
+        {
+            _handlerRefreshAddInstructor();
         }
     }
 }

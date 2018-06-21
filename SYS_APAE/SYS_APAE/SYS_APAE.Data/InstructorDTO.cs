@@ -23,6 +23,7 @@ namespace SYS_APAE.SYS_APAE.Data
                         Convert.ToInt32(instructor["id"]),
                         instructor["name"].ToString(),
                         instructor["cpf"].ToString(),
+                        "",
                         instructor["tipo"].ToString(),
                         instructor["prontuario"].ToString(),
                         instructor["email"].ToString(),
@@ -64,7 +65,7 @@ namespace SYS_APAE.SYS_APAE.Data
                         Convert.ToInt32(instructor["Id"]),
                         instructor["Nome"].ToString(),
                         instructor["CPF"].ToString(),
-                        instructor["Email"].ToString(),
+                        instructor["E-mail"].ToString(),
                         instructor["Prontuario"].ToString(),
                         instructor["Monitor"].ToString()
                         ));
@@ -81,6 +82,7 @@ namespace SYS_APAE.SYS_APAE.Data
                         Convert.ToInt32(instructor["id"]),
                         instructor["name"].ToString(),
                         instructor["cpf"].ToString(),
+                        "",
                         instructor["email"].ToString(),
                         instructor["prontuario"].ToString(),
                         instructor["tipo_monitor"].ToString(),

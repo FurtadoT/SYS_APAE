@@ -6,24 +6,24 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
 {
     class CustomTextBox : TextBox
     {
-        private Label controlLabel;
+        private CustomLabel controlLabel, borderLabel = new CustomLabel(true);
+        private CustomTextBoxWithLabel _parent;
 
         public CustomTextBox()
         {
             BorderStyle = BorderStyle.None;
             AutoSize = false;
-            Controls.Add(new Label()
-            { Height = 1, Dock = DockStyle.Bottom, BackColor = Color.Black });
+            Controls.Add(borderLabel);
         }
 
-        public CustomTextBox(Label label)
+        public CustomTextBox(CustomLabel label, CustomTextBoxWithLabel _parent)
         {
             BorderStyle = BorderStyle.None;
             AutoSize = false;
             Dock = DockStyle.Bottom;
-            Controls.Add(new Label()
-            { Height = 1, Dock = DockStyle.Bottom, BackColor = Color.Black });
+            Controls.Add(borderLabel);
             this.controlLabel = label;
+            this._parent = _parent;
         }
 
         protected override void OnHandleCreated(EventArgs e)
@@ -36,12 +36,21 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
             base.OnHandleCreated(e);
         }
 
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+            _parent.textBoxKeyDown(e);
+
+            base.OnKeyDown(e);
+        }
+
         protected override void OnGotFocus(EventArgs e)
         {
             if (this.controlLabel != null)
             {
-                this.controlLabel.Location = new Point(-2, 0);
-                this.controlLabel.Font = new System.Drawing.Font("", 7F);
+                this.controlLabel.changeFocus(true);
+
+                this.controlLabel.changeColorFocus(true);
+                this.borderLabel.changeColorFocus(true);
             }
 
             base.OnGotFocus(e);
@@ -50,11 +59,13 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
         protected override void OnLostFocus(EventArgs e)
         {
             if (this.controlLabel != null)
+            {
                 if (this.Text == String.Empty)
-                {
-                    this.controlLabel.Location = new Point(-2, 10);
-                    this.controlLabel.Font = new System.Drawing.Font("", 9F);
-                }
+                    this.controlLabel.changeFocus(false);
+
+                this.controlLabel.changeColorFocus(false);
+                this.borderLabel.changeColorFocus(false);
+            }
 
             base.OnLostFocus(e);
         }
