@@ -6,8 +6,8 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
 {
     class CustomMaskedTextBoxWithLabel : Panel
     {
-        private CustomLabel TextBoxLabel = new CustomLabel(false, true);
-        private CustomMaskedTextBox CTextBox;
+        private readonly CustomLabel TextBoxLabel = new CustomLabel(false, true);
+        private readonly CustomMaskedTextBox CTextBox;
 
         public CustomMaskedTextBoxWithLabel()
         {
@@ -16,7 +16,7 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
             Controls.Add(this.TextBoxLabel);
         }
 
-        public void textBoxKeyDown(KeyEventArgs e)
+        public void TextBoxKeyDown(KeyEventArgs e)
         {
             this.OnKeyDown(e);
         }

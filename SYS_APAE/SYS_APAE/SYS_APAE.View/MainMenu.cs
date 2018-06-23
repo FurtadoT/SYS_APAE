@@ -160,7 +160,7 @@ namespace SYS_APAE
 
         private bool AddNewStudent()
         {
-            return StudentsDTO.addNewStudent(new Student(
+            return StudentsDTO.AddNewStudent(new Student(
                 0,
                 txtNome.Text,
                 txtCPF.Text,
@@ -184,7 +184,7 @@ namespace SYS_APAE
 
         private bool AddNewInstructor()
         {
-            return InstructorDTO.addNewInstructor(new Instructor(
+            return InstructorDTO.AddNewInstructor(new Instructor(
                 0,
                 txtNameInstructor.Text,
                 txtCpfInstructor.Text,
@@ -198,7 +198,7 @@ namespace SYS_APAE
 
         private bool AddRelatorio()
         {
-            return ReportsDTO.addNewReport(new Report(
+            return ReportsDTO.AddNewReport(new Report(
                 0,
                 this.radioControl["dig"],
                 this.radioControl["lei"],
@@ -248,7 +248,8 @@ namespace SYS_APAE
             if (((RadioButton)sender).Checked)
             {
                 dtgParticipantes.DataSource = InstructorDTO.getAllInstructorsToDisplay();
-                dtgParticipantes.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                if (dtgParticipantes.Columns.Count > 0)
+                    dtgParticipantes.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             }
         }
 
@@ -256,8 +257,9 @@ namespace SYS_APAE
         {
             if (((RadioButton)sender).Checked)
             {
-                dtgParticipantes.DataSource = StudentsDTO.getAllStudentsUsingView();
-                dtgParticipantes.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                dtgParticipantes.DataSource = StudentsDTO.getAllStudentsToDisplay();
+                if (dtgParticipantes.Columns.Count > 0)
+                    dtgParticipantes.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             }
         }
 
@@ -322,8 +324,9 @@ namespace SYS_APAE
             tabControlGeral.TabPages.Insert(0, tabVisuRel);
             mnItemShowReports.Enabled = false;
 
-            dtgReports.DataSource = ReportsDTO.getAllReportsUsingView();
-            dtgReports.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dtgReports.DataSource = ReportsDTO.getAllReportsToDisplay();
+            if (dtgReports.Columns.Count > 0)
+                dtgReports.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
         }
 
         private void txtSearchReports_TextChanged(object sender, EventArgs e)

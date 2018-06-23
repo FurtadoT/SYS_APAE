@@ -53,28 +53,9 @@ namespace SYS_APAE.SYS_APAE.Data
             return listInstructors;
         }
 
-
         public static DataTable getAllInstructorsToDisplay()
         {
-            DataTable listInstructors = new DataTable();
-            List<Instructor> allInstructors = getAllInstructors();
-
-            if (allInstructors.Count() == 0)
-                return listInstructors;
- 
-            foreach (var key in allInstructors[0].GetFieldsToDisplay().Keys.ToArray())
-                listInstructors.Columns.Add(key);
-
-            foreach (var instructor in allInstructors)
-            {
-                DataRow listInstructorRow = listInstructors.NewRow();
-                foreach (KeyValuePair<string, string> field in instructor.GetFieldsToDisplay())
-                    listInstructorRow[field.Key] = field.Value;
-        
-                listInstructors.Rows.InsertAt(listInstructorRow, 0);
-            }
-
-            return listInstructors;
+            return Utils.getDataToDisplay(getAllInstructors());
         }
 
         public static Instructor getInstructorById(string id)
@@ -98,10 +79,16 @@ namespace SYS_APAE.SYS_APAE.Data
             return dbConnector.DoQueryStatement("SELECT prontuario FROM instructors where id="+id)[0]["prontuario"];
         }
 
-        public static bool addNewInstructor(Instructor instructor)
+        public static bool AddNewInstructor(Instructor instructor)
         {
             Dictionary<string, string> fieldsQuery = instructor.GenerateDictFields();
             return dbConnector.DoNonQueryStatement(dbConnector.CreateInsertCommandWithParams("instructors", fieldsQuery));
+        }
+
+        public static bool UpdateInstructor(Instructor instructor)
+        {
+            Dictionary<string, string> fieldsQuery = instructor.GenerateDictFields();
+            return dbConnector.DoNonQueryStatement(dbConnector.CreateUpdateCommandWithParams("instructors", fieldsQuery));
         }
     }
 }

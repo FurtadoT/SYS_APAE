@@ -38,7 +38,7 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
 
         protected override void OnKeyDown(KeyEventArgs e)
         {
-            _parent.textBoxKeyDown(e);
+            if (_parent != null) _parent.textBoxKeyDown(e);
 
             base.OnKeyDown(e);
         }

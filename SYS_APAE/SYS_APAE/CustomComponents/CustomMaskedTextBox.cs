@@ -6,7 +6,7 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
 {
     class CustomMaskedTextBox : MaskedTextBox
     {
-        private CustomLabel controlLabel, borderLabel = new CustomLabel(true);
+        private readonly CustomLabel controlLabel, borderLabel = new CustomLabel(true);
         private CustomMaskedTextBoxWithLabel _parent;
         private string maskWhenFocus;
 
@@ -51,7 +51,7 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
 
         protected override void OnKeyDown(KeyEventArgs e)
         {
-            _parent.textBoxKeyDown(e);
+            _parent.TextBoxKeyDown(e);
 
             base.OnKeyDown(e);
         }

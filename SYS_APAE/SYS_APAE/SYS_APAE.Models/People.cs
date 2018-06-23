@@ -21,12 +21,13 @@ namespace SYS_APAE.SYS_APAE.Models
 
         public virtual Dictionary<string, string> GenerateDictFields()
         {
-            Dictionary<string, string> fieldsQuery = new Dictionary<string, string>();
-
-            fieldsQuery.Add("id", Id.ToString());
-            fieldsQuery.Add("name", Name);
-            fieldsQuery.Add("cpf", Cpf);
-            fieldsQuery.Add("email", Email);
+            Dictionary<string, string> fieldsQuery = new Dictionary<string, string>
+            {
+                { "id", Id.ToString() },
+                { "name", Name },
+                { "cpf", Cpf },
+                { "email", Email }
+            };
 
             return fieldsQuery;
         }

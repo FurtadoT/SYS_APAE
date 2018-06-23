@@ -34,14 +34,15 @@ namespace SYS_APAE.SYS_APAE.Models
 
         public Dictionary<string, string> GetFieldsToDisplay()
         {
-            Dictionary<string, string> displayFields = new Dictionary<string, string>();
-
-            displayFields.Add("Id", Id.ToString());
-            displayFields.Add("Nome", Name);
-            displayFields.Add("CPF", Cpf);
-            displayFields.Add("E-mail", Email);
-            displayFields.Add("Prontuário", prontuario);
-            displayFields.Add("Tipo do monitor", tipo_monitor);
+            Dictionary<string, string> displayFields = new Dictionary<string, string>
+            {
+                { "Id", Id.ToString() },
+                { "Nome", Name },
+                { "CPF", Cpf },
+                { "E-mail", Email },
+                { "Prontuário", prontuario },
+                { "Tipo do monitor", tipo_monitor }
+            };
 
             return displayFields;
         }

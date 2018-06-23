@@ -1,6 +1,7 @@
 ﻿using SYS_APAE.SYS_APAE.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,26 +38,12 @@ namespace SYS_APAE.SYS_APAE.Data
             return listReports;
         }
 
-        public static List<ReportsView> getAllReportsUsingView()
+        public static DataTable getAllReportsToDisplay()
         {
-            List<ReportsView> listReports = new List<ReportsView>();
-            List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement("SELECT * FROM reports_view");
-
-            foreach (var report in dbResult)
-            {
-                listReports.Add(new ReportsView(
-                        Convert.ToInt32(report["id"]),
-                        StudentsDTO.getStudentById(report["id_student"].ToString()).Name,
-                        InstructorDTO.getInstructorById(report["id_instructor"].ToString()).Name,
-                        report["title"].ToString(),
-                        DateTime.Parse(report["dt_created"])
-                        ));
-            }
-
-            return listReports;
+            return Utils.getDataToDisplay(getAllReports());
         }
 
-        public static bool addNewReport(Report report)
+        public static bool AddNewReport(Report report)
         {
             Dictionary<string, string> fieldsQuery = report.GenerateDictFields();
             return dbConnector.DoNonQueryStatement(dbConnector.CreateInsertCommandWithParams("records", fieldsQuery));

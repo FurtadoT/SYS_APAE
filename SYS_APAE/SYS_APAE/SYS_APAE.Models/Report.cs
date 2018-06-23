@@ -32,22 +32,37 @@ namespace SYS_APAE.SYS_APAE.Models
 
         public virtual Dictionary<string, string> GenerateDictFields()
         {
-            Dictionary<string, string> fieldsQuery = new Dictionary<string, string>();
+            Dictionary<string, string> fieldsQuery = new Dictionary<string, string>
+            {
+                { "id", Id.ToString() },
+                { "id_student", Student.Id.ToString() },
+                { "id_instructor", Instructor.Id.ToString() },
+                { "dt_created", Dt_created.ToString("yyyy-MM-dd") },
+                { "title", Title },
+                { "dif_dig", Dif_dig.ToString() },
+                { "dif_lei", Dif_lei.ToString() },
+                { "dif_rec", Dif_rec.ToString() },
+                { "dif_atv", Dif_atv.ToString() },
+                { "obs_atv", Obs_atv },
+                { "dif_int", Dif_int.ToString() },
+                { "obs_int", Obs_int }
+            };
 
-            fieldsQuery.Add("id", Id.ToString());
-            fieldsQuery.Add("id_student", Student.Id.ToString());
-            fieldsQuery.Add("id_instructor", Instructor.Id.ToString());
-            fieldsQuery.Add("dt_created", Dt_created.ToString("yyyy-MM-dd"));
-            fieldsQuery.Add("title", Title);
-            fieldsQuery.Add("dif_dig", Dif_dig.ToString());
-            fieldsQuery.Add("dif_lei", Dif_lei.ToString());
-            fieldsQuery.Add("dif_rec", Dif_rec.ToString());
-            fieldsQuery.Add("dif_atv", Dif_atv.ToString());
-            fieldsQuery.Add("obs_atv", Obs_atv);
-            fieldsQuery.Add("dif_int", Dif_int.ToString());
-            fieldsQuery.Add("obs_int", Obs_int);
- 
             return fieldsQuery;
+        }
+
+        public Dictionary<string, string> GetFieldsToDisplay()
+        {
+            Dictionary<string, string> displayFields = new Dictionary<string, string>
+            {
+                { "Id", Id.ToString() },
+                { "Nome do aluno", Student.Name },
+                { "Nome do monitor", Instructor.Name },
+                { "Título da atividade", Title },
+                { "Data", Dt_created.ToString("dd/MM/yyyy") }
+            };
+
+            return displayFields;
         }
 
 

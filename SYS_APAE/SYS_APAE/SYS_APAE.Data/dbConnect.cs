@@ -120,6 +120,34 @@ namespace SYS_APAE
             return commandSql;
         }
 
+        private List<string> CreateUpdateFieldsArray(string[] fields)
+        {
+            List<string> stringReturn = new List<string>();
+
+            foreach (string field in fields)
+                if (field != "id") stringReturn.Add(field + "=@" + field);
+
+            return stringReturn;
+        }
+
+        public MySqlCommand CreateUpdateCommandWithParams(string TableName, Dictionary<string, string> fieldsQuery)
+        {
+            List<string> fields = CreateUpdateFieldsArray(fieldsQuery.Keys.ToArray());
+
+            MySqlCommand commandSql = new MySqlCommand(
+                string.Format("UPDATE {0} SET {1} WHERE id={2}",
+                TableName,
+                string.Join(",", fields),
+                fieldsQuery["id"]
+            ), connection);
+            foreach (KeyValuePair<string, string> field in fieldsQuery)
+            {
+                commandSql.Parameters.Add(new MySqlParameter("@" + field.Key, field.Value));
+            }
+
+            return commandSql;
+        }
+
         public void Dispose()
         {
             Dispose(true);

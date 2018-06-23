@@ -59,6 +59,20 @@ namespace SYS_APAE
             return fieldsQuery;
         }
 
+        public Dictionary<string, string> GetFieldsToDisplay()
+        {
+            Dictionary<string, string> displayFields = new Dictionary<string, string>
+            {
+                { "Id", Id.ToString() },
+                { "Nome", Name },
+                { "CPF", Cpf },
+                { "E-mail", Email },
+                { "Data de nascimento", Dt_nasc.ToString("yyyy-MM-dd") }
+            };
+
+            return displayFields;
+        }
+
         public override String ToString()
         {
             return base.ToString();

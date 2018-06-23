@@ -50,12 +50,12 @@ namespace SYS_APAE.SYS_APAE.Data
             listStudents.Columns.Add("Id", typeof(int));
             listStudents.Columns.Add("Name");
 
-            List<StudentsView> completeListStudent = getAllStudentsUsingView();
+            List<Student> completeListStudent = getAllStudents();
 
             foreach (var student in completeListStudent)
             {
                 DataRow listRow = listStudents.NewRow();
-                listRow["Name"] = student.Nome;
+                listRow["Name"] = student.Name;
                 listRow["Id"] = student.Id;
                 listStudents.Rows.InsertAt(listRow, 0);
             }
@@ -63,24 +63,9 @@ namespace SYS_APAE.SYS_APAE.Data
             return listStudents;
         }
 
-
-        public static List<StudentsView> getAllStudentsUsingView()
+        public static DataTable getAllStudentsToDisplay()
         {
-            List<StudentsView> listStudents = new List<StudentsView>();
-            List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement("SELECT * FROM students_view");
-
-            foreach (var student in dbResult)
-            {
-                listStudents.Add(new StudentsView(
-                        Convert.ToInt32(student["Id"]),
-                        student["Nome"].ToString(),
-                        student["CPF"].ToString(),
-                        student["Telefone"].ToString(),
-                        student["E-mail"].ToString()
-                        ));
-            }
-
-            return listStudents;
+            return Utils.getDataToDisplay(getAllStudents());
         }
 
         public static Student getStudentById(string id)
@@ -109,10 +94,16 @@ namespace SYS_APAE.SYS_APAE.Data
                         );
         }
 
-        public static bool addNewStudent(Student student)
+        public static bool AddNewStudent(Student student)
         {
            Dictionary<string, string> fieldsQuery = student.GenerateDictFields();
            return dbConnector.DoNonQueryStatement(dbConnector.CreateInsertCommandWithParams("students", fieldsQuery));
+        }
+
+        public static bool UpdateInstructor(Student student)
+        {
+            Dictionary<string, string> fieldsQuery = student.GenerateDictFields();
+            return dbConnector.DoNonQueryStatement(dbConnector.CreateUpdateCommandWithParams("students", fieldsQuery));
         }
     }
 }
