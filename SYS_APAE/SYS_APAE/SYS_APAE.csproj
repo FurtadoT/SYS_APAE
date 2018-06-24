@@ -81,7 +81,7 @@
     <Compile Include="SYS_APAE.Data\ActivityDTO.cs" />
     <Compile Include="SYS_APAE.Data\InstructorDTO.cs" />
     <Compile Include="SYS_APAE.Data\LoginDTO.cs" />
-    <Compile Include="SYS_APAE.Data\ReportsDTO.cs" />
+    <Compile Include="SYS_APAE.Data\ClassDTO.cs" />
     <Compile Include="SYS_APAE.Models\Activity.cs" />
     <Compile Include="SYS_APAE.Models\CustomDatagridStyle.cs" />
     <Compile Include="SYS_APAE.Models\CustomMenuRender.cs" />
@@ -90,7 +90,7 @@
     </Compile>
     <Compile Include="SYS_APAE.Models\Instructor.cs" />
     <Compile Include="SYS_APAE.Models\People.cs" />
-    <Compile Include="SYS_APAE.Models\Report.cs" />
+    <Compile Include="SYS_APAE.Models\Class.cs" />
     <Compile Include="SYS_APAE.Models\User.cs" />
     <Compile Include="SYS_APAE.Models\Utils.cs" />
     <Compile Include="SYS_APAE.View\Login.cs">

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SYS_APAE.SYS_APAE.Models
 {
-    class Report
+    class Class
     {
         private int id, dif_dig, dif_lei, dif_rec, dif_atv, dif_int;
         private Student student;
@@ -15,7 +15,7 @@ namespace SYS_APAE.SYS_APAE.Models
         private DateTime dt_created;
         private string obs_atv, obs_int;
 
-        public Report(int id, int dif_dig, int dif_lei, int dif_rec, int dif_atv, int dif_int, Student student, Instructor instructor, Activity activity, DateTime dt_created, string obs_atv, string obs_int)
+        public Class(int id, int dif_dig, int dif_lei, int dif_rec, int dif_atv, int dif_int, Student student, Instructor instructor, Activity activity, DateTime dt_created, string obs_atv, string obs_int)
         {
             Id = id;
             Dif_dig = dif_dig;

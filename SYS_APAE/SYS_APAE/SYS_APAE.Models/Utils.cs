@@ -63,7 +63,7 @@ namespace SYS_APAE.SYS_APAE.Models
             return listData;
         }
 
-        public static DataTable getDataToDisplay(List<Report> allReports)
+        public static DataTable getDataToDisplay(List<Class> allReports)
         {
             DataTable listData = new DataTable();
 

@@ -229,7 +229,7 @@ namespace SYS_APAE
 
         private bool AddRelatorio()
         {
-            return ReportsDTO.AddNewReport(new Report(
+            return ClassDTO.AddNewClass(new Class(
                 0,
                 this.radioControl["dig"],
                 this.radioControl["lei"],
@@ -366,7 +366,7 @@ namespace SYS_APAE
             tabControlGeral.TabPages.Insert(0, tabListClass);
             mnItemShowReports.Enabled = false;
 
-            dtgReports.DataSource = ReportsDTO.getAllReportsToDisplay();
+            dtgReports.DataSource = ClassDTO.getAllClassToDisplay();
             if (dtgReports.Columns.Count > 0)
             {
                 dtgReports.Columns[0].Visible = false;

@@ -59,7 +59,7 @@ CREATE TABLE activities ( id INT AUTO_INCREMENT, title VARCHAR (70) NOT NULL, de
 
 
 
-CREATE TABLE records (
+CREATE TABLE classes (
  id INT AUTO_INCREMENT,
  id_student INT NOT NULL,
  id_instructor INT NOT NULL,
