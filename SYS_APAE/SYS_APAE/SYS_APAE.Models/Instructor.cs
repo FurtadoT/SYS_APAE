@@ -11,8 +11,8 @@ namespace SYS_APAE.SYS_APAE.Models
         private string prontuario, tipo_monitor, password;
         private int carga_horaria;
 
-        public Instructor(int id, string name, string cpf, string password, string email, string prontuario, string tipo_monitor, int carga_horaria)
-            : base(id, name, cpf, email)
+        public Instructor(int id, string name, string cpf, string password, string email, string prontuario, string tipo_monitor, int carga_horaria, DateTime dt_created)
+            : base(id, name, cpf, email, dt_created)
         {
             Password = password;
             Prontuario = prontuario;

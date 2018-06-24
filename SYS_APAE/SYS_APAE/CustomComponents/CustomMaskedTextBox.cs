@@ -6,7 +6,7 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
 {
     class CustomMaskedTextBox : MaskedTextBox
     {
-        private readonly CustomLabel borderLabel = new CustomLabel(true);
+        private readonly CustomLabel borderLabel = new CustomLabel() { TxtBorder = true };
         private CustomMaskedTextBoxWithLabel _parent;
         private string maskWhenFocus;
 
@@ -32,7 +32,7 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
 
         protected override void OnGotFocus(EventArgs e)
         {
-            this.borderLabel.changeColorFocus(true);
+            this.borderLabel.ChangeColorFocus(true);
             if (_parent != null) _parent.ChangeLabelFocus(true);
 
             this.Mask = this.MaskWhenFocus;
@@ -51,7 +51,7 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
         {
             this.Mask = null;
 
-            this.borderLabel.changeColorFocus(false);
+            this.borderLabel.ChangeColorFocus(false);
             if (_parent != null) _parent.ChangeLabelFocus(false);
 
             base.OnLostFocus(e);

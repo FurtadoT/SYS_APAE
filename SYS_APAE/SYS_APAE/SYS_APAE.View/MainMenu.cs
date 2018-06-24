@@ -32,28 +32,31 @@ namespace SYS_APAE
 
         private void _handlerTabGeral()
         {
-            tabControlGeral.TabPages.Remove(tabCadastro);
-            tabControlGeral.TabPages.Remove(tabCadastroMonitor);
-            tabControlGeral.TabPages.Remove(tabParticipante);
-            tabControlGeral.TabPages.Remove(tabVisuRel);
-            tabControlGeral.TabPages.Remove(tabGerarRel);
+            tabControlGeral.TabPages.Remove(tabNewStudent);
+            tabControlGeral.TabPages.Remove(tabNewInstructor);
+            tabControlGeral.TabPages.Remove(tabNewActivity);
+            tabControlGeral.TabPages.Remove(tabListStudents);
+            tabControlGeral.TabPages.Remove(tabListClass);
+            tabControlGeral.TabPages.Remove(tabNewClass);
 
             mnItemNewStudents.Visible = true;
             mnItemNewInstructor.Visible = true;
+            mnItemNewActivity.Visible = true;
             mnItemShowStudents.Visible = true;
             mnItemShowReports.Visible = true;
             mnItemNewReports.Visible = true;
 
             mnItemNewStudents.Enabled = true;
             mnItemNewInstructor.Enabled = true;
+            mnItemNewActivity.Enabled = true;
             mnItemShowStudents.Enabled = true;
             mnItemShowReports.Enabled = true;
             mnItemNewReports.Enabled = true;
 
             if (LoginDTO.getUser().AccessLevel < 6)
             {
-                mnItemShowStudents.Enabled = false;
-                mnItemShowReports.Enabled = false;
+                mnItemNewInstructor.Visible = false;
+                mnItemNewActivity.Visible = false;
             }
         }
 
@@ -73,9 +76,7 @@ namespace SYS_APAE
             txtEstado.ResetText();
             txtBairro.ResetText();
             txtCep.ResetText();
-            txtDDDTel.ResetText();
             txtTel.ResetText();
-            txtDDD.ResetText();
             txtCelular.ResetText();
             txtEmail.ResetText();
         }
@@ -83,6 +84,13 @@ namespace SYS_APAE
         private void _handlerRefreshAddInstructor()
         {
             txtNameInstructor.ResetText();
+            txtEmailInstructor.ResetText();
+            txtProntuarioInstructor.ResetText();
+            txtTipoInstructor.ResetText();
+            txtCargaInstructor.ResetText();
+            txtCpfInstructor.ResetText();
+            txtPasswordInstructor.ResetText();
+            chkShowPassword.Checked = false;
         }
 
         private void _handlerRefreshRadioReprots()
@@ -133,16 +141,23 @@ namespace SYS_APAE
             this.radioControl["int"] = -1;
             cmbNomeAluno.SelectedIndex = 0;
             cmbNomeMonitor.SelectedIndex = 0;
+            cmbActivities.SelectedIndex = 0;
             dtpRelCreated.ResetText();
-            txtTitulo.ResetText();
             txtObs.ResetText();
             txtObsInteressante.ResetText();
+        }
+
+        private void _handlerRefreshAddActivity()
+        {
+            this.txtTitleActivity.ResetText();
+            this.txtDescriptionActivity.ResetText();
         }
 
         private void _handlerRelatoriosCMBox()
         {
             setCMBoxValues(StudentsDTO.getAllStudentsName(), cmbNomeAluno);
             setCMBoxValues(InstructorDTO.getAllInstructorsName(), cmbNomeMonitor);
+            setCMBoxValues(ActivityDTO.getAllActivitiesTitle(), cmbActivities);
         }
 
         private void setCMBoxValues(DataTable dtSource, ComboBox cmbTarget)
@@ -174,9 +189,10 @@ namespace SYS_APAE
                 txtEstado.Text,
                 txtBairro.Text,
                 txtCep.Text,
-                txtDDDTel.Text + txtTel.Text,
-                txtDDD.Text + txtCelular.Text,
-                txtEmail.Text
+                txtTel.Text,
+                txtCelular.Text,
+                txtEmail.Text,
+                DateTime.Today
                 ));
         }
 
@@ -190,7 +206,18 @@ namespace SYS_APAE
                 txtEmailInstructor.Text,
                 txtProntuarioInstructor.Text,
                 txtTipoInstructor.Text,
-                Convert.ToInt32(txtCargaInstructor.Text)
+                Convert.ToInt32(txtCargaInstructor.Text),
+                DateTime.Today
+                ));
+        }
+
+        private bool AddActivity()
+        {
+            return ActivityDTO.AddNewActivity(new Activity(
+                0,
+                txtTitleActivity.Text,
+                txtDescriptionActivity.Text,
+                DateTime.Today
                 ));
         }
 
@@ -203,9 +230,9 @@ namespace SYS_APAE
                 this.radioControl["rec"],
                 this.radioControl["atv"],
                 this.radioControl["int"],
-                StudentsDTO.getStudentById(cmbNomeAluno.SelectedValue.ToString()),
-                InstructorDTO.getInstructorById(cmbNomeMonitor.SelectedValue.ToString()),
-                ActivityDTO.getActivityById(txtTitulo.Text),
+                StudentsDTO.getStudentById(new Dictionary<string, string> { { "id", cmbNomeAluno.SelectedValue.ToString() } }),
+                InstructorDTO.getInstructorById(new Dictionary<string, string> { { "id", cmbNomeMonitor.SelectedValue.ToString() } }),
+                ActivityDTO.getActivityById(new Dictionary<string, string> { { "id", cmbActivities.SelectedValue.ToString() } }),
                 dtpRelCreated.Value.Date,
                 txtObs.Text,
                 txtObsInteressante.Text
@@ -233,21 +260,21 @@ namespace SYS_APAE
 
         private void dtpNasc_Enter(object sender, EventArgs e)
         {
-            SendKeys.Send("%{DOWN}");
+
         }
 
         private void dtpExp_Enter(object sender, EventArgs e)
         {
-            SendKeys.Send("%{DOWN}");
+
         }
 
         private void radioListMonitor_CheckedChanged(object sender, EventArgs e)
         {
             if (((RadioButton)sender).Checked)
             {
-                dtgParticipantes.DataSource = InstructorDTO.getAllInstructorsToDisplay();
-                if (dtgParticipantes.Columns.Count > 0)
-                    dtgParticipantes.Columns[0].Visible = false;
+                dtgListStudents.DataSource = InstructorDTO.getAllInstructorsToDisplay();
+                if (dtgListStudents.Columns.Count > 0)
+                    dtgListStudents.Columns[0].Visible = false;
             }
         }
 
@@ -255,9 +282,6 @@ namespace SYS_APAE
         {
             if (((RadioButton)sender).Checked)
             {
-                dtgParticipantes.DataSource = StudentsDTO.getAllStudentsToDisplay();
-                if (dtgParticipantes.Columns.Count > 0)
-                    dtgParticipantes.Columns[0].Visible = false;
             }
         }
 
@@ -294,7 +318,7 @@ namespace SYS_APAE
         {
             _handlerTabGeral();
 
-            tabControlGeral.TabPages.Insert(0, tabCadastro);
+            tabControlGeral.TabPages.Insert(0, tabNewStudent);
             mnItemNewStudents.Enabled = false;
         }
 
@@ -302,8 +326,22 @@ namespace SYS_APAE
         {
             _handlerTabGeral();
 
-            tabControlGeral.TabPages.Insert(0, tabParticipante);
+            tabControlGeral.TabPages.Insert(0, tabListStudents);
             mnItemShowStudents.Enabled = false;
+
+            dtgListStudents.DataSource = StudentsDTO.getAllStudentsToDisplay();
+            if (dtgListStudents.Columns.Count > 0)
+            {
+                dtgListStudents.Columns[0].Visible = false;
+                dtgListStudents.Visible = true;
+                lblListStudentsEmpty.Visible = false;
+            }
+            else
+            {
+                dtgListStudents.Visible = false;
+                lblListStudentsEmpty.Text = "Não há aluno cadastrado!";
+                lblListStudentsEmpty.Visible = true;
+            }
         }
 
         private void mnItemNewReports_Click(object sender, EventArgs e)
@@ -311,7 +349,7 @@ namespace SYS_APAE
             _handlerTabGeral();
             _handlerRelatoriosCMBox();
 
-            tabControlGeral.TabPages.Insert(0, tabGerarRel);
+            tabControlGeral.TabPages.Insert(0, tabNewClass);
             mnItemNewReports.Enabled = false;
         }
 
@@ -319,24 +357,29 @@ namespace SYS_APAE
         {
             _handlerTabGeral();
 
-            tabControlGeral.TabPages.Insert(0, tabVisuRel);
+            tabControlGeral.TabPages.Insert(0, tabListClass);
             mnItemShowReports.Enabled = false;
 
             dtgReports.DataSource = ReportsDTO.getAllReportsToDisplay();
             if (dtgReports.Columns.Count > 0)
+            {
                 dtgReports.Columns[0].Visible = false;
-        }
-
-        private void txtSearchReports_TextChanged(object sender, EventArgs e)
-        {
-            MessageBox.Show("oi");
+                dtgReports.Visible = true;
+                lblListClassEmpty.Visible = false;
+            }
+            else
+            {
+                dtgReports.Visible = false;
+                lblListClassEmpty.Text = "Não há aula cadastrada!";
+                 lblListClassEmpty.Visible = true;
+            }
         }
 
         private void mnItemNewInstructor_Click(object sender, EventArgs e)
         {
             _handlerTabGeral();
 
-            tabControlGeral.TabPages.Insert(0, tabCadastroMonitor);
+            tabControlGeral.TabPages.Insert(0, tabNewInstructor);
             txtNameInstructor.Focus();
             mnItemNewInstructor.Enabled = false;
         }
@@ -361,6 +404,46 @@ namespace SYS_APAE
         private void btnClearNewInstructor_Click(object sender, EventArgs e)
         {
             _handlerRefreshAddInstructor();
+        }
+
+        private void btnAddNewActivity_Click(object sender, EventArgs e)
+        {
+            if (AddActivity())
+            {
+                MessageBox.Show("Atividade cadastrada com sucesso!");
+                _handlerRefreshAddActivity();
+            }
+        }
+
+        private void mnItemNewActivity_Click(object sender, EventArgs e)
+        {
+            _handlerTabGeral();
+
+            tabControlGeral.TabPages.Insert(0, tabNewActivity);
+            txtTitleActivity.Focus();
+            mnItemNewActivity.Enabled = false;
+        }
+
+        private void btnLimparNewActivity_Click(object sender, EventArgs e)
+        {
+            _handlerRefreshAddActivity();
+        }
+
+        private void txtSearchStudent_KeyUp(object sender, KeyEventArgs e)
+        {
+            dtgListStudents.DataSource = StudentsDTO.getFilteredStudentsToDisplay(txtSearchStudents.Text);
+            if (dtgListStudents.Columns.Count > 0)
+            {
+                dtgListStudents.Columns[0].Visible = false;
+                dtgListStudents.Visible = true;
+                lblListStudentsEmpty.Visible = false;
+            }
+            else
+            {
+                dtgListStudents.Visible = false;
+                lblListStudentsEmpty.Text = "Não há aluno com esse critério!";
+                lblListStudentsEmpty.Visible = true;
+            }
         }
     }
 }

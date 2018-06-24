@@ -15,7 +15,8 @@ namespace SYS_APAE.SYS_APAE.Data
         public static List<Instructor> getAllInstructors()
         {
             List<Instructor> listInstructors = new List<Instructor>();
-            List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement("SELECT * FROM instructors");
+            List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement(
+                dbConnector.CreateSelectCommandWithParams("instructors", null));
 
             foreach (var instructor in dbResult)
             {
@@ -27,7 +28,8 @@ namespace SYS_APAE.SYS_APAE.Data
                         instructor["email"].ToString(),
                         instructor["prontuario"].ToString(),
                         instructor["tipo_monitor"].ToString(),
-                        Convert.ToInt32(instructor["carga_horaria"])
+                        Convert.ToInt32(instructor["carga_horaria"]),
+                        DateTime.Parse(instructor["dt_created"])
                         ));
             }
 
@@ -58,9 +60,10 @@ namespace SYS_APAE.SYS_APAE.Data
             return Utils.getDataToDisplay(getAllInstructors());
         }
 
-        public static Instructor getInstructorById(string id)
+        public static Instructor getInstructorById(Dictionary<string, string> whereFields)
         {
-            Dictionary<string, string> instructor = dbConnector.DoQueryStatement("SELECT * FROM instructors where id=" + id)[0];
+            Dictionary<string, string> instructor = dbConnector.DoQueryStatement(
+                dbConnector.CreateSelectCommandWithParams("instructors", whereFields))[0];
 
             return new Instructor(
                         Convert.ToInt32(instructor["id"]),
@@ -70,13 +73,14 @@ namespace SYS_APAE.SYS_APAE.Data
                         instructor["email"].ToString(),
                         instructor["prontuario"].ToString(),
                         instructor["tipo_monitor"].ToString(),
-                        Convert.ToInt32(instructor["carga_horaria"])
+                        Convert.ToInt32(instructor["carga_horaria"]),
+                        DateTime.Parse(instructor["dt_created"])
                         );
         }
 
         public static string getProntuario(int id)
         {
-            return dbConnector.DoQueryStatement("SELECT prontuario FROM instructors where id="+id)[0]["prontuario"];
+            return getInstructorById(new Dictionary<string, string> { { "id", id.ToString() } }).Prontuario;
         }
 
         public static bool AddNewInstructor(Instructor instructor)

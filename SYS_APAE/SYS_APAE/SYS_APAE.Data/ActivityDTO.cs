@@ -15,7 +15,8 @@ namespace SYS_APAE.SYS_APAE.Data
         public static List<Activity> getAllActivities()
         {
             List<Activity> listActivities = new List<Activity>();
-            List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement("SELECT * FROM activities");
+            List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement(
+                dbConnector.CreateSelectCommandWithParams("activities", null));
 
             foreach (var activity in dbResult)
             {
@@ -30,9 +31,29 @@ namespace SYS_APAE.SYS_APAE.Data
             return listActivities;
         }
 
-        public static Activity getActivityById(string id)
+        public static DataTable getAllActivitiesTitle()
         {
-            Dictionary<string, string> activity = dbConnector.DoQueryStatement("SELECT * FROM activities where id=" + id)[0];
+            DataTable lisActivities = new DataTable();
+            lisActivities.Columns.Add("Id", typeof(int));
+            lisActivities.Columns.Add("Name");
+
+            List<Activity> completeListActivity = getAllActivities();
+
+            foreach (var activity in completeListActivity)
+            {
+                DataRow listRow = lisActivities.NewRow();
+                listRow["Name"] = activity.Title;
+                listRow["Id"] = activity.Id;
+                lisActivities.Rows.InsertAt(listRow, 0);
+            }
+
+            return lisActivities;
+        }
+
+        public static Activity getActivityById(Dictionary<string, string> whereFields)
+        {
+            Dictionary<string, string> activity = dbConnector.DoQueryStatement(
+                dbConnector.CreateSelectCommandWithParams("activities", whereFields))[0];
 
             return new Activity(
                     Convert.ToInt32(activity["id"]),

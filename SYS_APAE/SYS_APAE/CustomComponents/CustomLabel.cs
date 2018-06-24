@@ -8,19 +8,13 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
     {
         private bool txtBorder, txtTag;
 
-        public CustomLabel(bool txtBorder = false, bool txtTag = false)
-        {
-            TxtBorder = txtBorder;
-            TxtTag = txtTag;
-        }
-
         protected override void OnHandleCreated(EventArgs e)
         {
             if (TxtBorder)
             {
-                this.Height = 1;
-                this.Dock = DockStyle.Bottom;
-                this.BackColor = Color.Black;
+                Height = 1;
+                Dock = DockStyle.Bottom;
+                BackColor = Color.Black;
             }
             else if (TxtTag)
             {
@@ -33,7 +27,7 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
             base.OnHandleCreated(e);
         }
 
-        public void changeColorFocus(bool isFocused)
+        public void ChangeColorFocus(bool isFocused)
         {
             if (isFocused)
             {
@@ -51,7 +45,7 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
             }
         }
 
-        public void changeFocus(bool isFocused)
+        public void ChangeFocus(bool isFocused)
         {
             if (isFocused)
             {
@@ -76,6 +70,7 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
                 this.txtBorder = value;
             }
         }
+
         public bool TxtTag
         {
             get

@@ -10,8 +10,9 @@ namespace SYS_APAE.SYS_APAE.Models
     {
         private int id;
         private string name, cpf, email;
+        private DateTime dt_created;
 
-        public People(int id, string name, string cpf, string email)
+        public People(int id, string name, string cpf, string email, DateTime dt_created)
         {
             Id = id;
             Name = name;
@@ -26,7 +27,8 @@ namespace SYS_APAE.SYS_APAE.Models
                 { "id", Id.ToString() },
                 { "name", Name },
                 { "cpf", Cpf },
-                { "email", Email }
+                { "email", Email },
+                { "dt_created", Dt_created.ToString("yyyy-MM-dd") }
             };
 
             return fieldsQuery;
@@ -87,6 +89,18 @@ namespace SYS_APAE.SYS_APAE.Models
             set
             {
                 email = value;
+            }
+        }
+
+        public DateTime Dt_created
+        {
+            get
+            {
+                return dt_created;
+            }
+            set
+            {
+                dt_created = value;
             }
         }
     }

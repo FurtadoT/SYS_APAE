@@ -15,7 +15,8 @@ namespace SYS_APAE.SYS_APAE.Data
         public static List<Student> getAllStudents()
         {
             List<Student> listStudents = new List<Student>();
-            List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement("SELECT * FROM students");
+            List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement(
+                dbConnector.CreateSelectCommandWithParams("students", null));
 
             foreach (var student in dbResult)
             {
@@ -37,7 +38,42 @@ namespace SYS_APAE.SYS_APAE.Data
                         student["cep"].ToString(),
                         student["phone"].ToString(),
                         student["celphone"].ToString(),
-                        student["email"].ToString()
+                        student["email"].ToString(),
+                        DateTime.Parse(student["dt_created"])
+                        ));
+            }
+
+            return listStudents;
+        }
+
+        public static List<Student> getFilteredStudents(Dictionary<string, string> whereFields)
+        {
+            List<Student> listStudents = new List<Student>();
+            List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement(
+                dbConnector.CreateSelectCommandWithParams("students", whereFields));
+
+            foreach (var student in dbResult)
+            {
+                listStudents.Add(new Student(
+                        Convert.ToInt32(student["id"]),
+                        student["name"].ToString(),
+                        student["cpf"].ToString(),
+                        student["rg"].ToString(),
+                        student["org_exp"].ToString(),
+                        DateTime.Parse(student["dt_exp"]),
+                        DateTime.Parse(student["dt_nasc"]),
+                        student["nationality"].ToString(),
+                        student["father_name"].ToString(),
+                        student["mother_name"].ToString(),
+                        student["address"].ToString(),
+                        student["city"].ToString(),
+                        student["state"].ToString(),
+                        student["district"].ToString(),
+                        student["cep"].ToString(),
+                        student["phone"].ToString(),
+                        student["celphone"].ToString(),
+                        student["email"].ToString(),
+                        DateTime.Parse(student["dt_created"])
                         ));
             }
 
@@ -68,9 +104,15 @@ namespace SYS_APAE.SYS_APAE.Data
             return Utils.getDataToDisplay(getAllStudents());
         }
 
-        public static Student getStudentById(string id)
+        public static DataTable getFilteredStudentsToDisplay(string searchField)
         {
-            Dictionary<string, string> student = dbConnector.DoQueryStatement("SELECT * FROM students where id=" + id)[0];
+            return Utils.getDataToDisplay(getFilteredStudents(new Dictionary<string, string> { { "name", "%" + searchField + "%" } }));
+        }
+
+        public static Student getStudentById(Dictionary<string, string> whereFields)
+        {
+            Dictionary<string, string> student = dbConnector.DoQueryStatement(
+                dbConnector.CreateSelectCommandWithParams("students", whereFields))[0];
 
             return new Student(
                         Convert.ToInt32(student["id"]),
@@ -90,7 +132,8 @@ namespace SYS_APAE.SYS_APAE.Data
                         student["cep"].ToString(),
                         student["phone"].ToString(),
                         student["celphone"].ToString(),
-                        student["email"].ToString()
+                        student["email"].ToString(),
+                        DateTime.Parse(student["dt_created"])
                         );
         }
 

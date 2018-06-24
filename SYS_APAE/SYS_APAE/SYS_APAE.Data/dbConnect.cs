@@ -58,12 +58,6 @@ namespace SYS_APAE
             }
         }
 
-        private MySqlDataReader ExecuteStatement(string sqlStatement)
-        {
-            MySqlCommand command = new MySqlCommand(sqlStatement, connection);
-            return command.ExecuteReader();
-        }
-
         private Dictionary<string, string> resolveData(MySqlDataReader dataReader)
         {
             Dictionary<string, string> newRow = new Dictionary<string, string>();
@@ -74,13 +68,13 @@ namespace SYS_APAE
             return newRow;
         }
 
-        public List<Dictionary<string, string>> DoQueryStatement(string sqlStatement)
+        public List<Dictionary<string, string>> DoQueryStatement(MySqlCommand sqlCommand)
         {
             List<Dictionary<string, string>> returnData = new List<Dictionary<string, string>>();
 
             if (this.OpenConnection())
             {
-                MySqlDataReader dataReader = ExecuteStatement(sqlStatement);
+                MySqlDataReader dataReader = sqlCommand.ExecuteReader();
 
                 while (dataReader.Read())
                     returnData.Add(resolveData(dataReader));
@@ -103,9 +97,35 @@ namespace SYS_APAE
             return true;
         }
 
+        public MySqlCommand CreateSelectCommandWithParams(string TableName, Dictionary<string, string> whereFields)
+        {
+            string whereStatement = String.Empty;
+            if (whereFields != null)
+            {
+                List<string> fields = CreateUpdateFieldsArray(whereFields.Keys.ToArray());
+                if (fields.Count > 0)
+                    whereStatement = "WHERE " + string.Join(" AND ", fields);
+            }
+
+            MySqlCommand commandSql = new MySqlCommand(
+                string.Format("select * from {0} {1}",
+                TableName,
+                whereStatement
+            ), connection);
+
+            if (whereFields != null)
+                foreach (KeyValuePair<string, string> field in whereFields)
+                {
+                    commandSql.Parameters.Add(new MySqlParameter("@" + field.Key, field.Value));
+                }
+
+            return commandSql;
+        }
+
         public MySqlCommand CreateInsertCommandWithParams(string TableName, Dictionary<string, string> fieldsQuery)
         {
             string[] fields = fieldsQuery.Keys.ToArray();
+
             MySqlCommand commandSql = new MySqlCommand(
                 string.Format("INSERT INTO {0} ({1}) VALUES({2})",
                 TableName,
@@ -125,7 +145,7 @@ namespace SYS_APAE
             List<string> stringReturn = new List<string>();
 
             foreach (string field in fields)
-                if (field != "id") stringReturn.Add(field + "=@" + field);
+                if (field != "id") stringReturn.Add(field + " LIKE @" + field);
 
             return stringReturn;
         }

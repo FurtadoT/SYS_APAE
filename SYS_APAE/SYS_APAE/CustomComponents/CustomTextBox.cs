@@ -6,7 +6,7 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
 {
     class CustomTextBox : TextBox
     {
-        private CustomLabel borderLabel = new CustomLabel(true);
+        private CustomLabel borderLabel = new CustomLabel() { TxtBorder = true };
         private CustomTextBoxWithLabel _parent;
 
         private void InitializeComponent()
@@ -45,10 +45,16 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
             base.OnKeyDown(e);
         }
 
+        protected override void OnKeyUp(KeyEventArgs e)
+        {
+            if (_parent != null) _parent.TextBoxKeyUp(e);
+            base.OnKeyUp(e);
+        }
+
         protected override void OnGotFocus(EventArgs e)
         {
             if (_parent != null) _parent.ChangeLabelFocus(true);
-            this.borderLabel.changeColorFocus(true);
+            this.borderLabel.ChangeColorFocus(true);
 
             base.OnGotFocus(e);
         }
@@ -56,7 +62,7 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
         protected override void OnLostFocus(EventArgs e)
         {
             if (_parent != null) _parent.ChangeLabelFocus(false);
-            this.borderLabel.changeColorFocus(false);
+            this.borderLabel.ChangeColorFocus(false);
 
             base.OnLostFocus(e);
         }

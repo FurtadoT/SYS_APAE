@@ -6,14 +6,14 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
 {
     class CustomTextBoxWithLabel : Panel
     {
-        private CustomLabel TextBoxLabel = new CustomLabel(false, true);
+        private CustomLabel TextBoxLabel = new CustomLabel() { TxtTag = true };
         private CustomTextBox CTextBox;
 
         public CustomTextBoxWithLabel()
         {
+            Controls.Add(this.TextBoxLabel);
             this.CTextBox = new CustomTextBox(this);
             Controls.Add(this.CTextBox);
-            Controls.Add(this.TextBoxLabel);
         }
 
         public void TextBoxKeyDown(KeyEventArgs e)
@@ -21,12 +21,17 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
             this.OnKeyDown(e);
         }
 
+        public void TextBoxKeyUp(KeyEventArgs e)
+        {
+            this.OnKeyUp(e);
+        }
+
         public void ChangeLabelFocus(bool isFocused)
         {
             if (this.CTextBox.Text == String.Empty)
-                this.TextBoxLabel.changeFocus(isFocused);
+                this.TextBoxLabel.ChangeFocus(isFocused);
 
-            this.TextBoxLabel.changeColorFocus(isFocused);
+            this.TextBoxLabel.ChangeColorFocus(isFocused);
         }
 
         protected override void OnHandleCreated(EventArgs e)
@@ -54,7 +59,7 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
 
         public override void ResetText()
         {
-            this.TextBoxLabel.changeFocus(false);
+            this.TextBoxLabel.ChangeFocus(false);
 
             base.ResetText();
         }

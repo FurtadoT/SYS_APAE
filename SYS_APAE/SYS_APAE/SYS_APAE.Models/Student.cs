@@ -18,8 +18,8 @@ namespace SYS_APAE
                 string org_exp, DateTime dt_exp, DateTime dt_nasc,
                 string nationality, string father_name, string mother_name,
                 string address, string city, string state, string district,
-                string cep, string phone, string celphone, string email)
-            : base(id, name, cpf, email)
+                string cep, string phone, string celphone, string email, DateTime dt_created)
+            : base(id, name, cpf, email, dt_created)
         {
             Rg = rg;
             Org_exp = org_exp;

@@ -6,7 +6,7 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
 {
     class CustomMaskedTextBoxWithLabel : Panel
     {
-        private readonly CustomLabel TextBoxLabel = new CustomLabel(false, true);
+        private readonly CustomLabel TextBoxLabel = new CustomLabel() { TxtTag = true };
         private readonly CustomMaskedTextBox CTextBox;
 
         public CustomMaskedTextBoxWithLabel()
@@ -19,9 +19,9 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
         public void ChangeLabelFocus(bool isFocused)
         {
             if (this.CTextBox.Text == String.Empty)
-                this.TextBoxLabel.changeFocus(isFocused);
+                this.TextBoxLabel.ChangeFocus(isFocused);
 
-            this.TextBoxLabel.changeColorFocus(isFocused);
+            this.TextBoxLabel.ChangeColorFocus(isFocused);
         }
 
         public void TextBoxKeyDown(KeyEventArgs e)
@@ -31,7 +31,7 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
 
         public override void ResetText()
         {
-            this.TextBoxLabel.changeFocus(false);
+            this.TextBoxLabel.ChangeFocus(false);
 
             base.ResetText();
         }

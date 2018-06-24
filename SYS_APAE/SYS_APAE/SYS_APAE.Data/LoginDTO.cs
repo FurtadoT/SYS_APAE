@@ -14,7 +14,14 @@ namespace SYS_APAE.SYS_APAE.Data
 
         private static bool verifyAdmin(string user, string password)
         {
-            List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement("SELECT * FROM admin_sys where login='" + user + "' and password='" + password + "'");
+            Dictionary<string, string> whereFields = new Dictionary<string, string>
+            {
+                { "login", user },
+                { "password", password }
+            };
+
+            List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement(
+                dbConnector.CreateSelectCommandWithParams("admin_sys", whereFields));
             if (dbResult.Count == 0)
             {
                 return false;
@@ -25,7 +32,14 @@ namespace SYS_APAE.SYS_APAE.Data
         }
         private static bool verifyStudent(string user, string password)
         {
-            List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement("SELECT * FROM instructors where cpf='" + user + "' and password='" + password + "'");
+            Dictionary<string, string> whereFields = new Dictionary<string, string>
+            {
+                { "cpf", user },
+                { "password", password }
+            };
+
+            List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement(
+                dbConnector.CreateSelectCommandWithParams("instructors", whereFields));
             if (dbResult.Count == 0)
             {
                 return false;
