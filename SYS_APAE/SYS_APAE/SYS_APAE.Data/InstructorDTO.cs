@@ -36,6 +36,30 @@ namespace SYS_APAE.SYS_APAE.Data
             return listInstructors;
         }
 
+        public static List<Instructor> getFilteredInstructors(Dictionary<string, string> whereFields)
+        {
+            List<Instructor> listInstructors = new List<Instructor>();
+            List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement(
+                dbConnector.CreateSelectCommandWithParams("instructors", whereFields));
+
+            foreach (var instructor in dbResult)
+            {
+                listInstructors.Add(new Instructor(
+                        Convert.ToInt32(instructor["id"]),
+                        instructor["name"].ToString(),
+                        instructor["cpf"].ToString(),
+                        "",
+                        instructor["email"].ToString(),
+                        instructor["prontuario"].ToString(),
+                        instructor["tipo_monitor"].ToString(),
+                        Convert.ToInt32(instructor["carga_horaria"]),
+                        DateTime.Parse(instructor["dt_created"])
+                        ));
+            }
+
+            return listInstructors;
+        }
+
         public static DataTable getAllInstructorsName()
         {
             DataTable listInstructors = new DataTable();
@@ -58,6 +82,11 @@ namespace SYS_APAE.SYS_APAE.Data
         public static DataTable getAllInstructorsToDisplay()
         {
             return Utils.getDataToDisplay(getAllInstructors());
+        }
+
+        public static DataTable getFilteredInstructorsToDisplay(string searchField)
+        {
+            return Utils.getDataToDisplay(getFilteredInstructors(new Dictionary<string, string> { { "name", "%" + searchField + "%" } }));
         }
 
         public static Instructor getInstructorById(Dictionary<string, string> whereFields)

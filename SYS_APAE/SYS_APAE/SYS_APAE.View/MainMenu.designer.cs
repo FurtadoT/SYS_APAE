@@ -36,28 +36,53 @@ namespace SYS_APAE
             this.tabControlGeral = new System.Windows.Forms.TabControl();
             this.tabNewStudent = new System.Windows.Forms.TabPage();
             this.gpbAddress = new System.Windows.Forms.GroupBox();
+            this.txtEnd = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
+            this.txtCep = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomMaskedTextBoxWithLabel();
+            this.txtCidade = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
+            this.txtCelular = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomMaskedTextBoxWithLabel();
+            this.txtEstado = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
+            this.txtTel = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomMaskedTextBoxWithLabel();
+            this.txtBairro = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
             this.gpbStudentInfo = new System.Windows.Forms.GroupBox();
             this.lblDtExp = new System.Windows.Forms.Label();
+            this.txtNome = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
+            this.txtCPF = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomMaskedTextBoxWithLabel();
             this.dtpExp = new System.Windows.Forms.DateTimePicker();
             this.dtpNasc = new System.Windows.Forms.DateTimePicker();
             this.lblNasc = new System.Windows.Forms.Label();
+            this.txtEmail = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
+            this.txtNaturalidade = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
+            this.txtMae = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
+            this.txtPai = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
+            this.txtRG = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomMaskedTextBoxWithLabel();
+            this.txtOrgExp = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.tabNewInstructor = new System.Windows.Forms.TabPage();
             this.btnClearNewInstructor = new System.Windows.Forms.Button();
             this.btnInsertNewInstructor = new System.Windows.Forms.Button();
             this.gpbMonitoria = new System.Windows.Forms.GroupBox();
+            this.txtCargaInstructor = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
+            this.txtTipoInstructor = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
+            this.txtProntuarioInstructor = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomMaskedTextBoxWithLabel();
             this.gpbLoginData = new System.Windows.Forms.GroupBox();
             this.chkShowPassword = new System.Windows.Forms.CheckBox();
+            this.txtPasswordInstructor = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
+            this.txtCpfInstructor = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomMaskedTextBoxWithLabel();
             this.gpbInstructorGeneral = new System.Windows.Forms.GroupBox();
+            this.txtEmailInstructor = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
+            this.txtNameInstructor = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
             this.tabNewActivity = new System.Windows.Forms.TabPage();
             this.btnLimparNewActivity = new System.Windows.Forms.Button();
             this.btnAddNewActivity = new System.Windows.Forms.Button();
             this.lblDescriptionActivity = new System.Windows.Forms.Label();
             this.txtDescriptionActivity = new System.Windows.Forms.TextBox();
+            this.txtTitleActivity = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
             this.tabNewClass = new System.Windows.Forms.TabPage();
             this.gpbInstructorReport = new System.Windows.Forms.GroupBox();
             this.cmbNomeMonitor = new System.Windows.Forms.ComboBox();
+            this.txtProntRelatorio = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBox();
+            this.lblProntReport = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomLabel();
             this.cmbActivities = new System.Windows.Forms.ComboBox();
             this.btnRefreshReport = new System.Windows.Forms.Button();
             this.btnRelAdd = new System.Windows.Forms.Button();
@@ -71,7 +96,9 @@ namespace SYS_APAE
             this.radioInteressante4 = new System.Windows.Forms.RadioButton();
             this.radioInteressante2 = new System.Windows.Forms.RadioButton();
             this.radioInteressante1 = new System.Windows.Forms.RadioButton();
+            this.txtObsInteressante = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
             this.gpBoxAtividade = new System.Windows.Forms.GroupBox();
+            this.txtObs = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
             this.radioAtividade0 = new System.Windows.Forms.RadioButton();
             this.lblAtividade = new System.Windows.Forms.Label();
             this.radioAtividade5 = new System.Windows.Forms.RadioButton();
@@ -107,11 +134,18 @@ namespace SYS_APAE
             this.lblData = new System.Windows.Forms.Label();
             this.lblNomeAluno = new System.Windows.Forms.Label();
             this.tabListStudents = new System.Windows.Forms.TabPage();
+            this.txtSearchStudents = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
             this.lblListStudentsEmpty = new System.Windows.Forms.Label();
             this.dtgListStudents = new System.Windows.Forms.DataGridView();
+            this.tabListInstructors = new System.Windows.Forms.TabPage();
+            this.lblListInstructorsEmpty = new System.Windows.Forms.Label();
+            this.dtgListInstructors = new System.Windows.Forms.DataGridView();
+            this.txtSearchInstructors = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
+            this.tabListActivity = new System.Windows.Forms.TabPage();
             this.tabListClass = new System.Windows.Forms.TabPage();
             this.lblListClassEmpty = new System.Windows.Forms.Label();
             this.dtgReports = new System.Windows.Forms.DataGridView();
+            this.txtSearchReports = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
             this.logo_if = new System.Windows.Forms.PictureBox();
             this.pnlGreenDetail = new System.Windows.Forms.Panel();
             this.lblWUser = new System.Windows.Forms.Label();
@@ -122,36 +156,9 @@ namespace SYS_APAE
             this.mnItemNewActivity = new System.Windows.Forms.ToolStripMenuItem();
             this.mnItemNewReports = new System.Windows.Forms.ToolStripMenuItem();
             this.mnItemShowStudents = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnItemListInstructors = new System.Windows.Forms.ToolStripMenuItem();
             this.mnItemShowReports = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtEnd = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
-            this.txtCep = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomMaskedTextBoxWithLabel();
-            this.txtCidade = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
-            this.txtCelular = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomMaskedTextBoxWithLabel();
-            this.txtEstado = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
-            this.txtTel = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomMaskedTextBoxWithLabel();
-            this.txtBairro = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
-            this.txtNome = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
-            this.txtCPF = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomMaskedTextBoxWithLabel();
-            this.txtEmail = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
-            this.txtNaturalidade = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
-            this.txtMae = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
-            this.txtPai = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
-            this.txtRG = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomMaskedTextBoxWithLabel();
-            this.txtOrgExp = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
-            this.txtCargaInstructor = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
-            this.txtTipoInstructor = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
-            this.txtProntuarioInstructor = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomMaskedTextBoxWithLabel();
-            this.txtPasswordInstructor = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
-            this.txtCpfInstructor = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomMaskedTextBoxWithLabel();
-            this.txtEmailInstructor = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
-            this.txtNameInstructor = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
-            this.txtTitleActivity = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
-            this.txtProntRelatorio = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBox();
-            this.lblProntReport = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomLabel();
-            this.txtObsInteressante = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
-            this.txtObs = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
-            this.txtSearchStudents = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
-            this.txtSearchReports = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
+            this.mnItemListActivities = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlGeral.SuspendLayout();
             this.tabNewStudent.SuspendLayout();
             this.gpbAddress.SuspendLayout();
@@ -170,6 +177,8 @@ namespace SYS_APAE
             this.gpBoxDigitacao.SuspendLayout();
             this.tabListStudents.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgListStudents)).BeginInit();
+            this.tabListInstructors.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgListInstructors)).BeginInit();
             this.tabListClass.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgReports)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo_if)).BeginInit();
@@ -184,6 +193,8 @@ namespace SYS_APAE
             this.tabControlGeral.Controls.Add(this.tabNewActivity);
             this.tabControlGeral.Controls.Add(this.tabNewClass);
             this.tabControlGeral.Controls.Add(this.tabListStudents);
+            this.tabControlGeral.Controls.Add(this.tabListInstructors);
+            this.tabControlGeral.Controls.Add(this.tabListActivity);
             this.tabControlGeral.Controls.Add(this.tabListClass);
             this.tabControlGeral.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.tabControlGeral.Location = new System.Drawing.Point(136, 91);
@@ -224,6 +235,73 @@ namespace SYS_APAE
             this.gpbAddress.TabStop = false;
             this.gpbAddress.Text = "Contato";
             // 
+            // txtEnd
+            // 
+            this.txtEnd.Location = new System.Drawing.Point(145, 22);
+            this.txtEnd.Name = "txtEnd";
+            this.txtEnd.PasswordChar = '\0';
+            this.txtEnd.ReadOnly = false;
+            this.txtEnd.Size = new System.Drawing.Size(553, 35);
+            this.txtEnd.TabIndex = 2;
+            this.txtEnd.Tag = "Endereço";
+            // 
+            // txtCep
+            // 
+            this.txtCep.Location = new System.Drawing.Point(19, 22);
+            this.txtCep.Mask = "00.000-000";
+            this.txtCep.Name = "txtCep";
+            this.txtCep.Size = new System.Drawing.Size(80, 35);
+            this.txtCep.TabIndex = 1;
+            this.txtCep.Tag = "CEP";
+            // 
+            // txtCidade
+            // 
+            this.txtCidade.Location = new System.Drawing.Point(417, 68);
+            this.txtCidade.Name = "txtCidade";
+            this.txtCidade.PasswordChar = '\0';
+            this.txtCidade.ReadOnly = false;
+            this.txtCidade.Size = new System.Drawing.Size(281, 35);
+            this.txtCidade.TabIndex = 5;
+            this.txtCidade.Tag = "Cidade";
+            // 
+            // txtCelular
+            // 
+            this.txtCelular.Location = new System.Drawing.Point(887, 17);
+            this.txtCelular.Mask = "(00) 00000-000#";
+            this.txtCelular.Name = "txtCelular";
+            this.txtCelular.Size = new System.Drawing.Size(164, 35);
+            this.txtCelular.TabIndex = 6;
+            this.txtCelular.Tag = "Celular";
+            // 
+            // txtEstado
+            // 
+            this.txtEstado.Location = new System.Drawing.Point(283, 68);
+            this.txtEstado.Name = "txtEstado";
+            this.txtEstado.PasswordChar = '\0';
+            this.txtEstado.ReadOnly = false;
+            this.txtEstado.Size = new System.Drawing.Size(102, 35);
+            this.txtEstado.TabIndex = 4;
+            this.txtEstado.Tag = "Estado";
+            // 
+            // txtTel
+            // 
+            this.txtTel.Location = new System.Drawing.Point(887, 68);
+            this.txtTel.Mask = "(00) 0000-0000";
+            this.txtTel.Name = "txtTel";
+            this.txtTel.Size = new System.Drawing.Size(164, 35);
+            this.txtTel.TabIndex = 7;
+            this.txtTel.Tag = "Telefone";
+            // 
+            // txtBairro
+            // 
+            this.txtBairro.Location = new System.Drawing.Point(19, 68);
+            this.txtBairro.Name = "txtBairro";
+            this.txtBairro.PasswordChar = '\0';
+            this.txtBairro.ReadOnly = false;
+            this.txtBairro.Size = new System.Drawing.Size(219, 35);
+            this.txtBairro.TabIndex = 3;
+            this.txtBairro.Tag = "Bairro";
+            // 
             // gpbStudentInfo
             // 
             this.gpbStudentInfo.Controls.Add(this.lblDtExp);
@@ -255,6 +333,25 @@ namespace SYS_APAE
             this.lblDtExp.TabIndex = 23;
             this.lblDtExp.Text = "Data de Expedição";
             // 
+            // txtNome
+            // 
+            this.txtNome.Location = new System.Drawing.Point(20, 22);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.PasswordChar = '\0';
+            this.txtNome.ReadOnly = false;
+            this.txtNome.Size = new System.Drawing.Size(448, 35);
+            this.txtNome.TabIndex = 1;
+            this.txtNome.Tag = "Nome";
+            // 
+            // txtCPF
+            // 
+            this.txtCPF.Location = new System.Drawing.Point(956, 22);
+            this.txtCPF.Mask = "000.000.000-00";
+            this.txtCPF.Name = "txtCPF";
+            this.txtCPF.Size = new System.Drawing.Size(95, 35);
+            this.txtCPF.TabIndex = 3;
+            this.txtCPF.Tag = "CPF";
+            // 
             // dtpExp
             // 
             this.dtpExp.CustomFormat = "\"dd-MM-yyyy\"";
@@ -284,6 +381,65 @@ namespace SYS_APAE
             this.lblNasc.Size = new System.Drawing.Size(89, 12);
             this.lblNasc.TabIndex = 20;
             this.lblNasc.Text = "Data de Nascimento\r\n";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(560, 22);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.PasswordChar = '\0';
+            this.txtEmail.ReadOnly = false;
+            this.txtEmail.Size = new System.Drawing.Size(317, 35);
+            this.txtEmail.TabIndex = 2;
+            this.txtEmail.Tag = "E-mail";
+            // 
+            // txtNaturalidade
+            // 
+            this.txtNaturalidade.Location = new System.Drawing.Point(20, 114);
+            this.txtNaturalidade.Name = "txtNaturalidade";
+            this.txtNaturalidade.PasswordChar = '\0';
+            this.txtNaturalidade.ReadOnly = false;
+            this.txtNaturalidade.Size = new System.Drawing.Size(179, 35);
+            this.txtNaturalidade.TabIndex = 8;
+            this.txtNaturalidade.Tag = "Naturalidade";
+            // 
+            // txtMae
+            // 
+            this.txtMae.Location = new System.Drawing.Point(333, 68);
+            this.txtMae.Name = "txtMae";
+            this.txtMae.PasswordChar = '\0';
+            this.txtMae.ReadOnly = false;
+            this.txtMae.Size = new System.Drawing.Size(414, 35);
+            this.txtMae.TabIndex = 7;
+            this.txtMae.Tag = "Nome da mãe";
+            // 
+            // txtPai
+            // 
+            this.txtPai.Location = new System.Drawing.Point(333, 114);
+            this.txtPai.Name = "txtPai";
+            this.txtPai.PasswordChar = '\0';
+            this.txtPai.ReadOnly = false;
+            this.txtPai.Size = new System.Drawing.Size(414, 35);
+            this.txtPai.TabIndex = 10;
+            this.txtPai.Tag = "Nome do pai";
+            // 
+            // txtRG
+            // 
+            this.txtRG.Location = new System.Drawing.Point(802, 68);
+            this.txtRG.Mask = "00.000.000-A";
+            this.txtRG.Name = "txtRG";
+            this.txtRG.Size = new System.Drawing.Size(75, 35);
+            this.txtRG.TabIndex = 5;
+            this.txtRG.Tag = "RG";
+            // 
+            // txtOrgExp
+            // 
+            this.txtOrgExp.Location = new System.Drawing.Point(897, 70);
+            this.txtOrgExp.Name = "txtOrgExp";
+            this.txtOrgExp.PasswordChar = '\0';
+            this.txtOrgExp.ReadOnly = false;
+            this.txtOrgExp.Size = new System.Drawing.Size(60, 35);
+            this.txtOrgExp.TabIndex = 6;
+            this.txtOrgExp.Tag = "Orgão Exp.";
             // 
             // btnReset
             // 
@@ -351,6 +507,35 @@ namespace SYS_APAE
             this.gpbMonitoria.TabStop = false;
             this.gpbMonitoria.Text = "Monitoria";
             // 
+            // txtCargaInstructor
+            // 
+            this.txtCargaInstructor.Location = new System.Drawing.Point(47, 75);
+            this.txtCargaInstructor.Name = "txtCargaInstructor";
+            this.txtCargaInstructor.PasswordChar = '\0';
+            this.txtCargaInstructor.ReadOnly = false;
+            this.txtCargaInstructor.Size = new System.Drawing.Size(104, 35);
+            this.txtCargaInstructor.TabIndex = 3;
+            this.txtCargaInstructor.Tag = "Carga Horária";
+            // 
+            // txtTipoInstructor
+            // 
+            this.txtTipoInstructor.Location = new System.Drawing.Point(258, 25);
+            this.txtTipoInstructor.Name = "txtTipoInstructor";
+            this.txtTipoInstructor.PasswordChar = '\0';
+            this.txtTipoInstructor.ReadOnly = false;
+            this.txtTipoInstructor.Size = new System.Drawing.Size(196, 35);
+            this.txtTipoInstructor.TabIndex = 2;
+            this.txtTipoInstructor.Tag = "Tipo";
+            // 
+            // txtProntuarioInstructor
+            // 
+            this.txtProntuarioInstructor.Location = new System.Drawing.Point(47, 25);
+            this.txtProntuarioInstructor.Mask = "000000-A";
+            this.txtProntuarioInstructor.Name = "txtProntuarioInstructor";
+            this.txtProntuarioInstructor.Size = new System.Drawing.Size(149, 35);
+            this.txtProntuarioInstructor.TabIndex = 1;
+            this.txtProntuarioInstructor.Tag = "Prontuário";
+            // 
             // gpbLoginData
             // 
             this.gpbLoginData.Controls.Add(this.chkShowPassword);
@@ -374,6 +559,25 @@ namespace SYS_APAE
             this.chkShowPassword.UseVisualStyleBackColor = true;
             this.chkShowPassword.CheckedChanged += new System.EventHandler(this.chkShowPassword_CheckedChanged);
             // 
+            // txtPasswordInstructor
+            // 
+            this.txtPasswordInstructor.Location = new System.Drawing.Point(233, 34);
+            this.txtPasswordInstructor.Name = "txtPasswordInstructor";
+            this.txtPasswordInstructor.PasswordChar = '*';
+            this.txtPasswordInstructor.ReadOnly = false;
+            this.txtPasswordInstructor.Size = new System.Drawing.Size(138, 35);
+            this.txtPasswordInstructor.TabIndex = 2;
+            this.txtPasswordInstructor.Tag = "Senha";
+            // 
+            // txtCpfInstructor
+            // 
+            this.txtCpfInstructor.Location = new System.Drawing.Point(61, 34);
+            this.txtCpfInstructor.Mask = "000.000.000-00";
+            this.txtCpfInstructor.Name = "txtCpfInstructor";
+            this.txtCpfInstructor.Size = new System.Drawing.Size(82, 35);
+            this.txtCpfInstructor.TabIndex = 1;
+            this.txtCpfInstructor.Tag = "CPF";
+            // 
             // gpbInstructorGeneral
             // 
             this.gpbInstructorGeneral.Controls.Add(this.txtEmailInstructor);
@@ -384,6 +588,26 @@ namespace SYS_APAE
             this.gpbInstructorGeneral.TabIndex = 1;
             this.gpbInstructorGeneral.TabStop = false;
             this.gpbInstructorGeneral.Text = "Dados Gerais";
+            // 
+            // txtEmailInstructor
+            // 
+            this.txtEmailInstructor.Location = new System.Drawing.Point(61, 75);
+            this.txtEmailInstructor.Name = "txtEmailInstructor";
+            this.txtEmailInstructor.PasswordChar = '\0';
+            this.txtEmailInstructor.ReadOnly = false;
+            this.txtEmailInstructor.Size = new System.Drawing.Size(389, 35);
+            this.txtEmailInstructor.TabIndex = 2;
+            this.txtEmailInstructor.Tag = "E-mail:";
+            // 
+            // txtNameInstructor
+            // 
+            this.txtNameInstructor.Location = new System.Drawing.Point(61, 25);
+            this.txtNameInstructor.Name = "txtNameInstructor";
+            this.txtNameInstructor.PasswordChar = '\0';
+            this.txtNameInstructor.ReadOnly = false;
+            this.txtNameInstructor.Size = new System.Drawing.Size(389, 35);
+            this.txtNameInstructor.TabIndex = 1;
+            this.txtNameInstructor.Tag = "Nome";
             // 
             // tabNewActivity
             // 
@@ -442,6 +666,16 @@ namespace SYS_APAE
             this.txtDescriptionActivity.Size = new System.Drawing.Size(628, 191);
             this.txtDescriptionActivity.TabIndex = 2;
             // 
+            // txtTitleActivity
+            // 
+            this.txtTitleActivity.Location = new System.Drawing.Point(88, 36);
+            this.txtTitleActivity.Name = "txtTitleActivity";
+            this.txtTitleActivity.PasswordChar = '\0';
+            this.txtTitleActivity.ReadOnly = false;
+            this.txtTitleActivity.Size = new System.Drawing.Size(437, 35);
+            this.txtTitleActivity.TabIndex = 0;
+            this.txtTitleActivity.Tag = "Título";
+            // 
             // tabNewClass
             // 
             this.tabNewClass.Controls.Add(this.gpbInstructorReport);
@@ -486,6 +720,28 @@ namespace SYS_APAE
             this.cmbNomeMonitor.Size = new System.Drawing.Size(430, 21);
             this.cmbNomeMonitor.TabIndex = 59;
             this.cmbNomeMonitor.SelectedIndexChanged += new System.EventHandler(this.cmbNomeMonitor_SelectedIndexChanged);
+            // 
+            // txtProntRelatorio
+            // 
+            this.txtProntRelatorio.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtProntRelatorio.Location = new System.Drawing.Point(15, 66);
+            this.txtProntRelatorio.Name = "txtProntRelatorio";
+            this.txtProntRelatorio.ReadOnly = true;
+            this.txtProntRelatorio.Size = new System.Drawing.Size(178, 20);
+            this.txtProntRelatorio.TabIndex = 51;
+            this.txtProntRelatorio.Tag = "Prontuário";
+            // 
+            // lblProntReport
+            // 
+            this.lblProntReport.BackColor = System.Drawing.SystemColors.Control;
+            this.lblProntReport.Font = new System.Drawing.Font("", 7F);
+            this.lblProntReport.Location = new System.Drawing.Point(15, 51);
+            this.lblProntReport.Name = "lblProntReport";
+            this.lblProntReport.Size = new System.Drawing.Size(56, 15);
+            this.lblProntReport.TabIndex = 63;
+            this.lblProntReport.Text = "Prontuário";
+            this.lblProntReport.TxtBorder = false;
+            this.lblProntReport.TxtTag = false;
             // 
             // cmbActivities
             // 
@@ -641,6 +897,16 @@ namespace SYS_APAE
             this.radioInteressante1.UseVisualStyleBackColor = true;
             this.radioInteressante1.Click += new System.EventHandler(this.radioButton_Click);
             // 
+            // txtObsInteressante
+            // 
+            this.txtObsInteressante.Location = new System.Drawing.Point(28, 67);
+            this.txtObsInteressante.Name = "txtObsInteressante";
+            this.txtObsInteressante.PasswordChar = '\0';
+            this.txtObsInteressante.ReadOnly = false;
+            this.txtObsInteressante.Size = new System.Drawing.Size(430, 35);
+            this.txtObsInteressante.TabIndex = 48;
+            this.txtObsInteressante.Tag = "Observação";
+            // 
             // gpBoxAtividade
             // 
             this.gpBoxAtividade.Controls.Add(this.txtObs);
@@ -656,6 +922,16 @@ namespace SYS_APAE
             this.gpBoxAtividade.Size = new System.Drawing.Size(493, 112);
             this.gpBoxAtividade.TabIndex = 57;
             this.gpBoxAtividade.TabStop = false;
+            // 
+            // txtObs
+            // 
+            this.txtObs.Location = new System.Drawing.Point(28, 67);
+            this.txtObs.Name = "txtObs";
+            this.txtObs.PasswordChar = '\0';
+            this.txtObs.ReadOnly = false;
+            this.txtObs.Size = new System.Drawing.Size(430, 35);
+            this.txtObs.TabIndex = 39;
+            this.txtObs.Tag = "Observação";
             // 
             // radioAtividade0
             // 
@@ -1094,6 +1370,18 @@ namespace SYS_APAE
             this.tabListStudents.Text = "Listar Alunos";
             this.tabListStudents.UseVisualStyleBackColor = true;
             // 
+            // txtSearchStudents
+            // 
+            this.txtSearchStudents.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtSearchStudents.Location = new System.Drawing.Point(3, 13);
+            this.txtSearchStudents.Name = "txtSearchStudents";
+            this.txtSearchStudents.PasswordChar = '\0';
+            this.txtSearchStudents.ReadOnly = false;
+            this.txtSearchStudents.Size = new System.Drawing.Size(326, 35);
+            this.txtSearchStudents.TabIndex = 8;
+            this.txtSearchStudents.Tag = "Procurar";
+            this.txtSearchStudents.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearchStudent_KeyUp);
+            // 
             // lblListStudentsEmpty
             // 
             this.lblListStudentsEmpty.AutoSize = true;
@@ -1122,6 +1410,70 @@ namespace SYS_APAE
             this.dtgListStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgListStudents.Size = new System.Drawing.Size(1084, 289);
             this.dtgListStudents.TabIndex = 5;
+            // 
+            // tabListInstructors
+            // 
+            this.tabListInstructors.Controls.Add(this.lblListInstructorsEmpty);
+            this.tabListInstructors.Controls.Add(this.dtgListInstructors);
+            this.tabListInstructors.Controls.Add(this.txtSearchInstructors);
+            this.tabListInstructors.Location = new System.Drawing.Point(4, 22);
+            this.tabListInstructors.Name = "tabListInstructors";
+            this.tabListInstructors.Padding = new System.Windows.Forms.Padding(3);
+            this.tabListInstructors.Size = new System.Drawing.Size(1090, 354);
+            this.tabListInstructors.TabIndex = 6;
+            this.tabListInstructors.Text = "Listar Monitores";
+            this.tabListInstructors.UseVisualStyleBackColor = true;
+            // 
+            // lblListInstructorsEmpty
+            // 
+            this.lblListInstructorsEmpty.AutoSize = true;
+            this.lblListInstructorsEmpty.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblListInstructorsEmpty.Location = new System.Drawing.Point(307, 156);
+            this.lblListInstructorsEmpty.Name = "lblListInstructorsEmpty";
+            this.lblListInstructorsEmpty.Size = new System.Drawing.Size(478, 42);
+            this.lblListInstructorsEmpty.TabIndex = 11;
+            this.lblListInstructorsEmpty.Text = "Não há monitor cadastrado!";
+            this.lblListInstructorsEmpty.Visible = false;
+            // 
+            // dtgListInstructors
+            // 
+            this.dtgListInstructors.AllowUserToAddRows = false;
+            this.dtgListInstructors.AllowUserToDeleteRows = false;
+            this.dtgListInstructors.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgListInstructors.BackgroundColor = System.Drawing.Color.White;
+            this.dtgListInstructors.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtgListInstructors.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dtgListInstructors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgListInstructors.Location = new System.Drawing.Point(3, 62);
+            this.dtgListInstructors.MultiSelect = false;
+            this.dtgListInstructors.Name = "dtgListInstructors";
+            this.dtgListInstructors.ReadOnly = true;
+            this.dtgListInstructors.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dtgListInstructors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgListInstructors.Size = new System.Drawing.Size(1084, 289);
+            this.dtgListInstructors.TabIndex = 9;
+            // 
+            // txtSearchInstructors
+            // 
+            this.txtSearchInstructors.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtSearchInstructors.Location = new System.Drawing.Point(3, 13);
+            this.txtSearchInstructors.Name = "txtSearchInstructors";
+            this.txtSearchInstructors.PasswordChar = '\0';
+            this.txtSearchInstructors.ReadOnly = false;
+            this.txtSearchInstructors.Size = new System.Drawing.Size(326, 35);
+            this.txtSearchInstructors.TabIndex = 10;
+            this.txtSearchInstructors.Tag = "Procurar";
+            this.txtSearchInstructors.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearchInstructors_KeyUp);
+            // 
+            // tabListActivity
+            // 
+            this.tabListActivity.Location = new System.Drawing.Point(4, 22);
+            this.tabListActivity.Name = "tabListActivity";
+            this.tabListActivity.Padding = new System.Windows.Forms.Padding(3);
+            this.tabListActivity.Size = new System.Drawing.Size(1090, 354);
+            this.tabListActivity.TabIndex = 7;
+            this.tabListActivity.Text = "Listar Atividades";
+            this.tabListActivity.UseVisualStyleBackColor = true;
             // 
             // tabListClass
             // 
@@ -1163,6 +1515,17 @@ namespace SYS_APAE
             this.dtgReports.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgReports.Size = new System.Drawing.Size(1084, 297);
             this.dtgReports.TabIndex = 6;
+            // 
+            // txtSearchReports
+            // 
+            this.txtSearchReports.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtSearchReports.Location = new System.Drawing.Point(3, 13);
+            this.txtSearchReports.Name = "txtSearchReports";
+            this.txtSearchReports.PasswordChar = '\0';
+            this.txtSearchReports.ReadOnly = false;
+            this.txtSearchReports.Size = new System.Drawing.Size(326, 35);
+            this.txtSearchReports.TabIndex = 7;
+            this.txtSearchReports.Tag = "Procurar";
             // 
             // logo_if
             // 
@@ -1213,6 +1576,8 @@ namespace SYS_APAE
             this.mnItemNewActivity,
             this.mnItemNewReports,
             this.mnItemShowStudents,
+            this.mnItemListInstructors,
+            this.mnItemListActivities,
             this.mnItemShowReports});
             this.mnPrincipal.Location = new System.Drawing.Point(0, 0);
             this.mnPrincipal.Name = "mnPrincipal";
@@ -1224,338 +1589,65 @@ namespace SYS_APAE
             // mnItemNewStudents
             // 
             this.mnItemNewStudents.Name = "mnItemNewStudents";
-            this.mnItemNewStudents.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
-            this.mnItemNewStudents.Size = new System.Drawing.Size(134, 49);
+            this.mnItemNewStudents.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.mnItemNewStudents.Size = new System.Drawing.Size(134, 39);
             this.mnItemNewStudents.Text = "Cadastro Aluno";
             this.mnItemNewStudents.Click += new System.EventHandler(this.mnItemNewStudents_Click);
             // 
             // mnItemNewInstructor
             // 
             this.mnItemNewInstructor.Name = "mnItemNewInstructor";
-            this.mnItemNewInstructor.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
-            this.mnItemNewInstructor.Size = new System.Drawing.Size(134, 49);
+            this.mnItemNewInstructor.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.mnItemNewInstructor.Size = new System.Drawing.Size(134, 39);
             this.mnItemNewInstructor.Text = "Cadastro Monitor";
             this.mnItemNewInstructor.Click += new System.EventHandler(this.mnItemNewInstructor_Click);
             // 
             // mnItemNewActivity
             // 
             this.mnItemNewActivity.Name = "mnItemNewActivity";
-            this.mnItemNewActivity.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
-            this.mnItemNewActivity.Size = new System.Drawing.Size(134, 49);
+            this.mnItemNewActivity.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.mnItemNewActivity.Size = new System.Drawing.Size(134, 39);
             this.mnItemNewActivity.Text = "Cadastro Atividade";
             this.mnItemNewActivity.Click += new System.EventHandler(this.mnItemNewActivity_Click);
             // 
             // mnItemNewReports
             // 
             this.mnItemNewReports.Name = "mnItemNewReports";
-            this.mnItemNewReports.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
-            this.mnItemNewReports.Size = new System.Drawing.Size(134, 49);
+            this.mnItemNewReports.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.mnItemNewReports.Size = new System.Drawing.Size(134, 39);
             this.mnItemNewReports.Text = "Cadastrar Aula";
             this.mnItemNewReports.Click += new System.EventHandler(this.mnItemNewReports_Click);
             // 
             // mnItemShowStudents
             // 
             this.mnItemShowStudents.Name = "mnItemShowStudents";
-            this.mnItemShowStudents.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
-            this.mnItemShowStudents.Size = new System.Drawing.Size(134, 49);
+            this.mnItemShowStudents.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.mnItemShowStudents.Size = new System.Drawing.Size(134, 39);
             this.mnItemShowStudents.Text = "Listar Alunos";
             this.mnItemShowStudents.Click += new System.EventHandler(this.mnItemShowStudents_Click);
+            // 
+            // mnItemListInstructors
+            // 
+            this.mnItemListInstructors.Name = "mnItemListInstructors";
+            this.mnItemListInstructors.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.mnItemListInstructors.Size = new System.Drawing.Size(134, 39);
+            this.mnItemListInstructors.Text = "Listar Monitores";
+            this.mnItemListInstructors.Click += new System.EventHandler(this.listarMonitoresToolStripMenuItem_Click);
             // 
             // mnItemShowReports
             // 
             this.mnItemShowReports.Name = "mnItemShowReports";
-            this.mnItemShowReports.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
-            this.mnItemShowReports.Size = new System.Drawing.Size(134, 49);
+            this.mnItemShowReports.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.mnItemShowReports.Size = new System.Drawing.Size(134, 39);
             this.mnItemShowReports.Text = "Listar Aulas";
             this.mnItemShowReports.Click += new System.EventHandler(this.mnItemShowReports_Click);
             // 
-            // txtEnd
+            // mnItemListActivities
             // 
-            this.txtEnd.Location = new System.Drawing.Point(145, 22);
-            this.txtEnd.Name = "txtEnd";
-            this.txtEnd.PasswordChar = '\0';
-            this.txtEnd.ReadOnly = false;
-            this.txtEnd.Size = new System.Drawing.Size(553, 35);
-            this.txtEnd.TabIndex = 2;
-            this.txtEnd.Tag = "Endereço";
-            // 
-            // txtCep
-            // 
-            this.txtCep.Location = new System.Drawing.Point(19, 22);
-            this.txtCep.Mask = "00.000-000";
-            this.txtCep.Name = "txtCep";
-            this.txtCep.Size = new System.Drawing.Size(80, 35);
-            this.txtCep.TabIndex = 1;
-            this.txtCep.Tag = "CEP";
-            // 
-            // txtCidade
-            // 
-            this.txtCidade.Location = new System.Drawing.Point(417, 68);
-            this.txtCidade.Name = "txtCidade";
-            this.txtCidade.PasswordChar = '\0';
-            this.txtCidade.ReadOnly = false;
-            this.txtCidade.Size = new System.Drawing.Size(281, 35);
-            this.txtCidade.TabIndex = 5;
-            this.txtCidade.Tag = "Cidade";
-            // 
-            // txtCelular
-            // 
-            this.txtCelular.Location = new System.Drawing.Point(887, 17);
-            this.txtCelular.Mask = "(00) 00000-000#";
-            this.txtCelular.Name = "txtCelular";
-            this.txtCelular.Size = new System.Drawing.Size(164, 35);
-            this.txtCelular.TabIndex = 6;
-            this.txtCelular.Tag = "Celular";
-            // 
-            // txtEstado
-            // 
-            this.txtEstado.Location = new System.Drawing.Point(283, 68);
-            this.txtEstado.Name = "txtEstado";
-            this.txtEstado.PasswordChar = '\0';
-            this.txtEstado.ReadOnly = false;
-            this.txtEstado.Size = new System.Drawing.Size(102, 35);
-            this.txtEstado.TabIndex = 4;
-            this.txtEstado.Tag = "Estado";
-            // 
-            // txtTel
-            // 
-            this.txtTel.Location = new System.Drawing.Point(887, 68);
-            this.txtTel.Mask = "(00) 0000-0000";
-            this.txtTel.Name = "txtTel";
-            this.txtTel.Size = new System.Drawing.Size(164, 35);
-            this.txtTel.TabIndex = 7;
-            this.txtTel.Tag = "Telefone";
-            // 
-            // txtBairro
-            // 
-            this.txtBairro.Location = new System.Drawing.Point(19, 68);
-            this.txtBairro.Name = "txtBairro";
-            this.txtBairro.PasswordChar = '\0';
-            this.txtBairro.ReadOnly = false;
-            this.txtBairro.Size = new System.Drawing.Size(219, 35);
-            this.txtBairro.TabIndex = 3;
-            this.txtBairro.Tag = "Bairro";
-            // 
-            // txtNome
-            // 
-            this.txtNome.Location = new System.Drawing.Point(20, 22);
-            this.txtNome.Name = "txtNome";
-            this.txtNome.PasswordChar = '\0';
-            this.txtNome.ReadOnly = false;
-            this.txtNome.Size = new System.Drawing.Size(448, 35);
-            this.txtNome.TabIndex = 1;
-            this.txtNome.Tag = "Nome";
-            // 
-            // txtCPF
-            // 
-            this.txtCPF.Location = new System.Drawing.Point(956, 22);
-            this.txtCPF.Mask = "000.000.000-00";
-            this.txtCPF.Name = "txtCPF";
-            this.txtCPF.Size = new System.Drawing.Size(95, 35);
-            this.txtCPF.TabIndex = 3;
-            this.txtCPF.Tag = "CPF";
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(560, 22);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.PasswordChar = '\0';
-            this.txtEmail.ReadOnly = false;
-            this.txtEmail.Size = new System.Drawing.Size(317, 35);
-            this.txtEmail.TabIndex = 2;
-            this.txtEmail.Tag = "E-mail";
-            // 
-            // txtNaturalidade
-            // 
-            this.txtNaturalidade.Location = new System.Drawing.Point(20, 114);
-            this.txtNaturalidade.Name = "txtNaturalidade";
-            this.txtNaturalidade.PasswordChar = '\0';
-            this.txtNaturalidade.ReadOnly = false;
-            this.txtNaturalidade.Size = new System.Drawing.Size(179, 35);
-            this.txtNaturalidade.TabIndex = 8;
-            this.txtNaturalidade.Tag = "Naturalidade";
-            // 
-            // txtMae
-            // 
-            this.txtMae.Location = new System.Drawing.Point(333, 68);
-            this.txtMae.Name = "txtMae";
-            this.txtMae.PasswordChar = '\0';
-            this.txtMae.ReadOnly = false;
-            this.txtMae.Size = new System.Drawing.Size(414, 35);
-            this.txtMae.TabIndex = 7;
-            this.txtMae.Tag = "Nome da mãe";
-            // 
-            // txtPai
-            // 
-            this.txtPai.Location = new System.Drawing.Point(333, 114);
-            this.txtPai.Name = "txtPai";
-            this.txtPai.PasswordChar = '\0';
-            this.txtPai.ReadOnly = false;
-            this.txtPai.Size = new System.Drawing.Size(414, 35);
-            this.txtPai.TabIndex = 10;
-            this.txtPai.Tag = "Nome do pai";
-            // 
-            // txtRG
-            // 
-            this.txtRG.Location = new System.Drawing.Point(802, 68);
-            this.txtRG.Mask = "00.000.000-A";
-            this.txtRG.Name = "txtRG";
-            this.txtRG.Size = new System.Drawing.Size(75, 35);
-            this.txtRG.TabIndex = 5;
-            this.txtRG.Tag = "RG";
-            // 
-            // txtOrgExp
-            // 
-            this.txtOrgExp.Location = new System.Drawing.Point(897, 70);
-            this.txtOrgExp.Name = "txtOrgExp";
-            this.txtOrgExp.PasswordChar = '\0';
-            this.txtOrgExp.ReadOnly = false;
-            this.txtOrgExp.Size = new System.Drawing.Size(60, 35);
-            this.txtOrgExp.TabIndex = 6;
-            this.txtOrgExp.Tag = "Orgão Exp.";
-            // 
-            // txtCargaInstructor
-            // 
-            this.txtCargaInstructor.Location = new System.Drawing.Point(47, 75);
-            this.txtCargaInstructor.Name = "txtCargaInstructor";
-            this.txtCargaInstructor.PasswordChar = '\0';
-            this.txtCargaInstructor.ReadOnly = false;
-            this.txtCargaInstructor.Size = new System.Drawing.Size(104, 35);
-            this.txtCargaInstructor.TabIndex = 3;
-            this.txtCargaInstructor.Tag = "Carga Horária";
-            // 
-            // txtTipoInstructor
-            // 
-            this.txtTipoInstructor.Location = new System.Drawing.Point(258, 25);
-            this.txtTipoInstructor.Name = "txtTipoInstructor";
-            this.txtTipoInstructor.PasswordChar = '\0';
-            this.txtTipoInstructor.ReadOnly = false;
-            this.txtTipoInstructor.Size = new System.Drawing.Size(196, 35);
-            this.txtTipoInstructor.TabIndex = 2;
-            this.txtTipoInstructor.Tag = "Tipo";
-            // 
-            // txtProntuarioInstructor
-            // 
-            this.txtProntuarioInstructor.Location = new System.Drawing.Point(47, 25);
-            this.txtProntuarioInstructor.Mask = "000000-A";
-            this.txtProntuarioInstructor.Name = "txtProntuarioInstructor";
-            this.txtProntuarioInstructor.Size = new System.Drawing.Size(149, 35);
-            this.txtProntuarioInstructor.TabIndex = 1;
-            this.txtProntuarioInstructor.Tag = "Prontuário";
-            // 
-            // txtPasswordInstructor
-            // 
-            this.txtPasswordInstructor.Location = new System.Drawing.Point(233, 34);
-            this.txtPasswordInstructor.Name = "txtPasswordInstructor";
-            this.txtPasswordInstructor.PasswordChar = '*';
-            this.txtPasswordInstructor.ReadOnly = false;
-            this.txtPasswordInstructor.Size = new System.Drawing.Size(138, 35);
-            this.txtPasswordInstructor.TabIndex = 2;
-            this.txtPasswordInstructor.Tag = "Senha";
-            // 
-            // txtCpfInstructor
-            // 
-            this.txtCpfInstructor.Location = new System.Drawing.Point(61, 34);
-            this.txtCpfInstructor.Mask = "000.000.000-00";
-            this.txtCpfInstructor.Name = "txtCpfInstructor";
-            this.txtCpfInstructor.Size = new System.Drawing.Size(82, 35);
-            this.txtCpfInstructor.TabIndex = 1;
-            this.txtCpfInstructor.Tag = "CPF";
-            // 
-            // txtEmailInstructor
-            // 
-            this.txtEmailInstructor.Location = new System.Drawing.Point(61, 75);
-            this.txtEmailInstructor.Name = "txtEmailInstructor";
-            this.txtEmailInstructor.PasswordChar = '\0';
-            this.txtEmailInstructor.ReadOnly = false;
-            this.txtEmailInstructor.Size = new System.Drawing.Size(389, 35);
-            this.txtEmailInstructor.TabIndex = 2;
-            this.txtEmailInstructor.Tag = "E-mail:";
-            // 
-            // txtNameInstructor
-            // 
-            this.txtNameInstructor.Location = new System.Drawing.Point(61, 25);
-            this.txtNameInstructor.Name = "txtNameInstructor";
-            this.txtNameInstructor.PasswordChar = '\0';
-            this.txtNameInstructor.ReadOnly = false;
-            this.txtNameInstructor.Size = new System.Drawing.Size(389, 35);
-            this.txtNameInstructor.TabIndex = 1;
-            this.txtNameInstructor.Tag = "Nome";
-            // 
-            // txtTitleActivity
-            // 
-            this.txtTitleActivity.Location = new System.Drawing.Point(88, 36);
-            this.txtTitleActivity.Name = "txtTitleActivity";
-            this.txtTitleActivity.PasswordChar = '\0';
-            this.txtTitleActivity.ReadOnly = false;
-            this.txtTitleActivity.Size = new System.Drawing.Size(437, 35);
-            this.txtTitleActivity.TabIndex = 0;
-            this.txtTitleActivity.Tag = "Título";
-            // 
-            // txtProntRelatorio
-            // 
-            this.txtProntRelatorio.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtProntRelatorio.Location = new System.Drawing.Point(15, 66);
-            this.txtProntRelatorio.Name = "txtProntRelatorio";
-            this.txtProntRelatorio.ReadOnly = true;
-            this.txtProntRelatorio.Size = new System.Drawing.Size(178, 20);
-            this.txtProntRelatorio.TabIndex = 51;
-            this.txtProntRelatorio.Tag = "Prontuário";
-            // 
-            // lblProntReport
-            // 
-            this.lblProntReport.BackColor = System.Drawing.SystemColors.Control;
-            this.lblProntReport.Font = new System.Drawing.Font("", 7F);
-            this.lblProntReport.Location = new System.Drawing.Point(15, 51);
-            this.lblProntReport.Name = "lblProntReport";
-            this.lblProntReport.Size = new System.Drawing.Size(56, 15);
-            this.lblProntReport.TabIndex = 63;
-            this.lblProntReport.Text = "Prontuário";
-            this.lblProntReport.TxtBorder = false;
-            this.lblProntReport.TxtTag = false;
-            // 
-            // txtObsInteressante
-            // 
-            this.txtObsInteressante.Location = new System.Drawing.Point(28, 67);
-            this.txtObsInteressante.Name = "txtObsInteressante";
-            this.txtObsInteressante.PasswordChar = '\0';
-            this.txtObsInteressante.ReadOnly = false;
-            this.txtObsInteressante.Size = new System.Drawing.Size(430, 35);
-            this.txtObsInteressante.TabIndex = 48;
-            this.txtObsInteressante.Tag = "Observação";
-            // 
-            // txtObs
-            // 
-            this.txtObs.Location = new System.Drawing.Point(28, 67);
-            this.txtObs.Name = "txtObs";
-            this.txtObs.PasswordChar = '\0';
-            this.txtObs.ReadOnly = false;
-            this.txtObs.Size = new System.Drawing.Size(430, 35);
-            this.txtObs.TabIndex = 39;
-            this.txtObs.Tag = "Observação";
-            // 
-            // txtSearchStudents
-            // 
-            this.txtSearchStudents.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.txtSearchStudents.Location = new System.Drawing.Point(3, 13);
-            this.txtSearchStudents.Name = "txtSearchStudents";
-            this.txtSearchStudents.PasswordChar = '\0';
-            this.txtSearchStudents.ReadOnly = false;
-            this.txtSearchStudents.Size = new System.Drawing.Size(326, 35);
-            this.txtSearchStudents.TabIndex = 8;
-            this.txtSearchStudents.Tag = "Procurar";
-            this.txtSearchStudents.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearchStudent_KeyUp);
-            // 
-            // txtSearchReports
-            // 
-            this.txtSearchReports.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.txtSearchReports.Location = new System.Drawing.Point(3, 13);
-            this.txtSearchReports.Name = "txtSearchReports";
-            this.txtSearchReports.PasswordChar = '\0';
-            this.txtSearchReports.ReadOnly = false;
-            this.txtSearchReports.Size = new System.Drawing.Size(326, 35);
-            this.txtSearchReports.TabIndex = 7;
-            this.txtSearchReports.Tag = "Procurar";
+            this.mnItemListActivities.Name = "mnItemListActivities";
+            this.mnItemListActivities.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.mnItemListActivities.Size = new System.Drawing.Size(134, 39);
+            this.mnItemListActivities.Text = "Listar Atividades";
             // 
             // MainMenu
             // 
@@ -1598,6 +1690,9 @@ namespace SYS_APAE
             this.tabListStudents.ResumeLayout(false);
             this.tabListStudents.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgListStudents)).EndInit();
+            this.tabListInstructors.ResumeLayout(false);
+            this.tabListInstructors.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgListInstructors)).EndInit();
             this.tabListClass.ResumeLayout(false);
             this.tabListClass.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgReports)).EndInit();
@@ -1731,6 +1826,13 @@ namespace SYS_APAE
         private Label lblListStudentsEmpty;
         private Label lblListClassEmpty;
         private CustomTextBoxWithLabel txtSearchStudents;
+        private ToolStripMenuItem mnItemListInstructors;
+        private ToolStripMenuItem mnItemListActivities;
+        private TabPage tabListInstructors;
+        private CustomTextBoxWithLabel txtSearchInstructors;
+        private DataGridView dtgListInstructors;
+        private TabPage tabListActivity;
+        private Label lblListInstructorsEmpty;
     }
 }
 

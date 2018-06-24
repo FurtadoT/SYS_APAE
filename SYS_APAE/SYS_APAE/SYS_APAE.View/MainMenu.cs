@@ -35,23 +35,29 @@ namespace SYS_APAE
             tabControlGeral.TabPages.Remove(tabNewStudent);
             tabControlGeral.TabPages.Remove(tabNewInstructor);
             tabControlGeral.TabPages.Remove(tabNewActivity);
-            tabControlGeral.TabPages.Remove(tabListStudents);
-            tabControlGeral.TabPages.Remove(tabListClass);
             tabControlGeral.TabPages.Remove(tabNewClass);
+            tabControlGeral.TabPages.Remove(tabListStudents);
+            tabControlGeral.TabPages.Remove(tabListInstructors);
+            tabControlGeral.TabPages.Remove(tabListClass);
+            tabControlGeral.TabPages.Remove(tabListActivity);
 
             mnItemNewStudents.Visible = true;
             mnItemNewInstructor.Visible = true;
             mnItemNewActivity.Visible = true;
-            mnItemShowStudents.Visible = true;
-            mnItemShowReports.Visible = true;
             mnItemNewReports.Visible = true;
+            mnItemShowStudents.Visible = true;
+            mnItemListInstructors.Visible = true;
+            mnItemShowReports.Visible = true;
+            mnItemListActivities.Visible = true;
 
             mnItemNewStudents.Enabled = true;
             mnItemNewInstructor.Enabled = true;
             mnItemNewActivity.Enabled = true;
-            mnItemShowStudents.Enabled = true;
-            mnItemShowReports.Enabled = true;
             mnItemNewReports.Enabled = true;
+            mnItemShowStudents.Enabled = true;
+            mnItemListInstructors.Enabled = true;
+            mnItemShowReports.Enabled = true;
+            mnItemListActivities.Enabled = true;
 
             if (LoginDTO.getUser().AccessLevel < 6)
             {
@@ -443,6 +449,45 @@ namespace SYS_APAE
                 dtgListStudents.Visible = false;
                 lblListStudentsEmpty.Text = "Não há aluno com esse critério!";
                 lblListStudentsEmpty.Visible = true;
+            }
+        }
+
+        private void listarMonitoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _handlerTabGeral();
+
+            tabControlGeral.TabPages.Insert(0, tabListInstructors);
+            mnItemListInstructors.Enabled = false;
+
+            dtgListInstructors.DataSource = InstructorDTO.getAllInstructorsToDisplay();
+            if (dtgListInstructors.Columns.Count > 0)
+            {
+                dtgListInstructors.Columns[0].Visible = false;
+                dtgListInstructors.Visible = true;
+                lblListInstructorsEmpty.Visible = false;
+            }
+            else
+            {
+                dtgListInstructors.Visible = false;
+                lblListInstructorsEmpty.Text = "Não há monitor cadastrado!";
+                lblListInstructorsEmpty.Visible = true;
+            }
+        }
+
+        private void txtSearchInstructors_KeyUp(object sender, KeyEventArgs e)
+        {
+            dtgListInstructors.DataSource = InstructorDTO.getFilteredInstructorsToDisplay(txtSearchInstructors.Text);
+            if (dtgListInstructors.Columns.Count > 0)
+            {
+                dtgListInstructors.Columns[0].Visible = false;
+                dtgListInstructors.Visible = true;
+                lblListInstructorsEmpty.Visible = false;
+            }
+            else
+            {
+                dtgListInstructors.Visible = false;
+                lblListInstructorsEmpty.Text = "Não há monitor com esse critério!";
+                lblListInstructorsEmpty.Visible = true;
             }
         }
     }
