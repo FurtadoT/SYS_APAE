@@ -28,8 +28,8 @@ namespace SYS_APAE.SYS_APAE.Data
                         Convert.ToInt32(report["dif_int"]),
                         StudentsDTO.getStudentById(report["id_student"].ToString()),
                         InstructorDTO.getInstructorById(report["id_instructor"].ToString()),
+                        ActivityDTO.getActivityById(report["id_activity"].ToString()),
                         DateTime.Parse(report["dt_created"]),
-                        report["title"].ToString(),
                         report["obs_atv"].ToString(),
                         report["obs_int"].ToString()
                         ));

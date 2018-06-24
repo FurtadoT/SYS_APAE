@@ -11,9 +11,17 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
 
         public CustomMaskedTextBoxWithLabel()
         {
-            this.CTextBox = new CustomMaskedTextBox(this.TextBoxLabel, this);
+            this.CTextBox = new CustomMaskedTextBox(this);
             Controls.Add(this.CTextBox);
             Controls.Add(this.TextBoxLabel);
+        }
+
+        public void ChangeLabelFocus(bool isFocused)
+        {
+            if (this.CTextBox.Text == String.Empty)
+                this.TextBoxLabel.changeFocus(isFocused);
+
+            this.TextBoxLabel.changeColorFocus(isFocused);
         }
 
         public void TextBoxKeyDown(KeyEventArgs e)
@@ -30,6 +38,7 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
 
         protected override void OnHandleCreated(EventArgs e)
         {
+            this.TextBoxLabel.Click += (sn, ev) => { this.CTextBox.Focus(); };
             this.TextBoxLabel.BringToFront();
 
             if (this.BackColor != Color.Transparent)

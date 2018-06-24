@@ -95,9 +95,8 @@ namespace SYS_APAE
             this.radioListMonitor = new System.Windows.Forms.RadioButton();
             this.radioListAluno = new System.Windows.Forms.RadioButton();
             this.tabVisuRel = new System.Windows.Forms.TabPage();
-            this.lblSearchReports = new System.Windows.Forms.Label();
             this.dtgReports = new System.Windows.Forms.DataGridView();
-            this.txtSearchReports = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBox();
+            this.txtSearchReports = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
             this.tabGerarRel = new System.Windows.Forms.TabPage();
             this.btnRefreshReport = new System.Windows.Forms.Button();
             this.btnRelAdd = new System.Windows.Forms.Button();
@@ -660,7 +659,7 @@ namespace SYS_APAE
             // 
             // btnClearNewInstructor
             // 
-            this.btnClearNewInstructor.Location = new System.Drawing.Point(951, 219);
+            this.btnClearNewInstructor.Location = new System.Drawing.Point(577, 246);
             this.btnClearNewInstructor.Name = "btnClearNewInstructor";
             this.btnClearNewInstructor.Size = new System.Drawing.Size(118, 61);
             this.btnClearNewInstructor.TabIndex = 5;
@@ -670,12 +669,12 @@ namespace SYS_APAE
             // 
             // btnInsertNewInstructor
             // 
-            this.btnInsertNewInstructor.Location = new System.Drawing.Point(647, 219);
+            this.btnInsertNewInstructor.Location = new System.Drawing.Point(859, 239);
             this.btnInsertNewInstructor.Name = "btnInsertNewInstructor";
             this.btnInsertNewInstructor.Size = new System.Drawing.Size(210, 61);
             this.btnInsertNewInstructor.TabIndex = 4;
             this.btnInsertNewInstructor.Text = "Cadastrar";
-            this.btnInsertNewInstructor.UseVisualStyleBackColor = true;
+            this.btnInsertNewInstructor.UseVisualStyleBackColor = false;
             this.btnInsertNewInstructor.Click += new System.EventHandler(this.btnInsertNewInstructor_Click);
             // 
             // gpbMonitoria
@@ -805,11 +804,17 @@ namespace SYS_APAE
             this.dtgParticipantes.AllowUserToAddRows = false;
             this.dtgParticipantes.AllowUserToDeleteRows = false;
             this.dtgParticipantes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgParticipantes.BackgroundColor = System.Drawing.Color.White;
+            this.dtgParticipantes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtgParticipantes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dtgParticipantes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgParticipantes.Location = new System.Drawing.Point(0, 62);
+            this.dtgParticipantes.Location = new System.Drawing.Point(3, 62);
+            this.dtgParticipantes.MultiSelect = false;
             this.dtgParticipantes.Name = "dtgParticipantes";
             this.dtgParticipantes.ReadOnly = true;
-            this.dtgParticipantes.Size = new System.Drawing.Size(1087, 289);
+            this.dtgParticipantes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dtgParticipantes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgParticipantes.Size = new System.Drawing.Size(1084, 289);
             this.dtgParticipantes.TabIndex = 5;
             // 
             // radioListMonitor
@@ -821,7 +826,6 @@ namespace SYS_APAE
             this.radioListMonitor.Name = "radioListMonitor";
             this.radioListMonitor.Size = new System.Drawing.Size(60, 17);
             this.radioListMonitor.TabIndex = 4;
-            this.radioListMonitor.TabStop = true;
             this.radioListMonitor.Text = "Monitor";
             this.radioListMonitor.UseVisualStyleBackColor = true;
             this.radioListMonitor.CheckedChanged += new System.EventHandler(this.radioListMonitor_CheckedChanged);
@@ -831,6 +835,7 @@ namespace SYS_APAE
             this.radioListAluno.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.radioListAluno.AutoSize = true;
+            this.radioListAluno.Checked = true;
             this.radioListAluno.Location = new System.Drawing.Point(108, 23);
             this.radioListAluno.Name = "radioListAluno";
             this.radioListAluno.Size = new System.Drawing.Size(52, 17);
@@ -842,7 +847,6 @@ namespace SYS_APAE
             // 
             // tabVisuRel
             // 
-            this.tabVisuRel.Controls.Add(this.lblSearchReports);
             this.tabVisuRel.Controls.Add(this.dtgReports);
             this.tabVisuRel.Controls.Add(this.txtSearchReports);
             this.tabVisuRel.Location = new System.Drawing.Point(4, 22);
@@ -852,36 +856,33 @@ namespace SYS_APAE
             this.tabVisuRel.Text = "Listar Relatórios";
             this.tabVisuRel.UseVisualStyleBackColor = true;
             // 
-            // lblSearchReports
-            // 
-            this.lblSearchReports.AutoSize = true;
-            this.lblSearchReports.Location = new System.Drawing.Point(829, 15);
-            this.lblSearchReports.Name = "lblSearchReports";
-            this.lblSearchReports.Size = new System.Drawing.Size(47, 13);
-            this.lblSearchReports.TabIndex = 8;
-            this.lblSearchReports.Text = "Procurar";
-            // 
             // dtgReports
             // 
             this.dtgReports.AllowUserToAddRows = false;
             this.dtgReports.AllowUserToDeleteRows = false;
             this.dtgReports.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgReports.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dtgReports.BackgroundColor = System.Drawing.Color.White;
+            this.dtgReports.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtgReports.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dtgReports.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgReports.Location = new System.Drawing.Point(3, 39);
+            this.dtgReports.Location = new System.Drawing.Point(3, 54);
+            this.dtgReports.MultiSelect = false;
             this.dtgReports.Name = "dtgReports";
             this.dtgReports.ReadOnly = true;
-            this.dtgReports.Size = new System.Drawing.Size(1084, 312);
+            this.dtgReports.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dtgReports.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgReports.Size = new System.Drawing.Size(1084, 297);
             this.dtgReports.TabIndex = 6;
             // 
             // txtSearchReports
             // 
             this.txtSearchReports.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.txtSearchReports.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSearchReports.Location = new System.Drawing.Point(882, 13);
+            this.txtSearchReports.Location = new System.Drawing.Point(3, 13);
             this.txtSearchReports.Name = "txtSearchReports";
-            this.txtSearchReports.Size = new System.Drawing.Size(205, 20);
+            this.txtSearchReports.PasswordChar = '\0';
+            this.txtSearchReports.Size = new System.Drawing.Size(326, 35);
             this.txtSearchReports.TabIndex = 7;
+            this.txtSearchReports.Tag = "Procurar";
             // 
             // tabGerarRel
             // 
@@ -911,7 +912,7 @@ namespace SYS_APAE
             // 
             // btnRefreshReport
             // 
-            this.btnRefreshReport.Location = new System.Drawing.Point(1071, 124);
+            this.btnRefreshReport.Location = new System.Drawing.Point(1012, 124);
             this.btnRefreshReport.Name = "btnRefreshReport";
             this.btnRefreshReport.Size = new System.Drawing.Size(75, 23);
             this.btnRefreshReport.TabIndex = 62;
@@ -921,7 +922,7 @@ namespace SYS_APAE
             // 
             // btnRelAdd
             // 
-            this.btnRelAdd.Location = new System.Drawing.Point(1051, 284);
+            this.btnRelAdd.Location = new System.Drawing.Point(992, 284);
             this.btnRelAdd.Name = "btnRelAdd";
             this.btnRelAdd.Size = new System.Drawing.Size(95, 62);
             this.btnRelAdd.TabIndex = 61;
@@ -943,7 +944,7 @@ namespace SYS_APAE
             this.cmbNomeMonitor.FormattingEnabled = true;
             this.cmbNomeMonitor.Location = new System.Drawing.Point(112, 48);
             this.cmbNomeMonitor.Name = "cmbNomeMonitor";
-            this.cmbNomeMonitor.Size = new System.Drawing.Size(1034, 21);
+            this.cmbNomeMonitor.Size = new System.Drawing.Size(975, 21);
             this.cmbNomeMonitor.TabIndex = 59;
             this.cmbNomeMonitor.SelectedIndexChanged += new System.EventHandler(this.cmbNomeMonitor_SelectedIndexChanged);
             // 
@@ -955,7 +956,7 @@ namespace SYS_APAE
             "Selecionar"});
             this.cmbNomeAluno.Location = new System.Drawing.Point(112, 14);
             this.cmbNomeAluno.Name = "cmbNomeAluno";
-            this.cmbNomeAluno.Size = new System.Drawing.Size(1034, 21);
+            this.cmbNomeAluno.Size = new System.Drawing.Size(975, 21);
             this.cmbNomeAluno.TabIndex = 49;
             // 
             // gpBoxInteressante
@@ -971,7 +972,7 @@ namespace SYS_APAE
             this.gpBoxInteressante.Controls.Add(this.txtObsInteressante);
             this.gpBoxInteressante.Location = new System.Drawing.Point(427, 234);
             this.gpBoxInteressante.Name = "gpBoxInteressante";
-            this.gpBoxInteressante.Size = new System.Drawing.Size(606, 112);
+            this.gpBoxInteressante.Size = new System.Drawing.Size(493, 112);
             this.gpBoxInteressante.TabIndex = 58;
             this.gpBoxInteressante.TabStop = false;
             // 
@@ -1077,7 +1078,7 @@ namespace SYS_APAE
             this.txtObsInteressante.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtObsInteressante.Location = new System.Drawing.Point(71, 80);
             this.txtObsInteressante.Name = "txtObsInteressante";
-            this.txtObsInteressante.Size = new System.Drawing.Size(529, 20);
+            this.txtObsInteressante.Size = new System.Drawing.Size(416, 20);
             this.txtObsInteressante.TabIndex = 48;
             // 
             // gpBoxAtividade
@@ -1093,7 +1094,7 @@ namespace SYS_APAE
             this.gpBoxAtividade.Controls.Add(this.radioAtividade1);
             this.gpBoxAtividade.Location = new System.Drawing.Point(427, 123);
             this.gpBoxAtividade.Name = "gpBoxAtividade";
-            this.gpBoxAtividade.Size = new System.Drawing.Size(606, 112);
+            this.gpBoxAtividade.Size = new System.Drawing.Size(493, 112);
             this.gpBoxAtividade.TabIndex = 57;
             this.gpBoxAtividade.TabStop = false;
             // 
@@ -1102,7 +1103,7 @@ namespace SYS_APAE
             this.txtObs.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtObs.Location = new System.Drawing.Point(71, 80);
             this.txtObs.Name = "txtObs";
-            this.txtObs.Size = new System.Drawing.Size(529, 20);
+            this.txtObs.Size = new System.Drawing.Size(416, 20);
             this.txtObs.TabIndex = 39;
             // 
             // lblObs
@@ -1561,7 +1562,7 @@ namespace SYS_APAE
             this.txtTitulo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtTitulo.Location = new System.Drawing.Point(721, 81);
             this.txtTitulo.Name = "txtTitulo";
-            this.txtTitulo.Size = new System.Drawing.Size(425, 20);
+            this.txtTitulo.Size = new System.Drawing.Size(366, 20);
             this.txtTitulo.TabIndex = 53;
             // 
             // txtProntRelatorio
@@ -1702,7 +1703,6 @@ namespace SYS_APAE
             this.tabParticipante.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgParticipantes)).EndInit();
             this.tabVisuRel.ResumeLayout(false);
-            this.tabVisuRel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgReports)).EndInit();
             this.tabGerarRel.ResumeLayout(false);
             this.tabGerarRel.PerformLayout();
@@ -1844,8 +1844,7 @@ namespace SYS_APAE
         private ToolStripMenuItem mnItemNewStudents;
         private ToolStripMenuItem mnItemNewInstructor;
         private ToolStripMenuItem cadastroAtividadeToolStripMenuItem;
-        private Label lblSearchReports;
-        private CustomTextBox txtSearchReports;
+        private CustomTextBoxWithLabel txtSearchReports;
         private TabPage tabCadastroMonitor;
         private GroupBox gpbLoginData;
         private CheckBox chkShowPassword;

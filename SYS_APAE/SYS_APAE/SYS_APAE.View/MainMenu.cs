@@ -1,6 +1,5 @@
 ﻿using SYS_APAE.SYS_APAE.Data;
 using SYS_APAE.SYS_APAE.Models;
-using SYS_APAE_CUSTOM_COMPONENTS.CustomComponents;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -16,7 +15,6 @@ namespace SYS_APAE
         {
             InitializeComponent();
             mnPrincipal.Renderer = new CustomMenuRender();
-            txtSearchReports = new CustomTextBox();
             this.CenterToScreen();
 
             this.radioControl.Add("dig", -1);
@@ -207,8 +205,8 @@ namespace SYS_APAE
                 this.radioControl["int"],
                 StudentsDTO.getStudentById(cmbNomeAluno.SelectedValue.ToString()),
                 InstructorDTO.getInstructorById(cmbNomeMonitor.SelectedValue.ToString()),
+                ActivityDTO.getActivityById(txtTitulo.Text),
                 dtpRelCreated.Value.Date,
-                txtTitulo.Text,
                 txtObs.Text,
                 txtObsInteressante.Text
                 ));
@@ -249,7 +247,7 @@ namespace SYS_APAE
             {
                 dtgParticipantes.DataSource = InstructorDTO.getAllInstructorsToDisplay();
                 if (dtgParticipantes.Columns.Count > 0)
-                    dtgParticipantes.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                    dtgParticipantes.Columns[0].Visible = false;
             }
         }
 
@@ -259,7 +257,7 @@ namespace SYS_APAE
             {
                 dtgParticipantes.DataSource = StudentsDTO.getAllStudentsToDisplay();
                 if (dtgParticipantes.Columns.Count > 0)
-                    dtgParticipantes.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                    dtgParticipantes.Columns[0].Visible = false;
             }
         }
 
@@ -326,7 +324,7 @@ namespace SYS_APAE
 
             dtgReports.DataSource = ReportsDTO.getAllReportsToDisplay();
             if (dtgReports.Columns.Count > 0)
-                dtgReports.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                dtgReports.Columns[0].Visible = false;
         }
 
         private void txtSearchReports_TextChanged(object sender, EventArgs e)

@@ -24,9 +24,9 @@ namespace SYS_APAE.SYS_APAE.Data
                         instructor["name"].ToString(),
                         instructor["cpf"].ToString(),
                         "",
-                        instructor["tipo_monitor"].ToString(),
-                        instructor["prontuario"].ToString(),
                         instructor["email"].ToString(),
+                        instructor["prontuario"].ToString(),
+                        instructor["tipo_monitor"].ToString(),
                         Convert.ToInt32(instructor["carga_horaria"])
                         ));
             }

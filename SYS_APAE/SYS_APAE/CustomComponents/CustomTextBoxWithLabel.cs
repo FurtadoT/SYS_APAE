@@ -11,18 +11,27 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
 
         public CustomTextBoxWithLabel()
         {
-            this.CTextBox = new CustomTextBox(this.TextBoxLabel, this);
+            this.CTextBox = new CustomTextBox(this);
             Controls.Add(this.CTextBox);
             Controls.Add(this.TextBoxLabel);
         }
 
-        public void textBoxKeyDown(KeyEventArgs e)
+        public void TextBoxKeyDown(KeyEventArgs e)
         {
             this.OnKeyDown(e);
         }
 
+        public void ChangeLabelFocus(bool isFocused)
+        {
+            if (this.CTextBox.Text == String.Empty)
+                this.TextBoxLabel.changeFocus(isFocused);
+
+            this.TextBoxLabel.changeColorFocus(isFocused);
+        }
+
         protected override void OnHandleCreated(EventArgs e)
         {
+            this.TextBoxLabel.Click += (sn, ev) => { this.CTextBox.Focus(); };
             this.TextBoxLabel.BringToFront();
 
             if (this.BackColor != Color.Transparent)
@@ -48,6 +57,18 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
             this.TextBoxLabel.changeFocus(false);
 
             base.ResetText();
+        }
+
+        public bool ReadOnly
+        {
+            get
+            {
+                return this.CTextBox.ReadOnly;
+            }
+            set
+            {
+                this.CTextBox.ReadOnly = value;
+            }
         }
 
         public override string Text

@@ -83,5 +83,26 @@ namespace SYS_APAE.SYS_APAE.Models
 
             return listData;
         }
+
+        public static DataTable getDataToDisplay(List<Activity> allActivities)
+        {
+            DataTable listData = new DataTable();
+
+            if (allActivities.Count() == 0)
+                return listData;
+
+            getColumnsTable(listData, allActivities[0].GetFieldsToDisplay().Keys.ToArray());
+
+            foreach (var activity in allActivities)
+            {
+                DataRow listDataRow = listData.NewRow();
+
+                getRowValues(listDataRow, activity.GetFieldsToDisplay());
+
+                listData.Rows.InsertAt(listDataRow, 0);
+            }
+
+            return listData;
+        }
     }
 }

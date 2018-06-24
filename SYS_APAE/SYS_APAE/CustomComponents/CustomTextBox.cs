@@ -6,66 +6,57 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
 {
     class CustomTextBox : TextBox
     {
-        private CustomLabel controlLabel, borderLabel = new CustomLabel(true);
+        private CustomLabel borderLabel = new CustomLabel(true);
         private CustomTextBoxWithLabel _parent;
+
+        private void InitializeComponent()
+        {
+            this.BorderStyle = BorderStyle.None;
+            this.AutoSize = false;
+            this.Controls.Add(borderLabel);
+        }
 
         public CustomTextBox()
         {
-            BorderStyle = BorderStyle.None;
-            AutoSize = false;
-            Controls.Add(borderLabel);
+            InitializeComponent();
         }
 
-        public CustomTextBox(CustomLabel label, CustomTextBoxWithLabel _parent)
+        public CustomTextBox(CustomTextBoxWithLabel _parent)
         {
-            BorderStyle = BorderStyle.None;
-            AutoSize = false;
+            InitializeComponent();
             Dock = DockStyle.Bottom;
-            Controls.Add(borderLabel);
-            this.controlLabel = label;
             this._parent = _parent;
         }
 
         protected override void OnHandleCreated(EventArgs e)
         {
-            if (this.controlLabel != null)
+            if (this.ReadOnly)
             {
-                this.controlLabel.Click += (sn, ev) => { this.Focus(); };
+                this.Controls.Remove(borderLabel);
+                this.Enabled = false;
             }
-
             base.OnHandleCreated(e);
         }
 
         protected override void OnKeyDown(KeyEventArgs e)
         {
-            if (_parent != null) _parent.textBoxKeyDown(e);
+            if (_parent != null) _parent.TextBoxKeyDown(e);
 
             base.OnKeyDown(e);
         }
 
         protected override void OnGotFocus(EventArgs e)
         {
-            if (this.controlLabel != null)
-            {
-                this.controlLabel.changeFocus(true);
-
-                this.controlLabel.changeColorFocus(true);
-                this.borderLabel.changeColorFocus(true);
-            }
+            if (_parent != null) _parent.ChangeLabelFocus(true);
+            this.borderLabel.changeColorFocus(true);
 
             base.OnGotFocus(e);
         }
 
         protected override void OnLostFocus(EventArgs e)
         {
-            if (this.controlLabel != null)
-            {
-                if (this.Text == String.Empty)
-                    this.controlLabel.changeFocus(false);
-
-                this.controlLabel.changeColorFocus(false);
-                this.borderLabel.changeColorFocus(false);
-            }
+            if (_parent != null) _parent.ChangeLabelFocus(false);
+            this.borderLabel.changeColorFocus(false);
 
             base.OnLostFocus(e);
         }

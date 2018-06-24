@@ -6,45 +6,36 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
 {
     class CustomMaskedTextBox : MaskedTextBox
     {
-        private readonly CustomLabel controlLabel, borderLabel = new CustomLabel(true);
+        private readonly CustomLabel borderLabel = new CustomLabel(true);
         private CustomMaskedTextBoxWithLabel _parent;
         private string maskWhenFocus;
 
+        private void InitializeComponent()
+        {
+            this.BorderStyle = BorderStyle.None;
+            this.AutoSize = false;
+            this.Controls.Add(borderLabel);
+        }
+
         public CustomMaskedTextBox()
         {
-            BorderStyle = BorderStyle.None;
-            AutoSize = false;
-            Controls.Add(borderLabel);
+            InitializeComponent();
         }
 
-        public CustomMaskedTextBox(CustomLabel label, CustomMaskedTextBoxWithLabel _parent)
+        public CustomMaskedTextBox(CustomMaskedTextBoxWithLabel _parent)
         {
-            BorderStyle = BorderStyle.None;
-            AutoSize = false;
+            InitializeComponent();
+
             Dock = DockStyle.Bottom;
-            Controls.Add(borderLabel);
-            this.controlLabel = label;
             this._parent = _parent;
-        }
-
-        protected override void OnHandleCreated(EventArgs e)
-        {
-            if (this.controlLabel != null)
-            {
-                this.controlLabel.Click += (sn, ev) => { this.Focus(); };
-            }
-
-            base.OnHandleCreated(e);
         }
 
         protected override void OnGotFocus(EventArgs e)
         {
+            this.borderLabel.changeColorFocus(true);
+            if (_parent != null) _parent.ChangeLabelFocus(true);
+
             this.Mask = this.MaskWhenFocus;
-            if (this.controlLabel != null)
-            {
-                this.controlLabel.changeFocus(true);
-                this.borderLabel.changeFocus(true);
-            }
 
             base.OnGotFocus(e);
         }
@@ -59,12 +50,9 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
         protected override void OnLostFocus(EventArgs e)
         {
             this.Mask = null;
-            if (this.controlLabel != null)
-                if (this.Text == String.Empty)
-                {
-                    this.controlLabel.changeFocus(false);
-                    this.controlLabel.changeFocus(false);
-                }
+
+            this.borderLabel.changeColorFocus(false);
+            if (_parent != null) _parent.ChangeLabelFocus(false);
 
             base.OnLostFocus(e);
         }

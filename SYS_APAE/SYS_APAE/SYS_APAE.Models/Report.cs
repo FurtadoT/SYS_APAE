@@ -11,10 +11,11 @@ namespace SYS_APAE.SYS_APAE.Models
         private int id, dif_dig, dif_lei, dif_rec, dif_atv, dif_int;
         private Student student;
         private Instructor instructor;
+        private Activity activity;
         private DateTime dt_created;
-        private string title, obs_atv, obs_int;
+        private string obs_atv, obs_int;
 
-        public Report(int id, int dif_dig, int dif_lei, int dif_rec, int dif_atv, int dif_int, Student student, Instructor instructor, DateTime dt_created, string title, string obs_atv, string obs_int)
+        public Report(int id, int dif_dig, int dif_lei, int dif_rec, int dif_atv, int dif_int, Student student, Instructor instructor, Activity activity, DateTime dt_created, string obs_atv, string obs_int)
         {
             Id = id;
             Dif_dig = dif_dig;
@@ -24,8 +25,8 @@ namespace SYS_APAE.SYS_APAE.Models
             Dif_int = dif_int;
             this.Student = student;
             this.Instructor = instructor;
+            this.Activity = activity;
             Dt_created = dt_created;
-            Title = title;
             Obs_atv = obs_atv;
             Obs_int = obs_int;
         }
@@ -37,8 +38,8 @@ namespace SYS_APAE.SYS_APAE.Models
                 { "id", Id.ToString() },
                 { "id_student", Student.Id.ToString() },
                 { "id_instructor", Instructor.Id.ToString() },
+                { "id_activity", Activity.Id.ToString() },
                 { "dt_created", Dt_created.ToString("yyyy-MM-dd") },
-                { "title", Title },
                 { "dif_dig", Dif_dig.ToString() },
                 { "dif_lei", Dif_lei.ToString() },
                 { "dif_rec", Dif_rec.ToString() },
@@ -58,7 +59,7 @@ namespace SYS_APAE.SYS_APAE.Models
                 { "Id", Id.ToString() },
                 { "Nome do aluno", Student.Name },
                 { "Nome do monitor", Instructor.Name },
-                { "Título da atividade", Title },
+                { "Título da atividade", Activity.Title },
                 { "Data", Dt_created.ToString("dd/MM/yyyy") }
             };
 
@@ -144,6 +145,19 @@ namespace SYS_APAE.SYS_APAE.Models
             }
         }
 
+        internal Activity Activity
+        {
+            get
+            {
+                return activity;
+            }
+
+            set
+            {
+                activity = value;
+            }
+        }
+
         internal Student Student
         {
             get
@@ -180,19 +194,6 @@ namespace SYS_APAE.SYS_APAE.Models
             set
             {
                 dt_created = value;
-            }
-        }
-
-        public string Title
-        {
-            get
-            {
-                return title;
-            }
-
-            set
-            {
-                title = value;
             }
         }
 
