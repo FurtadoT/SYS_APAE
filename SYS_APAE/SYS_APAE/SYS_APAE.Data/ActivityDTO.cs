@@ -31,6 +31,25 @@ namespace SYS_APAE.SYS_APAE.Data
             return listActivities;
         }
 
+        public static List<Activity> getFilteredActivities(Dictionary<string, string> whereFields)
+        {
+            List<Activity> listActivities = new List<Activity>();
+            List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement(
+                dbConnector.CreateSelectCommandWithParams("activities", whereFields));
+
+            foreach (var activity in dbResult)
+            {
+                listActivities.Add(new Activity(
+                    Convert.ToInt32(activity["id"]),
+                    activity["title"].ToString(),
+                    activity["description"].ToString(),
+                    DateTime.Parse(activity["dt_created"])
+                        ));
+            }
+
+            return listActivities;
+        }
+
         public static DataTable getAllActivitiesTitle()
         {
             DataTable lisActivities = new DataTable();
@@ -66,6 +85,11 @@ namespace SYS_APAE.SYS_APAE.Data
         public static DataTable getAllActivitiesToDisplay()
         {
             return Utils.getDataToDisplay(getAllActivities());
+        }
+
+        public static DataTable getFilteredActivitiesToDisplay(string searchField)
+        {
+            return Utils.getDataToDisplay(getFilteredActivities(new Dictionary<string, string> { { "title", "%" + searchField + "%" } }));
         }
 
         public static bool AddNewActivity(Activity activity)

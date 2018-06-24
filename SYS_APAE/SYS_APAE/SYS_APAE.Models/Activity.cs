@@ -39,7 +39,7 @@ namespace SYS_APAE.SYS_APAE.Models
             {
                 { "id", Id.ToString() },
                 { "title", Title.ToString() },
-                { "title", Description.ToString() },
+                { "description", Description.ToString() },
             };
 
             return displayFields;

@@ -7,11 +7,13 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
     class CustomTextBoxWithLabel : Panel
     {
         private CustomLabel TextBoxLabel = new CustomLabel() { TxtTag = true };
+        private CustomLabel TextBoxLabelError = new CustomLabel() { TxtError = true };
         private CustomTextBox CTextBox;
 
         public CustomTextBoxWithLabel()
         {
             Controls.Add(this.TextBoxLabel);
+            Controls.Add(this.TextBoxLabelError);
             this.CTextBox = new CustomTextBox(this);
             Controls.Add(this.CTextBox);
         }
@@ -28,6 +30,8 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
 
         public void ChangeLabelFocus(bool isFocused)
         {
+            this.TextBoxLabelError.Visible = false;
+
             if (this.CTextBox.Text == String.Empty)
                 this.TextBoxLabel.ChangeFocus(isFocused);
 
@@ -97,6 +101,21 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
             set
             {
                 this.CTextBox.PasswordChar = value;
+            }
+        }
+
+        public string ErrorMessage
+        {
+            get
+            {
+                return this.TextBoxLabelError.Text;
+            }
+            set
+            {
+                this.TextBoxLabelError.Text = value;
+                this.TextBoxLabelError.Visible = true;
+                this.CTextBox.Error = true;
+                this.TextBoxLabel.Error = true;
             }
         }
     }

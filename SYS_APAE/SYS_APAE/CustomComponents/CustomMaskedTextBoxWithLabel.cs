@@ -7,17 +7,21 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
     class CustomMaskedTextBoxWithLabel : Panel
     {
         private readonly CustomLabel TextBoxLabel = new CustomLabel() { TxtTag = true };
+        private CustomLabel TextBoxLabelError = new CustomLabel() { TxtError = true };
         private readonly CustomMaskedTextBox CTextBox;
 
         public CustomMaskedTextBoxWithLabel()
         {
+            Controls.Add(this.TextBoxLabel);
+            Controls.Add(this.TextBoxLabelError);
             this.CTextBox = new CustomMaskedTextBox(this);
             Controls.Add(this.CTextBox);
-            Controls.Add(this.TextBoxLabel);
         }
 
         public void ChangeLabelFocus(bool isFocused)
         {
+            this.TextBoxLabelError.Visible = false;
+ 
             if (this.CTextBox.Text == String.Empty)
                 this.TextBoxLabel.ChangeFocus(isFocused);
 
@@ -80,6 +84,29 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
             set
             {
                 this.CTextBox.MaskWhenFocus = value;
+            }
+        }
+
+        public string ErrorMessage
+        {
+            get
+            {
+                return this.TextBoxLabelError.Text;
+            }
+            set
+            {
+                this.TextBoxLabelError.Text = value;
+                this.TextBoxLabelError.Visible = true;
+                this.CTextBox.Error = true;
+                this.TextBoxLabel.Error = true;
+            }
+        }
+
+        public bool MaskCompleted
+        {
+            get
+            {
+                return this.CTextBox.MaskCompletedWithoutFocus;
             }
         }
     }

@@ -66,5 +66,17 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
 
             base.OnLostFocus(e);
         }
+
+        public bool Error
+        {
+            get
+            {
+                return this.borderLabel.Error;
+            }
+            set
+            {
+                this.borderLabel.Error = value;
+            }
+        }
     }
 }

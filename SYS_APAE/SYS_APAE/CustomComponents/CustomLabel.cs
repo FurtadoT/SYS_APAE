@@ -6,7 +6,7 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
 {
     class CustomLabel : Label
     {
-        private bool txtBorder, txtTag;
+        private bool txtBorder, txtTag, txtError, error;
 
         protected override void OnHandleCreated(EventArgs e)
         {
@@ -22,6 +22,14 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
                 Dock = DockStyle.None;
                 Font = new Font("", 9F);
                 Location = new Point(-2, 10);
+            }
+            else if (TxtError)
+            {
+                AutoSize = true;
+                Dock = DockStyle.Right;
+                Font = new Font("", 7F);
+                Visible = false;
+                ForeColor = Color.Red;
             }
 
             base.OnHandleCreated(e);
@@ -80,6 +88,35 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
             set
             {
                 this.txtTag = value;
+            }
+        }
+
+        public bool TxtError
+        {
+            get
+            {
+                return this.txtError;
+            }
+            set
+            {
+                this.txtError = value;
+            }
+        }
+
+        public bool Error
+        {
+            get
+            {
+                return error;
+            }
+            set
+            {
+                if (value)
+                    if (TxtBorder)
+                        this.BackColor = Color.Red;
+                    else if (TxtTag)
+                        this.ForeColor = Color.Red;
+                error = value;
             }
         }
     }

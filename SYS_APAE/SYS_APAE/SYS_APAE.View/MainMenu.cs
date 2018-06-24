@@ -177,6 +177,61 @@ namespace SYS_APAE
             cmbTarget.DataSource = dtSource;
         }
 
+        private bool _validateStudentFields()
+        {
+            if (txtNome.Text == String.Empty)
+                txtNome.ErrorMessage = "*requerido";
+
+            if (txtCPF.Text == String.Empty || !txtCPF.MaskCompleted)
+                txtCPF.ErrorMessage = "*requerido";
+
+            if (txtRG.Text == String.Empty || !txtRG.MaskCompleted)
+                txtRG.ErrorMessage = "*requerido";
+
+            if (txtOrgExp.Text == String.Empty)
+                txtOrgExp.ErrorMessage = "*requerido";
+
+            if (txtNaturalidade.Text == String.Empty)
+                txtNaturalidade.ErrorMessage = "*requerido";
+
+            if (txtPai.Text == String.Empty)
+                txtPai.ErrorMessage = "*requerido";
+
+            if (txtMae.Text == String.Empty)
+                txtMae.ErrorMessage = "*requerido";
+
+            if (txtEnd.Text == String.Empty)
+                txtEnd.ErrorMessage = "*requerido";
+
+            if (txtCidade.Text == String.Empty)
+                txtCidade.ErrorMessage = "*requerido";
+
+            if (txtEstado.Text == String.Empty)
+                txtEstado.ErrorMessage = "*requerido";
+
+            if (txtBairro.Text == String.Empty)
+                txtBairro.ErrorMessage = "*requerido";
+
+            if (txtCep.Text == String.Empty || !txtCep.MaskCompleted)
+                txtCep.ErrorMessage = "*requerido";
+
+            if (txtTel.Text == String.Empty || !txtTel.MaskCompleted)
+                txtTel.ErrorMessage = "*requerido";
+
+            if (txtCelular.Text == String.Empty || !txtCelular.MaskCompleted)
+                txtCelular.ErrorMessage = "*requerido";
+
+            if (txtEmail.Text == String.Empty)
+                txtEmail.ErrorMessage = "*requerido";
+
+
+            return (txtNome.Text != String.Empty && txtCPF.Text != String.Empty && txtRG.Text != String.Empty &&
+                txtOrgExp.Text != String.Empty && txtNaturalidade.Text != String.Empty && txtPai.Text != String.Empty &&
+                txtMae.Text != String.Empty && txtEnd.Text != String.Empty && txtCidade.Text != String.Empty &&
+                txtEstado.Text != String.Empty && txtBairro.Text != String.Empty && txtCep.Text != String.Empty &&
+                txtTel.Text != String.Empty && txtCelular.Text != String.Empty && txtEmail.Text != String.Empty);
+        }
+
         private bool AddNewStudent()
         {
             return StudentsDTO.AddNewStudent(new Student(
@@ -212,7 +267,7 @@ namespace SYS_APAE
                 txtEmailInstructor.Text,
                 txtProntuarioInstructor.Text,
                 txtTipoInstructor.Text,
-                Convert.ToInt32(txtCargaInstructor.Text),
+                Convert.ToInt32(txtCargaInstructor.Value),
                 DateTime.Today
                 ));
         }
@@ -252,7 +307,7 @@ namespace SYS_APAE
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (AddNewStudent())
+            if (_validateStudentFields() && AddNewStudent())
             {
                 MessageBox.Show("Aluno cadastrado com sucesso!");
                 _handlerRefreshAddStudent();
@@ -286,9 +341,7 @@ namespace SYS_APAE
 
         private void radioListAluno_CheckedChanged(object sender, EventArgs e)
         {
-            if (((RadioButton)sender).Checked)
-            {
-            }
+
         }
 
         private void cmbNomeMonitor_SelectedIndexChanged(object sender, EventArgs e)
@@ -488,6 +541,45 @@ namespace SYS_APAE
                 dtgListInstructors.Visible = false;
                 lblListInstructorsEmpty.Text = "Não há monitor com esse critério!";
                 lblListInstructorsEmpty.Visible = true;
+            }
+        }
+
+        private void mnItemListActivities_Click(object sender, EventArgs e)
+        {
+            _handlerTabGeral();
+
+            tabControlGeral.TabPages.Insert(0, tabListActivity);
+            mnItemListActivities.Enabled = false;
+
+            dtgListActivities.DataSource = ActivityDTO.getAllActivitiesToDisplay();
+            if (dtgListActivities.Columns.Count > 0)
+            {
+                dtgListActivities.Columns[0].Visible = false;
+                dtgListActivities.Visible = true;
+                lblListActivitiesEmpty.Visible = false;
+            }
+            else
+            {
+                dtgListActivities.Visible = false;
+                lblListActivitiesEmpty.Text = "Não há atividade cadastrada!";
+                lblListActivitiesEmpty.Visible = true;
+            }
+        }
+
+        private void txtSearchActivity_KeyUp(object sender, KeyEventArgs e)
+        {
+            dtgListActivities.DataSource = ActivityDTO.getFilteredActivitiesToDisplay(txtSearchActivities.Text);
+            if (dtgListActivities.Columns.Count > 0)
+            {
+                dtgListActivities.Columns[0].Visible = false;
+                dtgListActivities.Visible = true;
+                lblListActivitiesEmpty.Visible = false;
+            }
+            else
+            {
+                dtgListActivities.Visible = false;
+                lblListActivitiesEmpty.Text = "Não há atividade com esse critério!";
+                lblListActivitiesEmpty.Visible = true;
             }
         }
     }

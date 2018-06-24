@@ -68,5 +68,28 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
                 this.maskWhenFocus = value;
             }
         }
+
+        public bool Error
+        {
+            get
+            {
+                return this.borderLabel.Error;
+            }
+            set
+            {
+                this.borderLabel.Error = value;
+            }
+        }
+
+        public bool MaskCompletedWithoutFocus
+        {
+            get
+            {
+                this.Mask = this.maskWhenFocus;
+                bool validMask = this.MaskCompleted;
+                this.Mask = null;
+                return validMask;
+            }
+        }
     }
 }

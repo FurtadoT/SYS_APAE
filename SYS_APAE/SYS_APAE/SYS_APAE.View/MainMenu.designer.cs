@@ -113,6 +113,8 @@ namespace SYS_APAE
             this.lblListInstructorsEmpty = new System.Windows.Forms.Label();
             this.dtgListInstructors = new System.Windows.Forms.DataGridView();
             this.tabListActivity = new System.Windows.Forms.TabPage();
+            this.lblListActivitiesEmpty = new System.Windows.Forms.Label();
+            this.dtgListActivities = new System.Windows.Forms.DataGridView();
             this.tabListClass = new System.Windows.Forms.TabPage();
             this.lblListClassEmpty = new System.Windows.Forms.Label();
             this.dtgReports = new System.Windows.Forms.DataGridView();
@@ -127,8 +129,8 @@ namespace SYS_APAE
             this.mnItemNewReports = new System.Windows.Forms.ToolStripMenuItem();
             this.mnItemShowStudents = new System.Windows.Forms.ToolStripMenuItem();
             this.mnItemListInstructors = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnItemShowReports = new System.Windows.Forms.ToolStripMenuItem();
             this.mnItemListActivities = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnItemShowReports = new System.Windows.Forms.ToolStripMenuItem();
             this.txtEnd = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
             this.txtCep = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomMaskedTextBoxWithLabel();
             this.txtCidade = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
@@ -144,7 +146,6 @@ namespace SYS_APAE
             this.txtPai = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
             this.txtRG = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomMaskedTextBoxWithLabel();
             this.txtOrgExp = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
-            this.txtCargaInstructor = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
             this.txtTipoInstructor = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
             this.txtProntuarioInstructor = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomMaskedTextBoxWithLabel();
             this.txtPasswordInstructor = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
@@ -158,7 +159,10 @@ namespace SYS_APAE
             this.txtObs = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
             this.txtSearchStudents = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
             this.txtSearchInstructors = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
+            this.txtSearchActivities = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
             this.txtSearchReports = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
+            this.txtCargaInstructor = new System.Windows.Forms.NumericUpDown();
+            this.lblCargaInstructor = new System.Windows.Forms.Label();
             this.tabControlGeral.SuspendLayout();
             this.tabNewStudent.SuspendLayout();
             this.gpbAddress.SuspendLayout();
@@ -179,11 +183,14 @@ namespace SYS_APAE
             ((System.ComponentModel.ISupportInitialize)(this.dtgListStudents)).BeginInit();
             this.tabListInstructors.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgListInstructors)).BeginInit();
+            this.tabListActivity.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgListActivities)).BeginInit();
             this.tabListClass.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgReports)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo_if)).BeginInit();
             this.pnlMenu.SuspendLayout();
             this.mnPrincipal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCargaInstructor)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlGeral
@@ -272,7 +279,7 @@ namespace SYS_APAE
             this.dtpExp.Location = new System.Drawing.Point(802, 129);
             this.dtpExp.Name = "dtpExp";
             this.dtpExp.Size = new System.Drawing.Size(249, 20);
-            this.dtpExp.TabIndex = 9;
+            this.dtpExp.TabIndex = 10;
             this.dtpExp.Value = new System.DateTime(2018, 5, 13, 0, 19, 44, 0);
             this.dtpExp.Enter += new System.EventHandler(this.dtpExp_Enter);
             // 
@@ -352,6 +359,7 @@ namespace SYS_APAE
             // 
             // gpbMonitoria
             // 
+            this.gpbMonitoria.Controls.Add(this.lblCargaInstructor);
             this.gpbMonitoria.Controls.Add(this.txtCargaInstructor);
             this.gpbMonitoria.Controls.Add(this.txtTipoInstructor);
             this.gpbMonitoria.Controls.Add(this.txtProntuarioInstructor);
@@ -1178,6 +1186,9 @@ namespace SYS_APAE
             // 
             // tabListActivity
             // 
+            this.tabListActivity.Controls.Add(this.lblListActivitiesEmpty);
+            this.tabListActivity.Controls.Add(this.dtgListActivities);
+            this.tabListActivity.Controls.Add(this.txtSearchActivities);
             this.tabListActivity.Location = new System.Drawing.Point(4, 22);
             this.tabListActivity.Name = "tabListActivity";
             this.tabListActivity.Padding = new System.Windows.Forms.Padding(3);
@@ -1185,6 +1196,35 @@ namespace SYS_APAE
             this.tabListActivity.TabIndex = 7;
             this.tabListActivity.Text = "Listar Atividades";
             this.tabListActivity.UseVisualStyleBackColor = true;
+            // 
+            // lblListActivitiesEmpty
+            // 
+            this.lblListActivitiesEmpty.AutoSize = true;
+            this.lblListActivitiesEmpty.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblListActivitiesEmpty.Location = new System.Drawing.Point(292, 156);
+            this.lblListActivitiesEmpty.Name = "lblListActivitiesEmpty";
+            this.lblListActivitiesEmpty.Size = new System.Drawing.Size(505, 42);
+            this.lblListActivitiesEmpty.TabIndex = 13;
+            this.lblListActivitiesEmpty.Text = "Não há atividade cadastrada!";
+            this.lblListActivitiesEmpty.Visible = false;
+            // 
+            // dtgListActivities
+            // 
+            this.dtgListActivities.AllowUserToAddRows = false;
+            this.dtgListActivities.AllowUserToDeleteRows = false;
+            this.dtgListActivities.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgListActivities.BackgroundColor = System.Drawing.Color.White;
+            this.dtgListActivities.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtgListActivities.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dtgListActivities.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgListActivities.Location = new System.Drawing.Point(3, 62);
+            this.dtgListActivities.MultiSelect = false;
+            this.dtgListActivities.Name = "dtgListActivities";
+            this.dtgListActivities.ReadOnly = true;
+            this.dtgListActivities.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dtgListActivities.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgListActivities.Size = new System.Drawing.Size(1084, 289);
+            this.dtgListActivities.TabIndex = 11;
             // 
             // tabListClass
             // 
@@ -1334,6 +1374,14 @@ namespace SYS_APAE
             this.mnItemListInstructors.Text = "Listar Monitores";
             this.mnItemListInstructors.Click += new System.EventHandler(this.listarMonitoresToolStripMenuItem_Click);
             // 
+            // mnItemListActivities
+            // 
+            this.mnItemListActivities.Name = "mnItemListActivities";
+            this.mnItemListActivities.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.mnItemListActivities.Size = new System.Drawing.Size(134, 39);
+            this.mnItemListActivities.Text = "Listar Atividades";
+            this.mnItemListActivities.Click += new System.EventHandler(this.mnItemListActivities_Click);
+            // 
             // mnItemShowReports
             // 
             this.mnItemShowReports.Name = "mnItemShowReports";
@@ -1341,13 +1389,6 @@ namespace SYS_APAE
             this.mnItemShowReports.Size = new System.Drawing.Size(134, 39);
             this.mnItemShowReports.Text = "Listar Aulas";
             this.mnItemShowReports.Click += new System.EventHandler(this.mnItemShowReports_Click);
-            // 
-            // mnItemListActivities
-            // 
-            this.mnItemListActivities.Name = "mnItemListActivities";
-            this.mnItemListActivities.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.mnItemListActivities.Size = new System.Drawing.Size(134, 39);
-            this.mnItemListActivities.Text = "Listar Atividades";
             // 
             // txtEnd
             // 
@@ -1462,7 +1503,7 @@ namespace SYS_APAE
             this.txtMae.PasswordChar = '\0';
             this.txtMae.ReadOnly = false;
             this.txtMae.Size = new System.Drawing.Size(414, 35);
-            this.txtMae.TabIndex = 7;
+            this.txtMae.TabIndex = 5;
             this.txtMae.Tag = "Nome da mãe";
             // 
             // txtPai
@@ -1472,7 +1513,7 @@ namespace SYS_APAE
             this.txtPai.PasswordChar = '\0';
             this.txtPai.ReadOnly = false;
             this.txtPai.Size = new System.Drawing.Size(414, 35);
-            this.txtPai.TabIndex = 10;
+            this.txtPai.TabIndex = 9;
             this.txtPai.Tag = "Nome do pai";
             // 
             // txtRG
@@ -1481,7 +1522,7 @@ namespace SYS_APAE
             this.txtRG.Mask = "00.000.000-A";
             this.txtRG.Name = "txtRG";
             this.txtRG.Size = new System.Drawing.Size(75, 35);
-            this.txtRG.TabIndex = 5;
+            this.txtRG.TabIndex = 6;
             this.txtRG.Tag = "RG";
             // 
             // txtOrgExp
@@ -1491,18 +1532,8 @@ namespace SYS_APAE
             this.txtOrgExp.PasswordChar = '\0';
             this.txtOrgExp.ReadOnly = false;
             this.txtOrgExp.Size = new System.Drawing.Size(60, 35);
-            this.txtOrgExp.TabIndex = 6;
+            this.txtOrgExp.TabIndex = 7;
             this.txtOrgExp.Tag = "Orgão Exp.";
-            // 
-            // txtCargaInstructor
-            // 
-            this.txtCargaInstructor.Location = new System.Drawing.Point(47, 75);
-            this.txtCargaInstructor.Name = "txtCargaInstructor";
-            this.txtCargaInstructor.PasswordChar = '\0';
-            this.txtCargaInstructor.ReadOnly = false;
-            this.txtCargaInstructor.Size = new System.Drawing.Size(104, 35);
-            this.txtCargaInstructor.TabIndex = 3;
-            this.txtCargaInstructor.Tag = "Carga Horária";
             // 
             // txtTipoInstructor
             // 
@@ -1638,6 +1669,18 @@ namespace SYS_APAE
             this.txtSearchInstructors.Tag = "Procurar";
             this.txtSearchInstructors.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearchInstructors_KeyUp);
             // 
+            // txtSearchActivities
+            // 
+            this.txtSearchActivities.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtSearchActivities.Location = new System.Drawing.Point(3, 13);
+            this.txtSearchActivities.Name = "txtSearchActivities";
+            this.txtSearchActivities.PasswordChar = '\0';
+            this.txtSearchActivities.ReadOnly = false;
+            this.txtSearchActivities.Size = new System.Drawing.Size(326, 35);
+            this.txtSearchActivities.TabIndex = 12;
+            this.txtSearchActivities.Tag = "Procurar";
+            this.txtSearchActivities.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearchActivity_KeyUp);
+            // 
             // txtSearchReports
             // 
             this.txtSearchReports.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -1648,6 +1691,24 @@ namespace SYS_APAE
             this.txtSearchReports.Size = new System.Drawing.Size(326, 35);
             this.txtSearchReports.TabIndex = 7;
             this.txtSearchReports.Tag = "Procurar";
+            // 
+            // txtCargaInstructor
+            // 
+            this.txtCargaInstructor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCargaInstructor.Location = new System.Drawing.Point(47, 94);
+            this.txtCargaInstructor.Name = "txtCargaInstructor";
+            this.txtCargaInstructor.Size = new System.Drawing.Size(120, 16);
+            this.txtCargaInstructor.TabIndex = 3;
+            // 
+            // lblCargaInstructor
+            // 
+            this.lblCargaInstructor.AutoSize = true;
+            this.lblCargaInstructor.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCargaInstructor.Location = new System.Drawing.Point(45, 76);
+            this.lblCargaInstructor.Name = "lblCargaInstructor";
+            this.lblCargaInstructor.Size = new System.Drawing.Size(93, 12);
+            this.lblCargaInstructor.TabIndex = 3;
+            this.lblCargaInstructor.Text = "Carga Horária (horas)";
             // 
             // MainMenu
             // 
@@ -1669,6 +1730,7 @@ namespace SYS_APAE
             this.gpbStudentInfo.PerformLayout();
             this.tabNewInstructor.ResumeLayout(false);
             this.gpbMonitoria.ResumeLayout(false);
+            this.gpbMonitoria.PerformLayout();
             this.gpbLoginData.ResumeLayout(false);
             this.gpbLoginData.PerformLayout();
             this.gpbInstructorGeneral.ResumeLayout(false);
@@ -1693,6 +1755,9 @@ namespace SYS_APAE
             this.tabListInstructors.ResumeLayout(false);
             this.tabListInstructors.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgListInstructors)).EndInit();
+            this.tabListActivity.ResumeLayout(false);
+            this.tabListActivity.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgListActivities)).EndInit();
             this.tabListClass.ResumeLayout(false);
             this.tabListClass.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgReports)).EndInit();
@@ -1700,6 +1765,7 @@ namespace SYS_APAE
             this.pnlMenu.ResumeLayout(false);
             this.mnPrincipal.ResumeLayout(false);
             this.mnPrincipal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCargaInstructor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1806,7 +1872,6 @@ namespace SYS_APAE
         private CustomTextBoxWithLabel txtEmailInstructor;
         private CustomTextBoxWithLabel txtNameInstructor;
         private GroupBox gpbMonitoria;
-        private CustomTextBoxWithLabel txtCargaInstructor;
         private CustomTextBoxWithLabel txtTipoInstructor;
         private CustomMaskedTextBoxWithLabel txtProntuarioInstructor;
         private Button btnClearNewInstructor;
@@ -1833,6 +1898,11 @@ namespace SYS_APAE
         private DataGridView dtgListInstructors;
         private TabPage tabListActivity;
         private Label lblListInstructorsEmpty;
+        private Label lblListActivitiesEmpty;
+        private DataGridView dtgListActivities;
+        private CustomTextBoxWithLabel txtSearchActivities;
+        private Label lblCargaInstructor;
+        private NumericUpDown txtCargaInstructor;
     }
 }
 
