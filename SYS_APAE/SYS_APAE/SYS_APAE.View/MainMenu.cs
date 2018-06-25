@@ -225,11 +225,74 @@ namespace SYS_APAE
                 txtEmail.ErrorMessage = "*requerido";
 
 
-            return (txtNome.Text != String.Empty && txtCPF.Text != String.Empty && txtRG.Text != String.Empty &&
-                txtOrgExp.Text != String.Empty && txtNaturalidade.Text != String.Empty && txtPai.Text != String.Empty &&
-                txtMae.Text != String.Empty && txtEnd.Text != String.Empty && txtCidade.Text != String.Empty &&
-                txtEstado.Text != String.Empty && txtBairro.Text != String.Empty && txtCep.Text != String.Empty &&
-                txtTel.Text != String.Empty && txtCelular.Text != String.Empty && txtEmail.Text != String.Empty);
+            return (txtNome.Text != String.Empty && (txtCPF.Text != String.Empty || !txtCPF.MaskCompleted) &&
+                (txtRG.Text != String.Empty || !txtRG.MaskCompleted) && txtOrgExp.Text != String.Empty &&
+                txtNaturalidade.Text != String.Empty && txtPai.Text != String.Empty && txtMae.Text != String.Empty &&
+                txtEnd.Text != String.Empty && txtCidade.Text != String.Empty && txtEstado.Text != String.Empty &&
+                txtBairro.Text != String.Empty && (txtCep.Text != String.Empty || !txtCep.MaskCompleted) &&
+                (txtTel.Text != String.Empty || !txtTel.MaskCompleted) && (txtCelular.Text != String.Empty ||
+                !txtCelular.MaskCompleted) && txtEmail.Text != String.Empty);
+        }
+
+        private bool _validateInstructorsFields()
+        {
+            if (txtNameInstructor.Text == String.Empty)
+                txtNameInstructor.ErrorMessage = "*requerido";
+
+            if (txtEmailInstructor.Text == String.Empty)
+                txtEmailInstructor.ErrorMessage = "*requerido";
+
+            if (txtProntuarioInstructor.Text == String.Empty || !txtProntuarioInstructor.MaskCompleted)
+                txtProntuarioInstructor.ErrorMessage = "*requerido";
+
+            if (txtCpfInstructor.Text == String.Empty || !txtCpfInstructor.MaskCompleted)
+                txtCpfInstructor.ErrorMessage = "*requerido";
+
+            if (txtPasswordInstructor.Text == String.Empty)
+                txtPasswordInstructor.ErrorMessage = "*requerido";
+
+            return (txtNameInstructor.Text != String.Empty && txtEmailInstructor.Text != String.Empty &&
+                (txtProntuarioInstructor.Text != String.Empty || !txtProntuarioInstructor.MaskCompleted) &&
+                (txtCpfInstructor.Text != String.Empty || !txtCpfInstructor.MaskCompleted) && txtPasswordInstructor.Text != String.Empty);
+        }
+        
+        private bool _validateActivitiesFields()
+        {
+            if (txtTitleActivity.Text == String.Empty)
+                txtNameInstructor.ErrorMessage = "*requerido";
+
+            return (txtTitleActivity.Text == String.Empty);
+        }
+
+        private bool _validateClassFields()
+        {
+            if (cmbNomeAluno.SelectedValue.ToString() == "-1")
+                lblNomeAluno.ForeColor = System.Drawing.Color.Red;
+
+            if (cmbActivities.SelectedValue.ToString() == "-1")
+                lblTitulo.ForeColor = System.Drawing.Color.Red;
+
+            if (cmbNomeMonitor.SelectedValue.ToString() == "-1")
+                gpbInstructorReport.ForeColor = System.Drawing.Color.Red;
+
+            if (radioControl["dig"] == -1)
+                lblDigitacao.ForeColor = System.Drawing.Color.Red;
+
+            if (radioControl["lei"] == -1)
+                lblLeitura.ForeColor = System.Drawing.Color.Red;
+
+            if (radioControl["rec"] == -1)
+                lblReconhecer.ForeColor = System.Drawing.Color.Red;
+
+            if (radioControl["atv"] == -1)
+                lblAtividade.ForeColor = System.Drawing.Color.Red;
+
+            if (radioControl["int"] == -1)
+                lblInteressante.ForeColor = System.Drawing.Color.Red;
+
+            return (cmbNomeAluno.SelectedValue.ToString() != "-1" && cmbActivities.SelectedValue.ToString() != "-1" &&
+                cmbNomeMonitor.SelectedValue.ToString() != "-1" && radioControl["dig"] != -1 && radioControl["lei"] != -1 &&
+                radioControl["rec"] != -1 && radioControl["atv"] != -1 && radioControl["int"] != -1);
         }
 
         private bool AddNewStudent()
@@ -302,6 +365,17 @@ namespace SYS_APAE
 
         private void radioButton_Click(object sender, EventArgs e)
         {
+            if (((RadioButton)sender).Tag.ToString() == "dig")
+                lblDigitacao.ForeColor = System.Drawing.Color.Black;
+            else if (((RadioButton)sender).Tag.ToString() == "lei")
+                lblLeitura.ForeColor = System.Drawing.Color.Black;
+            else if (((RadioButton)sender).Tag.ToString() == "rec")
+                lblReconhecer.ForeColor = System.Drawing.Color.Black;
+            else if (((RadioButton)sender).Tag.ToString() == "atv")
+                lblAtividade.ForeColor = System.Drawing.Color.Black;
+            else if (((RadioButton)sender).Tag.ToString() == "int")
+                lblInteressante.ForeColor = System.Drawing.Color.Black;
+  
             this.radioControl[((RadioButton)sender).Tag.ToString()] = Convert.ToInt32(((RadioButton)sender).Text);
         }
 
@@ -319,16 +393,6 @@ namespace SYS_APAE
             _handlerRefreshAddStudent();
         }
 
-        private void dtpNasc_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dtpExp_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void radioListMonitor_CheckedChanged(object sender, EventArgs e)
         {
             if (((RadioButton)sender).Checked)
@@ -337,11 +401,6 @@ namespace SYS_APAE
                 if (dtgListStudents.Columns.Count > 0)
                     dtgListStudents.Columns[0].Visible = false;
             }
-        }
-
-        private void radioListAluno_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void cmbNomeMonitor_SelectedIndexChanged(object sender, EventArgs e)
@@ -361,7 +420,7 @@ namespace SYS_APAE
 
         private void btnRelAdd_Click(object sender, EventArgs e)
         {
-            if (AddRelatorio())
+            if (_validateClassFields() && AddRelatorio())
             {
                 MessageBox.Show("Relatório cadastrado com sucesso!");
                 _handlerRefreshAddRelatorio();
@@ -453,7 +512,7 @@ namespace SYS_APAE
 
         private void btnInsertNewInstructor_Click(object sender, EventArgs e)
         {
-            if (AddNewInstructor())
+            if (_validateInstructorsFields() && AddNewInstructor())
             {
                 MessageBox.Show("Monitor cadastrado com sucesso!");
                 _handlerRefreshAddInstructor();
@@ -467,7 +526,7 @@ namespace SYS_APAE
 
         private void btnAddNewActivity_Click(object sender, EventArgs e)
         {
-            if (AddActivity())
+            if (_validateActivitiesFields() && AddActivity())
             {
                 MessageBox.Show("Atividade cadastrada com sucesso!");
                 _handlerRefreshAddActivity();
@@ -581,6 +640,21 @@ namespace SYS_APAE
                 lblListActivitiesEmpty.Text = "Não há atividade com esse critério!";
                 lblListActivitiesEmpty.Visible = true;
             }
+        }
+
+        private void cmbNomeAluno_SelectedValueChanged(object sender, EventArgs e)
+        {
+            lblNomeAluno.ForeColor = System.Drawing.Color.Black;
+        }
+
+        private void cmbActivities_SelectedValueChanged(object sender, EventArgs e)
+        {
+            lblTitulo.ForeColor = System.Drawing.Color.Black;
+        }
+
+        private void cmbNomeMonitor_SelectedValueChanged(object sender, EventArgs e)
+        {
+            gpbInstructorReport.ForeColor = System.Drawing.Color.Black;
         }
     }
 }

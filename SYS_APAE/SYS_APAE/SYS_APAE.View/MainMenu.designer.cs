@@ -281,7 +281,6 @@ namespace SYS_APAE
             this.dtpExp.Size = new System.Drawing.Size(249, 20);
             this.dtpExp.TabIndex = 10;
             this.dtpExp.Value = new System.DateTime(2018, 5, 13, 0, 19, 44, 0);
-            this.dtpExp.Enter += new System.EventHandler(this.dtpExp_Enter);
             // 
             // dtpNasc
             // 
@@ -291,7 +290,6 @@ namespace SYS_APAE
             this.dtpNasc.Size = new System.Drawing.Size(249, 20);
             this.dtpNasc.TabIndex = 4;
             this.dtpNasc.Value = new System.DateTime(2018, 5, 13, 0, 19, 44, 0);
-            this.dtpNasc.Enter += new System.EventHandler(this.dtpNasc_Enter);
             // 
             // lblNasc
             // 
@@ -505,6 +503,7 @@ namespace SYS_APAE
             this.cmbNomeMonitor.Size = new System.Drawing.Size(430, 21);
             this.cmbNomeMonitor.TabIndex = 59;
             this.cmbNomeMonitor.SelectedIndexChanged += new System.EventHandler(this.cmbNomeMonitor_SelectedIndexChanged);
+            this.cmbNomeMonitor.SelectedValueChanged += new System.EventHandler(this.cmbNomeMonitor_SelectedValueChanged);
             // 
             // cmbActivities
             // 
@@ -516,6 +515,7 @@ namespace SYS_APAE
             this.cmbActivities.Name = "cmbActivities";
             this.cmbActivities.Size = new System.Drawing.Size(417, 21);
             this.cmbActivities.TabIndex = 65;
+            this.cmbActivities.SelectedValueChanged += new System.EventHandler(this.cmbActivities_SelectedValueChanged);
             // 
             // btnRefreshReport
             // 
@@ -555,6 +555,7 @@ namespace SYS_APAE
             this.cmbNomeAluno.Name = "cmbNomeAluno";
             this.cmbNomeAluno.Size = new System.Drawing.Size(418, 21);
             this.cmbNomeAluno.TabIndex = 49;
+            this.cmbNomeAluno.SelectedValueChanged += new System.EventHandler(this.cmbNomeAluno_SelectedValueChanged);
             // 
             // gpBoxInteressante
             // 
@@ -1078,9 +1079,9 @@ namespace SYS_APAE
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Location = new System.Drawing.Point(31, 60);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(100, 13);
+            this.lblTitulo.Size = new System.Drawing.Size(97, 13);
             this.lblTitulo.TabIndex = 8;
-            this.lblTitulo.Text = "Título da Atividade:";
+            this.lblTitulo.Text = "Título da Atividade";
             // 
             // lblData
             // 
