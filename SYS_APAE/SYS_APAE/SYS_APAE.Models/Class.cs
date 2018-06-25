@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace SYS_APAE.SYS_APAE.Models
 {
-    class Report
+    class Class
     {
         private int id, dif_dig, dif_lei, dif_rec, dif_atv, dif_int;
         private Student student;
         private Instructor instructor;
+        private Activity activity;
         private DateTime dt_created;
-        private string title, obs_atv, obs_int;
+        private string obs_atv, obs_int;
 
-        public Report(int id, int dif_dig, int dif_lei, int dif_rec, int dif_atv, int dif_int, Student student, Instructor instructor, DateTime dt_created, string title, string obs_atv, string obs_int)
+        public Class(int id, int dif_dig, int dif_lei, int dif_rec, int dif_atv, int dif_int, Student student, Instructor instructor, Activity activity, DateTime dt_created, string obs_atv, string obs_int)
         {
             Id = id;
             Dif_dig = dif_dig;
@@ -24,27 +25,45 @@ namespace SYS_APAE.SYS_APAE.Models
             Dif_int = dif_int;
             this.Student = student;
             this.Instructor = instructor;
+            this.Activity = activity;
             Dt_created = dt_created;
-            Title = title;
             Obs_atv = obs_atv;
             Obs_int = obs_int;
         }
 
-        public virtual string[] GeneratePartialInsertQuery()
+        public virtual Dictionary<string, string> GenerateDictFields()
         {
-            string[] partQuery = new string[2];
-            //Headers
-            partQuery[0] = "id, id_student, id_instructor, dt_created, title, dif_dig, dif_lei" +
-                ", dif_rec, dif_atv, obs_atv, dif_int, obs_int";
+            Dictionary<string, string> fieldsQuery = new Dictionary<string, string>
+            {
+                { "id", Id.ToString() },
+                { "id_student", Student.Id.ToString() },
+                { "id_instructor", Instructor.Id.ToString() },
+                { "id_activity", Activity.Id.ToString() },
+                { "dt_created", Dt_created.ToString("yyyy-MM-dd") },
+                { "dif_dig", Dif_dig.ToString() },
+                { "dif_lei", Dif_lei.ToString() },
+                { "dif_rec", Dif_rec.ToString() },
+                { "dif_atv", Dif_atv.ToString() },
+                { "obs_atv", Obs_atv },
+                { "dif_int", Dif_int.ToString() },
+                { "obs_int", Obs_int }
+            };
 
-            /* TODO: Protect from SQL Injection
-                 (maybe start using ORM) */
-            //Values
-            partQuery[1] = "" + Id + ", " + Student.Id + ", " + Instructor.Id + ", '" + Dt_created.ToString("yyyy-MM-dd") + "', '" +
-                Title + "', " + Dif_dig + ", " + Dif_lei + ", " + Dif_rec + ", " + Dif_atv + ", '" +
-                Obs_atv + "', " + Dif_int + ", '" + Obs_int + "'";
+            return fieldsQuery;
+        }
 
-            return partQuery;
+        public Dictionary<string, string> GetFieldsToDisplay()
+        {
+            Dictionary<string, string> displayFields = new Dictionary<string, string>
+            {
+                { "Id", Id.ToString() },
+                { "Nome do aluno", Student.Name },
+                { "Nome do monitor", Instructor.Name },
+                { "Título da atividade", Activity.Title },
+                { "Data", Dt_created.ToString("dd/MM/yyyy") }
+            };
+
+            return displayFields;
         }
 
 
@@ -126,6 +145,19 @@ namespace SYS_APAE.SYS_APAE.Models
             }
         }
 
+        internal Activity Activity
+        {
+            get
+            {
+                return activity;
+            }
+
+            set
+            {
+                activity = value;
+            }
+        }
+
         internal Student Student
         {
             get
@@ -162,19 +194,6 @@ namespace SYS_APAE.SYS_APAE.Models
             set
             {
                 dt_created = value;
-            }
-        }
-
-        public string Title
-        {
-            get
-            {
-                return title;
-            }
-
-            set
-            {
-                title = value;
             }
         }
 

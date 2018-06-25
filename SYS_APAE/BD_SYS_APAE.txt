@@ -1,78 +1,94 @@
-CREATE TABLE students (
-    id          INT          AUTO_INCREMENT,
-    name        VARCHAR (70) NULL,
-    cpf         VARCHAR (20) NULL,
-    rg          VARCHAR (20) NULL,
-    org_exp     VARCHAR (5)  NULL,
-    dt_exp      DATE         NULL,
-    dt_nasc     DATE         NULL,
-    nationality VARCHAR (30) NULL,
-    father_name VARCHAR (70) NULL,
-    mother_name VARCHAR (70) NULL,
-    address     VARCHAR (50) NULL,
-    city        VARCHAR (50) NULL,
-    state       VARCHAR (30) NULL,
-    district    VARCHAR (50) NULL,
-    cep         VARCHAR (20) NULL,
-    phone       VARCHAR (20) NULL,
-    celphone    VARCHAR (20) NULL,
-    email       VARCHAR (50) NULL,
+create database SYS_APAE;
 
-    PRIMARY KEY CLUSTERED (id ASC)
+
+
+use SYS_APAE;
+
+
+
+CREATE TABLE admin_sys (
+id INT AUTO_INCREMENT,
+ name VARCHAR (70),
+ login VARCHAR (70) NOT NULL,
+ password VARCHAR (70) NOT NULL, dt_created DATE NOT NULL,
+
+ PRIMARY KEY CLUSTERED (id ASC)
 );
+
+
+
+CREATE TABLE students (id INT AUTO_INCREMENT,
+ name VARCHAR (70),
+ cpf VARCHAR (20) NOT NULL,
+ rg VARCHAR (20),
+ org_exp VARCHAR (5) ,
+ dt_exp DATE,
+ dt_nasc DATE,
+ nationality VARCHAR (30),
+ father_name VARCHAR (70),
+ mother_name VARCHAR (70),
+ address VARCHAR (50),
+ city VARCHAR (50),
+ state VARCHAR (30),
+ district VARCHAR (50),
+ cep VARCHAR (20),
+ phone VARCHAR (20),
+ celphone VARCHAR (20),
+ email VARCHAR (50), dt_created DATE NOT NULL,
+
+ PRIMARY KEY CLUSTERED (id ASC)
+);
+
+
 
 CREATE TABLE instructors (
-    id          INT          AUTO_INCREMENT,
-    name        VARCHAR (70) NULL,
-    cpf         VARCHAR (20) NULL,
-    rg          VARCHAR (20) NULL,
-    org_exp     VARCHAR (5)  NULL,
-    dt_exp      DATE         NULL,
-    dt_nasc     DATE         NULL,
-    nationality VARCHAR (30) NULL,
-    father_name VARCHAR (70) NULL,
-    mother_name VARCHAR (70) NULL,
-    address     VARCHAR (50) NULL,
-    city        VARCHAR (50) NULL,
-    state       VARCHAR (30) NULL,
-    district    VARCHAR (50) NULL,
-    cep         VARCHAR (20) NULL,
-    phone       VARCHAR (20) NULL,
-    celphone    VARCHAR (20) NULL,
-    email       VARCHAR (50) NULL,
-    prontuario  VARCHAR (25) NULL,
+id INT AUTO_INCREMENT,
+ name VARCHAR (70) NULL,
+ password VARCHAR (15) NOT NULL,
+ cpf VARCHAR (20) NULL,
+ email VARCHAR (50) NULL,
+ prontuario VARCHAR (25) NULL,
+ tipo_monitor VARCHAR (30) NULL,
+ carga_horaria INT NULL, dt_created DATE NOT NULL,
 
-    PRIMARY KEY CLUSTERED (id ASC)
+ PRIMARY KEY CLUSTERED (id ASC)
 );
 
-CREATE TABLE records (
-    id            INT          AUTO_INCREMENT,
-    id_student    INT          NOT NULL,
-    id_instructor INT          NOT NULL,
-    dt_created    DATE         NULL,
-    title         VARCHAR (70) NULL,
-    dif_dig       INT          NOT NULL,
-    dif_lei       INT          NOT NULL,
-    dif_rec       INT          NOT NULL,
-    dif_atv       INT          NOT NULL,
-    obs_atv       VARCHAR (70) NULL,
-    dif_int       INT          NOT NULL,
-    obs_int       VARCHAR (70) NULL,
-
-    PRIMARY KEY CLUSTERED (id ASC),
-    FOREIGN KEY (id_student) REFERENCES students(id),
-    FOREIGN KEY (id_instructor) REFERENCES instructors(id)
+CREATE TABLE activities ( id INT AUTO_INCREMENT, title VARCHAR (70) NOT NULL, description TEXT NULL, dt_created DATE NOT NULL, PRIMARY KEY CLUSTERED (id ASC)
 );
 
-CREATE VIEW students_view
-	AS SELECT id as Id, name as Nome, cpf as CPF, email as 'E-mail', phone as Telefone FROM students;
 
-CREATE VIEW instructors_view
-	AS SELECT id as Id, name as Nome, cpf as CPF, email as 'E-mail', prontuario as Prontuario, phone as Telefone FROM instructors;
 
-CREATE VIEW reports_view
-	AS SELECT id, id_student, id_instructor, title, dt_created from records;
+CREATE TABLE classes (
+ id INT AUTO_INCREMENT,
+ id_student INT NOT NULL,
+ id_instructor INT NOT NULL,
+ id_activity INT NOT NULL, dt_created DATE NOT NULL,
+ dif_dig INT NOT NULL,
+ dif_lei INT NOT NULL,
+ dif_rec INT NOT NULL,
+ dif_atv INT NOT NULL,
+ obs_atv VARCHAR (70) NULL,
+ dif_int INT NOT NULL,
+ obs_int VARCHAR (70) NULL,
 
-INSERT INTO students (id, name, cpf, rg, org_exp, dt_exp, dt_nasc, nationality, father_name, mother_name, address, city, state, district, cep, phone, celphone, email) VALUES (0, 'Tobias Furtado da Silva', '22222222222', '22222222', 'SSP', '2010-10-10', '1994-09-18', 'Brasileiro', 'Jorge', 'Maria', 'Celio', 'Sanca', 'São Paulo', 'Santa', '22222222', '2222222222', '22222222222', 'tobias_fs_@hotmail.com');
+ PRIMARY KEY CLUSTERED (id ASC),
+ FOREIGN KEY (id_student) REFERENCES students(id),
+ FOREIGN KEY (id_instructor) REFERENCES instructors(id), FOREIGN KEY (id_activity) REFERENCES activities(id)
+);
 
-INSERT INTO students (id, name, cpf, rg, org_exp, dt_exp, dt_nasc, nationality, father_name, mother_name, address, city, state, district, cep, phone, celphone, email) VALUES (0, 'sarah', '11111111111', '111111111', 'SSP', '2010-10-10', '1998-10-10', 'Brasileiro', 'Pai 1', 'Mae 1', 'Rua 1', 'Cidade 1', 'Estado 1', 'Bairro 1', '11111111', '1111111111', '11111111111', 'sarah@domain.com');
+
+
+
+
+INSERT INTO admin_sys (id, name, login, password, dt_created) values(0, 'Tobias', 'admin', 'admin', '2018-06-24');
+
+
+INSERT INTO students (id, name, cpf, rg, org_exp, dt_exp, dt_nasc, nationality, father_name, mother_name, address, city, state, district, cep, phone, celphone, email, dt_created) VALUES (0, 'Tobias Furtado da Silva', '22222222222', '22222222', 'SSP', '2010-10-10', '1994-09-18', 'Brasileiro', 'Jorge', 'Maria', 'Celio', 'Sanca', 'São Paulo', 'Santa', '22222222', '2222222222', '22222222222', 'tobias_fs_@hotmail.com', '2018-06-24');
+
+
+INSERT INTO students (id, name, cpf, rg, org_exp, dt_exp, dt_nasc, nationality, father_name, mother_name, address, city, state, district, cep, phone, celphone, email, dt_created) VALUES (0, 'sarah', '11111111111', '111111111', 'SSP', '2010-10-10', '1998-10-10', 'Brasileiro', 'Pai 1', 'Mae 1', 'Rua 1', 'Cidade 1', 'Estado 1', 'Bairro 1', '11111111', '1111111111', '11111111111', 'sarah@domain.com', '2018-06-24');
+
+
+
+INSERT INTO instructors (id, name, password, cpf, email, prontuario, tipo_monitor, carga_horaria, dt_created) VALUES (0, 'Instrutor Teste', '1', '40955973805', 'teste@instructor.com', '170141-x', 'Bolsista', 20, '2018-06-24');

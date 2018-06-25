@@ -15,7 +15,8 @@ namespace SYS_APAE.SYS_APAE.Data
         public static List<Instructor> getAllInstructors()
         {
             List<Instructor> listInstructors = new List<Instructor>();
-            List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement("SELECT * FROM instructors");
+            List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement(
+                dbConnector.CreateSelectCommandWithParams("instructors", null));
 
             foreach (var instructor in dbResult)
             {
@@ -23,22 +24,36 @@ namespace SYS_APAE.SYS_APAE.Data
                         Convert.ToInt32(instructor["id"]),
                         instructor["name"].ToString(),
                         instructor["cpf"].ToString(),
-                        instructor["rg"].ToString(),
-                        instructor["org_exp"].ToString(),
-                        DateTime.Parse(instructor["dt_exp"]),
-                        DateTime.Parse(instructor["dt_nasc"]),
-                        instructor["nationality"].ToString(),
-                        instructor["father_name"].ToString(),
-                        instructor["mother_name"].ToString(),
-                        instructor["address"].ToString(),
-                        instructor["city"].ToString(),
-                        instructor["state"].ToString(),
-                        instructor["district"].ToString(),
-                        instructor["cep"].ToString(),
-                        instructor["phone"].ToString(),
-                        instructor["celphone"].ToString(),
+                        "",
                         instructor["email"].ToString(),
-                        instructor["prontuario"].ToString()
+                        instructor["prontuario"].ToString(),
+                        instructor["tipo_monitor"].ToString(),
+                        Convert.ToInt32(instructor["carga_horaria"]),
+                        DateTime.Parse(instructor["dt_created"])
+                        ));
+            }
+
+            return listInstructors;
+        }
+
+        public static List<Instructor> getFilteredInstructors(Dictionary<string, string> whereFields)
+        {
+            List<Instructor> listInstructors = new List<Instructor>();
+            List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement(
+                dbConnector.CreateSelectCommandWithParams("instructors", whereFields));
+
+            foreach (var instructor in dbResult)
+            {
+                listInstructors.Add(new Instructor(
+                        Convert.ToInt32(instructor["id"]),
+                        instructor["name"].ToString(),
+                        instructor["cpf"].ToString(),
+                        "",
+                        instructor["email"].ToString(),
+                        instructor["prontuario"].ToString(),
+                        instructor["tipo_monitor"].ToString(),
+                        Convert.ToInt32(instructor["carga_horaria"]),
+                        DateTime.Parse(instructor["dt_created"])
                         ));
             }
 
@@ -51,7 +66,7 @@ namespace SYS_APAE.SYS_APAE.Data
             listInstructors.Columns.Add("Id", typeof(int));
             listInstructors.Columns.Add("Name");
 
-            List<InstructorsView> completeListStudent = getAllInstructorsUsingView();
+            List<Instructor> completeListStudent = getAllInstructors();
 
             foreach (var instructor in completeListStudent)
             {
@@ -64,63 +79,49 @@ namespace SYS_APAE.SYS_APAE.Data
             return listInstructors;
         }
 
-
-        public static List<InstructorsView> getAllInstructorsUsingView()
+        public static DataTable getAllInstructorsToDisplay()
         {
-            List<InstructorsView> listInstructors = new List<InstructorsView>();
-            List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement("SELECT * FROM instructors_view");
-
-            foreach (var instructor in dbResult)
-            {
-                listInstructors.Add(new InstructorsView(
-                        Convert.ToInt32(instructor["Id"]),
-                        instructor["Nome"].ToString(),
-                        instructor["CPF"].ToString(),
-                        instructor["Telefone"].ToString(),
-                        instructor["E-mail"].ToString(),
-                        instructor["Prontuario"].ToString()
-                        ));
-            }
-
-            return listInstructors;
+            return Utils.getDataToDisplay(getAllInstructors());
         }
 
-        public static Instructor getInstructorById(string id)
+        public static DataTable getFilteredInstructorsToDisplay(string searchField)
         {
-            Dictionary<string, string> instructor = dbConnector.DoQueryStatementOnlyFirstRow("SELECT * FROM instructors where id=" + id);
+            return Utils.getDataToDisplay(getFilteredInstructors(new Dictionary<string, string> { { "name", "%" + searchField + "%" } }));
+        }
+
+        public static Instructor getInstructorById(Dictionary<string, string> whereFields)
+        {
+            Dictionary<string, string> instructor = dbConnector.DoQueryStatement(
+                dbConnector.CreateSelectCommandWithParams("instructors", whereFields))[0];
 
             return new Instructor(
                         Convert.ToInt32(instructor["id"]),
                         instructor["name"].ToString(),
                         instructor["cpf"].ToString(),
-                        instructor["rg"].ToString(),
-                        instructor["org_exp"].ToString(),
-                        DateTime.Parse(instructor["dt_exp"]),
-                        DateTime.Parse(instructor["dt_nasc"]),
-                        instructor["nationality"].ToString(),
-                        instructor["father_name"].ToString(),
-                        instructor["mother_name"].ToString(),
-                        instructor["address"].ToString(),
-                        instructor["city"].ToString(),
-                        instructor["state"].ToString(),
-                        instructor["district"].ToString(),
-                        instructor["cep"].ToString(),
-                        instructor["phone"].ToString(),
-                        instructor["celphone"].ToString(),
+                        "",
                         instructor["email"].ToString(),
-                        instructor["prontuario"].ToString()
+                        instructor["prontuario"].ToString(),
+                        instructor["tipo_monitor"].ToString(),
+                        Convert.ToInt32(instructor["carga_horaria"]),
+                        DateTime.Parse(instructor["dt_created"])
                         );
         }
 
         public static string getProntuario(int id)
         {
-            return dbConnector.DoQueryStatementOnlyFirstRow("SELECT prontuario FROM instructors where id="+id)["prontuario"];
+            return getInstructorById(new Dictionary<string, string> { { "id", id.ToString() } }).Prontuario;
         }
 
-        public static bool addNewInstructor(Instructor instructor)
+        public static bool AddNewInstructor(Instructor instructor)
         {
-            string[] partialQuery = instructor.GeneratePartialInsertQuery();
-            return dbConnector.DoNonQueryStatement("INSERT INTO instructors (" + partialQuery[0] + ") VALUES(" + partialQuery[1] + ")");
+            Dictionary<string, string> fieldsQuery = instructor.GenerateDictFields();
+            return dbConnector.DoNonQueryStatement(dbConnector.CreateInsertCommandWithParams("instructors", fieldsQuery));
+        }
+
+        public static bool UpdateInstructor(Instructor instructor)
+        {
+            Dictionary<string, string> fieldsQuery = instructor.GenerateDictFields();
+            return dbConnector.DoNonQueryStatement(dbConnector.CreateUpdateCommandWithParams("instructors", fieldsQuery));
         }
     }
 }

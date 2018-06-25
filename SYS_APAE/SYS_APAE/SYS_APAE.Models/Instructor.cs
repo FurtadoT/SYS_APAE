@@ -8,28 +8,43 @@ namespace SYS_APAE.SYS_APAE.Models
 {
     class Instructor : People
     {
-        private string prontuario;
+        private string prontuario, tipo_monitor, password;
+        private int carga_horaria;
 
-        public Instructor(int id, string name, string cpf, string rg,
-                string org_exp, DateTime dt_exp, DateTime dt_nasc,
-                string nationality, string father_name, string mother_name,
-                string address, string city, string state, string district,
-                string cep, string phone, string celphone, string email, string prontuario)
-            : base(id, name, cpf, rg, org_exp, dt_exp, dt_nasc, nationality,
-                father_name, mother_name, address, city, state, district,
-                cep, phone, celphone, email)
+        public Instructor(int id, string name, string cpf, string password, string email, string prontuario, string tipo_monitor, int carga_horaria, DateTime dt_created)
+            : base(id, name, cpf, email, dt_created)
         {
+            Password = password;
             Prontuario = prontuario;
+            Tipo_monitor = tipo_monitor;
+            Carga_horaria = carga_horaria;
         }
 
-        public override string[] GeneratePartialInsertQuery()
+        public override Dictionary<string, string> GenerateDictFields()
         {
-            string[] partialQuery = base.GeneratePartialInsertQuery();
+            Dictionary<string, string> fieldsQuery = base.GenerateDictFields();
 
-            partialQuery[0] += ", prontuario";
-            partialQuery[1] += ", '" + Prontuario + "'";
+            fieldsQuery.Add("password", Password);
+            fieldsQuery.Add("prontuario", Prontuario);
+            fieldsQuery.Add("tipo_monitor", Tipo_monitor);
+            fieldsQuery.Add("carga_horaria", Carga_horaria.ToString());
 
-            return partialQuery;
+            return fieldsQuery;
+        }
+
+        public Dictionary<string, string> GetFieldsToDisplay()
+        {
+            Dictionary<string, string> displayFields = new Dictionary<string, string>
+            {
+                { "Id", Id.ToString() },
+                { "Nome", Name },
+                { "CPF", GetMaskedCPF() },
+                { "E-mail", Email },
+                { "Prontuário", prontuario },
+                { "Tipo do monitor", tipo_monitor }
+            };
+
+            return displayFields;
         }
 
         public string Prontuario
@@ -44,6 +59,34 @@ namespace SYS_APAE.SYS_APAE.Models
                 prontuario = value;
             }
         }
+
+        public string Tipo_monitor
+        {
+            get
+            {
+                return tipo_monitor;
+            }
+
+            set
+            {
+                tipo_monitor = value;
+            }
+        }
+
+        public int Carga_horaria
+        {
+            get
+            {
+                return carga_horaria;
+            }
+
+            set
+            {
+                carga_horaria = value;
+            }
+        }
+
+        public string Password { get => password; set => password = value; }
 
         public override String ToString()
         {
