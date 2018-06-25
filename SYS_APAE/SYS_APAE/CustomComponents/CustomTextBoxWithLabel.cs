@@ -100,6 +100,7 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
             }
             set
             {
+                this.TextBoxLabel.InitialFocus = true;
                 this.CTextBox.PasswordChar = value;
             }
         }
@@ -113,9 +114,18 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
             set
             {
                 this.TextBoxLabelError.Text = value;
-                this.TextBoxLabelError.Visible = true;
-                this.CTextBox.Error = true;
-                this.TextBoxLabel.Error = true;
+                if (value != String.Empty)
+                {
+                    this.TextBoxLabelError.Visible = true;
+                    this.CTextBox.Error = true;
+                    this.TextBoxLabel.Error = true;
+                }
+                else
+                {
+                    this.TextBoxLabelError.Visible = false;
+                    this.CTextBox.Error = false;
+                    this.TextBoxLabel.Error = false;
+                }
             }
         }
     }

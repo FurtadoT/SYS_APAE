@@ -18,6 +18,7 @@ namespace SYS_APAE.SYS_APAE.Models
             Name = name;
             Cpf = cpf;
             Email = email;
+            Dt_created = dt_created;
         }
 
         public virtual Dictionary<string, string> GenerateDictFields()
@@ -32,6 +33,12 @@ namespace SYS_APAE.SYS_APAE.Models
             };
 
             return fieldsQuery;
+        }
+
+        public string GetMaskedCPF()
+        {
+            return this.Cpf.Substring(0, 3) + "." + this.Cpf.Substring(3, 3) + "." +
+                this.Cpf.Substring(6, 3) + "-" + this.Cpf.Substring(9, 2);
         }
 
         public override string ToString()

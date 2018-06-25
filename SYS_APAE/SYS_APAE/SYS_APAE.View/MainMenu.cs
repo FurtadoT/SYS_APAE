@@ -1,5 +1,6 @@
 ﻿using SYS_APAE.SYS_APAE.Data;
 using SYS_APAE.SYS_APAE.Models;
+using SYS_APAE.SYS_APAE.View;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -177,6 +178,40 @@ namespace SYS_APAE
             cmbTarget.DataSource = dtSource;
         }
 
+        private void listAllStudent()
+        {
+            dtgListStudents.DataSource = StudentsDTO.getAllStudentsToDisplay();
+            if (dtgListStudents.Columns.Count > 0)
+            {
+                dtgListStudents.Columns[0].Visible = false;
+                dtgListStudents.Visible = true;
+                lblListStudentsEmpty.Visible = false;
+            }
+            else
+            {
+                dtgListStudents.Visible = false;
+                lblListStudentsEmpty.Text = "Não há aluno cadastrado!";
+                lblListStudentsEmpty.Visible = true;
+            }
+        }
+
+        private void listStudentWithSearchField()
+        {
+            dtgListActivities.DataSource = ActivityDTO.getFilteredActivitiesToDisplay(txtSearchActivities.Text);
+            if (dtgListActivities.Columns.Count > 0)
+            {
+                dtgListActivities.Columns[0].Visible = false;
+                dtgListActivities.Visible = true;
+                lblListActivitiesEmpty.Visible = false;
+            }
+            else
+            {
+                dtgListActivities.Visible = false;
+                lblListActivitiesEmpty.Text = "Não há atividade com esse critério!";
+                lblListActivitiesEmpty.Visible = true;
+            }
+        }
+
         private bool _validateStudentFields()
         {
             if (txtNome.Text == String.Empty)
@@ -225,13 +260,13 @@ namespace SYS_APAE
                 txtEmail.ErrorMessage = "*requerido";
 
 
-            return (txtNome.Text != String.Empty && (txtCPF.Text != String.Empty || !txtCPF.MaskCompleted) &&
-                (txtRG.Text != String.Empty || !txtRG.MaskCompleted) && txtOrgExp.Text != String.Empty &&
+            return (txtNome.Text != String.Empty && (txtCPF.Text != String.Empty && txtCPF.MaskCompleted) &&
+                (txtRG.Text != String.Empty && txtRG.MaskCompleted) && txtOrgExp.Text != String.Empty &&
                 txtNaturalidade.Text != String.Empty && txtPai.Text != String.Empty && txtMae.Text != String.Empty &&
                 txtEnd.Text != String.Empty && txtCidade.Text != String.Empty && txtEstado.Text != String.Empty &&
-                txtBairro.Text != String.Empty && (txtCep.Text != String.Empty || !txtCep.MaskCompleted) &&
-                (txtTel.Text != String.Empty || !txtTel.MaskCompleted) && (txtCelular.Text != String.Empty ||
-                !txtCelular.MaskCompleted) && txtEmail.Text != String.Empty);
+                txtBairro.Text != String.Empty && (txtCep.Text != String.Empty && txtCep.MaskCompleted) &&
+                (txtTel.Text != String.Empty && txtTel.MaskCompleted) && (txtCelular.Text != String.Empty &&
+                txtCelular.MaskCompleted) && txtEmail.Text != String.Empty);
         }
 
         private bool _validateInstructorsFields()
@@ -252,16 +287,17 @@ namespace SYS_APAE
                 txtPasswordInstructor.ErrorMessage = "*requerido";
 
             return (txtNameInstructor.Text != String.Empty && txtEmailInstructor.Text != String.Empty &&
-                (txtProntuarioInstructor.Text != String.Empty || !txtProntuarioInstructor.MaskCompleted) &&
-                (txtCpfInstructor.Text != String.Empty || !txtCpfInstructor.MaskCompleted) && txtPasswordInstructor.Text != String.Empty);
+                (txtProntuarioInstructor.Text != String.Empty && txtProntuarioInstructor.MaskCompleted) &&
+                (txtCpfInstructor.Text != String.Empty && txtCpfInstructor.MaskCompleted) &&
+                txtPasswordInstructor.Text != String.Empty);
         }
         
         private bool _validateActivitiesFields()
         {
             if (txtTitleActivity.Text == String.Empty)
-                txtNameInstructor.ErrorMessage = "*requerido";
+                txtTitleActivity.ErrorMessage = "*requerido";
 
-            return (txtTitleActivity.Text == String.Empty);
+            return (txtTitleActivity.Text != String.Empty);
         }
 
         private bool _validateClassFields()
@@ -447,19 +483,7 @@ namespace SYS_APAE
             tabControlGeral.TabPages.Insert(0, tabListStudents);
             mnItemShowStudents.Enabled = false;
 
-            dtgListStudents.DataSource = StudentsDTO.getAllStudentsToDisplay();
-            if (dtgListStudents.Columns.Count > 0)
-            {
-                dtgListStudents.Columns[0].Visible = false;
-                dtgListStudents.Visible = true;
-                lblListStudentsEmpty.Visible = false;
-            }
-            else
-            {
-                dtgListStudents.Visible = false;
-                lblListStudentsEmpty.Text = "Não há aluno cadastrado!";
-                lblListStudentsEmpty.Visible = true;
-            }
+            listAllStudent();
         }
 
         private void mnItemNewReports_Click(object sender, EventArgs e)
@@ -627,19 +651,7 @@ namespace SYS_APAE
 
         private void txtSearchActivity_KeyUp(object sender, KeyEventArgs e)
         {
-            dtgListActivities.DataSource = ActivityDTO.getFilteredActivitiesToDisplay(txtSearchActivities.Text);
-            if (dtgListActivities.Columns.Count > 0)
-            {
-                dtgListActivities.Columns[0].Visible = false;
-                dtgListActivities.Visible = true;
-                lblListActivitiesEmpty.Visible = false;
-            }
-            else
-            {
-                dtgListActivities.Visible = false;
-                lblListActivitiesEmpty.Text = "Não há atividade com esse critério!";
-                lblListActivitiesEmpty.Visible = true;
-            }
+            listStudentWithSearchField();
         }
 
         private void cmbNomeAluno_SelectedValueChanged(object sender, EventArgs e)
@@ -655,6 +667,16 @@ namespace SYS_APAE
         private void cmbNomeMonitor_SelectedValueChanged(object sender, EventArgs e)
         {
             gpbInstructorReport.ForeColor = System.Drawing.Color.Black;
+        }
+
+        private void dtgListStudents_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            StudentDetail formDetail = new StudentDetail(dtgListStudents.Rows[e.RowIndex].Cells["id"].Value.ToString());
+            formDetail.ShowDialog();
+            if (txtSearchStudents.Text != String.Empty)
+                listStudentWithSearchField();
+            else
+                listAllStudent();
         }
     }
 }

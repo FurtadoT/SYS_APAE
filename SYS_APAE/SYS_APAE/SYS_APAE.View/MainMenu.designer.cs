@@ -1142,6 +1142,7 @@ namespace SYS_APAE
             this.dtgListStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgListStudents.Size = new System.Drawing.Size(1084, 289);
             this.dtgListStudents.TabIndex = 5;
+            this.dtgListStudents.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgListStudents_CellDoubleClick);
             // 
             // tabListInstructors
             // 

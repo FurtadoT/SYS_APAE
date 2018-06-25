@@ -97,12 +97,22 @@ namespace SYS_APAE
             return true;
         }
 
+        private List<string> CreateSelectFieldsArray(string[] fields)
+        {
+            List<string> stringReturn = new List<string>();
+
+            foreach (string field in fields)
+                stringReturn.Add(field + " LIKE @" + field);
+
+            return stringReturn;
+        }
+
         public MySqlCommand CreateSelectCommandWithParams(string TableName, Dictionary<string, string> whereFields)
         {
             string whereStatement = String.Empty;
             if (whereFields != null)
             {
-                List<string> fields = CreateUpdateFieldsArray(whereFields.Keys.ToArray());
+                List<string> fields = CreateSelectFieldsArray(whereFields.Keys.ToArray());
                 if (fields.Count > 0)
                     whereStatement = "WHERE " + string.Join(" AND ", fields);
             }
@@ -145,20 +155,22 @@ namespace SYS_APAE
             List<string> stringReturn = new List<string>();
 
             foreach (string field in fields)
-                if (field != "id") stringReturn.Add(field + " LIKE @" + field);
+                stringReturn.Add(field + " = @" + field);
 
             return stringReturn;
         }
 
         public MySqlCommand CreateUpdateCommandWithParams(string TableName, Dictionary<string, string> fieldsQuery)
         {
+            string idToUpdate = fieldsQuery["id"];
+            fieldsQuery.Remove("id");
             List<string> fields = CreateUpdateFieldsArray(fieldsQuery.Keys.ToArray());
 
             MySqlCommand commandSql = new MySqlCommand(
                 string.Format("UPDATE {0} SET {1} WHERE id={2}",
                 TableName,
                 string.Join(",", fields),
-                fieldsQuery["id"]
+                idToUpdate
             ), connection);
             foreach (KeyValuePair<string, string> field in fieldsQuery)
             {

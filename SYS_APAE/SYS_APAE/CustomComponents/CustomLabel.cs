@@ -6,7 +6,7 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
 {
     class CustomLabel : Label
     {
-        private bool txtBorder, txtTag, txtError, error;
+        private bool txtBorder, txtTag, txtError, error, initialFocus;
 
         protected override void OnHandleCreated(EventArgs e)
         {
@@ -22,6 +22,13 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
                 Dock = DockStyle.None;
                 Font = new Font("", 9F);
                 Location = new Point(-2, 10);
+                ForeColor = Color.Black;
+
+                if (InitialFocus)
+                {
+                    Font = new Font("", 7F);
+                    Location = new Point(-2, 0);
+                }
             }
             else if (TxtError)
             {
@@ -112,11 +119,31 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
             set
             {
                 if (value)
+                {
                     if (TxtBorder)
                         this.BackColor = Color.Red;
                     else if (TxtTag)
                         this.ForeColor = Color.Red;
+                }
+                else
+                {
+                    ChangeColorFocus(false);
+                    ChangeFocus(true);
+                }
+
                 error = value;
+            }
+        }
+
+        public bool InitialFocus
+        {
+            get
+            {
+                return this.initialFocus;
+            }
+            set
+            {
+                this.initialFocus = value;
             }
         }
     }

@@ -65,12 +65,24 @@ namespace SYS_APAE
             {
                 { "Id", Id.ToString() },
                 { "Nome", Name },
-                { "CPF", Cpf },
+                { "CPF", GetMaskedCPF() },
                 { "E-mail", Email },
-                { "Data de nascimento", Dt_nasc.ToString("yyyy-MM-dd") }
+                { "Data de nascimento", Dt_nasc.ToString("dd/MM/yyyy") }
             };
 
             return displayFields;
+        }
+
+        public string GetMaskedPhone(int digits)
+        {
+            if (digits == 9)
+                return "(" + this.Celphone.Substring(0, 2) + ") " +
+                    this.Celphone.Substring(2, 5) + " - " + this.Celphone.Substring(7, 4);
+            else if (digits == 8)
+                return "(" + this.Phone.Substring(0, 2) + ") " +
+                    this.Phone.Substring(2, 4) + " - " + this.Phone.Substring(6, 4);
+
+            return "";
         }
 
         public override String ToString()

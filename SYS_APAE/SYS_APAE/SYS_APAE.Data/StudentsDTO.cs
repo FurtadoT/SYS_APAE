@@ -143,7 +143,7 @@ namespace SYS_APAE.SYS_APAE.Data
            return dbConnector.DoNonQueryStatement(dbConnector.CreateInsertCommandWithParams("students", fieldsQuery));
         }
 
-        public static bool UpdateInstructor(Student student)
+        public static bool UpdateStudent(Student student)
         {
             Dictionary<string, string> fieldsQuery = student.GenerateDictFields();
             return dbConnector.DoNonQueryStatement(dbConnector.CreateUpdateCommandWithParams("students", fieldsQuery));

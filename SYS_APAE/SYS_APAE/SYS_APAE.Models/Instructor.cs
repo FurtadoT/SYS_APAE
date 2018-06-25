@@ -38,7 +38,7 @@ namespace SYS_APAE.SYS_APAE.Models
             {
                 { "Id", Id.ToString() },
                 { "Nome", Name },
-                { "CPF", Cpf },
+                { "CPF", GetMaskedCPF() },
                 { "E-mail", Email },
                 { "Prontuário", prontuario },
                 { "Tipo do monitor", tipo_monitor }
