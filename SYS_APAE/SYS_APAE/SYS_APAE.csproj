@@ -83,8 +83,7 @@
     <Compile Include="SYS_APAE.Data\LoginDTO.cs" />
     <Compile Include="SYS_APAE.Data\ClassDTO.cs" />
     <Compile Include="SYS_APAE.Models\Activity.cs" />
-    <Compile Include="SYS_APAE.Models\CustomDatagridStyle.cs" />
-    <Compile Include="SYS_APAE.Models\CustomMenuRender.cs" />
+    <Compile Include="CustomComponents\CustomMenuRender.cs" />
     <Compile Include="CustomComponents\CustomTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -93,6 +92,12 @@
     <Compile Include="SYS_APAE.Models\Class.cs" />
     <Compile Include="SYS_APAE.Models\User.cs" />
     <Compile Include="SYS_APAE.Models\Utils.cs" />
+    <Compile Include="SYS_APAE.View\ClassDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SYS_APAE.View\ClassDetail.Designer.cs">
+      <DependentUpon>ClassDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="SYS_APAE.View\InstructorsDetail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +127,9 @@
     <Compile Include="SYS_APAE.View\StudentDetail.Designer.cs">
       <DependentUpon>StudentDetail.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SYS_APAE.View\ClassDetail.resx">
+      <DependentUpon>ClassDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SYS_APAE.View\InstructorsDetail.resx">
       <DependentUpon>InstructorsDetail.cs</DependentUpon>
     </EmbeddedResource>

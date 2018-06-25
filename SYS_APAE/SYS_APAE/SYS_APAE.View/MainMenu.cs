@@ -246,6 +246,23 @@ namespace SYS_APAE
             }
         }
 
+        private void listAllClass()
+        {
+            dtgListClass.DataSource = ClassDTO.getAllClassToDisplay();
+            if (dtgListClass.Columns.Count > 0)
+            {
+                dtgListClass.Columns[0].Visible = false;
+                dtgListClass.Visible = true;
+                lblListClassEmpty.Visible = false;
+            }
+            else
+            {
+                dtgListClass.Visible = false;
+                lblListClassEmpty.Text = "Não há aula cadastrada!";
+                lblListClassEmpty.Visible = true;
+            }
+        }
+
         private bool _validateStudentFields()
         {
             if (txtNome.Text == String.Empty)
@@ -529,19 +546,7 @@ namespace SYS_APAE
             tabControlGeral.TabPages.Insert(0, tabListClass);
             mnItemShowReports.Enabled = false;
 
-            dtgReports.DataSource = ClassDTO.getAllClassToDisplay();
-            if (dtgReports.Columns.Count > 0)
-            {
-                dtgReports.Columns[0].Visible = false;
-                dtgReports.Visible = true;
-                lblListClassEmpty.Visible = false;
-            }
-            else
-            {
-                dtgReports.Visible = false;
-                lblListClassEmpty.Text = "Não há aula cadastrada!";
-                 lblListClassEmpty.Visible = true;
-            }
+            listAllClass();
         }
 
         private void mnItemNewInstructor_Click(object sender, EventArgs e)
@@ -694,6 +699,18 @@ namespace SYS_APAE
                 listInstructorWithSearchField();
             else
                 listAllInstructor();
+        }
+
+        private void dtgReports_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+            ClassDetail formDetail = new ClassDetail(dtgListClass.Rows[e.RowIndex].Cells["id"].Value.ToString());
+            formDetail.ShowDialog();
+            //if (txtSearchInstructors.Text != String.Empty)
+              //  listInstructorWithSearchField();
+            //else
+            listAllClass();
         }
     }
 }

@@ -148,7 +148,7 @@ namespace SYS_APAE
             this.txtSearchActivities = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
             this.tabListClass = new System.Windows.Forms.TabPage();
             this.lblListClassEmpty = new System.Windows.Forms.Label();
-            this.dtgReports = new System.Windows.Forms.DataGridView();
+            this.dtgListClass = new System.Windows.Forms.DataGridView();
             this.txtSearchReports = new SYS_APAE_CUSTOM_COMPONENTS.CustomComponents.CustomTextBoxWithLabel();
             this.logo_if = new System.Windows.Forms.PictureBox();
             this.pnlGreenDetail = new System.Windows.Forms.Panel();
@@ -187,7 +187,7 @@ namespace SYS_APAE
             this.tabListActivity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgListActivities)).BeginInit();
             this.tabListClass.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgReports)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgListClass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo_if)).BeginInit();
             this.pnlMenu.SuspendLayout();
             this.mnPrincipal.SuspendLayout();
@@ -732,7 +732,7 @@ namespace SYS_APAE
             this.tabNewClass.Name = "tabNewClass";
             this.tabNewClass.Size = new System.Drawing.Size(1090, 354);
             this.tabNewClass.TabIndex = 3;
-            this.tabNewClass.Text = "Criar Novo Relatório";
+            this.tabNewClass.Text = "Adicionar Nova Aula";
             this.tabNewClass.UseVisualStyleBackColor = true;
             // 
             // gpbInstructorReport
@@ -1572,13 +1572,13 @@ namespace SYS_APAE
             // tabListClass
             // 
             this.tabListClass.Controls.Add(this.lblListClassEmpty);
-            this.tabListClass.Controls.Add(this.dtgReports);
+            this.tabListClass.Controls.Add(this.dtgListClass);
             this.tabListClass.Controls.Add(this.txtSearchReports);
             this.tabListClass.Location = new System.Drawing.Point(4, 22);
             this.tabListClass.Name = "tabListClass";
             this.tabListClass.Size = new System.Drawing.Size(1090, 354);
             this.tabListClass.TabIndex = 2;
-            this.tabListClass.Text = "Listar Relatórios";
+            this.tabListClass.Text = "Listar Aulas";
             this.tabListClass.UseVisualStyleBackColor = true;
             // 
             // lblListClassEmpty
@@ -1592,27 +1592,29 @@ namespace SYS_APAE
             this.lblListClassEmpty.Text = "Não há aula cadastrada!";
             this.lblListClassEmpty.Visible = false;
             // 
-            // dtgReports
+            // dtgListClass
             // 
-            this.dtgReports.AllowUserToAddRows = false;
-            this.dtgReports.AllowUserToDeleteRows = false;
-            this.dtgReports.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgReports.BackgroundColor = System.Drawing.Color.White;
-            this.dtgReports.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dtgReports.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dtgReports.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgReports.Location = new System.Drawing.Point(3, 62);
-            this.dtgReports.MultiSelect = false;
-            this.dtgReports.Name = "dtgReports";
-            this.dtgReports.ReadOnly = true;
-            this.dtgReports.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dtgReports.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgReports.Size = new System.Drawing.Size(1084, 289);
-            this.dtgReports.TabIndex = 6;
+            this.dtgListClass.AllowUserToAddRows = false;
+            this.dtgListClass.AllowUserToDeleteRows = false;
+            this.dtgListClass.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgListClass.BackgroundColor = System.Drawing.Color.White;
+            this.dtgListClass.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtgListClass.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dtgListClass.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgListClass.Location = new System.Drawing.Point(3, 62);
+            this.dtgListClass.MultiSelect = false;
+            this.dtgListClass.Name = "dtgListClass";
+            this.dtgListClass.ReadOnly = true;
+            this.dtgListClass.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dtgListClass.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgListClass.Size = new System.Drawing.Size(1084, 289);
+            this.dtgListClass.TabIndex = 6;
+            this.dtgListClass.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgReports_CellDoubleClick);
             // 
             // txtSearchReports
             // 
             this.txtSearchReports.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtSearchReports.Enabled = false;
             this.txtSearchReports.ErrorMessage = "";
             this.txtSearchReports.Location = new System.Drawing.Point(3, 13);
             this.txtSearchReports.Name = "txtSearchReports";
@@ -1796,7 +1798,7 @@ namespace SYS_APAE
             ((System.ComponentModel.ISupportInitialize)(this.dtgListActivities)).EndInit();
             this.tabListClass.ResumeLayout(false);
             this.tabListClass.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgReports)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgListClass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo_if)).EndInit();
             this.pnlMenu.ResumeLayout(false);
             this.mnPrincipal.ResumeLayout(false);
@@ -1887,7 +1889,7 @@ namespace SYS_APAE
         private DateTimePicker dtpRelCreated;
         private Button btnRelAdd;
         private Button btnRefreshReport;
-        private DataGridView dtgReports;
+        private DataGridView dtgListClass;
         private Label lblWUser;
         private Panel pnlMenu;
         private ToolStripMenuItem mnItemShowStudents;
