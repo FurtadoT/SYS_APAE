@@ -86,7 +86,17 @@ namespace SYS_APAE.SYS_APAE.Models
             }
         }
 
-        public string Password { get => password; set => password = value; }
+        public string Password
+        {
+            get
+            {
+                return password;
+            }
+            set
+            {
+                password = value;
+            }
+        }
 
         public override String ToString()
         {
