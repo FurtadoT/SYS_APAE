@@ -93,6 +93,12 @@
     <Compile Include="SYS_APAE.Models\Class.cs" />
     <Compile Include="SYS_APAE.Models\User.cs" />
     <Compile Include="SYS_APAE.Models\Utils.cs" />
+    <Compile Include="SYS_APAE.View\InstructorsDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SYS_APAE.View\InstructorsDetail.Designer.cs">
+      <DependentUpon>InstructorsDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="SYS_APAE.View\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     <Compile Include="SYS_APAE.View\StudentDetail.Designer.cs">
       <DependentUpon>StudentDetail.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SYS_APAE.View\InstructorsDetail.resx">
+      <DependentUpon>InstructorsDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SYS_APAE.View\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>

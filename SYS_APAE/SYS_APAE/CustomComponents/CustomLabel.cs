@@ -6,7 +6,7 @@ namespace SYS_APAE_CUSTOM_COMPONENTS.CustomComponents
 {
     class CustomLabel : Label
     {
-        private bool txtBorder, txtTag, txtError, error, initialFocus;
+        private bool txtBorder, txtTag, txtError, error, initialFocus = false;
 
         protected override void OnHandleCreated(EventArgs e)
         {
