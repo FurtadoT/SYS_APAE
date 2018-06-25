@@ -12,11 +12,11 @@ using System.Windows.Forms;
 
 namespace SYS_APAE.SYS_APAE.View
 {
-    public partial class InstructorsDetail : Form
+    public partial class InstructorDetail : Form
     {
         private Instructor instructorToEdit;
 
-        public InstructorsDetail(string id)
+        public InstructorDetail(string id)
         {
             InitializeComponent();
             this.CenterToScreen();

@@ -97,5 +97,11 @@ namespace SYS_APAE.SYS_APAE.Data
             Dictionary<string, string> fieldsQuery = activity.GenerateDictFields();
             return dbConnector.DoNonQueryStatement(dbConnector.CreateInsertCommandWithParams("activities", fieldsQuery));
         }
+
+        public static bool UpdateActivity(Activity activity)
+        {
+            Dictionary<string, string> fieldsQuery = activity.GenerateDictFields();
+            return dbConnector.DoNonQueryStatement(dbConnector.CreateUpdateCommandWithParams("activities", fieldsQuery));
+        }
     }
 }

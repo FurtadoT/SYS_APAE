@@ -12,66 +12,52 @@ using System.Windows.Forms;
 
 namespace SYS_APAE.SYS_APAE.View
 {
-    public partial class ClassDetail : Form
+    public partial class ActivityDetail : Form
     {
-        private Class classToEdit;
-        private Dictionary<string, int> radioControl = new Dictionary<string, int>();
+        private Activity activityToEdit;
 
-        public ClassDetail(string id)
+        public ActivityDetail(string id)
         {
             InitializeComponent();
             this.CenterToScreen();
 
-            classToEdit = ClassDTO.getClassById(new Dictionary<string, string> { { "id", id } });
-            this.radioControl.Add("dig", classToEdit.Dif_dig);
-            this.radioControl.Add("lei", classToEdit.Dif_lei);
-            this.radioControl.Add("rec", classToEdit.Dif_rec);
-            this.radioControl.Add("atv", classToEdit.Dif_atv);
-            this.radioControl.Add("int", classToEdit.Dif_atv);
+            activityToEdit = ActivityDTO.getActivityById(new Dictionary<string, string> { { "id", id } });
             setFields();
             setLabels();
         }
 
+        private bool _validateFields()
+        {
+            if (txtTitleActivity.Text == String.Empty)
+                txtTitleActivity.ErrorMessage = "*requerido";
+
+            return (txtTitleActivity.Text != String.Empty);
+        }
+
         private void setFields()
         {
-            ((RadioButton)this.Controls.Find("radioDig" + classToEdit.Dif_dig, true)[0]).Checked = true;
-            ((RadioButton)this.Controls.Find("radioLeitura" + classToEdit.Dif_lei, true)[0]).Checked = true;
-            ((RadioButton)this.Controls.Find("radioReconhecer" + classToEdit.Dif_rec, true)[0]).Checked = true;
-            ((RadioButton)this.Controls.Find("radioAtividade" + classToEdit.Dif_atv, true)[0]).Checked = true;
-            ((RadioButton)this.Controls.Find("radioInteressante" + classToEdit.Dif_atv, true)[0]).Checked = true;
-
-            txtObs.Text = classToEdit.Obs_atv;
-            txtObsInteressante.Text = classToEdit.Obs_int;
+            txtTitleActivity.Text = activityToEdit.Title;
+            txtDescriptionActivity.Text = activityToEdit.Description;
         }
 
         private void setLabels()
         {
-            lblTitle.Text = classToEdit.Activity.Title;
-            lblInstructor.Text = classToEdit.Instructor.Name;
-            lblStudent.Text = classToEdit.Student.Name;
-            lblCreated.Text = classToEdit.Dt_created.ToString("dd/MM/yyyy");
+            lblId.Text = activityToEdit.Id.ToString();
+            lblCreated.Text = activityToEdit.Dt_created.ToString("dd/MM/yyyy");
         }
 
-        private bool UpdateClass()
+        private bool UpdateActivity()
         {
-            Class newClass = new Class(
-                classToEdit.Id,
-                this.radioControl["dig"],
-                this.radioControl["lei"],
-                this.radioControl["rec"],
-                this.radioControl["atv"],
-                this.radioControl["int"],
-                classToEdit.Student,
-                classToEdit.Instructor,
-                classToEdit.Activity,
-                classToEdit.Dt_created,
-                txtObs.Text,
-                txtObsInteressante.Text
+            Activity newActivity = new Activity(
+                activityToEdit.Id,
+                txtTitleActivity.Text,
+                txtDescriptionActivity.Text,
+                activityToEdit.Dt_created
                 );
 
-            if (ClassDTO.UpdateClass(newClass))
+            if (ActivityDTO.UpdateActivity(newActivity))
             {
-                this.classToEdit = newClass;
+                this.activityToEdit = newActivity;
                 return true;
             }
 
@@ -81,11 +67,6 @@ namespace SYS_APAE.SYS_APAE.View
         private void _handlerRefresh()
         {
             setLabels();
-        }
-
-        private void radioButton_Click(object sender, EventArgs e)
-        {
-            this.radioControl[((RadioButton)sender).Tag.ToString()] = Convert.ToInt32(((RadioButton)sender).Text);
         }
 
         private void pnlSave_Click(object sender, EventArgs e)
@@ -101,9 +82,9 @@ namespace SYS_APAE.SYS_APAE.View
         private void btnSave_Click(object sender, EventArgs e)
         {
             lblSave.Focus();
-            if (UpdateClass())
+            if (_validateFields() && UpdateActivity())
             {
-                MessageBox.Show("Aula alterada com sucesso!");
+                MessageBox.Show("Atividade alterada com sucesso!");
                 _handlerRefresh();
             }
         }

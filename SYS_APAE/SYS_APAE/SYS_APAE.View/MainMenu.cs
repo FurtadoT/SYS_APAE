@@ -178,9 +178,20 @@ namespace SYS_APAE
             cmbTarget.DataSource = dtSource;
         }
 
-        private void listAllStudent()
+        private void listStudent()
         {
-            dtgListStudents.DataSource = StudentsDTO.getAllStudentsToDisplay();
+            string messageEmpty = String.Empty;
+            if (txtSearchStudents.Text != String.Empty)
+            {
+                dtgListStudents.DataSource = StudentsDTO.getFilteredStudentsToDisplay(txtSearchStudents.Text);
+                messageEmpty = "Não há aluno com esse critério!";
+            }
+            else
+            {
+                dtgListStudents.DataSource = StudentsDTO.getAllStudentsToDisplay();
+                messageEmpty = "Não há aluno cadastrado!";
+            }
+
             if (dtgListStudents.Columns.Count > 0)
             {
                 dtgListStudents.Columns[0].Visible = false;
@@ -190,31 +201,25 @@ namespace SYS_APAE
             else
             {
                 dtgListStudents.Visible = false;
-                lblListStudentsEmpty.Text = "Não há aluno cadastrado!";
+                lblListStudentsEmpty.Text = messageEmpty;
                 lblListStudentsEmpty.Visible = true;
             }
         }
 
-        private void listStudentWithSearchField()
+        private void listInstructor()
         {
-            dtgListStudents.DataSource = StudentsDTO.getFilteredStudentsToDisplay(txtSearchStudents.Text);
-            if (dtgListStudents.Columns.Count > 0)
+            string messageEmpty = String.Empty;
+            if (txtSearchInstructors.Text != String.Empty)
             {
-                dtgListStudents.Columns[0].Visible = false;
-                dtgListStudents.Visible = true;
-                lblListStudentsEmpty.Visible = false;
+                dtgListInstructors.DataSource = InstructorDTO.getFilteredInstructorsToDisplay(txtSearchInstructors.Text);
+                messageEmpty = "Não há monitor com esse critério!";
             }
             else
             {
-                dtgListStudents.Visible = false;
-                lblListStudentsEmpty.Text = "Não há aluno com esse critério!";
-                lblListStudentsEmpty.Visible = true;
+                dtgListInstructors.DataSource = InstructorDTO.getAllInstructorsToDisplay();
+                messageEmpty = "Não há monitor cadastrado!";
             }
-        }
 
-        private void listAllInstructor()
-        {
-            dtgListInstructors.DataSource = InstructorDTO.getAllInstructorsToDisplay();
             if (dtgListInstructors.Columns.Count > 0)
             {
                 dtgListInstructors.Columns[0].Visible = false;
@@ -224,29 +229,12 @@ namespace SYS_APAE
             else
             {
                 dtgListInstructors.Visible = false;
-                lblListInstructorsEmpty.Text = "Não há monitor cadastrado!";
+                lblListInstructorsEmpty.Text = messageEmpty;
                 lblListInstructorsEmpty.Visible = true;
             }
         }
 
-        private void listInstructorWithSearchField()
-        {
-            dtgListInstructors.DataSource = InstructorDTO.getFilteredInstructorsToDisplay(txtSearchInstructors.Text);
-            if (dtgListInstructors.Columns.Count > 0)
-            {
-                dtgListInstructors.Columns[0].Visible = false;
-                dtgListInstructors.Visible = true;
-                lblListInstructorsEmpty.Visible = false;
-            }
-            else
-            {
-                dtgListInstructors.Visible = false;
-                lblListInstructorsEmpty.Text = "Não há monitor com esse critério!";
-                lblListInstructorsEmpty.Visible = true;
-            }
-        }
-
-        private void listAllClass()
+        private void listClass()
         {
             dtgListClass.DataSource = ClassDTO.getAllClassToDisplay();
             if (dtgListClass.Columns.Count > 0)
@@ -260,6 +248,34 @@ namespace SYS_APAE
                 dtgListClass.Visible = false;
                 lblListClassEmpty.Text = "Não há aula cadastrada!";
                 lblListClassEmpty.Visible = true;
+            }
+        }
+
+        private void listActivity()
+        {
+            string messageEmpty = String.Empty;
+            if (txtSearchActivities.Text != String.Empty)
+            {
+                dtgListActivities.DataSource = ActivityDTO.getFilteredActivitiesToDisplay(txtSearchActivities.Text);
+                messageEmpty = "Não há atividade com esse critério!";
+            }
+            else
+            {
+                dtgListActivities.DataSource = ActivityDTO.getAllActivitiesToDisplay();
+                messageEmpty = "Não há atividade cadastrada!";
+            }
+
+            if (dtgListActivities.Columns.Count > 0)
+            {
+                dtgListActivities.Columns[0].Visible = false;
+                dtgListActivities.Visible = true;
+                lblListActivitiesEmpty.Visible = false;
+            }
+            else
+            {
+                dtgListActivities.Visible = false;
+                lblListActivitiesEmpty.Text = messageEmpty;
+                lblListActivitiesEmpty.Visible = true;
             }
         }
 
@@ -527,7 +543,7 @@ namespace SYS_APAE
             tabControlGeral.TabPages.Insert(0, tabListStudents);
             mnItemShowStudents.Enabled = false;
 
-            listAllStudent();
+            listStudent();
         }
 
         private void mnItemNewReports_Click(object sender, EventArgs e)
@@ -546,7 +562,7 @@ namespace SYS_APAE
             tabControlGeral.TabPages.Insert(0, tabListClass);
             mnItemShowReports.Enabled = false;
 
-            listAllClass();
+            listClass();
         }
 
         private void mnItemNewInstructor_Click(object sender, EventArgs e)
@@ -605,7 +621,7 @@ namespace SYS_APAE
 
         private void txtSearchStudent_KeyUp(object sender, KeyEventArgs e)
         {
-            listStudentWithSearchField();
+            listStudent();
         }
 
         private void listarMonitoresToolStripMenuItem_Click(object sender, EventArgs e)
@@ -615,12 +631,12 @@ namespace SYS_APAE
             tabControlGeral.TabPages.Insert(0, tabListInstructors);
             mnItemListInstructors.Enabled = false;
 
-            listAllInstructor();
+            listInstructor();
         }
 
         private void txtSearchInstructors_KeyUp(object sender, KeyEventArgs e)
         {
-            listInstructorWithSearchField();
+            listInstructor();
         }
 
         private void mnItemListActivities_Click(object sender, EventArgs e)
@@ -630,36 +646,12 @@ namespace SYS_APAE
             tabControlGeral.TabPages.Insert(0, tabListActivity);
             mnItemListActivities.Enabled = false;
 
-            dtgListActivities.DataSource = ActivityDTO.getAllActivitiesToDisplay();
-            if (dtgListActivities.Columns.Count > 0)
-            {
-                dtgListActivities.Columns[0].Visible = false;
-                dtgListActivities.Visible = true;
-                lblListActivitiesEmpty.Visible = false;
-            }
-            else
-            {
-                dtgListActivities.Visible = false;
-                lblListActivitiesEmpty.Text = "Não há atividade cadastrada!";
-                lblListActivitiesEmpty.Visible = true;
-            }
+            listActivity();
         }
 
         private void txtSearchActivity_KeyUp(object sender, KeyEventArgs e)
         {
-            dtgListActivities.DataSource = ActivityDTO.getFilteredActivitiesToDisplay(txtSearchActivities.Text);
-            if (dtgListActivities.Columns.Count > 0)
-            {
-                dtgListActivities.Columns[0].Visible = false;
-                dtgListActivities.Visible = true;
-                lblListActivitiesEmpty.Visible = false;
-            }
-            else
-            {
-                dtgListActivities.Visible = false;
-                lblListActivitiesEmpty.Text = "Não há atividade com esse critério!";
-                lblListActivitiesEmpty.Visible = true;
-            }
+            listActivity();
         }
 
         private void cmbNomeAluno_SelectedValueChanged(object sender, EventArgs e)
@@ -683,22 +675,16 @@ namespace SYS_APAE
                 return;
             StudentDetail formDetail = new StudentDetail(dtgListStudents.Rows[e.RowIndex].Cells["id"].Value.ToString());
             formDetail.ShowDialog();
-            if (txtSearchStudents.Text != String.Empty)
-                listStudentWithSearchField();
-            else
-                listAllStudent();
+            listStudent();
         }
 
         private void dtgListInstructors_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
                 return;
-            InstructorsDetail formDetail = new InstructorsDetail(dtgListInstructors.Rows[e.RowIndex].Cells["id"].Value.ToString());
+            InstructorDetail formDetail = new InstructorDetail(dtgListInstructors.Rows[e.RowIndex].Cells["id"].Value.ToString());
             formDetail.ShowDialog();
-            if (txtSearchInstructors.Text != String.Empty)
-                listInstructorWithSearchField();
-            else
-                listAllInstructor();
+            listInstructor();
         }
 
         private void dtgReports_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -707,10 +693,16 @@ namespace SYS_APAE
                 return;
             ClassDetail formDetail = new ClassDetail(dtgListClass.Rows[e.RowIndex].Cells["id"].Value.ToString());
             formDetail.ShowDialog();
-            //if (txtSearchInstructors.Text != String.Empty)
-              //  listInstructorWithSearchField();
-            //else
-            listAllClass();
+            listClass();
+        }
+
+        private void dtgListActivities_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+            ActivityDetail formDetail = new ActivityDetail(dtgListActivities.Rows[e.RowIndex].Cells["id"].Value.ToString());
+            formDetail.ShowDialog();
+            listActivity();
         }
     }
 }

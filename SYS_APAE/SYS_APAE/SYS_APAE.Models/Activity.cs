@@ -37,8 +37,8 @@ namespace SYS_APAE.SYS_APAE.Models
         {
             Dictionary<string, string> displayFields = new Dictionary<string, string>
             {
-                { "id", Id.ToString() },
-                { "title", Title.ToString() }
+                { "Id", Id.ToString() },
+                { "Título da atividade", Title.ToString() }
             };
 
             return displayFields;

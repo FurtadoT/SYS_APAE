@@ -1555,6 +1555,7 @@ namespace SYS_APAE
             this.dtgListActivities.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgListActivities.Size = new System.Drawing.Size(1084, 289);
             this.dtgListActivities.TabIndex = 11;
+            this.dtgListActivities.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgListActivities_CellDoubleClick);
             // 
             // txtSearchActivities
             // 

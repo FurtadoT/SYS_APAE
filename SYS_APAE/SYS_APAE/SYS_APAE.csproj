@@ -92,17 +92,23 @@
     <Compile Include="SYS_APAE.Models\Class.cs" />
     <Compile Include="SYS_APAE.Models\User.cs" />
     <Compile Include="SYS_APAE.Models\Utils.cs" />
+    <Compile Include="SYS_APAE.View\ActivityDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SYS_APAE.View\ActivityDetail.Designer.cs">
+      <DependentUpon>ActivityDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="SYS_APAE.View\ClassDetail.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SYS_APAE.View\ClassDetail.Designer.cs">
       <DependentUpon>ClassDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="SYS_APAE.View\InstructorsDetail.cs">
+    <Compile Include="SYS_APAE.View\InstructorDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SYS_APAE.View\InstructorsDetail.Designer.cs">
-      <DependentUpon>InstructorsDetail.cs</DependentUpon>
+    <Compile Include="SYS_APAE.View\InstructorDetail.Designer.cs">
+      <DependentUpon>InstructorDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="SYS_APAE.View\Login.cs">
       <SubType>Form</SubType>
@@ -127,11 +133,14 @@
     <Compile Include="SYS_APAE.View\StudentDetail.Designer.cs">
       <DependentUpon>StudentDetail.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SYS_APAE.View\ActivityDetail.resx">
+      <DependentUpon>ActivityDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SYS_APAE.View\ClassDetail.resx">
       <DependentUpon>ClassDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SYS_APAE.View\InstructorsDetail.resx">
-      <DependentUpon>InstructorsDetail.cs</DependentUpon>
+    <EmbeddedResource Include="SYS_APAE.View\InstructorDetail.resx">
+      <DependentUpon>InstructorDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SYS_APAE.View\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

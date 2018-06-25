@@ -1,6 +1,6 @@
 ﻿namespace SYS_APAE.SYS_APAE.View
 {
-    partial class InstructorsDetail
+    partial class InstructorDetail
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InstructorsDetail));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InstructorDetail));
             this.gpbShowInfo = new System.Windows.Forms.GroupBox();
             this.lblCreated = new System.Windows.Forms.Label();
             this.lblId = new System.Windows.Forms.Label();
