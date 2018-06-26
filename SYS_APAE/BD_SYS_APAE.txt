@@ -84,11 +84,26 @@ CREATE TABLE classes (
 INSERT INTO admin_sys (id, name, login, password, dt_created) values(0, 'Tobias', 'admin', 'admin', '2018-06-24');
 
 
-INSERT INTO students (id, name, cpf, rg, org_exp, dt_exp, dt_nasc, nationality, father_name, mother_name, address, city, state, district, cep, phone, celphone, email, dt_created) VALUES (0, 'Tobias Furtado da Silva', '22222222222', '22222222', 'SSP', '2010-10-10', '1994-09-18', 'Brasileiro', 'Jorge', 'Maria', 'Celio', 'Sanca', 'São Paulo', 'Santa', '22222222', '2222222222', '22222222222', 'tobias_fs_@hotmail.com', '2018-06-24');
+DELIMITER $$
 
+CREATE PROCEDURE search_classes(IN search VARCHAR(255))
+BEGIN
+	SELECT c.* FROM classes c inner join instructors i on c.id_instructor = i.id inner join students s on c.id_student = s.id inner join activities a on c.id_activity = a.id WHERE (a.title like CONCAT("%", search ,"%") or s.name like CONCAT("%", search ,"%") or i.name like CONCAT("%", search ,"%"));
+END $$
 
-INSERT INTO students (id, name, cpf, rg, org_exp, dt_exp, dt_nasc, nationality, father_name, mother_name, address, city, state, district, cep, phone, celphone, email, dt_created) VALUES (0, 'sarah', '11111111111', '111111111', 'SSP', '2010-10-10', '1998-10-10', 'Brasileiro', 'Pai 1', 'Mae 1', 'Rua 1', 'Cidade 1', 'Estado 1', 'Bairro 1', '11111111', '1111111111', '11111111111', 'sarah@domain.com', '2018-06-24');
+CREATE PROCEDURE search_students(IN search VARCHAR(255))
+BEGIN
+	SELECT * from students WHERE name like CONCAT("%", search, "%") or cpf like CONCAT("%", search, "%") or email like CONCAT("%", search, "%");
+END $$
 
+CREATE PROCEDURE search_instructors(IN search VARCHAR(255))
+BEGIN
+	SELECT * from instructors WHERE name like CONCAT("%", search, "%") or cpf like CONCAT("%", search, "%") or email like CONCAT("%", search, "%");
+END $$
 
+CREATE PROCEDURE search_activities(IN search VARCHAR(255))
+BEGIN
+	SELECT * from activities WHERE title like CONCAT("%", search, "%");
+END $$
 
-INSERT INTO instructors (id, name, password, cpf, email, prontuario, tipo_monitor, carga_horaria, dt_created) VALUES (0, 'Instrutor Teste', '1', '40955973805', 'teste@instructor.com', '170141-x', 'Bolsista', 20, '2018-06-24');
+DELIMITER ;

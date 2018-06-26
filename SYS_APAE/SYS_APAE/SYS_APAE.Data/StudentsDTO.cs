@@ -12,11 +12,11 @@ namespace SYS_APAE.SYS_APAE.Data
     {
         private static DBConnect dbConnector = new DBConnect();
 
-        public static List<Student> getAllStudents()
+        public static List<Student> getStudents(Dictionary<string, string> whereFields = null)
         {
             List<Student> listStudents = new List<Student>();
             List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement(
-                dbConnector.CreateSelectCommandWithParams("students", null));
+                dbConnector.CreateSelectCommandWithParams("students", whereFields));
 
             foreach (var student in dbResult)
             {
@@ -46,11 +46,11 @@ namespace SYS_APAE.SYS_APAE.Data
             return listStudents;
         }
 
-        public static List<Student> getFilteredStudents(Dictionary<string, string> whereFields)
+        public static List<Student> getFilteredStudents(string searchField)
         {
             List<Student> listStudents = new List<Student>();
             List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement(
-                dbConnector.CreateSelectCommandWithParams("students", whereFields));
+                dbConnector.CreateSelectCommandWithProcedure("students", searchField));
 
             foreach (var student in dbResult)
             {
@@ -86,7 +86,7 @@ namespace SYS_APAE.SYS_APAE.Data
             listStudents.Columns.Add("Id", typeof(int));
             listStudents.Columns.Add("Name");
 
-            List<Student> completeListStudent = getAllStudents();
+            List<Student> completeListStudent = getStudents();
 
             foreach (var student in completeListStudent)
             {
@@ -101,40 +101,12 @@ namespace SYS_APAE.SYS_APAE.Data
 
         public static DataTable getAllStudentsToDisplay()
         {
-            return Utils.getDataToDisplay(getAllStudents());
+            return Utils.getDataToDisplay(getStudents());
         }
 
         public static DataTable getFilteredStudentsToDisplay(string searchField)
         {
-            return Utils.getDataToDisplay(getFilteredStudents(new Dictionary<string, string> { { "name", "%" + searchField + "%" } }));
-        }
-
-        public static Student getStudentById(Dictionary<string, string> whereFields)
-        {
-            Dictionary<string, string> student = dbConnector.DoQueryStatement(
-                dbConnector.CreateSelectCommandWithParams("students", whereFields))[0];
-
-            return new Student(
-                        Convert.ToInt32(student["id"]),
-                        student["name"].ToString(),
-                        student["cpf"].ToString(),
-                        student["rg"].ToString(),
-                        student["org_exp"].ToString(),
-                        DateTime.Parse(student["dt_exp"]),
-                        DateTime.Parse(student["dt_nasc"]),
-                        student["nationality"].ToString(),
-                        student["father_name"].ToString(),
-                        student["mother_name"].ToString(),
-                        student["address"].ToString(),
-                        student["city"].ToString(),
-                        student["state"].ToString(),
-                        student["district"].ToString(),
-                        student["cep"].ToString(),
-                        student["phone"].ToString(),
-                        student["celphone"].ToString(),
-                        student["email"].ToString(),
-                        DateTime.Parse(student["dt_created"])
-                        );
+            return Utils.getDataToDisplay(getFilteredStudents(searchField));
         }
 
         public static bool AddNewStudent(Student student)

@@ -27,9 +27,9 @@ namespace SYS_APAE.SYS_APAE.Data
                         Convert.ToInt32(_class["dif_rec"]),
                         Convert.ToInt32(_class["dif_atv"]),
                         Convert.ToInt32(_class["dif_int"]),
-                        StudentsDTO.getStudentById(new Dictionary<string, string> { { "id", _class["id_student"].ToString() } }),
-                        InstructorDTO.getInstructorById(new Dictionary<string, string> { { "id", _class["id_instructor"].ToString() } }),
-                        ActivityDTO.getActivityById(new Dictionary<string, string> { { "id", _class["id_activity"].ToString() } }),
+                        StudentsDTO.getStudents(new Dictionary<string, string> { { "id", _class["id_student"].ToString() } })[0],
+                        InstructorDTO.getInstructors(new Dictionary<string, string> { { "id", _class["id_instructor"].ToString() } })[0],
+                        ActivityDTO.getActivities(new Dictionary<string, string> { { "id", _class["id_activity"].ToString() } })[0],
                         DateTime.Parse(_class["dt_created"]),
                         _class["obs_atv"].ToString(),
                         _class["obs_int"].ToString()
@@ -39,11 +39,11 @@ namespace SYS_APAE.SYS_APAE.Data
             return listClass;
         }
 
-        public static List<Class> getFilteredClass(Dictionary<string, string> whereFields)
+        public static List<Class> getFilteredClass(string searchField)
         {
             List<Class> listClass = new List<Class>();
             List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement(
-                dbConnector.CreateSelectCommandWithParams("classes", whereFields));
+                dbConnector.CreateSelectCommandWithProcedure("classes", searchField));
 
             foreach (var _class in dbResult)
             {
@@ -54,9 +54,9 @@ namespace SYS_APAE.SYS_APAE.Data
                         Convert.ToInt32(_class["dif_rec"]),
                         Convert.ToInt32(_class["dif_atv"]),
                         Convert.ToInt32(_class["dif_int"]),
-                        StudentsDTO.getStudentById(new Dictionary<string, string> { { "id", _class["id_student"].ToString() } }),
-                        InstructorDTO.getInstructorById(new Dictionary<string, string> { { "id", _class["id_instructor"].ToString() } }),
-                        ActivityDTO.getActivityById(new Dictionary<string, string> { { "id", _class["id_activity"].ToString() } }),
+                        StudentsDTO.getStudents(new Dictionary<string, string> { { "id", _class["id_student"].ToString() } })[0],
+                        InstructorDTO.getInstructors(new Dictionary<string, string> { { "id", _class["id_instructor"].ToString() } })[0],
+                        ActivityDTO.getActivities(new Dictionary<string, string> { { "id", _class["id_activity"].ToString() } })[0],
                         DateTime.Parse(_class["dt_created"]),
                         _class["obs_atv"].ToString(),
                         _class["obs_int"].ToString()
@@ -78,9 +78,9 @@ namespace SYS_APAE.SYS_APAE.Data
                     Convert.ToInt32(_class["dif_rec"]),
                     Convert.ToInt32(_class["dif_atv"]),
                     Convert.ToInt32(_class["dif_int"]),
-                    StudentsDTO.getStudentById(new Dictionary<string, string> { { "id", _class["id_student"].ToString() } }),
-                    InstructorDTO.getInstructorById(new Dictionary<string, string> { { "id", _class["id_instructor"].ToString() } }),
-                    ActivityDTO.getActivityById(new Dictionary<string, string> { { "id", _class["id_activity"].ToString() } }),
+                    StudentsDTO.getStudents(new Dictionary<string, string> { { "id", _class["id_student"].ToString() } })[0],
+                    InstructorDTO.getInstructors(new Dictionary<string, string> { { "id", _class["id_instructor"].ToString() } })[0],
+                    ActivityDTO.getActivities(new Dictionary<string, string> { { "id", _class["id_activity"].ToString() } })[0],
                     DateTime.Parse(_class["dt_created"]),
                     _class["obs_atv"].ToString(),
                     _class["obs_int"].ToString()
@@ -94,7 +94,7 @@ namespace SYS_APAE.SYS_APAE.Data
 
         public static DataTable getFilteredClassToDisplay(string searchField)
         {
-            return Utils.getDataToDisplay(getFilteredClass(new Dictionary<string, string> { { "title", searchField } }));
+            return Utils.getDataToDisplay(getFilteredClass(searchField));
         }
 
         public static bool AddNewClass(Class _class)
@@ -107,6 +107,15 @@ namespace SYS_APAE.SYS_APAE.Data
         {
             Dictionary<string, string> fieldsQuery = _class.GenerateDictFields();
             return dbConnector.DoNonQueryStatement(dbConnector.CreateUpdateCommandWithParams("classes", fieldsQuery));
+        }
+        
+        public static string GetSearchQuery(string id)
+        {
+            return "SELECT c.* FROM classes c" +
+                " inner join instructors i on c.id_instructor = i.id" +
+                " inner join students s on c.id_student = s.id" +
+                " inner join activities a on c.id_activity = a.id" +
+                " WHERE (a.title=@SEARCH or s.name=@SEARCH or i.name=@SEARCH)";
         }
     }
 }

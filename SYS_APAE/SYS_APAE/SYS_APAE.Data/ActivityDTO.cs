@@ -12,11 +12,11 @@ namespace SYS_APAE.SYS_APAE.Data
     {
         private static DBConnect dbConnector = new DBConnect();
 
-        public static List<Activity> getAllActivities()
+        public static List<Activity> getActivities(Dictionary<string, string> whereFields = null)
         {
             List<Activity> listActivities = new List<Activity>();
             List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement(
-                dbConnector.CreateSelectCommandWithParams("activities", null));
+                dbConnector.CreateSelectCommandWithParams("activities", whereFields));
 
             foreach (var activity in dbResult)
             {
@@ -31,11 +31,11 @@ namespace SYS_APAE.SYS_APAE.Data
             return listActivities;
         }
 
-        public static List<Activity> getFilteredActivities(Dictionary<string, string> whereFields)
+        public static List<Activity> getFilteredActivities(string searchField)
         {
             List<Activity> listActivities = new List<Activity>();
             List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement(
-                dbConnector.CreateSelectCommandWithParams("activities", whereFields));
+                dbConnector.CreateSelectCommandWithProcedure("activities", searchField));
 
             foreach (var activity in dbResult)
             {
@@ -56,7 +56,7 @@ namespace SYS_APAE.SYS_APAE.Data
             lisActivities.Columns.Add("Id", typeof(int));
             lisActivities.Columns.Add("Name");
 
-            List<Activity> completeListActivity = getAllActivities();
+            List<Activity> completeListActivity = getActivities();
 
             foreach (var activity in completeListActivity)
             {
@@ -69,27 +69,14 @@ namespace SYS_APAE.SYS_APAE.Data
             return lisActivities;
         }
 
-        public static Activity getActivityById(Dictionary<string, string> whereFields)
-        {
-            Dictionary<string, string> activity = dbConnector.DoQueryStatement(
-                dbConnector.CreateSelectCommandWithParams("activities", whereFields))[0];
-
-            return new Activity(
-                    Convert.ToInt32(activity["id"]),
-                    activity["title"].ToString(),
-                    activity["description"].ToString(),
-                    DateTime.Parse(activity["dt_created"])
-                        );
-        }
-
         public static DataTable getAllActivitiesToDisplay()
         {
-            return Utils.getDataToDisplay(getAllActivities());
+            return Utils.getDataToDisplay(getActivities());
         }
 
         public static DataTable getFilteredActivitiesToDisplay(string searchField)
         {
-            return Utils.getDataToDisplay(getFilteredActivities(new Dictionary<string, string> { { "title", "%" + searchField + "%" } }));
+            return Utils.getDataToDisplay(getFilteredActivities(searchField));
         }
 
         public static bool AddNewActivity(Activity activity)

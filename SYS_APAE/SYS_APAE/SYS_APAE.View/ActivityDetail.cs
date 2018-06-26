@@ -21,7 +21,7 @@ namespace SYS_APAE.SYS_APAE.View
             InitializeComponent();
             this.CenterToScreen();
 
-            activityToEdit = ActivityDTO.getActivityById(new Dictionary<string, string> { { "id", id } });
+            activityToEdit = ActivityDTO.getActivities(new Dictionary<string, string> { { "id", id } })[0];
             setFields();
             setLabels();
         }

@@ -107,6 +107,14 @@ namespace SYS_APAE
             return stringReturn;
         }
 
+        public MySqlCommand CreateSelectCommandWithProcedure(string tableName, string searchField)
+        {
+            MySqlCommand commandSql = new MySqlCommand(
+                string.Format("CALL search_{0}(@SEARCH)", tableName), connection);
+            commandSql.Parameters.Add(new MySqlParameter("@SEARCH", searchField));
+            return commandSql;
+        }
+
         public MySqlCommand CreateSelectCommandWithParams(string TableName, Dictionary<string, string> whereFields)
         {
             string whereStatement = String.Empty;

@@ -20,7 +20,7 @@ namespace SYS_APAE.SYS_APAE.View
             InitializeComponent();
             this.CenterToScreen();
 
-            studentToEdit = StudentsDTO.getStudentById(new Dictionary<string, string> { { "id", id } });
+            studentToEdit = StudentsDTO.getStudents(new Dictionary<string, string> { { "id", id } })[0];
             setFields();
             setLabels();
         }

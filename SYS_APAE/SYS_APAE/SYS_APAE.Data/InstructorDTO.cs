@@ -12,11 +12,11 @@ namespace SYS_APAE.SYS_APAE.Data
     {
         private static DBConnect dbConnector = new DBConnect();
 
-        public static List<Instructor> getAllInstructors()
+        public static List<Instructor> getInstructors(Dictionary<string, string> whereFields = null)
         {
             List<Instructor> listInstructors = new List<Instructor>();
             List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement(
-                dbConnector.CreateSelectCommandWithParams("instructors", null));
+                dbConnector.CreateSelectCommandWithParams("instructors", whereFields));
 
             foreach (var instructor in dbResult)
             {
@@ -36,11 +36,11 @@ namespace SYS_APAE.SYS_APAE.Data
             return listInstructors;
         }
 
-        public static List<Instructor> getFilteredInstructors(Dictionary<string, string> whereFields)
+        public static List<Instructor> getFilteredInstructors(string searchField)
         {
             List<Instructor> listInstructors = new List<Instructor>();
             List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement(
-                dbConnector.CreateSelectCommandWithParams("instructors", whereFields));
+                dbConnector.CreateSelectCommandWithProcedure("instructors", searchField));
 
             foreach (var instructor in dbResult)
             {
@@ -66,7 +66,7 @@ namespace SYS_APAE.SYS_APAE.Data
             listInstructors.Columns.Add("Id", typeof(int));
             listInstructors.Columns.Add("Name");
 
-            List<Instructor> completeListStudent = getAllInstructors();
+            List<Instructor> completeListStudent = getInstructors();
 
             foreach (var instructor in completeListStudent)
             {
@@ -81,35 +81,17 @@ namespace SYS_APAE.SYS_APAE.Data
 
         public static DataTable getAllInstructorsToDisplay()
         {
-            return Utils.getDataToDisplay(getAllInstructors());
+            return Utils.getDataToDisplay(getInstructors());
         }
 
         public static DataTable getFilteredInstructorsToDisplay(string searchField)
         {
-            return Utils.getDataToDisplay(getFilteredInstructors(new Dictionary<string, string> { { "name", "%" + searchField + "%" } }));
-        }
-
-        public static Instructor getInstructorById(Dictionary<string, string> whereFields)
-        {
-            Dictionary<string, string> instructor = dbConnector.DoQueryStatement(
-                dbConnector.CreateSelectCommandWithParams("instructors", whereFields))[0];
-
-            return new Instructor(
-                        Convert.ToInt32(instructor["id"]),
-                        instructor["name"].ToString(),
-                        instructor["cpf"].ToString(),
-                        "",
-                        instructor["email"].ToString(),
-                        instructor["prontuario"].ToString(),
-                        instructor["tipo_monitor"].ToString(),
-                        Convert.ToInt32(instructor["carga_horaria"]),
-                        DateTime.Parse(instructor["dt_created"])
-                        );
+            return Utils.getDataToDisplay(getFilteredInstructors(searchField));
         }
 
         public static string getProntuario(int id)
         {
-            return getInstructorById(new Dictionary<string, string> { { "id", id.ToString() } }).Prontuario;
+            return getInstructors(new Dictionary<string, string> { { "id", id.ToString() } })[0].Prontuario;
         }
 
         public static bool AddNewInstructor(Instructor instructor)

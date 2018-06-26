@@ -21,7 +21,7 @@ namespace SYS_APAE.SYS_APAE.View
             InitializeComponent();
             this.CenterToScreen();
 
-            instructorToEdit = InstructorDTO.getInstructorById(new Dictionary<string, string> { { "id", id } });
+            instructorToEdit = InstructorDTO.getInstructors(new Dictionary<string, string> { { "id", id } })[0];
             setFields();
             setLabels();
         }

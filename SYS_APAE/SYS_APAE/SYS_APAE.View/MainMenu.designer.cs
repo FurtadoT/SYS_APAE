@@ -773,7 +773,7 @@ namespace SYS_APAE
             // 
             this.lblProntReport.BackColor = System.Drawing.SystemColors.Control;
             this.lblProntReport.Error = false;
-            this.lblProntReport.Font = new System.Drawing.Font("", 7F);
+            this.lblProntReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblProntReport.InitialFocus = false;
             this.lblProntReport.Location = new System.Drawing.Point(15, 51);
             this.lblProntReport.Name = "lblProntReport";
@@ -1615,7 +1615,6 @@ namespace SYS_APAE
             // txtSearchReports
             // 
             this.txtSearchReports.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.txtSearchReports.Enabled = false;
             this.txtSearchReports.ErrorMessage = "";
             this.txtSearchReports.Location = new System.Drawing.Point(3, 13);
             this.txtSearchReports.Name = "txtSearchReports";
@@ -1624,6 +1623,7 @@ namespace SYS_APAE
             this.txtSearchReports.Size = new System.Drawing.Size(326, 35);
             this.txtSearchReports.TabIndex = 7;
             this.txtSearchReports.Tag = "Procurar";
+            this.txtSearchReports.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearchReports_KeyUp);
             // 
             // logo_if
             // 

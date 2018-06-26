@@ -236,7 +236,17 @@ namespace SYS_APAE
 
         private void listClass()
         {
-            dtgListClass.DataSource = ClassDTO.getAllClassToDisplay();
+            string messageEmpty = String.Empty;
+            if (txtSearchReports.Text != String.Empty)
+            {
+                dtgListClass.DataSource = ClassDTO.getFilteredClassToDisplay(txtSearchReports.Text);
+                messageEmpty = "Não há aula com esse critério!";
+            }
+            else
+            {
+                dtgListClass.DataSource = ClassDTO.getAllClassToDisplay();
+                messageEmpty = "Não há aula cadastrada!";
+            }
             if (dtgListClass.Columns.Count > 0)
             {
                 dtgListClass.Columns[0].Visible = false;
@@ -246,7 +256,7 @@ namespace SYS_APAE
             else
             {
                 dtgListClass.Visible = false;
-                lblListClassEmpty.Text = "Não há aula cadastrada!";
+                lblListClassEmpty.Text = messageEmpty;
                 lblListClassEmpty.Visible = true;
             }
         }
@@ -460,9 +470,9 @@ namespace SYS_APAE
                 this.radioControl["rec"],
                 this.radioControl["atv"],
                 this.radioControl["int"],
-                StudentsDTO.getStudentById(new Dictionary<string, string> { { "id", cmbNomeAluno.SelectedValue.ToString() } }),
-                InstructorDTO.getInstructorById(new Dictionary<string, string> { { "id", cmbNomeMonitor.SelectedValue.ToString() } }),
-                ActivityDTO.getActivityById(new Dictionary<string, string> { { "id", cmbActivities.SelectedValue.ToString() } }),
+                StudentsDTO.getStudents(new Dictionary<string, string> { { "id", cmbNomeAluno.SelectedValue.ToString() } })[0],
+                InstructorDTO.getInstructors(new Dictionary<string, string> { { "id", cmbNomeMonitor.SelectedValue.ToString() } })[0],
+                ActivityDTO.getActivities(new Dictionary<string, string> { { "id", cmbActivities.SelectedValue.ToString() } })[0],
                 dtpRelCreated.Value.Date,
                 txtObs.Text,
                 txtObsInteressante.Text
@@ -553,6 +563,10 @@ namespace SYS_APAE
 
             tabControlGeral.TabPages.Insert(0, tabNewClass);
             mnItemNewReports.Enabled = false;
+        }
+        private void txtSearchReports_KeyUp(object sender, EventArgs e)
+        {
+            listClass();
         }
 
         private void mnItemShowReports_Click(object sender, EventArgs e)
