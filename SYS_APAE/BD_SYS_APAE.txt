@@ -1,9 +1,6 @@
 create database SYS_APAE;
 
-
-
 use SYS_APAE;
-
 
 
 CREATE TABLE admin_sys (
@@ -14,8 +11,6 @@ id INT AUTO_INCREMENT,
 
  PRIMARY KEY CLUSTERED (id ASC)
 );
-
-
 
 CREATE TABLE students (id INT AUTO_INCREMENT,
  name VARCHAR (70),
@@ -39,8 +34,6 @@ CREATE TABLE students (id INT AUTO_INCREMENT,
  PRIMARY KEY CLUSTERED (id ASC)
 );
 
-
-
 CREATE TABLE instructors (
 id INT AUTO_INCREMENT,
  name VARCHAR (70) NULL,
@@ -56,8 +49,6 @@ id INT AUTO_INCREMENT,
 
 CREATE TABLE activities ( id INT AUTO_INCREMENT, title VARCHAR (70) NOT NULL, description TEXT NULL, dt_created DATE NOT NULL, PRIMARY KEY CLUSTERED (id ASC)
 );
-
-
 
 CREATE TABLE classes (
  id INT AUTO_INCREMENT,
@@ -76,10 +67,6 @@ CREATE TABLE classes (
  FOREIGN KEY (id_student) REFERENCES students(id),
  FOREIGN KEY (id_instructor) REFERENCES instructors(id), FOREIGN KEY (id_activity) REFERENCES activities(id)
 );
-
-
-
-
 
 INSERT INTO admin_sys (id, name, login, password, dt_created) values(0, 'Tobias', 'admin', 'admin', '2018-06-24');
 
