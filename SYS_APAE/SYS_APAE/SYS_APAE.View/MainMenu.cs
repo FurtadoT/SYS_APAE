@@ -183,7 +183,7 @@ namespace SYS_APAE
             string messageEmpty = String.Empty;
             if (txtSearchStudents.Text != String.Empty)
             {
-                dtgListStudents.DataSource = StudentsDTO.getFilteredStudentsToDisplay(txtSearchStudents.Text);
+                dtgListStudents.DataSource = StudentsDTO.getAllStudentsToDisplay(txtSearchStudents.Text);
                 messageEmpty = "Não há aluno com esse critério!";
             }
             else
@@ -211,7 +211,7 @@ namespace SYS_APAE
             string messageEmpty = String.Empty;
             if (txtSearchInstructors.Text != String.Empty)
             {
-                dtgListInstructors.DataSource = InstructorDTO.getFilteredInstructorsToDisplay(txtSearchInstructors.Text);
+                dtgListInstructors.DataSource = InstructorDTO.getAllInstructorsToDisplay(txtSearchInstructors.Text);
                 messageEmpty = "Não há monitor com esse critério!";
             }
             else
@@ -239,7 +239,7 @@ namespace SYS_APAE
             string messageEmpty = String.Empty;
             if (txtSearchReports.Text != String.Empty)
             {
-                dtgListClass.DataSource = ClassDTO.getFilteredClassToDisplay(txtSearchReports.Text);
+                dtgListClass.DataSource = ClassDTO.getAllClassToDisplay(txtSearchReports.Text);
                 messageEmpty = "Não há aula com esse critério!";
             }
             else
@@ -266,7 +266,7 @@ namespace SYS_APAE
             string messageEmpty = String.Empty;
             if (txtSearchActivities.Text != String.Empty)
             {
-                dtgListActivities.DataSource = ActivityDTO.getFilteredActivitiesToDisplay(txtSearchActivities.Text);
+                dtgListActivities.DataSource = ActivityDTO.getAllActivitiesToDisplay(txtSearchActivities.Text);
                 messageEmpty = "Não há atividade com esse critério!";
             }
             else

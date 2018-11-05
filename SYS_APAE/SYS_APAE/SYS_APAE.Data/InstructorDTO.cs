@@ -79,14 +79,25 @@ namespace SYS_APAE.SYS_APAE.Data
             return listInstructors;
         }
 
-        public static DataTable getAllInstructorsToDisplay()
+        private static List<Dictionary<string, string>> toDict(List<Instructor> instructorList)
         {
-            return Utils.getDataToDisplay(getInstructors());
+            List<Dictionary<string, string>> instructorListDict = new List<Dictionary<string, string>>();
+            foreach (var instructor in instructorList)
+            {
+                instructorListDict.Add(instructor.GetFieldsToDisplay());
+            }
+
+            return instructorListDict;
         }
 
-        public static DataTable getFilteredInstructorsToDisplay(string searchField)
+        public static DataTable getAllInstructorsToDisplay()
         {
-            return Utils.getDataToDisplay(getFilteredInstructors(searchField));
+            return Utils.getDataToDisplay(toDict(getInstructors()));
+        }
+
+        public static DataTable getAllInstructorsToDisplay(string searchField)
+        {
+            return Utils.getDataToDisplay(toDict(getFilteredInstructors(searchField)));
         }
 
         public static string getProntuario(int id)

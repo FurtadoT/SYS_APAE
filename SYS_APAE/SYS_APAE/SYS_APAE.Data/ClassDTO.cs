@@ -86,15 +86,25 @@ namespace SYS_APAE.SYS_APAE.Data
                     _class["obs_int"].ToString()
                     );
         }
+        private static List<Dictionary<string, string>> toDict(List<Class> classList)
+        {
+            List<Dictionary<string, string>> classListDict = new List<Dictionary<string, string>>();
+            foreach (var instructor in classList)
+            {
+                classListDict.Add(instructor.GetFieldsToDisplay());
+            }
+
+            return classListDict;
+        }
 
         public static DataTable getAllClassToDisplay()
         {
-            return Utils.getDataToDisplay(getAllClass());
+            return Utils.getDataToDisplay(toDict(getAllClass()));
         }
 
-        public static DataTable getFilteredClassToDisplay(string searchField)
+        public static DataTable getAllClassToDisplay(string searchField)
         {
-            return Utils.getDataToDisplay(getFilteredClass(searchField));
+            return Utils.getDataToDisplay(toDict(getFilteredClass(searchField)));
         }
 
         public static bool AddNewClass(Class _class)

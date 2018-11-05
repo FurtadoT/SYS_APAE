@@ -99,14 +99,25 @@ namespace SYS_APAE.SYS_APAE.Data
             return listStudents;
         }
 
-        public static DataTable getAllStudentsToDisplay()
+        private static List<Dictionary<string, string>> toDict(List<Student> studentList)
         {
-            return Utils.getDataToDisplay(getStudents());
+            List<Dictionary<string, string>> studentListDict = new List<Dictionary<string, string>>();
+            foreach (var instructor in studentList)
+            {
+                studentListDict.Add(instructor.GetFieldsToDisplay());
+            }
+
+            return studentListDict;
         }
 
-        public static DataTable getFilteredStudentsToDisplay(string searchField)
+        public static DataTable getAllStudentsToDisplay()
         {
-            return Utils.getDataToDisplay(getFilteredStudents(searchField));
+            return Utils.getDataToDisplay(toDict(getStudents()));
+        }
+
+        public static DataTable getAllStudentsToDisplay(string searchField)
+        {
+            return Utils.getDataToDisplay(toDict(getFilteredStudents(searchField)));
         }
 
         public static bool AddNewStudent(Student student)

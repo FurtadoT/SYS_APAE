@@ -68,15 +68,25 @@ namespace SYS_APAE.SYS_APAE.Data
 
             return lisActivities;
         }
+        private static List<Dictionary<string, string>> toDict(List<Activity> activityList)
+        {
+            List<Dictionary<string, string>> activityListDict = new List<Dictionary<string, string>>();
+            foreach (var instructor in activityList)
+            {
+                activityListDict.Add(instructor.GetFieldsToDisplay());
+            }
+
+            return activityListDict;
+        }
 
         public static DataTable getAllActivitiesToDisplay()
         {
-            return Utils.getDataToDisplay(getActivities());
+            return Utils.getDataToDisplay(toDict(getActivities()));
         }
 
-        public static DataTable getFilteredActivitiesToDisplay(string searchField)
+        public static DataTable getAllActivitiesToDisplay(string searchField)
         {
-            return Utils.getDataToDisplay(getFilteredActivities(searchField));
+            return Utils.getDataToDisplay(toDict(getFilteredActivities(searchField)));
         }
 
         public static bool AddNewActivity(Activity activity)

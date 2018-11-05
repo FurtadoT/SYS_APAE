@@ -20,63 +20,21 @@ namespace SYS_APAE.SYS_APAE.Models
             foreach (KeyValuePair<string, string> field in values)
                 newListRow[field.Key] = field.Value;
         }
- 
-        public static DataTable getDataToDisplay(List<Instructor> allInstructors)
+
+        public static DataTable getDataToDisplay(List<Dictionary<string, string>> fields)
         {
             DataTable listData = new DataTable();
 
-            if (allInstructors.Count() == 0)
+            if (fields.Count() == 0)
                 return listData;
 
-            getColumnsTable(listData, allInstructors[0].GetFieldsToDisplay().Keys.ToArray());
+            getColumnsTable(listData, fields[0].Keys.ToArray());
 
-            foreach (var instructor in allInstructors)
+            foreach (var field in fields)
             {
                 DataRow listDataRow = listData.NewRow();
 
-                getRowValues(listDataRow, instructor.GetFieldsToDisplay());
-
-                listData.Rows.InsertAt(listDataRow, 0);
-            }
-
-            return listData;
-        }
-
-        public static DataTable getDataToDisplay(List<Student> allStudents)
-        {
-            DataTable listData = new DataTable();
-
-            if (allStudents.Count() == 0)
-                return listData;
-
-            getColumnsTable(listData, allStudents[0].GetFieldsToDisplay().Keys.ToArray());
-
-            foreach (var student in allStudents)
-            {
-                DataRow listDataRow = listData.NewRow();
-
-                getRowValues(listDataRow, student.GetFieldsToDisplay());
-
-                listData.Rows.InsertAt(listDataRow, 0);
-            }
-
-            return listData;
-        }
-
-        public static DataTable getDataToDisplay(List<Class> allReports)
-        {
-            DataTable listData = new DataTable();
-
-            if (allReports.Count() == 0)
-                return listData;
-
-            getColumnsTable(listData, allReports[0].GetFieldsToDisplay().Keys.ToArray());
-
-            foreach (var report in allReports)
-            {
-                DataRow listDataRow = listData.NewRow();
-
-                getRowValues(listDataRow, report.GetFieldsToDisplay());
+                getRowValues(listDataRow, field);
 
                 listData.Rows.InsertAt(listDataRow, 0);
             }
