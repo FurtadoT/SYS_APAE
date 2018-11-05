@@ -31,7 +31,7 @@ namespace SYS_APAE.SYS_APAE.Data
             return listActivities;
         }
 
-        public static List<Activity> getFilteredActivities(string searchField)
+        public static List<Activity> searchForActivities(string searchField)
         {
             List<Activity> listActivities = new List<Activity>();
             List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement(
@@ -86,7 +86,7 @@ namespace SYS_APAE.SYS_APAE.Data
 
         public static DataTable getAllActivitiesToDisplay(string searchField)
         {
-            return Utils.getDataToDisplay(toDict(getFilteredActivities(searchField)));
+            return Utils.getDataToDisplay(toDict(searchForActivities(searchField)));
         }
 
         public static bool AddNewActivity(Activity activity)

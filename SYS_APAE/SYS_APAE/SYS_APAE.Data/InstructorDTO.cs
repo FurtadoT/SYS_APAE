@@ -36,7 +36,7 @@ namespace SYS_APAE.SYS_APAE.Data
             return listInstructors;
         }
 
-        public static List<Instructor> getFilteredInstructors(string searchField)
+        public static List<Instructor> searchForInstructors(string searchField)
         {
             List<Instructor> listInstructors = new List<Instructor>();
             List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement(
@@ -97,7 +97,7 @@ namespace SYS_APAE.SYS_APAE.Data
 
         public static DataTable getAllInstructorsToDisplay(string searchField)
         {
-            return Utils.getDataToDisplay(toDict(getFilteredInstructors(searchField)));
+            return Utils.getDataToDisplay(toDict(searchForInstructors(searchField)));
         }
 
         public static string getProntuario(int id)

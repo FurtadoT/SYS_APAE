@@ -46,7 +46,7 @@ namespace SYS_APAE.SYS_APAE.Data
             return listStudents;
         }
 
-        public static List<Student> getFilteredStudents(string searchField)
+        public static List<Student> searchForStudents(string searchField)
         {
             List<Student> listStudents = new List<Student>();
             List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement(
@@ -117,7 +117,7 @@ namespace SYS_APAE.SYS_APAE.Data
 
         public static DataTable getAllStudentsToDisplay(string searchField)
         {
-            return Utils.getDataToDisplay(toDict(getFilteredStudents(searchField)));
+            return Utils.getDataToDisplay(toDict(searchForStudents(searchField)));
         }
 
         public static bool AddNewStudent(Student student)

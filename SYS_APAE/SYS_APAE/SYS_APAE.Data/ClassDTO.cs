@@ -39,7 +39,7 @@ namespace SYS_APAE.SYS_APAE.Data
             return listClass;
         }
 
-        public static List<Class> getFilteredClass(string searchField)
+        public static List<Class> searchForClass(string searchField)
         {
             List<Class> listClass = new List<Class>();
             List<Dictionary<string, string>> dbResult = dbConnector.DoQueryStatement(
@@ -104,7 +104,7 @@ namespace SYS_APAE.SYS_APAE.Data
 
         public static DataTable getAllClassToDisplay(string searchField)
         {
-            return Utils.getDataToDisplay(toDict(getFilteredClass(searchField)));
+            return Utils.getDataToDisplay(toDict(searchForClass(searchField)));
         }
 
         public static bool AddNewClass(Class _class)
