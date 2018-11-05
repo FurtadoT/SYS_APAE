@@ -71,26 +71,32 @@ CREATE TABLE classes (
 INSERT INTO admin_sys (id, name, login, password, dt_created) values(0, 'Tobias', 'admin', 'admin', '2018-06-24');
 
 
+
 DELIMITER $$
+
 
 CREATE PROCEDURE search_classes(IN search VARCHAR(255))
 BEGIN
 	SELECT c.* FROM classes c inner join instructors i on c.id_instructor = i.id inner join students s on c.id_student = s.id inner join activities a on c.id_activity = a.id WHERE (a.title like CONCAT("%", search ,"%") or s.name like CONCAT("%", search ,"%") or i.name like CONCAT("%", search ,"%"));
 END $$
 
+
 CREATE PROCEDURE search_students(IN search VARCHAR(255))
 BEGIN
 	SELECT * from students WHERE name like CONCAT("%", search, "%") or cpf like CONCAT("%", search, "%") or email like CONCAT("%", search, "%");
 END $$
+
 
 CREATE PROCEDURE search_instructors(IN search VARCHAR(255))
 BEGIN
 	SELECT * from instructors WHERE name like CONCAT("%", search, "%") or cpf like CONCAT("%", search, "%") or email like CONCAT("%", search, "%");
 END $$
 
+
 CREATE PROCEDURE search_activities(IN search VARCHAR(255))
 BEGIN
 	SELECT * from activities WHERE title like CONCAT("%", search, "%");
 END $$
+
 
 DELIMITER ;
